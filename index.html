@@ -2,217 +2,66 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>JEM.EXE ✦ Home</title>
 
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/effects.css">
-<link rel="stylesheet" href="css/mobile.css">
-<link rel="stylesheet" href="css/windows.css">
-
 <script defer src="js/main.js"></script>
-<script defer src="js/music.js"></script>
-<script defer src="js/windows.js"></script>
-<script defer src="js/effects.js"></script>
-
 </head>
 
 <body>
 
-<!-- BACKGROUND EFFECTS -->
-<div class="bg-video">
-  <video autoplay muted loop playsinline>
-    <source src="assets/videos/glitter.mp4" type="video/mp4">
-  </video>
-</div>
-
 <div class="scanlines"></div>
 <div class="vhs"></div>
 
-<!-- NAVBAR -->
 <nav class="topbar">
-
-  <div class="logo">
-    ✦ JEM.EXE ✦
-  </div>
-
-  <button id="mobile-toggle">☰</button>
+  <div class="logo">✦ JEM.EXE ✦</div>
 
   <ul class="nav-links">
-
     <li><a href="index.html">HOME</a></li>
     <li><a href="about.html">ABOUT</a></li>
     <li><a href="friends.html">FRIENDS</a></li>
-    <li><a href="gallery.html">GALLERY</a></li>
-    <li><a href="blog.html">BLOG</a></li>
-    <li><a href="guestbook.html">GUESTBOOK</a></li>
-    <li><a href="moodboard.html">MOODBOARD</a></li>
-
   </ul>
-
 </nav>
 
-<!-- DESKTOP AREA -->
 <section class="desktop">
 
-  <!-- PROFILE WINDOW -->
-  <div class="window draggable" style="top:120px;left:60px;">
-
-    <div class="titlebar">
-      ✦ PROFILE.EXE
-    </div>
-
+  <div class="window" style="top:120px;left:80px;">
+    <div class="titlebar">✦ PROFILE ✦</div>
     <div class="window-content">
-
-      <img src="assets/images/profile.png" class="profile-image">
-
       <h1 class="rainbow-text">YOUR NAME</h1>
+      <p>Welcome to my Jem-inspired desktop ✦</p>
+    </div>
+  </div>
 
+  <div class="window" style="top:120px;left:460px;">
+    <div class="titlebar">✦ UPDATES ✦</div>
+    <div class="window-content">
       <p>
-        Welcome to my Jem-inspired space ✦
-        This is my little archive of interests, edits, and chaos.
+        ✦ Site created<br>
+        ✦ Friends page added<br>
+        ✦ About page updated<br>
+        ✦ Desktop system active
       </p>
-
     </div>
-
   </div>
 
-  <!-- MUSIC WINDOW -->
-  <div class="window draggable" style="top:140px;left:460px;">
-
-    <div class="titlebar">
-      ✦ MUSIC PLAYER
-    </div>
-
-    <div class="window-content">
-
-      <div class="cd-player">
-
-        <div class="cd spinning"></div>
-
-        <div class="music-info">
-          <h3>NOW PLAYING</h3>
-          <p>Insert song here</p>
-        </div>
-
-      </div>
-
-      <div class="music-controls">
-
-        <button id="playBtn">PLAY</button>
-        <button id="pauseBtn">PAUSE</button>
-
-      </div>
-
-      <audio id="audio" loop>
-        <source src="assets/music/song.mp3">
-      </audio>
-
-    </div>
-
+  <!-- DRAGGABLE ICONS -->
+  <div class="desktop-icon" style="top:320px;left:900px;">
+    <img src="assets/icons/about.png">
+    <span>ABOUT</span>
+    <a href="about.html"></a>
   </div>
 
-  <!-- FRIENDS WINDOW (NEW) -->
-  <div class="window draggable" style="top:420px;left:80px;">
-
-    <div class="titlebar">
-      ✦ FRIENDS.EXE
-    </div>
-
-    <div class="window-content">
-
-      <img
-        src="assets/images/friends-preview.png"
-        style="width:100%;border-radius:15px;margin-bottom:10px;"
-      >
-
-      <p>
-        My friends, mutuals, and favorite people ✦
-        Click below to explore.
-      </p>
-
-      <a href="friends.html" class="friend-button">
-        OPEN FRIENDS PAGE
-      </a>
-
-    </div>
-
-  </div>
-
-  <!-- UPDATES WINDOW -->
-  <div class="window draggable" style="top:420px;left:520px;">
-
-    <div class="titlebar">
-      ✦ UPDATES.LOG
-    </div>
-
-    <div class="window-content">
-
-      <marquee direction="up" scrollamount="2" height="160">
-
-        ✦ Added friends page<br><br>
-        ✦ Fixed navigation<br><br>
-        ✦ Added Jem aesthetic UI<br><br>
-        ✦ Built draggable windows<br><br>
-        ✦ Added VHS + scanlines<br><br>
-
-      </marquee>
-
-    </div>
-
+  <div class="desktop-icon" style="top:420px;left:900px;">
+    <img src="assets/icons/friends.png">
+    <span>FRIENDS</span>
+    <a href="friends.html"></a>
   </div>
 
 </section>
-
-<!-- DOCK -->
-<section class="dock">
-
-  <div class="dock-icon">
-    <a href="index.html"><img src="assets/icons/home.png"></a>
-  </div>
-
-  <div class="dock-icon">
-    <a href="music.html"><img src="assets/icons/music.png"></a>
-  </div>
-
-  <div class="dock-icon">
-    <a href="gallery.html"><img src="assets/icons/gallery.png"></a>
-  </div>
-
-  <div class="dock-icon">
-    <a href="friends.html"><img src="assets/icons/friends.png"></a>
-  </div>
-
-</section>
-
-<!-- CHATBOX -->
-<div class="chatbox">
-
-  <div class="chat-header">
-    ✦ CHATROOM ✦
-  </div>
-
-  <div class="chat-messages">
-    <p><strong>User1:</strong> this site is so cool!!</p>
-    <p><strong>User2:</strong> love the aesthetic ✦</p>
-  </div>
-
-  <input type="text" placeholder="Type message...">
-
-</div>
-
-<!-- VISITOR COUNTER -->
-<div class="hit-counter">
-  VISITORS: <span>0001337</span>
-</div>
-
-<!-- MUSIC -->
-<audio id="bg-music" loop>
-  <source src="assets/music/song.mp3" type="audio/mpeg">
-</audio>
 
 </body>
 </html>
