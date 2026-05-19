@@ -272,3 +272,80 @@ body {
 .friend-button:hover {
   transform: scale(1.05);
 }
+body {
+  background: black;
+  color: white;
+}
+
+/* PAGE WRAPPER */
+.page-layout {
+  padding-top: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+/* WINDOW BASE (needed for about page styling) */
+.window {
+  background: rgba(0,0,0,0.85);
+  border: 2px solid hotpink;
+  box-shadow: 0 0 25px rgba(255,0,255,0.3);
+  border-radius: 16px;
+}
+
+/* TITLE BAR GLOW */
+.titlebar {
+  background: linear-gradient(90deg, hotpink, violet);
+  color: white;
+  text-shadow: 0 0 8px black;
+}
+
+/* SCANLINES FIX (if missing on about page) */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    rgba(255,255,255,0.04) 2px,
+    transparent 4px
+  );
+}
+
+/* VHS FLICKER */
+.vhs {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.9; }
+  50% { opacity: 1; }
+  100% { opacity: 0.95; }
+}
+
+/* ABOUT SECTION DECORATION */
+.about-section {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+}
+
+/* RAINBOW TEXT (if missing styling) */
+.rainbow-text {
+  background: linear-gradient(90deg, hotpink, cyan, violet, hotpink);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow 6s linear infinite;
+}
+
+@keyframes rainbow {
+  0% { background-position: 0%; }
+  100% { background-position: 300%; }
+}
