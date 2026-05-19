@@ -1,22 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>JEM.EXE ✦ Home</title>
-
-<link rel="stylesheet" href="css/style.css">
-<script defer src="js/main.js"></script>
-</head>
-
 <body>
 
 <div class="scanlines"></div>
 <div class="vhs"></div>
 
 <nav class="topbar">
+
   <div class="logo">✦ JEM.EXE ✦</div>
 
   <ul class="nav-links">
@@ -24,38 +12,101 @@
     <li><a href="about.html">ABOUT</a></li>
     <li><a href="friends.html">FRIENDS</a></li>
   </ul>
+
 </nav>
 
 <section class="desktop">
 
-  <div class="window" style="top:120px;left:80px;">
-    <div class="titlebar">✦ PROFILE ✦</div>
+  <!-- PROFILE WINDOW -->
+  <div class="window" style="top:120px;left:60px;">
+    <div class="titlebar">✦ PROFILE.EXE ✦</div>
     <div class="window-content">
+
       <h1 class="rainbow-text">YOUR NAME</h1>
-      <p>Welcome to my Jem-inspired desktop ✦</p>
+
+      <p>
+        Welcome to my Jem-inspired desktop space ✦
+        A collection of interests, media, and chaos.
+      </p>
+
     </div>
   </div>
 
+  <!-- MUSIC PLAYER WINDOW (RESTORED) -->
   <div class="window" style="top:120px;left:460px;">
-    <div class="titlebar">✦ UPDATES ✦</div>
+
+    <div class="titlebar">✦ MUSIC PLAYER ✦</div>
+
     <div class="window-content">
-      <p>
-        ✦ Site created<br>
-        ✦ Friends page added<br>
-        ✦ About page updated<br>
-        ✦ Desktop system active
-      </p>
+
+      <div class="cd-player">
+        <div class="cd spinning"></div>
+
+        <div class="music-info">
+          <h3>NOW PLAYING</h3>
+          <p>Insert song here</p>
+        </div>
+      </div>
+
+      <div class="music-controls">
+        <button onclick="document.getElementById('audio').play()">PLAY</button>
+        <button onclick="document.getElementById('audio').pause()">PAUSE</button>
+      </div>
+
+      <audio id="audio" loop>
+        <source src="assets/music/song.mp3">
+      </audio>
+
     </div>
+
+  </div>
+
+  <!-- UPDATES WINDOW -->
+  <div class="window" style="top:120px;left:820px;">
+    <div class="titlebar">✦ UPDATES.LOG ✦</div>
+    <div class="window-content">
+
+      <p>
+        ✦ Added music player<br>
+        ✦ Added chat room<br>
+        ✦ Fixed navigation<br>
+        ✦ Restored desktop system<br>
+      </p>
+
+    </div>
+  </div>
+
+  <!-- CHAT ROOM WINDOW (RESTORED) -->
+  <div class="window" style="top:420px;left:60px;">
+
+    <div class="titlebar">✦ CHATROOM ✦</div>
+
+    <div class="window-content">
+
+      <div class="chatbox-inner">
+
+        <div class="chat-messages">
+          <p><strong>User1:</strong> this site is so cool ✦</p>
+          <p><strong>User2:</strong> I love the aesthetic</p>
+          <p><strong>User3:</strong> Jem vibes are perfect</p>
+        </div>
+
+        <input type="text" placeholder="Type message...">
+
+      </div>
+
+    </div>
+
   </div>
 
   <!-- DRAGGABLE ICONS -->
-  <div class="desktop-icon" style="top:320px;left:900px;">
+  <div class="desktop-icon" style="top:420px;left:900px;">
     <img src="assets/icons/about.png">
     <span>ABOUT</span>
     <a href="about.html"></a>
   </div>
 
-  <div class="desktop-icon" style="top:420px;left:900px;">
+  <div class="desktop-icon" style="top:520px;left:900px;">
     <img src="assets/icons/friends.png">
     <span>FRIENDS</span>
     <a href="friends.html"></a>
@@ -64,4 +115,3 @@
 </section>
 
 </body>
-</html>
