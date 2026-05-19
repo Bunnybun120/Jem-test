@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>JEM.EXE ✦ Truly Outrageous</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/windows.css">
+  <link rel="stylesheet" href="css/effects.css">
+  <link rel="stylesheet" href="css/mobile.css">
+
+  <script defer src="js/main.js"></script>
+  <script defer src="js/windows.js"></script>
+  <script defer src="js/music.js"></script>
+  <script defer src="js/effects.js"></script>
+
+</head>
+
+<body>
+
+<div class="bg-video">
+  <video autoplay muted loop playsinline>
+    <source src="assets/videos/glitter.mp4" type="video/mp4">
+  </video>
+</div>
+
+<div class="scanlines"></div>
+<div class="vhs"></div>
+<div class="stars"></div>
+<div id="spark-container"></div>
+
+<div class="loading-screen">
+
+  <div class="loader-window">
+    <h1>✦ JEM.EXE ✦</h1>
+    <p>INITIALIZING GLAMOUR...</p>
+
+    <div class="loading-bar">
+      <div class="loading-progress"></div>
+    </div>
+  </div>
+
+</div>
+
+<header>
+
+<nav class="topbar">
+
+  <div class="logo">
+    ✦ JEM.EXE ✦
+  </div>
+
+  <button id="mobile-toggle">
+    ☰
+  </button>
+
+  <ul class="nav-links">
+
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+    <li><a href="gallery.html">GALLERY</a></li>
+    <li><a href="shrine.html">SHRINES</a></li>
+    <li><a href="blog.html">BLOG</a></li>
+    <li><a href="guestbook.html">GUESTBOOK</a></li>
+    <li><a href="moodboard.html">MOODBOARD</a></li>
+
+  </ul>
+
+</nav>
+
+</header>
+
+<section class="desktop">
+
+  <div class="window draggable" style="top:100px;left:50px;">
+
+    <div class="titlebar">
+      <span>✦ PROFILE.EXE</span>
+      <div class="window-buttons">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="window-content">
+
+      <img
+        src="assets/images/profile.png"
+        class="profile-image"
+      >
+
+      <h1 class="rainbow-text">
+        YOUR NAME
+      </h1>
+
+      <p>
+        Put your intro here.
+      </p>
+
+      <div class="status-box">
+        ONLINE ✦ LISTENING TO MUSIC
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="window draggable" style="top:120px;left:500px;">
+
+    <div class="titlebar">
+      <span>✦ MUSIC PLAYER</span>
+    </div>
+
+    <div class="window-content">
+
+      <div class="cd-player">
+
+        <div class="cd spinning"></div>
+
+        <div class="music-info">
+          <h3>NOW PLAYING</h3>
+          <p>Add Song Here</p>
+        </div>
+
+      </div>
+
+      <div class="music-controls">
+
+        <button id="playBtn">PLAY</button>
+        <button id="pauseBtn">PAUSE</button>
+
+      </div>
+
+      <audio id="audio" loop>
+        <source src="assets/music/song.mp3">
+      </audio>
+
+    </div>
+
+  </div>
+
+  <div class="window draggable" style="top:500px;left:80px;">
+
+    <div class="titlebar">
+      <span>✦ STAMPS & BLINKIES</span>
+    </div>
+
+    <div class="window-content">
+
+      <div class="blinkie-grid">
+
+        <img src="assets/gifs/blinkie1.gif">
+        <img src="assets/gifs/blinkie2.gif">
+        <img src="assets/gifs/blinkie3.gif">
+        <img src="assets/gifs/blinkie4.gif">
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="window draggable" style="top:450px;left:550px;">
+
+    <div class="titlebar">
+      <span>✦ UPDATES.LOG</span>
+    </div>
+
+    <div class="window-content">
+
+      <marquee direction="up" scrollamount="2" height="150">
+
+        ✦ Added shrine page<br><br>
+        ✦ Added moodboard<br><br>
+        ✦ Added glitter overlays<br><br>
+        ✦ Added draggable windows<br><br>
+        ✦ Added fake desktop UI<br><br>
+
+      </marquee>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="dock">
+
+  <div class="dock-icon">
+    <img src="assets/icons/home.png">
+  </div>
+
+  <div class="dock-icon">
+    <img src="assets/icons/music.png">
+  </div>
+
+  <div class="dock-icon">
+    <img src="assets/icons/gallery.png">
+  </div>
+
+  <div class="dock-icon">
+    <img src="assets/icons/chat.png">
+  </div>
+
+</section>
+
+<div class="chatbox">
+
+  <div class="chat-header">
+    ✦ CHATROOM ✦
+  </div>
+
+  <div class="chat-messages">
+
+    <p><strong>User1:</strong> cool site!!</p>
+    <p><strong>User2:</strong> love the colors ✦</p>
+
+  </div>
+
+  <input type="text" placeholder="Type a message...">
+
+</div>
+
+<div class="hit-counter">
+
+  VISITORS:
+  <span id="counter">
+    0001337
+  </span>
+
+</div>
+
+<footer>
+
+  <marquee scrollamount="10">
+
+    ✦ JEM ✦ GLAM ✦ SYNTHPOP ✦ RETRO WEB ✦ GLITTER ✦ PINK ✦ VHS ✦
+
+  </marquee>
+
+</footer>
+
+</body>
+</html>
