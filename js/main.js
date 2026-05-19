@@ -1,12 +1,8 @@
-console.log("JEM.EXE fully loaded ✦");
+console.log("JEM.EXE loaded ✦");
 
-/* =========================
-   DRAGGABLE WINDOWS
-========================= */
+/* DRAG WINDOWS */
+document.querySelectorAll(".window").forEach(win => {
 
-const windows = document.querySelectorAll(".window");
-
-windows.forEach(win => {
   const bar = win.querySelector(".titlebar");
 
   if (!bar) return;
@@ -17,9 +13,11 @@ windows.forEach(win => {
 
   bar.addEventListener("mousedown", (e) => {
     dragging = true;
+
     offsetX = e.clientX - win.offsetLeft;
     offsetY = e.clientY - win.offsetTop;
-    win.style.zIndex = 999;
+
+    win.style.zIndex = 9999;
   });
 
   document.addEventListener("mousemove", (e) => {
@@ -34,14 +32,8 @@ windows.forEach(win => {
   });
 });
 
-
-/* =========================
-   DRAGGABLE DESKTOP ICONS
-========================= */
-
-const icons = document.querySelectorAll(".desktop-icon");
-
-icons.forEach(icon => {
+/* DRAG ICONS */
+document.querySelectorAll(".desktop-icon").forEach(icon => {
 
   let dragging = false;
   let offsetX = 0;
@@ -53,7 +45,7 @@ icons.forEach(icon => {
     offsetX = e.clientX - icon.offsetLeft;
     offsetY = e.clientY - icon.offsetTop;
 
-    icon.style.zIndex = 999;
+    icon.style.zIndex = 9999;
   });
 
   document.addEventListener("mousemove", (e) => {
@@ -66,42 +58,23 @@ icons.forEach(icon => {
   document.addEventListener("mouseup", () => {
     dragging = false;
   });
-
 });
 
-
-/* =========================
-   MOBILE MENU TOGGLE
-========================= */
-
-const toggle = document.getElementById("mobile-toggle");
-const nav = document.querySelector(".nav-links");
-
-if (toggle) {
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("show");
-  });
-}
-
-
-/* =========================
-   CLICK EFFECT SPARKLES
-========================= */
-
+/* CLICK EFFECT */
 document.addEventListener("click", (e) => {
-  const spark = document.createElement("div");
 
-  spark.style.position = "absolute";
-  spark.style.left = e.pageX + "px";
-  spark.style.top = e.pageY + "px";
-  spark.style.width = "10px";
-  spark.style.height = "10px";
-  spark.style.borderRadius = "50%";
-  spark.style.background = "hotpink";
-  spark.style.boxShadow = "0 0 10px hotpink";
-  spark.style.pointerEvents = "none";
+  const dot = document.createElement("div");
 
-  document.body.appendChild(spark);
+  dot.style.position = "absolute";
+  dot.style.left = e.pageX + "px";
+  dot.style.top = e.pageY + "px";
+  dot.style.width = "8px";
+  dot.style.height = "8px";
+  dot.style.borderRadius = "50%";
+  dot.style.background = "hotpink";
+  dot.style.pointerEvents = "none";
 
-  setTimeout(() => spark.remove(), 500);
+  document.body.appendChild(dot);
+
+  setTimeout(() => dot.remove(), 500);
 });
