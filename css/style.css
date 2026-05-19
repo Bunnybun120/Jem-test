@@ -349,3 +349,25 @@ body {
   0% { background-position: 0%; }
   100% { background-position: 300%; }
 }
+.chatbox-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-messages {
+  height: 120px;
+  overflow-y: auto;
+  background: rgba(0,0,0,0.4);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.chatbox-inner input {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background: #111;
+  color: white;
+  border-radius: 8px;
+}
