@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JEM.EXE</title>
+<title>JEM.EXE OS v2</title>
 
 <link rel="stylesheet" href="css/style.css">
 <script defer src="js/main.js"></script>
@@ -14,53 +14,36 @@
 <body>
 
 <nav class="topbar">
-<div class="logo">✦ JEM.EXE ✦</div>
-
-<div class="nav-links">
-
-<div class="dropdown">
-<button class="dropbtn">PROFILE</button>
-<div class="dropdown-content">
-<a href="about.html">ABOUT</a>
-<a href="friends.html">FRIENDS</a>
-<a href="guestbook.html">GUESTBOOK</a>
-</div>
-</div>
-
-<div class="dropdown">
-<button class="dropbtn">MEDIA</button>
-<div class="dropdown-content">
-<a href="music.html">MUSIC</a>
-<a href="games.html">GAMES</a>
-<a href="shows.html">SHOWS</a>
-<a href="fandoms.html">FANDOMS</a>
-</div>
-</div>
-
-<div class="dropdown">
-<button class="dropbtn">EXTRAS</button>
-<div class="dropdown-content">
-<a href="moodboard.html">MOODBOARD</a>
-<a href="blog.html">BLOG</a>
-<a href="chatroom.html">CHAT</a>
-</div>
-</div>
-
-<a href="index.html">HOME</a>
-
-</div>
+<div class="logo">✦ JEM.EXE OS v2 ✦</div>
 </nav>
 
-<div class="desktop">
+<!-- TASKBAR -->
+<div class="taskbar">
+<div class="task-title">JEM.EXE</div>
+<div id="taskApps"></div>
+</div>
 
-<div class="window draggable">
-<div class="titlebar">SYSTEM_HOME.EXE</div>
+<!-- DESKTOP -->
+<div class="desktop" id="desktop">
 
+<div class="window draggable app" data-app="ABOUT">
+<div class="titlebar">ABOUT</div>
 <div class="window-content">
+<a href="about.html">Open About Page</a>
+</div>
+</div>
 
-<h2>✦ JEM.EXE SYSTEM ONLINE ✦</h2>
-<p>click a module to enter</p>
+<div class="window draggable app" data-app="MUSIC">
+<div class="titlebar">MUSIC</div>
+<div class="window-content">
+<a href="music.html">Open Music</a>
+</div>
+</div>
 
+<div class="window draggable app" data-app="CHAT">
+<div class="titlebar">CHAT</div>
+<div class="window-content">
+<a href="chatroom.html">Open Chat</a>
 </div>
 </div>
 
