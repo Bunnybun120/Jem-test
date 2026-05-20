@@ -1,131 +1,164 @@
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
-/* DRAG */
+  /* =========================
+     DRAG SYSTEM (PC ONLY SAFE)
+  ========================= */
 
-document.querySelectorAll(".draggable")
-.forEach(win=>{
+  document.querySelectorAll(".draggable").forEach(win => {
 
-const bar=win.querySelector(".titlebar");
+    const bar = win.querySelector(".titlebar");
+    if (!bar) return;
 
-let drag=false;
-let ox=0;
-let oy=0;
+    let dragging = false;
+    let offsetX = 0;
+    let offsetY = 0;
 
-bar.addEventListener("mousedown",e=>{
+    bar.addEventListener("mousedown", e => {
 
-drag=true;
+      // disable on mobile touch devices
+      if (window.innerWidth < 768) return;
 
-ox=e.clientX-win.offsetLeft;
-oy=e.clientY-win.offsetTop;
+      dragging = true;
 
-});
+      offsetX = e.clientX - win.offsetLeft;
+      offsetY = e.clientY - win.offsetTop;
 
-document.addEventListener("mousemove",e=>{
+      win.style.zIndex = 9999;
 
-if(!drag) return;
+    });
 
-win.style.left=
-(e.clientX-ox)+"px";
+    document.addEventListener("mousemove", e => {
 
-win.style.top=
-(e.clientY-oy)+"px";
+      if (!dragging) return;
 
-});
+      win.style.left = (e.clientX - offsetX) + "px";
+      win.style.top = (e.clientY - offsetY) + "px";
 
-document.addEventListener("mouseup",()=>{
+    });
 
-drag=false;
+    document.addEventListener("mouseup", () => {
+      dragging = false;
+    });
 
-});
+  });
 
-});
+  /* =========================
+     DROPDOWNS (FIXED RELIABILITY)
+  ========================= */
 
-/* CATEGORY */
+  document.querySelectorAll(".category-header").forEach(header => {
 
-document.querySelectorAll(".category-header")
-.forEach(header=>{
+    header.addEventListener("click", () => {
 
-header.addEventListener("click",()=>{
+      const content = header.nextElementSibling;
 
-const content=
-header.nextElementSibling;
+      if (!content || !content.classList.contains("category-content")) return;
 
-content.style.display=
-content.style.display==="block"
-? "none"
-: "block";
+      const isOpen = content.style.display === "block";
 
-});
+      content.style.display = isOpen ? "none" : "block";
 
-});
+    });
 
-/* STATUS */
+  });
 
-const status=
-document.getElementById("statusPanel");
+  /* =========================
+     STATUS TOGGLE (ABOUT PAGE)
+  ========================= */
 
-if(status){
+  const status = document.getElementById("statusPanel");
 
-let mood=0;
+  if (status) {
 
-status.addEventListener("click",()=>{
+    let state = 0;
 
-mood++;
+    status.addEventListener("click", () => {
 
-if(mood===1)
-status.innerText=
-"STATUS :: IDLE";
+      state++;
 
-if(mood===2)
-status.innerText=
-"STATUS :: FOCUSED";
+      const states = [
+        "STATUS :: ONLINE ✦",
+        "STATUS :: IDLE",
+        "STATUS :: FOCUSED",
+        "STATUS :: OVERLOADED"
+      ];
 
-if(mood===3)
-status.innerText=
-"STATUS :: OVERLOADED";
+      status.innerText = states[state % states.length];
 
-if(mood===4){
+    });
 
-status.innerText=
-"STATUS :: ONLINE ✦";
+  }
 
-mood=0;
+  /* =========================
+     TYPEWRITER EFFECT
+  ========================= */
 
-}
+  const typeLine = document.getElementById("typeLine");
 
-});
+  if (typeLine) {
 
-}
+    const text = "booting profile system...";
 
-/* TYPE */
+    let i = 0;
 
-const type=
-document.getElementById("typeLine");
+    const type = () => {
 
-if(type){
+      if (i < text.length) {
+        typeLine.innerHTML += text[i];
+        i++;
+        setTimeout(type, 35);
+      }
 
-const text=
-"booting profile system...";
+    };
 
-let i=0;
+    type();
 
-function write(){
+  }
 
-if(i<text.length){
+  /* =========================
+     LOGO ROTATOR
+  ========================= */
 
-type.innerHTML+=
-text.charAt(i);
+  const logo = document.querySelector(".logo");
 
-i++;
+  if (logo) {
 
-setTimeout(write,40);
+    const messages = [
+      "JEM.EXE",
+      "currently yapping...",
+      "emotionally online...",
+      "hyperfixating...",
+      "music brain activated"
+    ];
 
-}
+    setInterval(() => {
 
-}
+      logo.innerText =
+        "✦ " +
+        messages[Math.floor(Math.random() * messages.length)] +
+        " ✦";
 
-write();
+    }, 5000);
 
-}
+  }
+
+  /* =========================
+     SPARKLE TRAIL (SAFE CLEANUP)
+  ========================= */
+
+  document.addEventListener("mousemove", e => {
+
+    const sparkle = document.createElement("div");
+
+    sparkle.className = "sparkle";
+
+    sparkle.style.left = e.pageX + "px";
+    sparkle.style.top = e.pageY + "px";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 500);
+
+  });
 
 });
