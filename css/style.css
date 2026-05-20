@@ -121,3 +121,92 @@ overflow:auto;
 }
 
 }
+:root{
+--hot:#ff4fd8;
+--dark:#0a0010;
+--panel:#111;
+}
+
+/* ===== BACKGROUND GLOW ===== */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 20% 20%, rgba(255,79,216,0.12), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(0,255,255,0.08), transparent 40%);
+pointer-events:none;
+}
+
+/* ===== TOPBAR DECOR ===== */
+.topbar{
+backdrop-filter: blur(10px);
+box-shadow: 0 0 20px rgba(255,79,216,0.25);
+}
+
+/* ===== WINDOWS (RESTORE “OS GLASS” LOOK) ===== */
+.window{
+background: linear-gradient(180deg, rgba(20,0,25,0.95), rgba(10,0,15,0.95));
+border: 1px solid var(--hot);
+box-shadow:
+0 0 15px rgba(255,79,216,0.25),
+inset 0 0 10px rgba(255,79,216,0.08);
+}
+
+/* glowing titlebar */
+.titlebar{
+background: linear-gradient(90deg, var(--hot), #b300ff);
+color:black;
+text-shadow: 0 0 5px rgba(255,255,255,0.4);
+}
+
+/* ===== LINKS (RESTORE NEON STYLE) ===== */
+.window-content a{
+color: var(--hot);
+text-shadow: 0 0 6px rgba(255,79,216,0.4);
+}
+
+.window-content a:hover{
+color:white;
+text-shadow: 0 0 10px var(--hot);
+}
+
+/* ===== DROPDOWNS (GLOW RESTORE) ===== */
+.dropdown-content{
+box-shadow: 0 0 15px rgba(255,79,216,0.25);
+}
+
+/* ===== CHAT VISUAL RESTORE ===== */
+.chat-message{
+background: rgba(255,255,255,0.04);
+border-left: 2px solid var(--hot);
+backdrop-filter: blur(6px);
+}
+
+.chat-user{
+text-shadow: 0 0 6px rgba(255,79,216,0.4);
+}
+
+/* ===== BUTTON GLOW ===== */
+.chat-controls button{
+box-shadow: 0 0 10px rgba(255,79,216,0.4);
+transition: 0.2s;
+}
+
+.chat-controls button:hover{
+transform: scale(1.05);
+box-shadow: 0 0 15px rgba(255,79,216,0.7);
+}
+
+/* ===== WINDOW HOVER DEPTH ===== */
+.window:hover{
+transform: translateY(-2px);
+box-shadow:
+0 0 25px rgba(255,79,216,0.35),
+inset 0 0 10px rgba(255,79,216,0.1);
+}
+
+/* smooth feel */
+.window{
+transition: 0.15s ease;
+}
