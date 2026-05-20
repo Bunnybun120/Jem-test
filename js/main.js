@@ -1,98 +1,46 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-/* =========================
-DRAG SYSTEM
-========================= */
+/* DRAG SYSTEM */
+document.querySelectorAll(".draggable").forEach(win => {
 
-const windows =
-document.querySelectorAll(".draggable");
-
-windows.forEach((win, index) => {
-
-const bar =
-win.querySelector(".titlebar");
-
+const bar = win.querySelector(".titlebar");
 if(!bar) return;
 
-let dragging = false;
-let offsetX = 0;
-let offsetY = 0;
+let drag = false;
+let ox = 0;
+let oy = 0;
 
-/* initial safe positioning */
+bar.addEventListener("mousedown", e => {
+drag = true;
+ox = e.clientX - win.offsetLeft;
+oy = e.clientY - win.offsetTop;
+win.style.zIndex = 9999;
+});
 
-if(window.innerWidth > 768){
+document.addEventListener("mousemove", e => {
+if(!drag) return;
+win.style.left = (e.clientX - ox) + "px";
+win.style.top = (e.clientY - oy) + "px";
+});
 
-win.style.left =
-(80 + index * 60) + "px";
-
-win.style.top =
-(120 + index * 50) + "px";
-
-}
-
-/* drag start */
-
-bar.addEventListener("mousedown", (e) => {
-
-dragging = true;
-
-offsetX = e.clientX - win.offsetLeft;
-offsetY = e.clientY - win.offsetTop;
-
-win.style.zIndex = Date.now();
+document.addEventListener("mouseup", () => drag = false);
 
 });
 
-/* drag move */
+/* CHAT SYSTEM ONLY RUNS IF EXISTS */
+const chatBox = document.getElementById("chatBox");
+if(!chatBox) return;
 
-document.addEventListener("mousemove", (e) => {
+const chatInput = document.getElementById("chatInput");
+const chatSend = document.getElementById("chatSend");
+const usernameInput = document.getElementById("usernameInput");
+const colorInput = document.getElementById("colorInput");
+const colorPreset = document.getElementById("colorPreset");
 
-if(!dragging) return;
+if(!chatInput || !chatSend || !usernameInput) return;
 
-win.style.left =
-(e.clientX - offsetX) + "px";
-
-win.style.top =
-(e.clientY - offsetY) + "px";
-
-});
-
-/* drag stop */
-
-document.addEventListener("mouseup", () => {
-
-dragging = false;
-
-});
-
-});
-
-/* =========================
-FIREBASE CHAT (CHATROOM ONLY)
-========================= */
-
-const chatBox =
-document.getElementById("chatBox");
-
-const chatInput =
-document.getElementById("chatInput");
-
-const chatSend =
-document.getElementById("chatSend");
-
-const usernameInput =
-document.getElementById("usernameInput");
-
-const colorInput =
-document.getElementById("colorInput");
-
-const colorPreset =
-document.getElementById("colorPreset");
-
-if(chatSend && typeof firebase !== "undefined"){
-
+/* Firebase config */
 const firebaseConfig = {
-
 apiKey: "AIzaSyAQkx8r6WwtLAjFfFSmlGEOTcCFvWb7hWI",
 authDomain: "chatroom-39c7a.firebaseapp.com",
 databaseURL: "https://chatroom-39c7a-default-rtdb.firebaseio.com",
@@ -100,98 +48,67 @@ projectId: "chatroom-39c7a",
 storageBucket: "chatroom-39c7a.firebasestorage.app",
 messagingSenderId: "590743257861",
 appId: "1:590743257861:web:e386928c084ba704ca2d6c"
-
 };
 
+if(!window._firebaseInit){
 firebase.initializeApp(firebaseConfig);
+window._firebaseInit = true;
+}
 
 const db = firebase.database();
 
-/* COLOR PICKER SYNC */
-
+/* color sync */
+if(colorPreset && colorInput){
 colorPreset.addEventListener("change", () => {
 colorInput.value = colorPreset.value;
 });
+}
 
-/* SEND MESSAGE */
-
+/* send message */
 function sendMessage(){
 
 const text = chatInput.value.trim();
-const username = usernameInput.value.trim() || "anon";
-
-const color =
-colorInput.value || colorPreset.value || "#ff69b4";
+const user = usernameInput.value.trim() || "anon";
+const color = (colorInput && colorInput.value) || "#ff69b4";
 
 if(!text) return;
 
 db.ref("messages").push({
-
-username,
-text,
-color,
-timestamp: Date.now()
-
+username:user,
+text:text,
+color:color,
+timestamp:Date.now()
 });
 
 chatInput.value = "";
-
 }
 
 chatSend.addEventListener("click", sendMessage);
 
-chatInput.addEventListener("keydown", (e) => {
+chatInput.addEventListener("keydown", e => {
 if(e.key === "Enter") sendMessage();
 });
 
-/* RECEIVE MESSAGES */
-
+/* receive */
 db.ref("messages")
 .limitToLast(100)
-.on("child_added", (snap) => {
+.on("child_added", snap => {
 
-const data = snap.val();
+const d = snap.val();
+if(!d) return;
 
 const msg = document.createElement("div");
 msg.className = "chat-message";
 
 msg.innerHTML = `
-<span class="chat-user"
-style="color:${data.color || '#ff69b4'}">
-${data.username || "anon"}
-</span>
-: ${data.text || ""}
+<span class="chat-user" style="color:${d.color}">
+${d.username || "anon"}
+</span>: ${d.text || ""}
 `;
 
 chatBox.appendChild(msg);
-
 chatBox.scrollTop = chatBox.scrollHeight;
 
 });
-
-}
-/* RECEIVE MESSAGES */
-
-db.ref("messages")
-.limitToLast(100)
-.on("child_added", (snap) => {
-
-const data = snap.val();
-
-const msg = document.createElement("div");
-msg.className = "chat-message";
-
-msg.innerHTML = `
-<span class="chat-user">${data.username || "anon"}</span>
-: ${data.text || ""}
-`;
-
-chatBox.appendChild(msg);
-
-chatBox.scrollTop = chatBox.scrollHeight;
-
-});
-
-}
 
 });
