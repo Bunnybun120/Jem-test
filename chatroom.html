@@ -10,7 +10,6 @@
 
 <link rel="stylesheet" href="css/style.css">
 
-<!-- FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
@@ -19,10 +18,6 @@
 </head>
 
 <body>
-
-<!-- =========================
-TOPBAR
-========================= -->
 
 <nav class="topbar">
 
@@ -69,46 +64,31 @@ TOPBAR
 
 </nav>
 
-<!-- =========================
-DESKTOP
-========================= -->
-
 <div class="desktop">
 
-<div class="window draggable chatroom-window"
-style="top:100px; left:60px; width:800px;">
+<div class="window draggable chatroom-window">
 
 <div class="titlebar">
-CHATROOM.EXE v3
+CHATROOM.EXE
 </div>
 
 <div class="window-content">
 
-<div class="chat-header">
-✦ GLOBAL MULTIPLAYER CHAT ✦
-</div>
+<h2>
+✦ GLOBAL CHAT ✦
+</h2>
 
 <br>
 
-<!-- USER SETTINGS -->
-
 <input
 id="usernameInput"
-class="username-input"
 placeholder="username..."
-style="
-width:100%;
-margin-bottom:8px;
-padding:8px;
-background:#111;
-color:white;
-border:1px solid #ff4fd8;
-">
+class="chat-setting">
 
-<div style="margin-bottom:10px;">
+<br><br>
 
 <label>
-TEXT COLOR →
+TEXT COLOR
 </label>
 
 <input
@@ -116,9 +96,7 @@ id="colorInput"
 type="color"
 value="#ff4fd8">
 
-</div>
-
-<!-- CHAT -->
+<br><br>
 
 <div id="chatBox"></div>
 
@@ -136,18 +114,6 @@ SEND
 
 </div>
 
-</div>
-
-</div>
-
-<!-- =========================
-TASKBAR
-========================= -->
-
-<div class="taskbar">
-
-<div class="task-title">
-CHATROOM ONLINE
 </div>
 
 </div>
