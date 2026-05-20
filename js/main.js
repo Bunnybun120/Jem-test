@@ -161,7 +161,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-});
+});<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+
+<script defer src="js/main.js"></script>
+
 const firebaseConfig = {
   apiKey: "AIzaSyAQkx8r6WwtLAjFfFSmlGEOTcCFvWb7hWI",
   authDomain: "chatroom-39c7a.firebaseapp.com",
