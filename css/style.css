@@ -5,134 +5,220 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Verdana;
+font-family:Verdana, sans-serif;
 background:linear-gradient(180deg,#0a0010,#120018,#000);
 color:white;
-overflow:hidden;
+overflow-x:hidden;
 }
 
-/* TOPBAR */
+/* =========================
+TOPBAR
+========================= */
+
 .topbar{
 position:fixed;
 top:0;
+left:0;
 width:100%;
-padding:10px;
-background:rgba(0,0,0,0.8);
+height:50px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+padding:0 12px;
+
+background:rgba(0,0,0,0.85);
+border-bottom:1px solid hotpink;
+
 z-index:9999;
 }
 
 .logo{
 color:hotpink;
 font-weight:bold;
+text-shadow:0 0 10px hotpink;
 }
 
-/* DESKTOP */
+/* =========================
+DROPDOWNS
+========================= */
+
+.nav-links{
+display:flex;
+gap:8px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.dropdown{
+position:relative;
+}
+
+.dropbtn{
+background:#111;
+color:white;
+
+border:1px solid hotpink;
+border-radius:6px;
+
+padding:6px 10px;
+cursor:pointer;
+font-size:12px;
+}
+
+.dropdown-content{
+display:none;
+position:absolute;
+
+top:35px;
+left:0;
+
+background:#111;
+border:1px solid hotpink;
+border-radius:8px;
+
+min-width:140px;
+z-index:99999;
+}
+
+.dropdown-content a{
+display:block;
+padding:8px;
+color:white;
+text-decoration:none;
+font-size:12px;
+}
+
+.dropdown-content a:hover{
+background:hotpink;
+color:black;
+}
+
+.dropdown:hover .dropdown-content{
+display:block;
+}
+
+/* =========================
+DESKTOP SYSTEM
+========================= */
+
 .desktop{
 position:relative;
 width:100%;
 height:100vh;
+
 padding-top:60px;
 }
 
-/* WINDOWS */
+/* =========================
+WINDOW SYSTEM
+========================= */
+
 .window{
 position:absolute;
-width:280px;
+
+width:300px;
+min-height:120px;
+
 background:#111;
 border:1px solid hotpink;
 border-radius:10px;
+
 overflow:hidden;
+
+box-shadow:0 0 20px rgba(255,105,180,0.25);
 }
 
 .titlebar{
 background:hotpink;
 color:black;
+
 padding:8px;
-cursor:grab;
 font-weight:bold;
+
+cursor:grab;
+user-select:none;
 }
 
 .window-content{
 padding:10px;
 font-size:13px;
+line-height:1.4;
 }
 
-/* TASKBAR */
+/* prevent accidental text overflow */
+.window-content a{
+color:hotpink;
+text-decoration:none;
+}
+
+/* =========================
+TASKBAR (OS v2 SUPPORT)
+========================= */
+
 .taskbar{
 position:fixed;
 bottom:0;
 left:0;
 width:100%;
-height:40px;
+height:38px;
 
 background:#000;
 border-top:1px solid hotpink;
 
 display:flex;
 align-items:center;
-padding:5px;
 gap:10px;
+
+padding:4px 10px;
+
+z-index:9999;
 }
 
 .task-title{
 color:hotpink;
 font-weight:bold;
+font-size:12px;
 }
 
 #taskApps{
 display:flex;
-gap:5px;
+gap:6px;
 }
 
 .task-app{
-padding:5px 8px;
+padding:4px 8px;
 background:#111;
+
 border:1px solid hotpink;
-font-size:12px;
+border-radius:6px;
+
+font-size:11px;
 cursor:pointer;
 }
 
-/* CHAT */
-#chatBox{
-height:300px;
-overflow-y:auto;
-background:black;
-border:1px solid hotpink;
-padding:8px;
+/* =========================
+CHATROOM v3
+========================= */
+
+.chatroom-window{
+width:650px;
+max-width:95%;
 }
 
-.chat-controls{
-display:flex;
-gap:5px;
-margin-top:5px;
+.chat-header{
+font-weight:bold;
+color:hotpink;
+margin-bottom:6px;
 }
 
-.chat-controls input{
-flex:1;
-padding:6px;
-background:#111;
-color:white;
-border:1px solid hotpink;
+.chat-status{
+font-size:11px;
+color:#aaa;
+margin-bottom:6px;
 }
 
-.chat-controls button{
-background:hotpink;
-border:none;
-padding:6px;
-cursor:pointer;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-.window{
-position:relative;
-width:95%;
-margin:20px auto;
-}
-body{
-overflow:auto;
-}
-}
 .chat-layout{
 display:flex;
 gap:10px;
@@ -142,7 +228,10 @@ gap:10px;
 width:140px;
 background:#0a0a0a;
 border:1px solid hotpink;
+border-radius:8px;
+
 padding:6px;
+
 font-size:12px;
 }
 
@@ -164,21 +253,32 @@ flex:1;
 #chatBox{
 height:320px;
 overflow-y:auto;
+
 background:#000;
 border:1px solid hotpink;
+
 padding:8px;
+border-radius:6px;
 }
 
 .chat-message{
 margin:6px 0;
+
 padding:6px;
-border-radius:6px;
+
 background:rgba(255,255,255,0.05);
 border-left:2px solid hotpink;
+border-radius:6px;
 }
 
 .chat-user{
 font-weight:bold;
+}
+
+.chat-time{
+font-size:10px;
+opacity:0.5;
+margin-left:6px;
 }
 
 .typing{
@@ -186,4 +286,62 @@ font-size:11px;
 color:#aaa;
 height:16px;
 margin-top:4px;
+}
+
+.chat-controls{
+display:flex;
+gap:6px;
+margin-top:6px;
+}
+
+.chat-controls input{
+flex:1;
+padding:6px;
+
+background:#111;
+color:white;
+
+border:1px solid hotpink;
+border-radius:6px;
+}
+
+.chat-controls button{
+background:hotpink;
+border:none;
+
+padding:6px 10px;
+
+cursor:pointer;
+font-weight:bold;
+border-radius:6px;
+}
+
+/* =========================
+MOBILE FIX (IMPORTANT)
+========================= */
+
+@media(max-width:768px){
+
+body{
+overflow:auto;
+}
+
+.window{
+position:relative !important;
+width:95% !important;
+
+left:auto !important;
+top:auto !important;
+
+margin:12px auto;
+}
+
+.chat-layout{
+flex-direction:column;
+}
+
+.user-panel{
+width:100%;
+}
+
 }
