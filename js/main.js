@@ -1,27 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =========================
-     DRAGGABLE WINDOWS
-  ========================= */
-
+  /* DRAG SYSTEM */
   document.querySelectorAll(".draggable").forEach(win => {
 
     const bar = win.querySelector(".titlebar");
     if (!bar) return;
 
     let dragging = false;
-    let offsetX = 0;
-    let offsetY = 0;
+    let ox = 0;
+    let oy = 0;
 
     bar.addEventListener("mousedown", e => {
 
-      if (window.innerWidth < 768) return;
-
       dragging = true;
 
-      offsetX = e.clientX - win.offsetLeft;
-      offsetY = e.clientY - win.offsetTop;
+      ox = e.clientX - win.offsetLeft;
+      oy = e.clientY - win.offsetTop;
 
+      win.style.position = "absolute";
       win.style.zIndex = 9999;
 
     });
@@ -30,211 +26,94 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!dragging) return;
 
-      win.style.left = (e.clientX - offsetX) + "px";
-      win.style.top = (e.clientY - offsetY) + "px";
+      win.style.left = (e.clientX - ox) + "px";
+      win.style.top = (e.clientY - oy) + "px";
 
     });
 
-    document.addEventListener("mouseup", () => {
-      dragging = false;
-    });
-
-  });
-
-  /* =========================
-     DROPDOWNS
-  ========================= */
-
-  document.querySelectorAll(".category-header").forEach(header => {
-
-    header.addEventListener("click", () => {
-
-      const content = header.nextElementSibling;
-
-      if (!content) return;
-
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
-
-    });
-
-  });
-
-  /* =========================
-     OPTIONAL SPARKLES
-  ========================= */
-
-  document.addEventListener("mousemove", e => {
-
-    const s = document.createElement("div");
-    s.className = "sparkle";
-
-    s.style.left = e.pageX + "px";
-    s.style.top = e.pageY + "px";
-
-    document.body.appendChild(s);
-
-    setTimeout(() => s.remove(), 400);
+    document.addEventListener("mouseup", () => dragging = false);
 
   });
 
 });
 
 
-/* =======================================================
-   💬 BULLETPROOF FIREBASE CHAT SYSTEM (PUT AT BOTTOM)
-======================================================= */
+/* =========================
+   FIREBASE CHAT (SAFE)
+========================= */
 
-(function () {
+const firebaseConfig = {
+  apiKey: "AIzaSyAQkx8r6WwtLAjFfFSmlGEOTcCFvB7hWI",
+  authDomain: "chatroom-39c7a.firebaseapp.com",
+  databaseURL: "https://chatroom-39c7a-default-rtdb.firebaseio.com",
+  projectId: "chatroom-39c7a",
+  storageBucket: "chatroom-39c7a.firebasestorage.app",
+  messagingSenderId: "590743257861",
+  appId: "1:590743257861:web:e386928c084ba704ca2d6c"
+};
 
-  const el = (id) => document.getElementById(id);
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
 
-  const loginBox = el("loginBox");
-  const chatSystem = el("chatSystem");
+const messages = db.ref("chat/messages");
+const users = db.ref("chat/users");
 
-  const nameInput = el("nameInput");
-  const joinBtn = el("joinBtn");
+const loginBox = document.getElementById("loginBox");
+const chatSystem = document.getElementById("chatSystem");
 
-  const chatBox = el("chatBox");
-  const chatInput = el("chatInput");
-  const chatSend = el("chatSend");
+const nameInput = document.getElementById("nameInput");
+const joinBtn = document.getElementById("joinBtn");
 
-  const typing = el("typing");
-  const userBar = el("userBar");
-  const status = el("chatStatus");
+const chatBox = document.getElementById("chatBox");
+const chatInput = document.getElementById("chatInput");
+const chatSend = document.getElementById("chatSend");
 
-  function safe(msg) {
-    if (status) status.innerText = msg;
-  }
+const userBar = document.getElementById("userBar");
 
-  if (!loginBox || !chatSystem || !chatBox) {
-    safe("CHAT ERROR: missing elements");
-    return;
-  }
+let username = "";
+let color = "#ff69b4";
 
-  if (typeof firebase === "undefined") {
-    safe("OFFLINE MODE (Firebase not loaded)");
-    loginBox.style.display = "none";
-    chatSystem.style.display = "block";
-    chatBox.innerHTML = "<p>offline mode</p>";
-    return;
-  }
+/* JOIN */
+joinBtn.onclick = () => {
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAQkx8r6WwtLAjFfFSmlGEOTcCFvB7hWI",
-    authDomain: "chatroom-39c7a.firebaseapp.com",
-    databaseURL: "https://chatroom-39c7a-default-rtdb.firebaseio.com",
-    projectId: "chatroom-39c7a",
-    storageBucket: "chatroom-39c7a.firebasestorage.app",
-    messagingSenderId: "590743257861",
-    appId: "1:590743257861:web:e386928c084ba704ca2d6c"
-  };
+  username = nameInput.value;
+  if (!username) return;
 
-  try {
-    firebase.initializeApp(firebaseConfig);
-  } catch (e) {}
+  loginBox.style.display = "none";
+  chatSystem.style.display = "block";
 
-  const db = firebase.database();
+  users.push({ name: username });
 
-  const messagesRef = db.ref("chat/messages");
-  const usersRef = db.ref("chat/users");
-  const typingRef = db.ref("chat/typing");
+};
 
-  let username = "";
-  let color = pickColor();
+/* SEND */
+function send(){
 
-  function pickColor() {
-    const c = ["#ff69b4","#00ffff","#8a2be2","#7fff00","#ffcc00"];
-    return c[Math.floor(Math.random() * c.length)];
-  }
+  if (!chatInput.value) return;
 
-  joinBtn?.addEventListener("click", () => {
-
-    username = nameInput?.value?.trim();
-
-    if (!username) return;
-
-    loginBox.style.display = "none";
-    chatSystem.style.display = "block";
-
-    usersRef.push({
-      name: username,
-      time: Date.now()
-    });
-
+  messages.push({
+    user: username,
+    text: chatInput.value,
+    color: color
   });
 
-  function send() {
+  chatInput.value = "";
+}
 
-    const msg = chatInput?.value?.trim();
-    if (!msg || !username) return;
+chatSend.onclick = send;
 
-    messagesRef.push({
-      user: username,
-      text: msg,
-      color: color,
-      time: Date.now()
-    });
+chatInput.addEventListener("keydown", e => {
+  if (e.key === "Enter") send();
+});
 
-    chatInput.value = "";
-  }
+/* RECEIVE */
+messages.on("child_added", snap => {
 
-  chatSend?.addEventListener("click", send);
+  const d = snap.val();
 
-  chatInput?.addEventListener("keydown", e => {
-    if (e.key === "Enter") send();
-  });
+  const p = document.createElement("p");
+  p.innerHTML = `<span style="color:${d.color}">${d.user}</span>: ${d.text}`;
 
-  messagesRef?.on?.("child_added", snap => {
+  chatBox.appendChild(p);
 
-    const d = snap.val();
-
-    const p = document.createElement("p");
-
-    p.innerHTML =
-      `<span style="color:${d.color}">
-        ${d.user}
-      </span>: ${d.text}`;
-
-    chatBox.appendChild(p);
-
-    chatBox.scrollTop = chatBox.scrollHeight;
-
-  });
-
-  usersRef?.on?.("value", snap => {
-
-    const users = snap.val() || {};
-
-    userBar.innerText =
-      "online: " +
-      Object.values(users).map(u => u.name).join(", ");
-
-  });
-
-  let typingTimeout;
-
-  chatInput?.addEventListener("input", () => {
-
-    typingRef.set(username);
-
-    clearTimeout(typingTimeout);
-
-    typingTimeout = setTimeout(() => {
-      typingRef.remove();
-    }, 800);
-
-  });
-
-  typingRef?.on?.("value", snap => {
-
-    const v = snap.val();
-
-    typing.innerText = v ? `${v} is typing...` : "";
-
-  });
-
-})();
+});
