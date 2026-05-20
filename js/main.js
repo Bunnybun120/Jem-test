@@ -1,54 +1,55 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-/* =========================
-SAFE DRAG SYSTEM (NO CRASHES)
-========================= */
+/* DRAG */
 
-document.querySelectorAll(".draggable").forEach(win => {
+document.querySelectorAll(".draggable").forEach(win=>{
 
-const bar = win.querySelector(".titlebar");
+const bar=win.querySelector(".titlebar");
+
 if(!bar) return;
 
-let dragging = false;
-let offsetX = 0;
-let offsetY = 0;
+let drag=false;
+let x=0;
+let y=0;
 
-bar.addEventListener("mousedown", e => {
-dragging = true;
-offsetX = e.clientX - win.offsetLeft;
-offsetY = e.clientY - win.offsetTop;
-win.style.zIndex = 9999;
-});
+bar.addEventListener("mousedown",e=>{
 
-document.addEventListener("mousemove", e => {
-if(!dragging) return;
+drag=true;
 
-win.style.left = (e.clientX - offsetX) + "px";
-win.style.top = (e.clientY - offsetY) + "px";
-});
-
-document.addEventListener("mouseup", () => dragging = false);
+x=e.clientX-win.offsetLeft;
+y=e.clientY-win.offsetTop;
 
 });
 
-/* =========================
-CHAT SYSTEM (ONLY RUN IF EXISTS)
-========================= */
+document.addEventListener("mousemove",e=>{
 
-document.addEventListener("DOMContentLoaded", () => {
+if(!drag) return;
 
-const chatBox = document.getElementById("chatBox");
-if(!chatBox) return; // prevents breaking other pages
+win.style.left=(e.clientX-x)+"px";
+win.style.top=(e.clientY-y)+"px";
 
-const chatInput = document.getElementById("chatInput");
-const chatSend = document.getElementById("chatSend");
-const usernameInput = document.getElementById("usernameInput");
-const colorInput = document.getElementById("colorInput");
+});
 
-if(!chatInput || !chatSend || !usernameInput){
-console.warn("Chat missing elements");
-return;
-}
+document.addEventListener("mouseup",()=>{
+
+drag=false;
+
+});
+
+});
+
+/* CHAT */
+
+const chatBox=document.getElementById("chatBox");
+
+if(!chatBox) return;
+
+const chatInput=document.getElementById("chatInput");
+const chatSend=document.getElementById("chatSend");
+const usernameInput=document.getElementById("usernameInput");
+const colorInput=document.getElementById("colorInput");
+
+/* FIREBASE */
 
 const firebaseConfig = {
 apiKey: "AIzaSyAQkx8r6WwtLAjFfFSmlGEOTcCFvWb7hWI",
@@ -60,52 +61,73 @@ messagingSenderId: "590743257861",
 appId: "1:590743257861:web:e386928c084ba704ca2d6c"
 };
 
-if(!window.__fb){
+if(!firebase.apps.length){
 firebase.initializeApp(firebaseConfig);
-window.__fb = true;
 }
 
-const db = firebase.database();
+const db=firebase.database();
+
+/* SEND */
 
 function sendMessage(){
 
-const text = chatInput.value.trim();
+const text=chatInput.value.trim();
+
 if(!text) return;
 
 db.ref("messages").push({
-username: usernameInput.value || "anon",
-text,
-color: colorInput?.value || "#ff69b4",
-time: Date.now()
+
+username:
+usernameInput.value || "anon",
+
+text:text,
+
+color:
+colorInput.value || "#ff4fd8",
+
+time:Date.now()
+
 });
 
-chatInput.value = "";
+chatInput.value="";
+
 }
 
-chatSend.onclick = sendMessage;
+chatSend.addEventListener("click",sendMessage);
 
-chatInput.addEventListener("keydown", e=>{
-if(e.key === "Enter") sendMessage();
+chatInput.addEventListener("keydown",e=>{
+
+if(e.key==="Enter"){
+sendMessage();
+}
+
 });
+
+/* RECEIVE */
 
 db.ref("messages")
 .limitToLast(100)
-.on("child_added", snap=>{
+.on("child_added",snap=>{
 
-const d = snap.val();
-if(!d) return;
+const data=snap.val();
 
-const msg = document.createElement("div");
-msg.className = "chat-message";
+const div=document.createElement("div");
 
-msg.innerHTML = `
-<span style="color:${d.color}">
-${d.username}
-</span>: ${d.text}
+div.className="chat-message";
+
+div.innerHTML=`
+
+<span style="color:${data.color}; font-weight:bold;">
+${data.username}
+</span>
+
+: ${data.text}
+
 `;
 
-chatBox.appendChild(msg);
-chatBox.scrollTop = chatBox.scrollHeight;
+chatBox.appendChild(div);
+
+chatBox.scrollTop=chatBox.scrollHeight;
 
 });
 
