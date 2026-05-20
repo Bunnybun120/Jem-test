@@ -27,65 +27,49 @@
 
 <div class="nav-links">
 
-<div class="dropdown">
-<button class="dropbtn">PROFILE</button>
-
-<div class="dropdown-content">
-<a href="about.html">ABOUT</a>
-<a href="friends.html">FRIENDS</a>
-<a href="guestbook.html">GUESTBOOK</a>
-</div>
-</div>
-
-<div class="dropdown">
-<button class="dropbtn">MEDIA</button>
-
-<div class="dropdown-content">
-<a href="music.html">MUSIC</a>
-<a href="games.html">GAMES</a>
-<a href="shows.html">SHOWS</a>
-<a href="fandoms.html">FANDOMS</a>
-</div>
-</div>
-
-<div class="dropdown">
-<button class="dropbtn">EXTRAS</button>
-
-<div class="dropdown-content">
-<a href="moodboard.html">MOODBOARD</a>
-<a href="blog.html">BLOG</a>
-<a href="chatroom.html">CHATROOM</a>
-</div>
-</div>
-
 <a href="index.html">HOME</a>
 
 </div>
 
 </nav>
 
-<div class="desktop">
+<div class="page-shell">
 
-<div class="window draggable chatroom-window">
+<div class="chat-window">
 
-<div class="titlebar">
-CHATROOM.EXE
+<div class="chat-top">
+
+<h1>
+💬 CHATROOM.EXE
+</h1>
+
+<p>
+Realtime Multiplayer Chat
+</p>
+
 </div>
 
-<div class="window-content">
+<div class="chat-layout">
 
-<h2>
-✦ GLOBAL CHAT ✦
-</h2>
+<!-- SIDEBAR -->
 
-<br>
+<div class="chat-sidebar">
+
+<h3>
+✦ PROFILE ✦
+</h3>
 
 <input
 id="usernameInput"
-placeholder="username..."
-class="chat-setting">
+placeholder="username...">
 
-<br><br>
+<input
+id="pfpInput"
+placeholder="profile picture url...">
+
+<input
+id="bioInput"
+placeholder="status/bio...">
 
 <label>
 TEXT COLOR
@@ -96,9 +80,30 @@ id="colorInput"
 type="color"
 value="#ff4fd8">
 
-<br><br>
+<button id="saveProfile">
+SAVE PROFILE
+</button>
+
+<hr>
+
+<h3>
+✦ ONLINE USERS ✦
+</h3>
+
+<div id="onlineUsers"></div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="chat-main">
 
 <div id="chatBox"></div>
+
+<div
+class="typing-indicator"
+id="typingIndicator">
+</div>
 
 <div class="chat-controls">
 
@@ -109,6 +114,8 @@ placeholder="type message...">
 <button id="chatSend">
 SEND
 </button>
+
+</div>
 
 </div>
 
