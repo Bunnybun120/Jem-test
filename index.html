@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>JEM OS</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JEM.OS</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -13,55 +10,38 @@
 
 <div class="desktop">
 
-  <!-- NAV -->
   <div class="topbar">
     <a class="back-home" href="index.html">HOME</a>
   </div>
 
-  <!-- ABOUT WINDOW -->
-  <div class="window draggable">
-    <div class="titlebar">ABOUT ME</div>
+  <div class="window">
+    <div class="titlebar">NAVIGATION</div>
     <div class="window-content">
-      <p>Fill this in later...</p>
+
+      <a href="about.html">About</a><br>
+      <a href="friends.html">Friends</a><br>
+      <a href="blog.html">Blog</a><br>
+      <a href="moodboard.html">Moodboard</a><br>
+      <a href="gaming.html">Gaming</a><br>
+      <a href="music.html">Music</a><br>
+      <a href="shows.html">Shows/Movies</a><br>
+      <a href="fandoms.html">Fandoms</a>
+
     </div>
   </div>
 
-  <!-- CHAT WINDOW -->
-  <div class="window draggable chat-window">
-
-    <div class="titlebar">CHAT SYSTEM</div>
+  <div class="window chat-window">
+    <div class="titlebar">CHAT</div>
 
     <div class="window-content">
-
-      <div id="chatStatus"></div>
-
-      <div id="loginBox">
-        <input id="nameInput" placeholder="username">
-        <button id="joinBtn">join</button>
-      </div>
-
-      <div id="chatSystem" style="display:none;">
-
-        <div id="userBar"></div>
-        <div id="chatBox" class="chat-box"></div>
-        <div id="typing"></div>
-
-        <div class="chat-controls">
-          <input id="chatInput" placeholder="message">
-          <button id="chatSend">send</button>
-        </div>
-
-      </div>
-
+      <div id="chatBox"></div>
     </div>
   </div>
 
 </div>
 
-<!-- FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
-
 <script defer src="js/main.js"></script>
 
 </body>
