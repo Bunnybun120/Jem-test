@@ -1,198 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-
-</div>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JEM.EXE</title>
+  <title>JEM OS</title>
 
-<link rel="stylesheet" href="css/style.css">
-<script defer src="js/main.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<div id="bootScreen">
-  <div class="boot-text">
-    booting JEM.EXE profile system...
-  </div>
-</div>
 <div class="desktop">
-  <!-- ALL YOUR WINDOWS GO HERE -->
-</div>
-<div class="stars"></div>
 
-<div class="floating-stickers">
-  <div class="sticker">⭐</div>
-  <div class="sticker">🩷</div>
-  <div class="sticker">🎧</div>
-  <div class="sticker">🌈</div>
-</div>
+  <!-- NAV -->
+  <div class="topbar">
+    <a class="back-home" href="index.html">HOME</a>
+  </div>
 
-<nav class="topbar">
-
-<div class="logo">
-✦ JEM.EXE ✦
-</div>
-
-<div class="nav-links">
-<a href="about.html">ABOUT</a>
-<a href="friends.html">FRIENDS</a>
-<a href="music.html">MUSIC</a>
-<a href="games.html">GAMES</a>
-<a href="shows.html">SHOWS</a>
-<a href="fandoms.html">FANDOMS</a>
-<a href="moodboard.html">MOODBOARD</a>
-<a href="blog.html">BLOG</a>
-<a href="guestbook.html">GUESTBOOK</a>
-</div>
-
-</nav>
-
-<div class="desktop-icons">
-
-<a href="about.html" class="desktop-icon">
-<span>💖</span>
-<p>ABOUT</p>
-</a>
-
-<a href="music.html" class="desktop-icon">
-<span>🎧</span>
-<p>MUSIC</p>
-</a>
-
-<a href="games.html" class="desktop-icon">
-<span>🎮</span>
-<p>GAMES</p>
-</a>
-
-<a href="shows.html" class="desktop-icon">
-<span>📺</span>
-<p>SHOWS</p>
-</a>
-
-<a href="fandoms.html" class="desktop-icon">
-<span>🌌</span>
-<p>FANDOMS</p>
-</a>
-
-</div>
-
-<section class="desktop">
-
-<div class="window draggable" style="top:120px;left:40px;">
-
-<div class="titlebar">
-PROFILE.EXE
-</div>
-
-<div class="window-content">
-
-<h2>WELCOME TO JEM.EXE ✦</h2>
-
-<p>
-interactive internet profile operating system
-</p>
-
-<a href="about.html">
-Open Profile
-</a>
-
-</div>
-
-</div>
-
-<div class="window draggable" style="top:120px;left:420px;">
-
-<div class="titlebar">
-MUSIC_PLAYER.EXE
-</div>
-
-<div class="window-content">
-
-<div class="cd"></div>
-
-<div class="visualizer">
-<div class="bar"></div>
-<div class="bar"></div>
-<div class="bar"></div>
-<div class="bar"></div>
-<div class="bar"></div>
-</div>
-
-<p>
-Now Playing :: chaos.mp3
-</p>
-
-</div>
-
-</div>
-
-<div class="window draggable" style="top:400px;left:40px;">
-
-<div class="titlebar">
-<div class="window draggable chat-window" style="top:120px;left:40px;position:absolute;">
-
-  <div class="titlebar">JEM.OS :: CHAT CORE</div>
-
-  <div class="window-content">
-
-    <!-- STATUS (debug-safe) -->
-    <div id="chatStatus">loading chat system...</div>
-
-    <!-- LOGIN -->
-    <div id="loginBox">
-      <input id="nameInput" placeholder="enter username" />
-      <button id="joinBtn">join system</button>
+  <!-- ABOUT WINDOW -->
+  <div class="window draggable">
+    <div class="titlebar">ABOUT ME</div>
+    <div class="window-content">
+      <p>Fill this in later...</p>
     </div>
+  </div>
 
-    <!-- CHAT -->
-    <div id="chatSystem" style="display:none;">
+  <!-- CHAT WINDOW -->
+  <div class="window draggable chat-window">
 
-      <div id="userBar"></div>
-      <div id="chatBox" class="chat-box"></div>
-      <div id="typing"></div>
+    <div class="titlebar">CHAT SYSTEM</div>
 
-      <div class="chat-controls">
-        <input id="chatInput" placeholder="type message..." />
-        <button id="chatSend">send</button>
+    <div class="window-content">
+
+      <div id="chatStatus"></div>
+
+      <div id="loginBox">
+        <input id="nameInput" placeholder="username">
+        <button id="joinBtn">join</button>
+      </div>
+
+      <div id="chatSystem" style="display:none;">
+
+        <div id="userBar"></div>
+        <div id="chatBox" class="chat-box"></div>
+        <div id="typing"></div>
+
+        <div class="chat-controls">
+          <input id="chatInput" placeholder="message">
+          <button id="chatSend">send</button>
+        </div>
+
       </div>
 
     </div>
-
   </div>
-</div>
-    </div>
-
-  </div>
-</div>
-</div>
 
 </div>
 
-<div class="window draggable" style="top:400px;left:420px;">
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 
-<div class="titlebar">
-QUICK_ACCESS
-</div>
-
-<div class="window-content">
-
-<ul>
-<li><a href="games.html">Games</a></li>
-<li><a href="music.html">Music</a></li>
-<li><a href="shows.html">Shows</a></li>
-<li><a href="fandoms.html">Fandoms</a></li>
-<li><a href="moodboard.html">Moodboard</a></li>
-</ul>
-
-</div>
-
-</div>
-
-</section>
+<script defer src="js/main.js"></script>
 
 </body>
 </html>
