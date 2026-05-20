@@ -1,150 +1,159 @@
-console.log("🟢 OS SYSTEM LOADING...");
+document.addEventListener("DOMContentLoaded", () => {
 
 /* =========================
-   WAIT FOR PAGE SAFELY
+DRAG SYSTEM
 ========================= */
 
-window.addEventListener("DOMContentLoaded", () => {
+const windows =
+document.querySelectorAll(".draggable");
 
-  console.log("🟢 DOM READY");
+windows.forEach((win, index) => {
 
-  /* =========================
-     GET ELEMENTS (SAFE CHECK)
-  ========================= */
+const bar =
+win.querySelector(".titlebar");
 
-  const loginBox = document.getElementById("loginBox");
-  const chatSystem = document.getElementById("chatSystem");
+if(!bar) return;
 
-  const nameInput = document.getElementById("nameInput");
-  const joinBtn = document.getElementById("joinBtn");
+let dragging = false;
+let offsetX = 0;
+let offsetY = 0;
 
-  const chatBox = document.getElementById("chatBox");
-  const chatInput = document.getElementById("chatInput");
-  const chatSend = document.getElementById("chatSend");
+/* initial safe positioning */
 
-  /* =========================
-     DEBUG CHECKS (IMPORTANT)
-  ========================= */
+if(window.innerWidth > 768){
 
-  if (!joinBtn) {
-    console.error("❌ joinBtn not found — check HTML ID");
-    return;
-  }
+win.style.left =
+(80 + index * 60) + "px";
 
-  if (!nameInput) {
-    console.error("❌ nameInput not found — check HTML ID");
-    return;
-  }
+win.style.top =
+(120 + index * 50) + "px";
 
-  console.log("🟢 Chat elements loaded");
+}
 
-  /* =========================
-     FIREBASE INIT
-  ========================= */
+/* drag start */
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAQkx8r6WwtLAjFfFSmlGEOTcCFvB7hWI",
-    authDomain: "chatroom-39c7a.firebaseapp.com",
-    databaseURL: "https://chatroom-39c7a-default-rtdb.firebaseio.com",
-    projectId: "chatroom-39c7a",
-    storageBucket: "chatroom-39c7a.firebasestorage.app",
-    messagingSenderId: "590743257861",
-    appId: "1:590743257861:web:e386928c084ba704ca2d6c"
-  };
+bar.addEventListener("mousedown", (e) => {
 
-  if (typeof firebase === "undefined") {
-    console.error("❌ Firebase not loaded");
-    return;
-  }
+dragging = true;
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
+offsetX = e.clientX - win.offsetLeft;
+offsetY = e.clientY - win.offsetTop;
 
-  const messages = db.ref("chat/messages");
-  const users = db.ref("chat/users");
+win.style.zIndex = Date.now();
 
-  /* =========================
-     STATE
-  ========================= */
+});
 
-  let username = "";
-  let color = "#ff69b4";
+/* drag move */
 
-  /* =========================
-     JOIN BUTTON (FIXED)
-  ========================= */
+document.addEventListener("mousemove", (e) => {
 
-  joinBtn.addEventListener("click", () => {
+if(!dragging) return;
 
-    console.log("🟢 JOIN CLICKED");
+win.style.left =
+(e.clientX - offsetX) + "px";
 
-    username = nameInput.value.trim();
+win.style.top =
+(e.clientY - offsetY) + "px";
 
-    if (!username) {
-      alert("Enter a username");
-      return;
-    }
+});
 
-    loginBox.style.display = "none";
-    chatSystem.style.display = "block";
+/* drag stop */
 
-    users.push({
-      name: username,
-      time: Date.now()
-    });
+document.addEventListener("mouseup", () => {
 
-    console.log("🟢 USER JOINED:", username);
+dragging = false;
 
-  });
+});
 
-  /* =========================
-     SEND MESSAGE
-  ========================= */
+});
 
-  function sendMessage() {
+/* =========================
+FIREBASE CHAT (CHATROOM ONLY)
+========================= */
 
-    const msg = chatInput?.value.trim();
+const chatBox =
+document.getElementById("chatBox");
 
-    if (!msg) return;
-    if (!username) return;
+const chatInput =
+document.getElementById("chatInput");
 
-    messages.push({
-      user: username,
-      text: msg,
-      color: color,
-      time: Date.now()
-    });
+const chatSend =
+document.getElementById("chatSend");
 
-    chatInput.value = "";
-  }
+const usernameInput =
+document.getElementById("usernameInput");
 
-  chatSend?.addEventListener("click", sendMessage);
+if(chatSend && typeof firebase !== "undefined"){
 
-  chatInput?.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") sendMessage();
-  });
+const firebaseConfig = {
 
-  /* =========================
-     RECEIVE MESSAGES
-  ========================= */
+apiKey: "AIzaSyAQkx8r6WwtLAjFfFSmlGEOTcCFvWb7hWI",
+authDomain: "chatroom-39c7a.firebaseapp.com",
+databaseURL: "https://chatroom-39c7a-default-rtdb.firebaseio.com",
+projectId: "chatroom-39c7a",
+storageBucket: "chatroom-39c7a.firebasestorage.app",
+messagingSenderId: "590743257861",
+appId: "1:590743257861:web:e386928c084ba704ca2d6c"
 
-  messages.on("child_added", (snap) => {
+};
 
-    const d = snap.val();
+firebase.initializeApp(firebaseConfig);
 
-    if (!chatBox) return;
+const db = firebase.database();
 
-    const p = document.createElement("p");
+/* SEND MESSAGE */
 
-    p.innerHTML =
-      `<span style="color:${d.color}">${d.user}</span>: ${d.text}`;
+function sendMessage(){
 
-    chatBox.appendChild(p);
+const text = chatInput.value.trim();
+const user = usernameInput.value.trim() || "anon";
 
-    chatBox.scrollTop = chatBox.scrollHeight;
+if(!text) return;
 
-  });
+db.ref("messages").push({
 
-  console.log("🟢 CHAT SYSTEM READY");
+username: user,
+text: text,
+timestamp: Date.now()
+
+});
+
+chatInput.value = "";
+
+}
+
+chatSend.addEventListener("click", sendMessage);
+
+chatInput.addEventListener("keydown", (e) => {
+
+if(e.key === "Enter"){
+sendMessage();
+}
+
+});
+
+/* RECEIVE MESSAGES */
+
+db.ref("messages")
+.limitToLast(100)
+.on("child_added", (snap) => {
+
+const data = snap.val();
+
+const msg = document.createElement("div");
+msg.className = "chat-message";
+
+msg.innerHTML = `
+<span class="chat-user">${data.username || "anon"}</span>
+: ${data.text || ""}
+`;
+
+chatBox.appendChild(msg);
+
+chatBox.scrollTop = chatBox.scrollHeight;
+
+});
+
+}
 
 });
