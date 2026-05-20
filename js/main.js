@@ -83,6 +83,12 @@ document.getElementById("chatSend");
 const usernameInput =
 document.getElementById("usernameInput");
 
+const colorInput =
+document.getElementById("colorInput");
+
+const colorPreset =
+document.getElementById("colorPreset");
+
 if(chatSend && typeof firebase !== "undefined"){
 
 const firebaseConfig = {
@@ -101,19 +107,29 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.database();
 
+/* COLOR PICKER SYNC */
+
+colorPreset.addEventListener("change", () => {
+colorInput.value = colorPreset.value;
+});
+
 /* SEND MESSAGE */
 
 function sendMessage(){
 
 const text = chatInput.value.trim();
-const user = usernameInput.value.trim() || "anon";
+const username = usernameInput.value.trim() || "anon";
+
+const color =
+colorInput.value || colorPreset.value || "#ff69b4";
 
 if(!text) return;
 
 db.ref("messages").push({
 
-username: user,
-text: text,
+username,
+text,
+color,
 timestamp: Date.now()
 
 });
@@ -125,13 +141,35 @@ chatInput.value = "";
 chatSend.addEventListener("click", sendMessage);
 
 chatInput.addEventListener("keydown", (e) => {
+if(e.key === "Enter") sendMessage();
+});
 
-if(e.key === "Enter"){
-sendMessage();
-}
+/* RECEIVE MESSAGES */
+
+db.ref("messages")
+.limitToLast(100)
+.on("child_added", (snap) => {
+
+const data = snap.val();
+
+const msg = document.createElement("div");
+msg.className = "chat-message";
+
+msg.innerHTML = `
+<span class="chat-user"
+style="color:${data.color || '#ff69b4'}">
+${data.username || "anon"}
+</span>
+: ${data.text || ""}
+`;
+
+chatBox.appendChild(msg);
+
+chatBox.scrollTop = chatBox.scrollHeight;
 
 });
 
+}
 /* RECEIVE MESSAGES */
 
 db.ref("messages")
