@@ -130,21 +130,19 @@ Now Playing :: chaos.mp3
 <div class="window draggable" style="top:400px;left:40px;">
 
 <div class="titlebar">
-CHATROOM.LOG
-</div>
+<div class="window draggable chat-window" style="top:120px;left:40px;position:absolute;">
 
-<div class="window-content">
-
-<div class="window draggable chat-window">
-
-  <div class="titlebar">JEM.OS CHAT SYSTEM</div>
+  <div class="titlebar">JEM.OS :: CHAT CORE</div>
 
   <div class="window-content">
 
+    <!-- STATUS (debug-safe) -->
+    <div id="chatStatus">loading chat system...</div>
+
     <!-- LOGIN -->
     <div id="loginBox">
-      <input id="nameInput" placeholder="enter username..." />
-      <button id="joinBtn">join</button>
+      <input id="nameInput" placeholder="enter username" />
+      <button id="joinBtn">join system</button>
     </div>
 
     <!-- CHAT -->
@@ -159,6 +157,10 @@ CHATROOM.LOG
         <button id="chatSend">send</button>
       </div>
 
+    </div>
+
+  </div>
+</div>
     </div>
 
   </div>
