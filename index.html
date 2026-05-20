@@ -30,19 +30,31 @@
     </div>
   </div>
 
-  <div class="window chat-window">
-    <div class="titlebar">CHAT</div>
+<div class="window">
 
-    <div class="window-content">
-      <div id="chatBox"></div>
+  <div class="titlebar">CHAT</div>
+
+  <div class="window-content">
+
+    <div id="chatStatus"></div>
+
+    <div id="loginBox">
+      <input id="nameInput" placeholder="username">
+      <button id="joinBtn">join</button>
     </div>
+
+    <div id="chatSystem" style="display:none;">
+
+      <div id="userBar"></div>
+      <div id="chatBox" class="chat-box"></div>
+      <div id="typing"></div>
+
+      <div class="chat-controls">
+        <input id="chatInput" placeholder="message">
+        <button id="chatSend">send</button>
+      </div>
+
+    </div>
+
   </div>
-
 </div>
-
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
-<script defer src="js/main.js"></script>
-
-</body>
-</html>
