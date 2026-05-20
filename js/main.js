@@ -1,80 +1,131 @@
-console.log("JEM.EXE loaded ✦");
+document.addEventListener("DOMContentLoaded",()=>{
 
-/* DRAG WINDOWS */
-document.querySelectorAll(".window").forEach(win => {
+/* DRAG */
 
-  const bar = win.querySelector(".titlebar");
+document.querySelectorAll(".draggable")
+.forEach(win=>{
 
-  if (!bar) return;
+const bar=win.querySelector(".titlebar");
 
-  let dragging = false;
-  let offsetX = 0;
-  let offsetY = 0;
+let drag=false;
+let ox=0;
+let oy=0;
 
-  bar.addEventListener("mousedown", (e) => {
-    dragging = true;
+bar.addEventListener("mousedown",e=>{
 
-    offsetX = e.clientX - win.offsetLeft;
-    offsetY = e.clientY - win.offsetTop;
+drag=true;
 
-    win.style.zIndex = 9999;
-  });
+ox=e.clientX-win.offsetLeft;
+oy=e.clientY-win.offsetTop;
 
-  document.addEventListener("mousemove", (e) => {
-    if (!dragging) return;
-
-    win.style.left = (e.clientX - offsetX) + "px";
-    win.style.top = (e.clientY - offsetY) + "px";
-  });
-
-  document.addEventListener("mouseup", () => {
-    dragging = false;
-  });
 });
 
-/* DRAG ICONS */
-document.querySelectorAll(".desktop-icon").forEach(icon => {
+document.addEventListener("mousemove",e=>{
 
-  let dragging = false;
-  let offsetX = 0;
-  let offsetY = 0;
+if(!drag) return;
 
-  icon.addEventListener("mousedown", (e) => {
-    dragging = true;
+win.style.left=
+(e.clientX-ox)+"px";
 
-    offsetX = e.clientX - icon.offsetLeft;
-    offsetY = e.clientY - icon.offsetTop;
+win.style.top=
+(e.clientY-oy)+"px";
 
-    icon.style.zIndex = 9999;
-  });
-
-  document.addEventListener("mousemove", (e) => {
-    if (!dragging) return;
-
-    icon.style.left = (e.clientX - offsetX) + "px";
-    icon.style.top = (e.clientY - offsetY) + "px";
-  });
-
-  document.addEventListener("mouseup", () => {
-    dragging = false;
-  });
 });
 
-/* CLICK EFFECT */
-document.addEventListener("click", (e) => {
+document.addEventListener("mouseup",()=>{
 
-  const dot = document.createElement("div");
+drag=false;
 
-  dot.style.position = "absolute";
-  dot.style.left = e.pageX + "px";
-  dot.style.top = e.pageY + "px";
-  dot.style.width = "8px";
-  dot.style.height = "8px";
-  dot.style.borderRadius = "50%";
-  dot.style.background = "hotpink";
-  dot.style.pointerEvents = "none";
+});
 
-  document.body.appendChild(dot);
+});
 
-  setTimeout(() => dot.remove(), 500);
+/* CATEGORY */
+
+document.querySelectorAll(".category-header")
+.forEach(header=>{
+
+header.addEventListener("click",()=>{
+
+const content=
+header.nextElementSibling;
+
+content.style.display=
+content.style.display==="block"
+? "none"
+: "block";
+
+});
+
+});
+
+/* STATUS */
+
+const status=
+document.getElementById("statusPanel");
+
+if(status){
+
+let mood=0;
+
+status.addEventListener("click",()=>{
+
+mood++;
+
+if(mood===1)
+status.innerText=
+"STATUS :: IDLE";
+
+if(mood===2)
+status.innerText=
+"STATUS :: FOCUSED";
+
+if(mood===3)
+status.innerText=
+"STATUS :: OVERLOADED";
+
+if(mood===4){
+
+status.innerText=
+"STATUS :: ONLINE ✦";
+
+mood=0;
+
+}
+
+});
+
+}
+
+/* TYPE */
+
+const type=
+document.getElementById("typeLine");
+
+if(type){
+
+const text=
+"booting profile system...";
+
+let i=0;
+
+function write(){
+
+if(i<text.length){
+
+type.innerHTML+=
+text.charAt(i);
+
+i++;
+
+setTimeout(write,40);
+
+}
+
+}
+
+write();
+
+}
+
 });
