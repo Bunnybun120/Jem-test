@@ -5,111 +5,58 @@ box-sizing:border-box;
 }
 
 body{
-font-family:Verdana, sans-serif;
+font-family:Verdana;
 background:linear-gradient(180deg,#0a0010,#120018,#000);
 color:white;
 overflow-x:hidden;
 }
 
-/* =========================
-TOPBAR
-========================= */
-
+/* TOPBAR */
 .topbar{
 position:fixed;
 top:0;
 left:0;
 width:100%;
-
 display:flex;
 justify-content:space-between;
 align-items:center;
-
-padding:12px 18px;
-
+padding:12px;
 background:rgba(0,0,0,0.8);
-backdrop-filter:blur(10px);
-
-border-bottom:1px solid hotpink;
-
 z-index:9999;
 }
 
 .logo{
 color:hotpink;
 font-weight:bold;
-font-size:18px;
-text-shadow:0 0 10px hotpink;
 }
 
-.nav-links{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-align-items:center;
-}
-
-.nav-links a{
-color:white;
-text-decoration:none;
-font-size:12px;
-
-padding:6px 10px;
-
-border:1px solid rgba(255,255,255,0.15);
-border-radius:8px;
-
-transition:0.2s;
-}
-
-.nav-links a:hover{
-background:hotpink;
-color:black;
-}
-
-/* =========================
-DROPDOWNS
-========================= */
-
-.dropdown{
-position:relative;
-}
+/* DROPDOWNS */
+.dropdown{position:relative;}
 
 .dropbtn{
-background:rgba(255,255,255,0.08);
+background:#222;
 color:white;
-
-border:1px solid rgba(255,255,255,0.15);
-
-padding:6px 10px;
-border-radius:8px;
-
-cursor:pointer;
+border:1px solid hotpink;
+padding:6px;
 }
 
 .dropdown-content{
 display:none;
 position:absolute;
-
-top:38px;
-left:0;
-
 background:#111;
 border:1px solid hotpink;
+top:30px;
+}
 
-border-radius:10px;
-
-min-width:160px;
-
-z-index:99999;
+.dropdown:hover .dropdown-content{
+display:block;
 }
 
 .dropdown-content a{
 display:block;
-padding:10px;
+padding:8px;
 color:white;
 text-decoration:none;
-font-size:12px;
 }
 
 .dropdown-content a:hover{
@@ -117,102 +64,39 @@ background:hotpink;
 color:black;
 }
 
-.dropdown:hover .dropdown-content{
-display:block;
-}
-
-/* =========================
-DESKTOP / PAGE AREA
-========================= */
-
-.desktop{
-position:relative;
-padding-top:90px;
-min-height:100vh;
-}
-
-/* =========================
-WINDOW SYSTEM
-========================= */
-
+/* WINDOW */
 .window{
 position:absolute;
 width:340px;
-
-background:rgba(15,15,20,0.95);
-
+background:#111;
 border:1px solid hotpink;
-border-radius:14px;
-
-box-shadow:0 0 20px rgba(255,105,180,0.25);
-
-overflow:hidden;
 }
 
 .titlebar{
-background:linear-gradient(90deg,hotpink,#ffb0ea);
+background:hotpink;
 color:black;
-
-padding:10px;
-font-weight:bold;
-
+padding:8px;
 cursor:grab;
-user-select:none;
 }
 
 .window-content{
-padding:14px;
-font-size:14px;
-line-height:1.5;
+padding:10px;
 }
 
-pre{
-white-space:pre-wrap;
-font-family:inherit;
-}
-
-/* =========================
-BACK BUTTON
-========================= */
-
-.back-home{
-position:fixed;
-top:85px;
-left:15px;
-
-color:hotpink;
-text-decoration:none;
-
-font-weight:bold;
-
-z-index:9999;
-}
-
-/* =========================
-CHATROOM
-========================= */
-
+/* CHAT */
 .chatroom-window{
 width:600px;
 max-width:95%;
 top:120px;
-left:50px;
+left:40px;
 }
 
 #chatBox{
-height:400px;
-
+height:350px;
 overflow-y:auto;
-
-background:#000;
-
 border:1px solid hotpink;
-
 padding:10px;
-
-margin-bottom:10px;
-
-font-family:monospace;
+background:black;
 }
 
 .chat-controls{
@@ -222,101 +106,47 @@ gap:10px;
 
 .chat-controls input{
 flex:1;
-padding:10px;
-
+padding:8px;
 background:#111;
 color:white;
-
 border:1px solid hotpink;
 }
 
 .chat-controls button{
-padding:10px 14px;
-
 background:hotpink;
-color:black;
-
 border:none;
-
+padding:8px;
 cursor:pointer;
-font-weight:bold;
 }
 
 .username-input{
 width:100%;
-padding:10px;
+padding:8px;
+margin-bottom:8px;
+}
 
-margin-bottom:10px;
-
-background:#111;
-color:white;
-
-border:1px solid hotpink;
+.chat-settings{
+display:flex;
+gap:10px;
+margin-bottom:8px;
 }
 
 .chat-message{
-margin-bottom:8px;
+margin:5px 0;
 }
 
 .chat-user{
 color:hotpink;
 font-weight:bold;
 }
-.chat-settings{
-display:flex;
-gap:10px;
 
-margin-bottom:10px;
-align-items:center;
-}
-
-.chat-settings input,
-.chat-settings select{
-padding:8px;
-
-background:#111;
-color:white;
-
-border:1px solid hotpink;
-
-border-radius:6px;
-}
-/* =========================
-MOBILE FIX
-========================= */
-
+/* MOBILE */
 @media(max-width:768px){
-
-body{
-overflow:auto;
-}
-
-.desktop{
-padding-top:120px;
-height:auto;
-}
-
 .window{
-position:relative !important;
-width:92% !important;
+position:relative;
+width:95%;
+margin:20px auto;
 left:auto !important;
 top:auto !important;
-margin:20px auto;
 }
-
-.topbar{
-flex-direction:column;
-gap:8px;
-}
-
-.nav-links{
-justify-content:center;
-}
-
-.back-home{
-position:static;
-display:block;
-margin:10px;
-}
-
 }
