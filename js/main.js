@@ -58,6 +58,7 @@ const db = firebase.database();
 const messages = db.ref("chat/messages");
 const users = db.ref("chat/users");
 
+/* ELEMENTS */
 const loginBox = document.getElementById("loginBox");
 const chatSystem = document.getElementById("chatSystem");
 
@@ -70,13 +71,14 @@ const chatSend = document.getElementById("chatSend");
 
 const userBar = document.getElementById("userBar");
 
+/* USER */
 let username = "";
 let color = "#ff69b4";
 
 /* JOIN */
 joinBtn.onclick = () => {
 
-  username = nameInput.value;
+  username = nameInput.value.trim();
   if (!username) return;
 
   loginBox.style.display = "none";
@@ -87,13 +89,14 @@ joinBtn.onclick = () => {
 };
 
 /* SEND */
-function send(){
+function send() {
 
-  if (!chatInput.value) return;
+  const msg = chatInput.value.trim();
+  if (!msg || !username) return;
 
   messages.push({
     user: username,
-    text: chatInput.value,
+    text: msg,
     color: color
   });
 
@@ -115,5 +118,7 @@ messages.on("child_added", snap => {
   p.innerHTML = `<span style="color:${d.color}">${d.user}</span>: ${d.text}`;
 
   chatBox.appendChild(p);
+
+  chatBox.scrollTop = chatBox.scrollHeight;
 
 });
