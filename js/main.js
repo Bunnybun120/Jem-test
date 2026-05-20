@@ -1,3 +1,4 @@
+console.log("MAIN JS LOADED");
 document.addEventListener("DOMContentLoaded", () => {
 
   /* DRAG SYSTEM */
