@@ -1,125 +1,150 @@
-console.log("MAIN JS LOADED");
-document.addEventListener("DOMContentLoaded", () => {
-
-  /* DRAG SYSTEM */
-  document.querySelectorAll(".draggable").forEach(win => {
-
-    const bar = win.querySelector(".titlebar");
-    if (!bar) return;
-
-    let dragging = false;
-    let ox = 0;
-    let oy = 0;
-
-    bar.addEventListener("mousedown", e => {
-
-      dragging = true;
-
-      ox = e.clientX - win.offsetLeft;
-      oy = e.clientY - win.offsetTop;
-
-      win.style.position = "absolute";
-      win.style.zIndex = 9999;
-
-    });
-
-    document.addEventListener("mousemove", e => {
-
-      if (!dragging) return;
-
-      win.style.left = (e.clientX - ox) + "px";
-      win.style.top = (e.clientY - oy) + "px";
-
-    });
-
-    document.addEventListener("mouseup", () => dragging = false);
-
-  });
-
-});
-
+console.log("🟢 OS SYSTEM LOADING...");
 
 /* =========================
-   FIREBASE CHAT (SAFE)
+   WAIT FOR PAGE SAFELY
 ========================= */
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAQkx8r6WwtLAjFfFSmlGEOTcCFvB7hWI",
-  authDomain: "chatroom-39c7a.firebaseapp.com",
-  databaseURL: "https://chatroom-39c7a-default-rtdb.firebaseio.com",
-  projectId: "chatroom-39c7a",
-  storageBucket: "chatroom-39c7a.firebasestorage.app",
-  messagingSenderId: "590743257861",
-  appId: "1:590743257861:web:e386928c084ba704ca2d6c"
-};
+window.addEventListener("DOMContentLoaded", () => {
 
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
+  console.log("🟢 DOM READY");
 
-const messages = db.ref("chat/messages");
-const users = db.ref("chat/users");
+  /* =========================
+     GET ELEMENTS (SAFE CHECK)
+  ========================= */
 
-/* ELEMENTS */
-const loginBox = document.getElementById("loginBox");
-const chatSystem = document.getElementById("chatSystem");
+  const loginBox = document.getElementById("loginBox");
+  const chatSystem = document.getElementById("chatSystem");
 
-const nameInput = document.getElementById("nameInput");
-const joinBtn = document.getElementById("joinBtn");
+  const nameInput = document.getElementById("nameInput");
+  const joinBtn = document.getElementById("joinBtn");
 
-const chatBox = document.getElementById("chatBox");
-const chatInput = document.getElementById("chatInput");
-const chatSend = document.getElementById("chatSend");
+  const chatBox = document.getElementById("chatBox");
+  const chatInput = document.getElementById("chatInput");
+  const chatSend = document.getElementById("chatSend");
 
-const userBar = document.getElementById("userBar");
+  /* =========================
+     DEBUG CHECKS (IMPORTANT)
+  ========================= */
 
-/* USER */
-let username = "";
-let color = "#ff69b4";
+  if (!joinBtn) {
+    console.error("❌ joinBtn not found — check HTML ID");
+    return;
+  }
 
-/* JOIN */
-joinBtn.onclick = () => {
+  if (!nameInput) {
+    console.error("❌ nameInput not found — check HTML ID");
+    return;
+  }
 
-  username = nameInput.value.trim();
-  if (!username) return;
+  console.log("🟢 Chat elements loaded");
 
-  loginBox.style.display = "none";
-  chatSystem.style.display = "block";
+  /* =========================
+     FIREBASE INIT
+  ========================= */
 
-  users.push({ name: username });
+  const firebaseConfig = {
+    apiKey: "AIzaSyAQkx8r6WwtLAjFfFSmlGEOTcCFvB7hWI",
+    authDomain: "chatroom-39c7a.firebaseapp.com",
+    databaseURL: "https://chatroom-39c7a-default-rtdb.firebaseio.com",
+    projectId: "chatroom-39c7a",
+    storageBucket: "chatroom-39c7a.firebasestorage.app",
+    messagingSenderId: "590743257861",
+    appId: "1:590743257861:web:e386928c084ba704ca2d6c"
+  };
 
-};
+  if (typeof firebase === "undefined") {
+    console.error("❌ Firebase not loaded");
+    return;
+  }
 
-/* SEND */
-function send() {
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
 
-  const msg = chatInput.value.trim();
-  if (!msg || !username) return;
+  const messages = db.ref("chat/messages");
+  const users = db.ref("chat/users");
 
-  messages.push({
-    user: username,
-    text: msg,
-    color: color
+  /* =========================
+     STATE
+  ========================= */
+
+  let username = "";
+  let color = "#ff69b4";
+
+  /* =========================
+     JOIN BUTTON (FIXED)
+  ========================= */
+
+  joinBtn.addEventListener("click", () => {
+
+    console.log("🟢 JOIN CLICKED");
+
+    username = nameInput.value.trim();
+
+    if (!username) {
+      alert("Enter a username");
+      return;
+    }
+
+    loginBox.style.display = "none";
+    chatSystem.style.display = "block";
+
+    users.push({
+      name: username,
+      time: Date.now()
+    });
+
+    console.log("🟢 USER JOINED:", username);
+
   });
 
-  chatInput.value = "";
-}
+  /* =========================
+     SEND MESSAGE
+  ========================= */
 
-chatSend.onclick = send;
+  function sendMessage() {
 
-chatInput.addEventListener("keydown", e => {
-  if (e.key === "Enter") send();
-});
+    const msg = chatInput?.value.trim();
 
-/* RECEIVE */
-messages.on("child_added", snap => {
+    if (!msg) return;
+    if (!username) return;
 
-  const d = snap.val();
+    messages.push({
+      user: username,
+      text: msg,
+      color: color,
+      time: Date.now()
+    });
 
-  const p = document.createElement("p");
-  p.innerHTML = `<span style="color:${d.color}">${d.user}</span>: ${d.text}`;
+    chatInput.value = "";
+  }
 
-  chatBox.appendChild(p);
+  chatSend?.addEventListener("click", sendMessage);
 
-  chatBox.scrollTop = chatBox.scrollHeight;
+  chatInput?.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  /* =========================
+     RECEIVE MESSAGES
+  ========================= */
+
+  messages.on("child_added", (snap) => {
+
+    const d = snap.val();
+
+    if (!chatBox) return;
+
+    const p = document.createElement("p");
+
+    p.innerHTML =
+      `<span style="color:${d.color}">${d.user}</span>: ${d.text}`;
+
+    chatBox.appendChild(p);
+
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+  });
+
+  console.log("🟢 CHAT SYSTEM READY");
 
 });
