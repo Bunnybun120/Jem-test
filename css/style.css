@@ -1,84 +1,54 @@
-/* =========================
-   BASE SYSTEM
-========================= */
-
 body{
   margin:0;
-  font-family: Arial, sans-serif;
-  background:black;
+  font-family: Arial;
+  background: radial-gradient(circle at top, #111, #000);
   color:white;
-  overflow-x:hidden;
 }
 
-*{
-  box-sizing:border-box;
+/* MAIN DESKTOP */
+.desktop{
+  padding:20px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
 }
 
-/* =========================
-   WINDOW SYSTEM (DRAGGABLE UI)
-========================= */
-
+/* WINDOWS */
 .window{
-  position:absolute;
-  background:rgba(10,10,10,0.85);
-  border:1px solid hotpink;
-  border-radius:8px;
   width:320px;
-  max-width:95vw;
+  background:rgba(20,20,20,0.9);
+  border:2px solid hotpink;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 0 20px rgba(255,105,180,0.2);
+  position:relative;
 }
 
+/* TITLE BAR */
 .titlebar{
   background:hotpink;
   color:black;
-  padding:6px;
-  cursor:grab;
+  padding:8px;
   font-weight:bold;
-  user-select:none;
+  cursor:grab;
 }
 
+/* CONTENT */
 .window-content{
   padding:10px;
 }
 
-/* =========================
-   DROPDOWNS (FIXED)
-========================= */
-
-.category-header{
-  padding:8px;
-  border:1px solid hotpink;
-  margin-top:6px;
-  cursor:pointer;
-  background:rgba(255,105,180,0.2);
-}
-
-.category-header:hover{
-  background:rgba(255,105,180,0.4);
-}
-
-.category-content{
-  display:none;
-  padding:8px;
-  border-left:1px solid hotpink;
-  margin-bottom:8px;
-}
-
-/* =========================
-   CHAT SYSTEM (MULTIPLAYER UI)
-========================= */
-
+/* CHAT */
 .chat-window{
-  width:360px;
-  max-width:95vw;
+  width:340px;
 }
 
 .chat-box{
   height:180px;
   overflow-y:auto;
+  background:black;
   border:1px solid hotpink;
   padding:8px;
-  background:rgba(0,0,0,0.5);
-  font-size:14px;
 }
 
 .chat-controls{
@@ -91,100 +61,33 @@ body{
   flex:1;
   padding:6px;
   background:black;
-  border:1px solid hotpink;
   color:white;
-  outline:none;
+  border:1px solid hotpink;
 }
 
 .chat-controls button{
   background:hotpink;
   border:none;
-  padding:6px 10px;
-  cursor:pointer;
-  font-weight:bold;
 }
 
-#userBar{
-  font-size:12px;
-  opacity:0.8;
-  margin-bottom:5px;
-}
-
-#typing{
-  font-size:11px;
-  opacity:0.6;
-  height:14px;
-}
-
-/* =========================
-   MOBILE FIX
-========================= */
-
-@media (max-width:768px){
-
-  .window{
-    position:relative !important;
-    left:auto !important;
-    top:auto !important;
-    margin:10px auto;
-  }
-
-  .chat-box{
-    height:140px;
-  }
-}
-
-/* =========================
-   SPARKLES EFFECT
-========================= */
-
-.sparkle{
-  position:absolute;
-  width:6px;
-  height:6px;
-  background:hotpink;
-  border-radius:50%;
-  pointer-events:none;
-  animation:fade 0.4s linear;
-}
-
-@keyframes fade{
-  from{opacity:1; transform:scale(1);}
-  to{opacity:0; transform:scale(0.5);}
-}
-
-/* =========================
-   NAV / BACK BUTTON FIX
-========================= */
-
+/* TOP BAR */
 .topbar{
   width:100%;
-  padding:10px;
-  background:black;
-  border-bottom:1px solid hotpink;
-  position:relative;
-  z-index:999;
+  margin-bottom:10px;
 }
 
 .back-home{
-  display:inline-block;
-  margin:10px;
   color:hotpink;
   text-decoration:none;
 }
 
-/* =========================
-   TEXT POLISH
-========================= */
+/* MOBILE */
+@media(max-width:768px){
+  .desktop{
+    flex-direction:column;
+  }
 
-h1,h2,h3{
-  color:hotpink;
-}
-
-a{
-  color:#00ffff;
-}
-
-button{
-  cursor:pointer;
+  .window{
+    width:100%;
+  }
 }
