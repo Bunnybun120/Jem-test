@@ -133,3 +133,57 @@ body{
 overflow:auto;
 }
 }
+.chat-layout{
+display:flex;
+gap:10px;
+}
+
+.user-panel{
+width:140px;
+background:#0a0a0a;
+border:1px solid hotpink;
+padding:6px;
+font-size:12px;
+}
+
+.panel-title{
+color:hotpink;
+font-weight:bold;
+margin-bottom:6px;
+}
+
+.user{
+padding:4px;
+border-bottom:1px solid #222;
+}
+
+.chat-main{
+flex:1;
+}
+
+#chatBox{
+height:320px;
+overflow-y:auto;
+background:#000;
+border:1px solid hotpink;
+padding:8px;
+}
+
+.chat-message{
+margin:6px 0;
+padding:6px;
+border-radius:6px;
+background:rgba(255,255,255,0.05);
+border-left:2px solid hotpink;
+}
+
+.chat-user{
+font-weight:bold;
+}
+
+.typing{
+font-size:11px;
+color:#aaa;
+height:16px;
+margin-top:4px;
+}
