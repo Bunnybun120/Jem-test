@@ -205,13 +205,48 @@ animation:bounce 1s infinite;
 
 /* CHAT */
 
+.chat-window{
+  width:360px;
+}
+
 .chat-box{
-height:120px;
-overflow:auto;
+  height:180px;
+  overflow-y:auto;
+  border:1px solid hotpink;
+  padding:8px;
+  background:rgba(0,0,0,0.4);
+}
 
-border:1px solid hotpink;
+.chat-controls{
+  display:flex;
+  gap:6px;
+  margin-top:8px;
+}
 
-padding:8px;
+.chat-controls input{
+  flex:1;
+  padding:6px;
+  background:black;
+  border:1px solid hotpink;
+  color:white;
+}
+
+.chat-controls button{
+  background:hotpink;
+  border:none;
+  cursor:pointer;
+}
+
+#userBar{
+  font-size:12px;
+  opacity:0.8;
+  margin-bottom:6px;
+}
+
+#typing{
+  font-size:11px;
+  opacity:0.6;
+  height:16px;
 }
 
 /* BOOT */
