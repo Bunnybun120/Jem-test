@@ -262,7 +262,25 @@ margin-bottom:8px;
 color:hotpink;
 font-weight:bold;
 }
+.chat-settings{
+display:flex;
+gap:10px;
 
+margin-bottom:10px;
+align-items:center;
+}
+
+.chat-settings input,
+.chat-settings select{
+padding:8px;
+
+background:#111;
+color:white;
+
+border:1px solid hotpink;
+
+border-radius:6px;
+}
 /* =========================
 MOBILE FIX
 ========================= */
