@@ -1,66 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>JEM.EXE</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/main.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JEM.EXE</title>
+
+<link rel="stylesheet" href="css/style.css">
+<script defer src="js/main.js"></script>
 </head>
 
 <body>
 
-<div class="scanlines"></div>
-<div class="vhs"></div>
+<div id="bootScreen">
+  <div class="boot-text">
+    booting JEM.EXE profile system...
+  </div>
+</div>
+
+<div class="stars"></div>
+
+<div class="floating-stickers">
+  <div class="sticker">⭐</div>
+  <div class="sticker">🩷</div>
+  <div class="sticker">🎧</div>
+  <div class="sticker">🌈</div>
+</div>
 
 <nav class="topbar">
 
-  <div class="logo">✦ JEM.EXE ✦</div>
+<div class="logo">
+✦ JEM.EXE ✦
+</div>
 
-  <ul class="nav-links">
-    <li><a href="index.html">HOME</a></li>
-    <li><a href="about.html">ABOUT</a></li>
-    <li><a href="friends.html">FRIENDS</a></li>
-    <li><a href="moodboard.html">MOODBOARD</a></li>
-    <li><a href="gallery.html">GALLERY</a></li>
-    <li><a href="blog.html">BLOG</a></li>
-    <li><a href="guestboard.html">GUESTBOOK</a></li>
-  </ul>
+<div class="nav-links">
+<a href="about.html">ABOUT</a>
+<a href="friends.html">FRIENDS</a>
+<a href="music.html">MUSIC</a>
+<a href="games.html">GAMES</a>
+<a href="shows.html">SHOWS</a>
+<a href="fandoms.html">FANDOMS</a>
+<a href="moodboard.html">MOODBOARD</a>
+<a href="blog.html">BLOG</a>
+<a href="guestbook.html">GUESTBOOK</a>
+</div>
 
 </nav>
+
+<div class="desktop-icons">
+
+<a href="about.html" class="desktop-icon">
+<span>💖</span>
+<p>ABOUT</p>
+</a>
+
+<a href="music.html" class="desktop-icon">
+<span>🎧</span>
+<p>MUSIC</p>
+</a>
+
+<a href="games.html" class="desktop-icon">
+<span>🎮</span>
+<p>GAMES</p>
+</a>
+
+<a href="shows.html" class="desktop-icon">
+<span>📺</span>
+<p>SHOWS</p>
+</a>
+
+<a href="fandoms.html" class="desktop-icon">
+<span>🌌</span>
+<p>FANDOMS</p>
+</a>
+
+</div>
+
 <section class="desktop">
 
-  <div class="window" style="top:120px;left:80px;">
-    <div class="titlebar">PROFILE</div>
-    <div class="window-content">
-      <h1 class="rainbow-text">YOUR NAME</h1>
-      <p>Welcome to my Jem desktop ✦</p>
-    </div>
-  </div>
+<div class="window draggable" style="top:120px;left:40px;">
 
-  <div class="window" style="top:120px;left:460px;">
-    <div class="titlebar">MUSIC</div>
-    <div class="window-content">
-      <p>Now playing...</p>
-    </div>
-  </div>
+<div class="titlebar">
+PROFILE.EXE
+</div>
 
-  <div class="window" style="top:420px;left:80px;">
-    <div class="titlebar">CHAT</div>
-    <div class="window-content">
-      <div class="chat-messages">
-        <p>User1: hi</p>
-        <p>User2: hello</p>
-      </div>
-    </div>
-  </div>
+<div class="window-content">
 
-  <div class="desktop-icon" style="top:320px;left:900px;">
-    <a href="about.html">ABOUT</a>
-  </div>
+<h2>WELCOME TO JEM.EXE ✦</h2>
 
-  <div class="desktop-icon" style="top:420px;left:900px;">
-    <a href="friends.html">FRIENDS</a>
-  </div>
+<p>
+interactive internet profile operating system
+</p>
+
+<a href="about.html">
+Open Profile
+</a>
+
+</div>
+
+</div>
+
+<div class="window draggable" style="top:120px;left:420px;">
+
+<div class="titlebar">
+MUSIC_PLAYER.EXE
+</div>
+
+<div class="window-content">
+
+<div class="cd"></div>
+
+<div class="visualizer">
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+</div>
+
+<p>
+Now Playing :: chaos.mp3
+</p>
+
+</div>
+
+</div>
+
+<div class="window draggable" style="top:400px;left:40px;">
+
+<div class="titlebar">
+CHATROOM.LOG
+</div>
+
+<div class="window-content">
+
+<div class="chat-box">
+
+<p>[SYSTEM] profile synced ✦</p>
+<p>[FRIEND] hiiiii ✦</p>
+<p>[SYSTEM] music playing ✦</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="window draggable" style="top:400px;left:420px;">
+
+<div class="titlebar">
+QUICK_ACCESS
+</div>
+
+<div class="window-content">
+
+<ul>
+<li><a href="games.html">Games</a></li>
+<li><a href="music.html">Music</a></li>
+<li><a href="shows.html">Shows</a></li>
+<li><a href="fandoms.html">Fandoms</a></li>
+<li><a href="moodboard.html">Moodboard</a></li>
+</ul>
+
+</div>
+
+</div>
 
 </section>
 
