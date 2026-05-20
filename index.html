@@ -135,14 +135,34 @@ CHATROOM.LOG
 
 <div class="window-content">
 
-<div class="chat-box">
+<div class="window draggable chat-window">
 
-<p>[SYSTEM] profile synced ✦</p>
-<p>[FRIEND] hiiiii ✦</p>
-<p>[SYSTEM] music playing ✦</p>
+  <div class="titlebar">JEM.OS CHAT SYSTEM</div>
 
+  <div class="window-content">
+
+    <!-- LOGIN -->
+    <div id="loginBox">
+      <input id="nameInput" placeholder="enter username..." />
+      <button id="joinBtn">join</button>
+    </div>
+
+    <!-- CHAT -->
+    <div id="chatSystem" style="display:none;">
+
+      <div id="userBar"></div>
+      <div id="chatBox" class="chat-box"></div>
+      <div id="typing"></div>
+
+      <div class="chat-controls">
+        <input id="chatInput" placeholder="type message..." />
+        <button id="chatSend">send</button>
+      </div>
+
+    </div>
+
+  </div>
 </div>
-
 </div>
 
 </div>
