@@ -35,25 +35,20 @@ document.addEventListener("mouseup", () => dragging = false);
 CHAT SYSTEM (ONLY RUN IF EXISTS)
 ========================= */
 
-const chatBox = document.getElementById("chatBox");
+document.addEventListener("DOMContentLoaded", () => {
 
-/* STOP ENTIRE CHAT CODE IF NOT CHAT PAGE */
-if(!chatBox) return;
+const chatBox = document.getElementById("chatBox");
+if(!chatBox) return; // prevents breaking other pages
 
 const chatInput = document.getElementById("chatInput");
 const chatSend = document.getElementById("chatSend");
 const usernameInput = document.getElementById("usernameInput");
 const colorInput = document.getElementById("colorInput");
 
-/* EXTRA SAFETY */
 if(!chatInput || !chatSend || !usernameInput){
 console.warn("Chat missing elements");
 return;
 }
-
-/* =========================
-FIREBASE SAFE INIT (NO DOUBLE LOAD)
-========================= */
 
 const firebaseConfig = {
 apiKey: "AIzaSyAQkx8r6WwtLAjFfFSmlGEOTcCFvWb7hWI",
@@ -65,16 +60,12 @@ messagingSenderId: "590743257861",
 appId: "1:590743257861:web:e386928c084ba704ca2d6c"
 };
 
-if(!window.__FIREBASE_INIT__){
+if(!window.__fb){
 firebase.initializeApp(firebaseConfig);
-window.__FIREBASE_INIT__ = true;
+window.__fb = true;
 }
 
 const db = firebase.database();
-
-/* =========================
-SEND MESSAGE (FIXED)
-========================= */
 
 function sendMessage(){
 
@@ -91,19 +82,15 @@ time: Date.now()
 chatInput.value = "";
 }
 
-chatSend.addEventListener("click", sendMessage);
+chatSend.onclick = sendMessage;
 
-chatInput.addEventListener("keydown", e => {
+chatInput.addEventListener("keydown", e=>{
 if(e.key === "Enter") sendMessage();
 });
 
-/* =========================
-RECEIVE MESSAGES
-========================= */
-
 db.ref("messages")
 .limitToLast(100)
-.on("child_added", snap => {
+.on("child_added", snap=>{
 
 const d = snap.val();
 if(!d) return;
@@ -112,7 +99,7 @@ const msg = document.createElement("div");
 msg.className = "chat-message";
 
 msg.innerHTML = `
-<span class="chat-user" style="color:${d.color}">
+<span style="color:${d.color}">
 ${d.username}
 </span>: ${d.text}
 `;
