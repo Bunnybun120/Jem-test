@@ -54,3 +54,19 @@ a{
     width:95%;
   }
 }
+.chat-box{
+  height:180px;
+  overflow-y:auto;
+  border:1px solid hotpink;
+  padding:8px;
+  background:black;
+}
+
+.chat-controls{
+  display:flex;
+  gap:6px;
+}
+
+.chat-controls input{
+  flex:1;
+}
