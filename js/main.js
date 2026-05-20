@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =========================
-     DRAG SYSTEM (PC ONLY SAFE)
+     DRAGGABLE WINDOWS
   ========================= */
 
   document.querySelectorAll(".draggable").forEach(win => {
@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     bar.addEventListener("mousedown", e => {
 
-      // disable on mobile touch devices
       if (window.innerWidth < 768) return;
 
       dragging = true;
@@ -43,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* =========================
-     DROPDOWNS (FIXED RELIABILITY)
+     DROPDOWNS
   ========================= */
 
   document.querySelectorAll(".category-header").forEach(header => {
@@ -52,261 +51,190 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const content = header.nextElementSibling;
 
-      if (!content || !content.classList.contains("category-content")) return;
+      if (!content) return;
 
-      const isOpen = content.style.display === "block";
-
-      content.style.display = isOpen ? "none" : "block";
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
 
     });
 
   });
 
   /* =========================
-     STATUS TOGGLE (ABOUT PAGE)
-  ========================= */
-
-  const status = document.getElementById("statusPanel");
-
-  if (status) {
-
-    let state = 0;
-
-    status.addEventListener("click", () => {
-
-      state++;
-
-      const states = [
-        "STATUS :: ONLINE ✦",
-        "STATUS :: IDLE",
-        "STATUS :: FOCUSED",
-        "STATUS :: OVERLOADED"
-      ];
-
-      status.innerText = states[state % states.length];
-
-    });
-
-  }
-
-  /* =========================
-     TYPEWRITER EFFECT
-  ========================= */
-
-  const typeLine = document.getElementById("typeLine");
-
-  if (typeLine) {
-
-    const text = "booting profile system...";
-
-    let i = 0;
-
-    const type = () => {
-
-      if (i < text.length) {
-        typeLine.innerHTML += text[i];
-        i++;
-        setTimeout(type, 35);
-      }
-
-    };
-
-    type();
-
-  }
-
-  /* =========================
-     LOGO ROTATOR
-  ========================= */
-
-  const logo = document.querySelector(".logo");
-
-  if (logo) {
-
-    const messages = [
-      "JEM.EXE",
-      "currently yapping...",
-      "emotionally online...",
-      "hyperfixating...",
-      "music brain activated"
-    ];
-
-    setInterval(() => {
-
-      logo.innerText =
-        "✦ " +
-        messages[Math.floor(Math.random() * messages.length)] +
-        " ✦";
-
-    }, 5000);
-
-  }
-
-  /* =========================
-     SPARKLE TRAIL (SAFE CLEANUP)
+     OPTIONAL SPARKLES
   ========================= */
 
   document.addEventListener("mousemove", e => {
 
-    const sparkle = document.createElement("div");
+    const s = document.createElement("div");
+    s.className = "sparkle";
 
-    sparkle.className = "sparkle";
+    s.style.left = e.pageX + "px";
+    s.style.top = e.pageY + "px";
 
-    sparkle.style.left = e.pageX + "px";
-    sparkle.style.top = e.pageY + "px";
+    document.body.appendChild(s);
 
-    document.body.appendChild(sparkle);
+    setTimeout(() => s.remove(), 400);
 
-    setTimeout(() => sparkle.remove(), 500);
-
-  });
-
-});<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
-
-<script defer src="js/main.js"></script>
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAQkx8r6WwtLAjFfFSmlGEOTcCFvWb7hWI",
-  authDomain: "chatroom-39c7a.firebaseapp.com",
-  databaseURL: "https://chatroom-39c7a-default-rtdb.firebaseio.com",
-  projectId: "chatroom-39c7a",
-  storageBucket: "chatroom-39c7a.firebasestorage.app",
-  messagingSenderId: "590743257861",
-  appId: "1:590743257861:web:e386928c084ba704ca2d6c"
-};
-
-/* INIT */
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-
-/* PATHS */
-const messagesRef = db.ref("chat/messages");
-const usersRef = db.ref("chat/users");
-const typingRef = db.ref("chat/typing");
-
-/* ELEMENTS */
-const loginBox = document.getElementById("loginBox");
-const chatSystem = document.getElementById("chatSystem");
-
-const nameInput = document.getElementById("nameInput");
-const joinBtn = document.getElementById("joinBtn");
-
-const chatBox = document.getElementById("chatBox");
-const chatInput = document.getElementById("chatInput");
-const chatSend = document.getElementById("chatSend");
-
-const typing = document.getElementById("typing");
-const userBar = document.getElementById("userBar");
-
-/* USER DATA */
-let username = "";
-let userColor = "";
-
-/* COLORS */
-function getColor() {
-  const colors = [
-    "#ff69b4",
-    "#00ffff",
-    "#8a2be2",
-    "#7fff00",
-    "#ffcc00"
-  ];
-
-  return colors[Math.floor(Math.random() * colors.length)];
-}
-
-/* JOIN SYSTEM */
-joinBtn?.addEventListener("click", () => {
-
-  username = nameInput.value.trim();
-  if (!username) return;
-
-  userColor = getColor();
-
-  loginBox.style.display = "none";
-  chatSystem.style.display = "block";
-
-  usersRef.push({
-    name: username,
-    time: Date.now()
   });
 
 });
 
-/* SEND MESSAGE */
-function sendMessage() {
 
-  const msg = chatInput.value.trim();
-  if (!msg || !username) return;
+/* =======================================================
+   💬 BULLETPROOF FIREBASE CHAT SYSTEM (PUT AT BOTTOM)
+======================================================= */
 
-  messagesRef.push({
-    user: username,
-    text: msg,
-    color: userColor,
-    time: Date.now()
+(function () {
+
+  const el = (id) => document.getElementById(id);
+
+  const loginBox = el("loginBox");
+  const chatSystem = el("chatSystem");
+
+  const nameInput = el("nameInput");
+  const joinBtn = el("joinBtn");
+
+  const chatBox = el("chatBox");
+  const chatInput = el("chatInput");
+  const chatSend = el("chatSend");
+
+  const typing = el("typing");
+  const userBar = el("userBar");
+  const status = el("chatStatus");
+
+  function safe(msg) {
+    if (status) status.innerText = msg;
+  }
+
+  if (!loginBox || !chatSystem || !chatBox) {
+    safe("CHAT ERROR: missing elements");
+    return;
+  }
+
+  if (typeof firebase === "undefined") {
+    safe("OFFLINE MODE (Firebase not loaded)");
+    loginBox.style.display = "none";
+    chatSystem.style.display = "block";
+    chatBox.innerHTML = "<p>offline mode</p>";
+    return;
+  }
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAQkx8r6WwtLAjFfFSmlGEOTcCFvB7hWI",
+    authDomain: "chatroom-39c7a.firebaseapp.com",
+    databaseURL: "https://chatroom-39c7a-default-rtdb.firebaseio.com",
+    projectId: "chatroom-39c7a",
+    storageBucket: "chatroom-39c7a.firebasestorage.app",
+    messagingSenderId: "590743257861",
+    appId: "1:590743257861:web:e386928c084ba704ca2d6c"
+  };
+
+  try {
+    firebase.initializeApp(firebaseConfig);
+  } catch (e) {}
+
+  const db = firebase.database();
+
+  const messagesRef = db.ref("chat/messages");
+  const usersRef = db.ref("chat/users");
+  const typingRef = db.ref("chat/typing");
+
+  let username = "";
+  let color = pickColor();
+
+  function pickColor() {
+    const c = ["#ff69b4","#00ffff","#8a2be2","#7fff00","#ffcc00"];
+    return c[Math.floor(Math.random() * c.length)];
+  }
+
+  joinBtn?.addEventListener("click", () => {
+
+    username = nameInput?.value?.trim();
+
+    if (!username) return;
+
+    loginBox.style.display = "none";
+    chatSystem.style.display = "block";
+
+    usersRef.push({
+      name: username,
+      time: Date.now()
+    });
+
   });
 
-  chatInput.value = "";
-}
+  function send() {
 
-chatSend?.addEventListener("click", sendMessage);
+    const msg = chatInput?.value?.trim();
+    if (!msg || !username) return;
 
-chatInput?.addEventListener("keydown", e => {
-  if (e.key === "Enter") sendMessage();
-});
+    messagesRef.push({
+      user: username,
+      text: msg,
+      color: color,
+      time: Date.now()
+    });
 
-/* RECEIVE MESSAGES */
-messagesRef.on("child_added", snap => {
+    chatInput.value = "";
+  }
 
-  const data = snap.val();
+  chatSend?.addEventListener("click", send);
 
-  const p = document.createElement("p");
+  chatInput?.addEventListener("keydown", e => {
+    if (e.key === "Enter") send();
+  });
 
-  p.innerHTML =
-    `<span style="color:${data.color}">
-      ${data.user}
-    </span>: ${data.text}`;
+  messagesRef?.on?.("child_added", snap => {
 
-  chatBox.appendChild(p);
-  chatBox.scrollTop = chatBox.scrollHeight;
+    const d = snap.val();
 
-});
+    const p = document.createElement("p");
 
-/* TYPING INDICATOR */
-let typingTimeout;
+    p.innerHTML =
+      `<span style="color:${d.color}">
+        ${d.user}
+      </span>: ${d.text}`;
 
-chatInput?.addEventListener("input", () => {
+    chatBox.appendChild(p);
 
-  typingRef.set(username);
+    chatBox.scrollTop = chatBox.scrollHeight;
 
-  clearTimeout(typingTimeout);
+  });
 
-  typingTimeout = setTimeout(() => {
-    typingRef.remove();
-  }, 800);
+  usersRef?.on?.("value", snap => {
 
-});
+    const users = snap.val() || {};
 
-typingRef.on("value", snap => {
+    userBar.innerText =
+      "online: " +
+      Object.values(users).map(u => u.name).join(", ");
 
-  const val = snap.val();
+  });
 
-  typing.innerText = val
-    ? `${val} is typing...`
-    : "";
+  let typingTimeout;
 
-});
+  chatInput?.addEventListener("input", () => {
 
-/* ONLINE USERS */
-usersRef.on("value", snap => {
+    typingRef.set(username);
 
-  const users = snap.val() || {};
+    clearTimeout(typingTimeout);
 
-  userBar.innerText =
-    "online: " +
-    Object.values(users)
-      .map(u => u.name)
-      .join(", ");
+    typingTimeout = setTimeout(() => {
+      typingRef.remove();
+    }, 800);
 
-});
+  });
+
+  typingRef?.on?.("value", snap => {
+
+    const v = snap.val();
+
+    typing.innerText = v ? `${v} is typing...` : "";
+
+  });
+
+})();
