@@ -1,35 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CHATROOM.EXE</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<script defer src="js/main.js"></script>
+
+</head>
+
+<body>
+
+<!-- =========================
+TOPBAR
+========================= -->
+
+<nav class="topbar">
+
+<div class="logo">
+✦ JEM.EXE ✦
+</div>
+
+<div class="nav-links">
+
+<div class="dropdown">
+<button class="dropbtn">PROFILE</button>
+
+<div class="dropdown-content">
+<a href="about.html">ABOUT</a>
+<a href="friends.html">FRIENDS</a>
+<a href="guestbook.html">GUESTBOOK</a>
+</div>
+</div>
+
+<div class="dropdown">
+<button class="dropbtn">MEDIA</button>
+
+<div class="dropdown-content">
+<a href="music.html">MUSIC</a>
+<a href="games.html">GAMES</a>
+<a href="shows.html">SHOWS</a>
+<a href="fandoms.html">FANDOMS</a>
+</div>
+</div>
+
+<div class="dropdown">
+<button class="dropbtn">EXTRAS</button>
+
+<div class="dropdown-content">
+<a href="moodboard.html">MOODBOARD</a>
+<a href="blog.html">BLOG</a>
+<a href="chatroom.html">CHATROOM</a>
+</div>
+</div>
+
+<a href="index.html">HOME</a>
+
+</div>
+
+</nav>
+
+<!-- =========================
+DESKTOP
+========================= -->
+
+<div class="desktop">
+
+<div class="window draggable chatroom-window"
+style="top:100px; left:60px; width:800px;">
+
+<div class="titlebar">
+CHATROOM.EXE v3
+</div>
+
+<div class="window-content">
+
 <div class="chat-header">
-✦ JEM.EXE CHAT v3 (DISCORD CORE) ✦
+✦ GLOBAL MULTIPLAYER CHAT ✦
 </div>
 
-<input id="usernameInput" class="username-input" placeholder="username...">
+<br>
 
-<div class="chat-settings">
-<input id="colorInput" type="color" value="#ff69b4">
-</div>
+<!-- USER SETTINGS -->
 
-<div class="chat-status" id="chatStatus">● connecting...</div>
+<input
+id="usernameInput"
+class="username-input"
+placeholder="username..."
+style="
+width:100%;
+margin-bottom:8px;
+padding:8px;
+background:#111;
+color:white;
+border:1px solid #ff4fd8;
+">
 
-<div class="chat-layout">
+<div style="margin-bottom:10px;">
 
-<!-- USERS -->
-<div class="user-panel">
-<div class="panel-title">ONLINE</div>
-<div id="userList"></div>
+<label>
+TEXT COLOR →
+</label>
+
+<input
+id="colorInput"
+type="color"
+value="#ff4fd8">
+
 </div>
 
 <!-- CHAT -->
-<div class="chat-main">
 
 <div id="chatBox"></div>
 
-<div class="typing" id="typingIndicator"></div>
-
 <div class="chat-controls">
-<input id="chatInput" placeholder="message...">
-<button id="chatSend">SEND</button>
+
+<input
+id="chatInput"
+placeholder="type message...">
+
+<button id="chatSend">
+SEND
+</button>
+
+</div>
+
 </div>
 
 </div>
 
 </div>
+
+<!-- =========================
+TASKBAR
+========================= -->
+
+<div class="taskbar">
+
+<div class="task-title">
+CHATROOM ONLINE
+</div>
+
+</div>
+
+</body>
+</html>
