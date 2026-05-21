@@ -11,6 +11,7 @@ box-sizing:border-box;
 html,
 body{
 
+  
 width:100%;
 min-height:100%;
 
@@ -32,6 +33,7 @@ color:white;
 
 position:relative;
 
+  isolation:isolate;
 }
 
 /* =========================================
@@ -67,7 +69,7 @@ rgba(0,0,0,0)
 
 pointer-events:none;
 
-z-index:-10;
+z-index:0;
 
 }
 
@@ -139,7 +141,7 @@ opacity:0.45;
 
 pointer-events:none;
 
-z-index:-4;
+z-index:0;
 
 }
 
@@ -168,7 +170,7 @@ starScroll 180s linear infinite;
 
 pointer-events:none;
 
-z-index:-8;
+z-index:0;
 
 }
 
@@ -207,7 +209,7 @@ box-shadow:
 
 pointer-events:none;
 
-z-index:-6;
+z-index:0;
 
 }
 
@@ -288,7 +290,7 @@ pointer-events:none;
 
 overflow:hidden;
 
-z-index:-5;
+z-index:0;
 
 }
 
@@ -1056,5 +1058,62 @@ width:90vw;
 right:5vw;
 
 }
+
+}
+/* =========================================
+BACKGROUND LAYERS FIX
+========================================= */
+
+.vhs,
+.particles,
+.stars,
+.retro-sun,
+.grid-floor{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+}
+
+/* STARS */
+
+.stars{
+
+z-index:0;
+
+}
+
+/* SUN */
+
+.retro-sun{
+
+z-index:1;
+
+}
+
+/* GRID */
+
+.grid-floor{
+
+z-index:2;
+
+}
+
+/* PARTICLES */
+
+.particles{
+
+z-index:3;
+
+}
+
+/* VHS */
+
+.vhs{
+
+z-index:99999;
 
 }
