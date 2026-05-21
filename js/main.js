@@ -74,29 +74,73 @@ const messageData = {
 username:
 usernameInput.value || "anon",
 
-pfp:
-pfpInput.value ||
-"https://i.imgur.com/8Km9tLL.png",
+const timestamp =
+new Date(data.time || Date.now());
 
-bio:
-bioInput.value || "",
+const timeString =
+timestamp.toLocaleTimeString([],{
+hour:'2-digit',
+minute:'2-digit'
+});
 
-color:
-colorInput.value || "#ff4fd8",
+div.innerHTML = `
 
-text:text,
+<img
+class="chat-pfp"
+src="${data.pfp}"
+onerror="this.src='https://i.imgur.com/8Km9tLL.png'">
 
-time:Date.now()
+<div class="chat-bubble">
 
-};
+<div
+style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:4px;
+">
 
-db.ref("messages")
-.push(messageData)
-.then(()=>{
+<div
+style="
+color:${data.color};
+font-weight:bold;
+font-size:16px;
+">
 
-chatInput.value="";
+${data.username}
 
-})
+</div>
+
+<div
+style="
+font-size:11px;
+opacity:0.6;
+">
+
+${timeString}
+
+</div>
+
+</div>
+
+<div
+style="
+font-size:12px;
+opacity:0.7;
+margin-bottom:6px;
+">
+
+${data.bio || ""}
+
+</div>
+
+<div>
+${data.text}
+</div>
+
+</div>
+
+`;
 .catch(err=>{
 
 console.error(err);
