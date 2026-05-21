@@ -43,6 +43,72 @@ const closeArchives =
 document.getElementById("closeArchives");
 
 /* =========================
+LOAD SAVED PROFILE
+========================= */
+
+usernameInput.value =
+localStorage.getItem("chat_username") || "";
+
+pfpInput.value =
+localStorage.getItem("chat_pfp") || "";
+
+bioInput.value =
+localStorage.getItem("chat_bio") || "";
+
+colorInput.value =
+localStorage.getItem("chat_color") || "#ff4fd8";
+
+/* =========================
+SAVE PROFILE
+========================= */
+
+function saveProfile(){
+
+localStorage.setItem(
+"chat_username",
+usernameInput.value
+);
+
+localStorage.setItem(
+"chat_pfp",
+pfpInput.value
+);
+
+localStorage.setItem(
+"chat_bio",
+bioInput.value
+);
+
+localStorage.setItem(
+"chat_color",
+colorInput.value
+);
+
+}
+
+/* AUTO SAVE */
+
+usernameInput.addEventListener(
+"input",
+saveProfile
+);
+
+pfpInput.addEventListener(
+"input",
+saveProfile
+);
+
+bioInput.addEventListener(
+"input",
+saveProfile
+);
+
+colorInput.addEventListener(
+"input",
+saveProfile
+);
+
+/* =========================
 FIREBASE
 ========================= */
 
@@ -70,8 +136,6 @@ appId:
 "1:590743257861:web:e386928c084ba704ca2d6c"
 
 };
-
-/* INIT */
 
 if(!firebase.apps.length){
 firebase.initializeApp(firebaseConfig);
@@ -130,18 +194,12 @@ alert("Message failed to send.");
 
 /* SEND BUTTON */
 
-if(chatSend){
-
 chatSend.addEventListener(
 "click",
 sendMessage
 );
 
-}
-
 /* ENTER TO SEND */
-
-if(chatInput){
 
 chatInput.addEventListener(
 "keydown",
@@ -152,8 +210,6 @@ sendMessage();
 }
 
 });
-
-}
 
 /* =========================
 RENDER MESSAGE
@@ -261,8 +317,6 @@ renderMessage(data);
 ARCHIVE CHAT
 ========================= */
 
-if(archiveChat){
-
 archiveChat.addEventListener("click",()=>{
 
 db.ref("messages")
@@ -298,13 +352,9 @@ alert("Chat archived.");
 
 });
 
-}
-
 /* =========================
 VIEW ARCHIVES
 ========================= */
-
-if(viewArchives){
 
 viewArchives.addEventListener("click",()=>{
 
@@ -367,13 +417,9 @@ archiveList.appendChild(div);
 
 });
 
-}
-
 /* =========================
 CLOSE ARCHIVES
 ========================= */
-
-if(closeArchives){
 
 closeArchives.addEventListener("click",()=>{
 
@@ -382,71 +428,4 @@ archiveModal.style.display =
 
 });
 
-}
-
 });
-/* =========================
-LOAD SAVED PROFILE
-========================= */
-
-usernameInput.value =
-localStorage.getItem("chat_username") || "";
-
-pfpInput.value =
-localStorage.getItem("chat_pfp") || "";
-
-bioInput.value =
-localStorage.getItem("chat_bio") || "";
-
-colorInput.value =
-localStorage.getItem("chat_color") || "#ff4fd8";
-
-/* =========================
-SAVE PROFILE
-========================= */
-
-function saveProfile(){
-
-localStorage.setItem(
-"chat_username",
-usernameInput.value
-);
-
-localStorage.setItem(
-"chat_pfp",
-pfpInput.value
-);
-
-localStorage.setItem(
-"chat_bio",
-bioInput.value
-);
-
-localStorage.setItem(
-"chat_color",
-colorInput.value
-);
-
-}
-
-/* AUTO SAVE */
-
-usernameInput.addEventListener(
-"input",
-saveProfile
-);
-
-pfpInput.addEventListener(
-"input",
-saveProfile
-);
-
-bioInput.addEventListener(
-"input",
-saveProfile
-);
-
-colorInput.addEventListener(
-"input",
-saveProfile
-);
