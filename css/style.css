@@ -1117,3 +1117,96 @@ z-index:3;
 z-index:99999;
 
 }
+/* =========================================
+MUSIC PLAYER
+========================================= */
+
+#musicPlayer{
+
+position:fixed;
+
+bottom:20px;
+right:20px;
+
+width:340px;
+
+padding:18px;
+
+background:
+rgba(10,0,20,0.9);
+
+border:
+2px solid #ff4fd8;
+
+backdrop-filter:blur(10px);
+
+box-shadow:
+0 0 30px rgba(255,0,255,0.35);
+
+z-index:999999;
+
+}
+
+#musicPlayer h3{
+
+margin-bottom:14px;
+
+font-size:14px;
+
+font-family:
+'Press Start 2P',
+cursive;
+
+}
+
+#musicURL{
+
+width:100%;
+
+padding:12px;
+
+background:#120018;
+
+border:
+1px solid #ff4fd8;
+
+color:white;
+
+margin-bottom:14px;
+
+}
+
+.music-controls{
+
+display:flex;
+
+gap:12px;
+
+align-items:center;
+
+}
+
+#musicToggle{
+
+min-width:90px;
+
+}
+
+#volumeSlider{
+
+flex:1;
+
+}
+
+#youtubePlayer{
+
+position:absolute;
+
+width:0;
+height:0;
+
+overflow:hidden;
+
+pointer-events:none;
+
+}
