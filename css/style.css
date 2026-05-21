@@ -427,3 +427,53 @@ flex-direction:column;
 }
 
 }
+/* ARCHIVE MODAL */
+
+.archive-modal{
+display:none;
+
+position:fixed;
+inset:0;
+
+background:rgba(0,0,0,0.8);
+
+z-index:999999;
+
+align-items:center;
+justify-content:center;
+}
+
+.archive-content{
+width:90%;
+max-width:700px;
+
+max-height:80vh;
+overflow-y:auto;
+
+background:#0b0010;
+
+border:1px solid #ff4fd8;
+border-radius:20px;
+
+padding:20px;
+
+box-shadow:
+0 0 30px rgba(255,79,216,0.35);
+}
+
+.archive-item{
+padding:12px;
+margin-bottom:10px;
+
+background:rgba(255,255,255,0.04);
+
+border-radius:12px;
+
+cursor:pointer;
+
+border:1px solid rgba(255,79,216,0.2);
+}
+
+.archive-item:hover{
+background:rgba(255,79,216,0.08);
+}
