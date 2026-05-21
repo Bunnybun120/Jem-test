@@ -2,113 +2,153 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FRIENDS</title>
+<title>FRIENDS.EXE</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
 <script defer src="js/main.js"></script>
 
 </head>
 
 <body>
 
+<div class="vhs"></div>
+
+<div class="particles"></div>
+
 <div class="stars"></div>
+
+<div class="retro-sun"></div>
+
+<div id="youtubePlayer"></div>
 
 <nav class="topbar">
 
 <div class="logo">
-✦ FRIEND_NETWORK ✦
+✦ JEM.EXE ✦
 </div>
 
 <div class="nav-links">
+
 <a href="index.html">HOME</a>
 <a href="about.html">ABOUT</a>
-<a href="guestbook.html">GUESTBOOK</a>
-<a href="music.html">MUSIC</a>
+<a href="chatroom.html">CHATROOM</a>
+
 </div>
 
 </nav>
 
-<a class="back-home" href="index.html">
-⬅ BACK
-</a>
+<section class="hero">
 
-<div class="window page-window draggable">
-
-<div class="titlebar">
-SOCIAL_NETWORK.LOG
-</div>
-
-<div class="window-content">
-
-<h1>👥 FRIENDS</h1>
+<h1 class="glow">
+FRIENDS.EXE
+</h1>
 
 <p>
-favorite people archive ✦
+favorite people ✦ online mutuals ✦ besties
 </p>
 
-<div class="category">
+</section>
 
-<div class="category-header">
-✦ BESTIES
+<section class="desktop-grid">
+
+<div class="desktop-app">
+
+<div class="app-icon">
+💖
 </div>
 
-<div class="category-content">
-
-<ul>
-<li>add your friends here ✦</li>
-<li>add your friends here ✦</li>
-<li>add your friends here ✦</li>
-</ul>
-
+<div class="app-name">
+BEST FRIENDS
 </div>
 
-</div>
-
-<div class="category">
-
-<div class="category-header">
-✦ ONLINE FRIENDS
-</div>
-
-<div class="category-content">
-
-<ul>
-<li>gaming friends</li>
-<li>vc friends</li>
-<li>fandom mutuals</li>
-</ul>
-
-</div>
-
-</div>
-
-<div class="category">
-
-<div class="category-header">
-✦ CHAOS QUOTES
-</div>
-
-<div class="category-content">
-
-<p>
-"WE LISTEN AND WE DON'T JUDGE"
-</p>
-
-<p>
-"one more round bro"
-</p>
-
-<p>
-"WHO SENT THAT"
+<p style="margin-top:20px;">
+add your favorite people here
 </p>
 
 </div>
 
+<div class="desktop-app">
+
+<div class="app-icon">
+🌙
 </div>
 
+<div class="app-name">
+ONLINE FRIENDS
+</div>
+
+<p style="margin-top:20px;">
+discord ✦ gaming ✦ fandom friends
+</p>
+
+</div>
+
+<div class="desktop-app">
+
+<div class="app-icon">
+🎀
+</div>
+
+<div class="app-name">
+CLOSE MUTUALS
+</div>
+
+<p style="margin-top:20px;">
+socials ✦ matching pfps ✦ groups
+</p>
+
+</div>
+
+</section>
+
+<!-- MUSIC PLAYER -->
+
+<div id="musicPlayer">
+
+<h3>
+♫ SYSTEM THEME PLAYER
+</h3>
+
+<input
+id="musicURL"
+placeholder="paste youtube link...">
+
+<div class="music-controls">
+
+<button id="musicToggle">
+▶
+</button>
+
+<input
+id="volumeSlider"
+type="range"
+min="0"
+max="100"
+value="40">
+
+</div>
+
+</div>
+
+<div class="taskbar">
+
+<div class="taskbar-start">
+FRIENDS
+</div>
+
+<div class="taskbar-clock" id="taskbarClock">
+00:00
 </div>
 
 </div>
