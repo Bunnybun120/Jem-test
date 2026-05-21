@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+<script src="https://www.youtube.com/iframe_api"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,7 +21,8 @@ rel="stylesheet">
 </head>
 
 <body>
-
+<div id="youtubePlayer"></div>
+  
 <!-- =========================================
 BOOT
 ========================================= -->
@@ -342,6 +343,31 @@ START
 </div>
 
 </div>
+<div id="musicPlayer">
 
+<h3>
+♫ SYSTEM THEME PLAYER
+</h3>
+
+<input
+id="musicURL"
+placeholder="paste youtube link...">
+
+<div class="music-controls">
+
+<button id="musicToggle">
+PLAY
+</button>
+
+<input
+id="volumeSlider"
+type="range"
+min="0"
+max="100"
+value="40">
+
+</div>
+
+</div>
 </body>
 </html>
