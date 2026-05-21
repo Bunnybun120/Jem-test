@@ -6,7 +6,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JEM.EXE OS v3</title>
+<title>JEM.EXE OS v4</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -15,6 +19,61 @@
 </head>
 
 <body>
+
+<div id="bootScreen">
+
+<h1>
+JEM.EXE OS v4
+</h1>
+
+<p>
+BOOTING SYSTEM...
+</p>
+
+</div>
+
+<div class="stars"></div>
+
+<div class="retro-sun"></div>
+
+<div class="particles"></div>
+
+<!-- MUSIC PLAYER -->
+
+<div id="musicPlayer">
+
+<div class="music-info">
+
+<div id="musicTitle">
+SYSTEM THEME
+</div>
+
+<input
+id="musicURL"
+placeholder="youtube link...">
+
+</div>
+
+<div class="music-controls">
+
+<button id="musicToggle">
+▶
+</button>
+
+<input
+id="volumeSlider"
+type="range"
+min="0"
+max="100"
+value="40">
+
+</div>
+
+</div>
+
+<div id="youtubePlayer"></div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <!-- TOPBAR -->
 
@@ -26,48 +85,23 @@
 
 <div class="nav-links">
 
-<div class="dropdown">
-
-<button class="dropbtn">
-PROFILE
-</button>
-
-<div class="dropdown-content">
 <a href="about.html">ABOUT</a>
-<a href="friends.html">FRIENDS</a>
-<a href="guestbook.html">GUESTBOOK</a>
-</div>
 
-</div>
-
-<div class="dropdown">
-
-<button class="dropbtn">
-MEDIA
-</button>
-
-<div class="dropdown-content">
 <a href="music.html">MUSIC</a>
+
 <a href="games.html">GAMES</a>
+
 <a href="shows.html">SHOWS</a>
+
 <a href="fandoms.html">FANDOMS</a>
-</div>
 
-</div>
-
-<div class="dropdown">
-
-<button class="dropbtn">
-EXTRAS
-</button>
-
-<div class="dropdown-content">
 <a href="moodboard.html">MOODBOARD</a>
-<a href="blog.html">BLOG</a>
-<a href="chatroom.html">CHATROOM</a>
-</div>
 
-</div>
+<a href="blog.html">BLOG</a>
+
+<a href="guestbook.html">GUESTBOOK</a>
+
+<a href="chatroom.html">CHATROOM</a>
 
 </div>
 
@@ -82,119 +116,61 @@ WELCOME TO JEM.EXE
 </h1>
 
 <p>
-Interactive Profile Operating System
+RETRO FUTURISTIC PROFILE OPERATING SYSTEM
 </p>
 
 </section>
 
 <!-- DESKTOP -->
 
-<div class="desktop-grid">
+<section class="desktop-grid">
 
 <a class="desktop-app" href="about.html">
-
-<div class="app-icon">
-💖
-</div>
-
-<div class="app-name">
-ABOUT
-</div>
-
+<div class="app-icon">💖</div>
+<div class="app-name">ABOUT</div>
 </a>
 
 <a class="desktop-app" href="music.html">
-
-<div class="app-icon">
-🎵
-</div>
-
-<div class="app-name">
-MUSIC
-</div>
-
+<div class="app-icon">🎵</div>
+<div class="app-name">MUSIC</div>
 </a>
 
 <a class="desktop-app" href="games.html">
-
-<div class="app-icon">
-🎮
-</div>
-
-<div class="app-name">
-GAMES
-</div>
-
+<div class="app-icon">🎮</div>
+<div class="app-name">GAMES</div>
 </a>
 
 <a class="desktop-app" href="shows.html">
-
-<div class="app-icon">
-📺
-</div>
-
-<div class="app-name">
-SHOWS
-</div>
-
+<div class="app-icon">📺</div>
+<div class="app-name">SHOWS</div>
 </a>
 
 <a class="desktop-app" href="fandoms.html">
-
-<div class="app-icon">
-✨
-</div>
-
-<div class="app-name">
-FANDOMS
-</div>
-
+<div class="app-icon">✨</div>
+<div class="app-name">FANDOMS</div>
 </a>
 
 <a class="desktop-app" href="moodboard.html">
-
-<div class="app-icon">
-🖼️
-</div>
-
-<div class="app-name">
-MOODBOARD
-</div>
-
+<div class="app-icon">🖼️</div>
+<div class="app-name">MOODBOARD</div>
 </a>
 
 <a class="desktop-app" href="blog.html">
-
-<div class="app-icon">
-📝
-</div>
-
-<div class="app-name">
-BLOG
-</div>
-
+<div class="app-icon">📝</div>
+<div class="app-name">BLOG</div>
 </a>
 
 <a class="desktop-app" href="chatroom.html">
-
-<div class="app-icon">
-💬
-</div>
-
-<div class="app-name">
-CHATROOM
-</div>
-
+<div class="app-icon">💬</div>
+<div class="app-name">CHATROOM</div>
 </a>
 
-</div>
-
-<!-- TASKBAR -->
+</section>
 
 <div class="taskbar">
 
 <div class="task-title">
-JEM.EXE OS v3
+JEM.EXE OS v4
 </div>
 
 </div>
