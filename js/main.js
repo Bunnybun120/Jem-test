@@ -18,50 +18,78 @@ boot.style.display = "none";
 },3000);
 
 /* =========================================
-YOUTUBE MUSIC
+YOUTUBE MUSIC PLAYER
 ========================================= */
 
-let player;
-let musicPlaying = false;
+let ytPlayer;
+let ytReady = false;
+let isPlaying = false;
+
+/* ELEMENTS */
 
 const musicToggle =
-document.getElementById("musicToggle");
+document.getElementById(
+"musicToggle"
+);
 
 const musicURL =
-document.getElementById("musicURL");
+document.getElementById(
+"musicURL"
+);
 
 const volumeSlider =
-document.getElementById("volumeSlider");
+document.getElementById(
+"volumeSlider"
+);
 
-/* LOAD SAVED */
+/* =========================================
+GET VIDEO ID
+========================================= */
 
-if(musicURL){
+function extractVideoID(url){
 
-musicURL.value =
-localStorage.getItem("site_music") || "";
+try{
+
+const parsed =
+new URL(url);
+
+if(
+parsed.hostname.includes(
+"youtu.be"
+)
+){
+
+return parsed.pathname.slice(1);
 
 }
 
-/* GET ID */
+if(
+parsed.searchParams.get("v")
+){
 
-function getYoutubeID(url){
-
-const regExp =
-/(?:youtube\.com.*(?:\?|&)v=|youtu\.be\/)([^&]+)/;
-
-const match =
-url.match(regExp);
-
-return match ? match[1] : null;
+return parsed.searchParams.get("v");
 
 }
 
-/* YOUTUBE */
+return null;
+
+}catch{
+
+return null;
+
+}
+
+}
+
+/* =========================================
+API READY
+========================================= */
 
 window.onYouTubeIframeAPIReady =
 function(){
 
-player = new YT.Player(
+ytPlayer =
+new YT.Player(
 "youtubePlayer",
 {
 
@@ -71,38 +99,27 @@ width:"0",
 videoId:"",
 
 playerVars:{
-autoplay:0,
+
+autoplay:1,
 controls:0
+
 },
 
 events:{
 
 onReady:()=>{
 
+ytReady = true;
+
 const saved =
-localStorage.getItem("site_music");
+localStorage.getItem(
+"site_music"
+);
 
 if(saved){
 
-const id =
-getYoutubeID(saved);
-
-if(id){
-
-player.loadVideoById(id);
-
-player.setVolume(40);
-
-musicPlaying = true;
-
-if(musicToggle){
-
-musicToggle.innerText =
-"❚❚";
-
-}
-
-}
+musicURL.value =
+saved;
 
 }
 
@@ -114,7 +131,73 @@ musicToggle.innerText =
 
 };
 
-/* PLAY */
+/* =========================================
+LOAD MUSIC
+========================================= */
+
+function playMusic(){
+
+if(!ytReady){
+
+alert(
+"YouTube API not ready yet."
+);
+
+return;
+
+}
+
+const url =
+musicURL.value.trim();
+
+if(!url){
+
+alert(
+"Paste a YouTube link."
+);
+
+return;
+
+}
+
+const videoID =
+extractVideoID(url);
+
+if(!videoID){
+
+alert(
+"Invalid YouTube URL."
+);
+
+return;
+
+}
+
+ytPlayer.loadVideoById(
+videoID
+);
+
+ytPlayer.playVideo();
+
+ytPlayer.setVolume(
+volumeSlider.value
+);
+
+localStorage.setItem(
+"site_music",
+url
+);
+
+isPlaying = true;
+
+musicToggle.innerText =
+"PAUSE";
+
+}
+
+/* =========================================
+BUTTON
+========================================= */
 
 if(musicToggle){
 
@@ -122,44 +205,18 @@ musicToggle.addEventListener(
 "click",
 ()=>{
 
-const url =
-musicURL.value.trim();
+if(!isPlaying){
 
-if(!url) return;
-
-localStorage.setItem(
-"site_music",
-url
-);
-
-const id =
-getYoutubeID(url);
-
-if(!id){
-
-alert("Invalid URL.");
-
-return;
-
-}
-
-if(!musicPlaying){
-
-player.loadVideoById(id);
-
-musicPlaying = true;
-
-musicToggle.innerText =
-"❚❚";
+playMusic();
 
 }else{
 
-player.pauseVideo();
+ytPlayer.pauseVideo();
 
-musicPlaying = false;
+isPlaying = false;
 
 musicToggle.innerText =
-"▶";
+"PLAY";
 
 }
 
@@ -167,7 +224,9 @@ musicToggle.innerText =
 
 }
 
-/* VOLUME */
+/* =========================================
+VOLUME
+========================================= */
 
 if(volumeSlider){
 
@@ -175,9 +234,9 @@ volumeSlider.addEventListener(
 "input",
 ()=>{
 
-if(player){
+if(ytPlayer){
 
-player.setVolume(
+ytPlayer.setVolume(
 volumeSlider.value
 );
 
@@ -186,7 +245,6 @@ volumeSlider.value
 });
 
 }
-
 /* =========================================
 CHATROOM
 ========================================= */
