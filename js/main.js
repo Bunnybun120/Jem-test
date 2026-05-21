@@ -645,3 +645,73 @@ archiveModal.style.display =
 }
 
 });
+/* =========================================
+TASKBAR CLOCK
+========================================= */
+
+const taskbarClock =
+document.getElementById(
+"taskbarClock"
+);
+
+if(taskbarClock){
+
+function updateClock(){
+
+const now =
+new Date();
+
+taskbarClock.innerText =
+now.toLocaleTimeString([],{
+
+hour:"2-digit",
+minute:"2-digit"
+
+});
+
+}
+
+updateClock();
+
+setInterval(
+updateClock,
+1000
+);
+
+}
+
+/* =========================================
+PARTICLES
+========================================= */
+
+const particles =
+document.querySelector(
+".particles"
+);
+
+if(particles){
+
+for(let i=0;i<45;i++){
+
+const particle =
+document.createElement("div");
+
+particle.className =
+"particle";
+
+particle.style.left =
+Math.random() * 100 + "%";
+
+particle.style.animationDuration =
+(8 + Math.random() * 12) + "s";
+
+particle.style.animationDelay =
+Math.random() * 8 + "s";
+
+particles.appendChild(
+particle
+);
+
+}
+
+}
