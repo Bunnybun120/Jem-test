@@ -385,3 +385,68 @@ archiveModal.style.display =
 }
 
 });
+/* =========================
+LOAD SAVED PROFILE
+========================= */
+
+usernameInput.value =
+localStorage.getItem("chat_username") || "";
+
+pfpInput.value =
+localStorage.getItem("chat_pfp") || "";
+
+bioInput.value =
+localStorage.getItem("chat_bio") || "";
+
+colorInput.value =
+localStorage.getItem("chat_color") || "#ff4fd8";
+
+/* =========================
+SAVE PROFILE
+========================= */
+
+function saveProfile(){
+
+localStorage.setItem(
+"chat_username",
+usernameInput.value
+);
+
+localStorage.setItem(
+"chat_pfp",
+pfpInput.value
+);
+
+localStorage.setItem(
+"chat_bio",
+bioInput.value
+);
+
+localStorage.setItem(
+"chat_color",
+colorInput.value
+);
+
+}
+
+/* AUTO SAVE */
+
+usernameInput.addEventListener(
+"input",
+saveProfile
+);
+
+pfpInput.addEventListener(
+"input",
+saveProfile
+);
+
+bioInput.addEventListener(
+"input",
+saveProfile
+);
+
+colorInput.addEventListener(
+"input",
+saveProfile
+);
