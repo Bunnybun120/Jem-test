@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JEM.EXE OS v4</title>
+<title>JEM.EXE</title>
 
 <link
 href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
@@ -14,45 +14,205 @@ rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
 
+<script src="https://www.youtube.com/iframe_api"></script>
+
 <script defer src="js/main.js"></script>
 
 </head>
 
 <body>
 
+<!-- BOOT -->
+
 <div id="bootScreen">
 
 <h1>
-JEM.EXE OS v4
+JEM.EXE
 </h1>
 
 <p>
-BOOTING SYSTEM...
+booting retro desktop OS...
 </p>
 
 </div>
+
+<!-- EFFECTS -->
+
+<div class="vhs"></div>
+
+<div class="particles"></div>
 
 <div class="stars"></div>
 
 <div class="retro-sun"></div>
 
-<div class="particles"></div>
+<!-- YOUTUBE -->
+
+<div id="youtubePlayer"></div>
+
+<!-- TOPBAR -->
+
+<nav class="topbar">
+
+<div class="logo">
+✦ JEM.EXE ✦
+</div>
+
+<div class="nav-links">
+
+<a href="about.html">ABOUT</a>
+<a href="friends.html">FRIENDS</a>
+<a href="music.html">MUSIC</a>
+<a href="games.html">GAMES</a>
+<a href="shows.html">SHOWS</a>
+<a href="fandoms.html">FANDOMS</a>
+<a href="moodboard.html">MOODBOARD</a>
+<a href="blog.html">BLOG</a>
+<a href="chatroom.html">CHATROOM</a>
+
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<h1 class="glow">
+RETRO SOCIAL DESKTOP
+</h1>
+
+<p>
+vaporwave profile OS ✦ multiplayer chat ✦ music ✦ fandoms
+</p>
+
+</section>
+
+<!-- DESKTOP -->
+
+<section class="desktop-grid">
+
+<a
+class="desktop-app"
+href="about.html">
+
+<div class="app-icon">💖</div>
+
+<div class="app-name">
+ABOUT.EXE
+</div>
+
+</a>
+
+<a
+class="desktop-app"
+href="friends.html">
+
+<div class="app-icon">👥</div>
+
+<div class="app-name">
+FRIENDS.EXE
+</div>
+
+</a>
+
+<a
+class="desktop-app"
+href="music.html">
+
+<div class="app-icon">🎵</div>
+
+<div class="app-name">
+MUSIC.EXE
+</div>
+
+</a>
+
+<a
+class="desktop-app"
+href="games.html">
+
+<div class="app-icon">🎮</div>
+
+<div class="app-name">
+GAMES.EXE
+</div>
+
+</a>
+
+<a
+class="desktop-app"
+href="shows.html">
+
+<div class="app-icon">📺</div>
+
+<div class="app-name">
+SHOWS.EXE
+</div>
+
+</a>
+
+<a
+class="desktop-app"
+href="fandoms.html">
+
+<div class="app-icon">✨</div>
+
+<div class="app-name">
+FANDOMS.EXE
+</div>
+
+</a>
+
+<a
+class="desktop-app"
+href="moodboard.html">
+
+<div class="app-icon">🖼️</div>
+
+<div class="app-name">
+MOODBOARD.EXE
+</div>
+
+</a>
+
+<a
+class="desktop-app"
+href="blog.html">
+
+<div class="app-icon">📝</div>
+
+<div class="app-name">
+BLOG.EXE
+</div>
+
+</a>
+
+<a
+class="desktop-app"
+href="chatroom.html">
+
+<div class="app-icon">💬</div>
+
+<div class="app-name">
+CHATROOM.EXE
+</div>
+
+</a>
+
+</section>
 
 <!-- MUSIC PLAYER -->
 
 <div id="musicPlayer">
 
-<div class="music-info">
-
-<div id="musicTitle">
-SYSTEM THEME
-</div>
+<h3>
+♫ SYSTEM THEME PLAYER
+</h3>
 
 <input
 id="musicURL"
-placeholder="youtube link...">
-
-</div>
+placeholder="paste youtube link...">
 
 <div class="music-controls">
 
@@ -71,106 +231,16 @@ value="40">
 
 </div>
 
-<div id="youtubePlayer"></div>
-
-<script src="https://www.youtube.com/iframe_api"></script>
-
-<!-- TOPBAR -->
-
-<nav class="topbar">
-
-<div class="logo">
-✦ JEM.EXE ✦
-</div>
-
-<div class="nav-links">
-
-<a href="about.html">ABOUT</a>
-
-<a href="music.html">MUSIC</a>
-
-<a href="games.html">GAMES</a>
-
-<a href="shows.html">SHOWS</a>
-
-<a href="fandoms.html">FANDOMS</a>
-
-<a href="moodboard.html">MOODBOARD</a>
-
-<a href="blog.html">BLOG</a>
-
-<a href="guestbook.html">GUESTBOOK</a>
-
-<a href="chatroom.html">CHATROOM</a>
-
-</div>
-
-</nav>
-
-<!-- HERO -->
-
-<section class="hero">
-
-<h1>
-WELCOME TO JEM.EXE
-</h1>
-
-<p>
-RETRO FUTURISTIC PROFILE OPERATING SYSTEM
-</p>
-
-</section>
-
-<!-- DESKTOP -->
-
-<section class="desktop-grid">
-
-<a class="desktop-app" href="about.html">
-<div class="app-icon">💖</div>
-<div class="app-name">ABOUT</div>
-</a>
-
-<a class="desktop-app" href="music.html">
-<div class="app-icon">🎵</div>
-<div class="app-name">MUSIC</div>
-</a>
-
-<a class="desktop-app" href="games.html">
-<div class="app-icon">🎮</div>
-<div class="app-name">GAMES</div>
-</a>
-
-<a class="desktop-app" href="shows.html">
-<div class="app-icon">📺</div>
-<div class="app-name">SHOWS</div>
-</a>
-
-<a class="desktop-app" href="fandoms.html">
-<div class="app-icon">✨</div>
-<div class="app-name">FANDOMS</div>
-</a>
-
-<a class="desktop-app" href="moodboard.html">
-<div class="app-icon">🖼️</div>
-<div class="app-name">MOODBOARD</div>
-</a>
-
-<a class="desktop-app" href="blog.html">
-<div class="app-icon">📝</div>
-<div class="app-name">BLOG</div>
-</a>
-
-<a class="desktop-app" href="chatroom.html">
-<div class="app-icon">💬</div>
-<div class="app-name">CHATROOM</div>
-</a>
-
-</section>
+<!-- TASKBAR -->
 
 <div class="taskbar">
 
-<div class="task-title">
-JEM.EXE OS v4
+<div class="taskbar-start">
+START
+</div>
+
+<div class="taskbar-clock" id="taskbarClock">
+00:00
 </div>
 
 </div>
