@@ -18,7 +18,7 @@ boot.style.display = "none";
 },3000);
 
 /* =========================================
-YOUTUBE MUSIC SYSTEM
+YOUTUBE MUSIC
 ========================================= */
 
 let player;
@@ -33,7 +33,7 @@ document.getElementById("musicURL");
 const volumeSlider =
 document.getElementById("volumeSlider");
 
-/* LOAD SAVED MUSIC */
+/* LOAD SAVED */
 
 if(musicURL){
 
@@ -42,7 +42,7 @@ localStorage.getItem("site_music") || "";
 
 }
 
-/* GET VIDEO ID */
+/* GET ID */
 
 function getYoutubeID(url){
 
@@ -56,7 +56,7 @@ return match ? match[1] : null;
 
 }
 
-/* YOUTUBE PLAYER */
+/* YOUTUBE */
 
 window.onYouTubeIframeAPIReady =
 function(){
@@ -72,21 +72,20 @@ videoId:"",
 
 playerVars:{
 autoplay:0,
-controls:0,
-loop:1
+controls:0
 },
 
 events:{
 
 onReady:()=>{
 
-const savedURL =
+const saved =
 localStorage.getItem("site_music");
 
-if(savedURL){
+if(saved){
 
 const id =
-getYoutubeID(savedURL);
+getYoutubeID(saved);
 
 if(id){
 
@@ -115,11 +114,13 @@ musicToggle.innerText =
 
 };
 
-/* PLAY / PAUSE */
+/* PLAY */
 
 if(musicToggle){
 
-musicToggle.addEventListener("click",()=>{
+musicToggle.addEventListener(
+"click",
+()=>{
 
 const url =
 musicURL.value.trim();
@@ -136,7 +137,7 @@ getYoutubeID(url);
 
 if(!id){
 
-alert("Invalid YouTube URL.");
+alert("Invalid URL.");
 
 return;
 
@@ -187,7 +188,7 @@ volumeSlider.value
 }
 
 /* =========================================
-CHATROOM SYSTEM
+CHATROOM
 ========================================= */
 
 const chatBox =
@@ -219,6 +220,9 @@ document.getElementById("archiveChat");
 const viewArchives =
 document.getElementById("viewArchives");
 
+const clearChat =
+document.getElementById("clearChat");
+
 const archiveModal =
 document.getElementById("archiveModal");
 
@@ -229,7 +233,7 @@ const closeArchives =
 document.getElementById("closeArchives");
 
 /* =========================================
-LOAD SAVED PROFILE
+SAVE PROFILE
 ========================================= */
 
 usernameInput.value =
@@ -243,10 +247,6 @@ localStorage.getItem("chat_bio") || "";
 
 colorInput.value =
 localStorage.getItem("chat_color") || "#ff4fd8";
-
-/* =========================================
-SAVE PROFILE
-========================================= */
 
 function saveProfile(){
 
@@ -272,25 +272,19 @@ colorInput.value
 
 }
 
-usernameInput.addEventListener(
+[
+usernameInput,
+pfpInput,
+bioInput,
+colorInput
+].forEach(input=>{
+
+input.addEventListener(
 "input",
 saveProfile
 );
 
-pfpInput.addEventListener(
-"input",
-saveProfile
-);
-
-bioInput.addEventListener(
-"input",
-saveProfile
-);
-
-colorInput.addEventListener(
-"input",
-saveProfile
-);
+});
 
 /* =========================================
 FIREBASE
@@ -343,7 +337,7 @@ chatInput.value.trim();
 
 if(!text) return;
 
-const messageData = {
+const data = {
 
 username:
 usernameInput.value || "anon",
@@ -365,7 +359,7 @@ time:Date.now()
 };
 
 db.ref("messages")
-.push(messageData)
+.push(data)
 .then(()=>{
 
 chatInput.value = "";
@@ -376,21 +370,19 @@ chatInput.value = "";
 console.error(err);
 
 alert(
-"Message failed to send."
+"Message failed."
 );
 
 });
 
 }
 
-/* SEND BUTTON */
+/* SEND */
 
 chatSend.addEventListener(
 "click",
 sendMessage
 );
-
-/* ENTER TO SEND */
 
 chatInput.addEventListener(
 "keydown",
@@ -405,12 +397,10 @@ sendMessage();
 });
 
 /* =========================================
-RENDER MESSAGE
+RENDER
 ========================================= */
 
 function renderMessage(data){
-
-if(!data) return;
 
 const timestamp =
 new Date(data.time || Date.now());
@@ -433,7 +423,7 @@ div.innerHTML = `
 
 <img
 class="chat-pfp"
-src="${data.pfp || 'https://i.imgur.com/8Km9tLL.png'}"
+src="${data.pfp}"
 onerror="this.src='https://i.imgur.com/8Km9tLL.png'">
 
 <div class="chat-bubble">
@@ -441,47 +431,32 @@ onerror="this.src='https://i.imgur.com/8Km9tLL.png'">
 <div
 style="
 display:flex;
-justify-content:space-between;
 align-items:center;
-margin-bottom:4px;
+flex-wrap:wrap;
 ">
 
 <div
+class="chat-username"
 style="
-color:${data.color || '#ff4fd8'};
-font-weight:bold;
-font-size:16px;
+color:${data.color};
 ">
 
-${data.username || 'anon'}
+${data.username}
 
 </div>
 
-<div
-style="
-font-size:11px;
-opacity:0.6;
-">
-
+<div class="chat-time">
 ${timeString}
-
 </div>
 
 </div>
 
-<div
-style="
-font-size:12px;
-opacity:0.7;
-margin-bottom:6px;
-">
-
-${data.bio || ""}
-
+<div class="chat-bio">
+${data.bio}
 </div>
 
-<div>
-${data.text || ""}
+<div class="chat-text">
+${data.text}
 </div>
 
 </div>
@@ -496,22 +471,50 @@ chatBox.scrollHeight;
 }
 
 /* =========================================
-LIVE MESSAGES
+LIVE CHAT
 ========================================= */
 
 db.ref("messages")
 .limitToLast(100)
 .on("child_added",snapshot=>{
 
-const data =
-snapshot.val();
-
-renderMessage(data);
+renderMessage(
+snapshot.val()
+);
 
 });
 
 /* =========================================
-ARCHIVE CHAT
+CLEAR CHAT
+========================================= */
+
+if(clearChat){
+
+clearChat.addEventListener(
+"click",
+()=>{
+
+const confirmClear =
+confirm(
+"Clear chat?"
+);
+
+if(!confirmClear) return;
+
+db.ref("messages")
+.remove()
+.then(()=>{
+
+chatBox.innerHTML = "";
+
+});
+
+});
+
+}
+
+/* =========================================
+ARCHIVE
 ========================================= */
 
 archiveChat.addEventListener(
@@ -527,18 +530,18 @@ snapshot.val();
 if(!messages){
 
 alert(
-"No messages to archive."
+"No messages."
 );
 
 return;
 
 }
 
-const archiveId =
+const archiveID =
 "archive_" + Date.now();
 
 db.ref(
-"archives/" + archiveId
+"archives/" + archiveID
 )
 .set(messages)
 .then(()=>{
@@ -549,7 +552,7 @@ db.ref("messages")
 chatBox.innerHTML = "";
 
 alert(
-"Chat archived."
+"Archived."
 );
 
 });
@@ -559,7 +562,7 @@ alert(
 });
 
 /* =========================================
-VIEW ARCHIVES
+VIEW LOGS
 ========================================= */
 
 viewArchives.addEventListener(
@@ -580,7 +583,7 @@ snapshot.val();
 if(!archives){
 
 archiveList.innerHTML =
-"<p>No archives yet.</p>";
+"<p>No archives.</p>";
 
 return;
 
@@ -605,11 +608,8 @@ div.addEventListener(
 
 chatBox.innerHTML = "";
 
-const archiveMessages =
-archives[key];
-
 Object.values(
-archiveMessages
+archives[key]
 ).forEach(data=>{
 
 renderMessage(data);
@@ -630,7 +630,7 @@ archiveList.appendChild(div);
 });
 
 /* =========================================
-CLOSE ARCHIVES
+CLOSE LOGS
 ========================================= */
 
 closeArchives.addEventListener(
@@ -643,47 +643,5 @@ archiveModal.style.display =
 });
 
 }
-
-/* =========================================
-RETRO UI SOUND EFFECTS
-========================================= */
-
-const buttons =
-document.querySelectorAll("button");
-
-buttons.forEach(button=>{
-
-button.addEventListener(
-"mouseenter",
-()=>{
-
-const hover =
-new Audio(
-"https://files.catbox.moe/8lq9k2.mp3"
-);
-
-hover.volume = 0.15;
-
-hover.play();
-
-});
-
-});
-
-/* =========================================
-WINDOW OPEN EFFECT
-========================================= */
-
-const windows =
-document.querySelectorAll(
-".desktop-app"
-);
-
-windows.forEach((win,index)=>{
-
-win.style.animationDelay =
-`${index * 0.05}s`;
-
-});
 
 });
