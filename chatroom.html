@@ -8,6 +8,10 @@
 
 <title>CHATROOM.EXE</title>
 
+<link
+href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+rel="stylesheet">
+
 <link rel="stylesheet" href="css/style.css">
 
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
@@ -19,6 +23,10 @@
 
 <body>
 
+<div class="stars"></div>
+
+<div class="retro-sun"></div>
+
 <nav class="topbar">
 
 <div class="logo">
@@ -28,36 +36,41 @@
 <div class="nav-links">
 
 <a href="index.html">HOME</a>
+<a href="about.html">ABOUT</a>
+<a href="music.html">MUSIC</a>
+<a href="games.html">GAMES</a>
+<a href="shows.html">SHOWS</a>
+<a href="fandoms.html">FANDOMS</a>
+<a href="moodboard.html">MOODBOARD</a>
+<a href="blog.html">BLOG</a>
 
 </div>
 
 </nav>
 
-<div class="page-shell">
-
-<div class="chat-window">
-
-<div class="chat-top">
+<section class="hero small-hero">
 
 <h1>
 💬 CHATROOM.EXE
 </h1>
 
 <p>
-Realtime Multiplayer Chat
+Realtime Retro Multiplayer Chat
 </p>
 
-</div>
+</section>
 
-<div class="chat-layout">
+<div class="chatroom-layout">
 
 <!-- SIDEBAR -->
 
 <div class="chat-sidebar">
 
-<h3>
+<h2>
 ✦ PROFILE ✦
-</h3>
+</h2>
+
+<div class="profile-section">
 
 <input
 id="usernameInput"
@@ -71,7 +84,7 @@ placeholder="profile picture url...">
 id="bioInput"
 placeholder="status/bio...">
 
-<label>
+<label class="color-label">
 TEXT COLOR
 </label>
 
@@ -80,48 +93,55 @@ id="colorInput"
 type="color"
 value="#ff4fd8">
 
-<hr>
+</div>
 
-<h3>
-✦ ONLINE USERS ✦
-</h3>
+<div class="sidebar-divider"></div>
 
-<div id="onlineUsers"></div>
+<h2>
+✦ SETTINGS ✦
+</h2>
+
+<div class="settings-buttons">
+
+<button
+id="archiveChat"
+class="chat-btn">
+ARCHIVE
+</button>
+
+<button
+id="viewArchives"
+class="chat-btn">
+LOGS
+</button>
+
+<button
+id="clearChat"
+class="chat-btn danger-btn">
+CLEAR
+</button>
 
 </div>
 
-<!-- MAIN -->
+</div>
+
+<!-- MAIN CHAT -->
 
 <div class="chat-main">
 
 <div id="chatBox"></div>
 
-<div
-class="typing-indicator"
-id="typingIndicator">
-</div>
-
-<div class="chat-controls">
+<div class="chat-input-bar">
 
 <input
 id="chatInput"
 placeholder="type message...">
 
-<button id="chatSend">
+<button
+id="chatSend"
+class="chat-btn">
 SEND
 </button>
-
-<button id="archiveChat">
-ARCHIVE
-</button>
-
-<button id="viewArchives">
-LOGS
-</button>
-
-</div>
-
-</div>
 
 </div>
 
@@ -131,15 +151,13 @@ LOGS
 
 <!-- ARCHIVE MODAL -->
 
-<div
-id="archiveModal"
-class="archive-modal">
+<div id="archiveModal">
 
 <div class="archive-content">
 
-<h2>
+<h1>
 📁 ARCHIVED LOGS
-</h2>
+</h1>
 
 <div id="archiveList"></div>
 
