@@ -1,20 +1,18 @@
+/* =========================================
+RESET
+========================================= */
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 }
 
+html,
 body{
 
-background:
-linear-gradient(
-180deg,
-#12001f 0%,
-#090014 40%,
-#000000 100%
-);
-
-color:white;
+width:100%;
+min-height:100%;
 
 overflow-x:hidden;
 
@@ -22,14 +20,21 @@ font-family:
 "Trebuchet MS",
 sans-serif;
 
-min-height:100vh;
+background:
+linear-gradient(
+180deg,
+#14001f 0%,
+#090014 40%,
+#000000 100%
+);
 
-animation:
-flicker 0.15s infinite;
+color:white;
 
 }
 
-/* CRT */
+/* =========================================
+CRT EFFECT
+========================================= */
 
 body::after{
 
@@ -44,17 +49,20 @@ rgba(255,255,255,0.03) 50%,
 rgba(0,0,0,0.06) 50%
 );
 
-background-size:100% 4px;
+background-size:
+100% 4px;
 
 pointer-events:none;
 
-opacity:0.3;
+opacity:0.25;
 
 z-index:999999;
 
 }
 
-/* GRID */
+/* =========================================
+RETRO GRID
+========================================= */
 
 body::before{
 
@@ -64,20 +72,20 @@ position:fixed;
 
 left:0;
 right:0;
-bottom:-10%;
+bottom:-15%;
 
-height:60vh;
+height:65vh;
 
 background:
 
 linear-gradient(
-rgba(255,0,255,0.3) 1px,
+rgba(255,0,255,0.25) 1px,
 transparent 1px
 ),
 
 linear-gradient(
 90deg,
-rgba(255,0,255,0.3) 1px,
+rgba(255,0,255,0.25) 1px,
 transparent 1px
 );
 
@@ -86,15 +94,19 @@ background-size:
 
 transform:
 perspective(500px)
-rotateX(70deg);
+rotateX(72deg);
 
-opacity:0.4;
+opacity:0.35;
 
-z-index:-2;
+pointer-events:none;
+
+z-index:-5;
 
 }
 
-/* STARS */
+/* =========================================
+STARS
+========================================= */
 
 .stars{
 
@@ -107,18 +119,20 @@ radial-gradient(white 1px, transparent 1px);
 background-size:
 120px 120px;
 
-opacity:0.3;
+opacity:0.25;
 
 animation:
 starScroll 120s linear infinite;
 
 pointer-events:none;
 
-z-index:-5;
+z-index:-10;
 
 }
 
-/* SUN */
+/* =========================================
+SUN
+========================================= */
 
 .retro-sun{
 
@@ -129,8 +143,8 @@ left:50%;
 
 transform:translateX(-50%);
 
-width:500px;
-height:500px;
+width:520px;
+height:520px;
 
 border-radius:50%;
 
@@ -141,16 +155,20 @@ linear-gradient(
 #ff0066
 );
 
-opacity:0.5;
+opacity:0.45;
 
-z-index:-3;
+filter:blur(2px);
 
 box-shadow:
 0 0 120px #ff0088;
 
+z-index:-8;
+
 }
 
-/* TOPBAR */
+/* =========================================
+TOPBAR
+========================================= */
 
 .topbar{
 
@@ -176,6 +194,10 @@ box-shadow:
 
 z-index:9999;
 
+flex-wrap:wrap;
+
+gap:16px;
+
 }
 
 .logo{
@@ -194,9 +216,11 @@ text-shadow:
 }
 
 .nav-links{
+
 display:flex;
-gap:18px;
+gap:16px;
 flex-wrap:wrap;
+
 }
 
 .nav-links a{
@@ -210,15 +234,33 @@ font-weight:bold;
 text-shadow:
 0 0 10px #fff;
 
+transition:0.2s;
+
 }
 
-/* HERO */
+.nav-links a:hover{
+
+color:#00ffff;
+
+}
+
+/* =========================================
+HERO
+========================================= */
 
 .hero{
 
 text-align:center;
 
-padding:90px 20px 50px;
+padding:
+80px 20px 50px;
+
+}
+
+.small-hero{
+
+padding:
+40px 20px 20px;
 
 }
 
@@ -228,12 +270,15 @@ font-family:
 'Press Start 2P',
 cursive;
 
-font-size:42px;
+font-size:
+clamp(26px,5vw,46px);
 
-margin-bottom:30px;
+margin-bottom:24px;
 
 text-shadow:
 0 0 25px #ff00ff;
+
+line-height:1.4;
 
 }
 
@@ -243,9 +288,13 @@ font-size:18px;
 
 letter-spacing:2px;
 
+opacity:0.9;
+
 }
 
-/* DESKTOP */
+/* =========================================
+DESKTOP GRID
+========================================= */
 
 .desktop-grid{
 
@@ -254,9 +303,9 @@ display:grid;
 grid-template-columns:
 repeat(auto-fit,minmax(220px,1fr));
 
-gap:30px;
+gap:28px;
 
-max-width:1200px;
+max-width:1400px;
 
 margin:60px auto;
 
@@ -269,8 +318,8 @@ padding:20px;
 background:
 linear-gradient(
 180deg,
-#3d0066,
-#140022
+rgba(60,0,100,0.95),
+rgba(15,0,30,0.95)
 );
 
 border:
@@ -290,10 +339,15 @@ transition:0.2s;
 
 box-shadow:
 0 0 20px #ff00ff,
-inset 0 0 20px rgba(255,255,255,0.08);
+inset 0 0 20px rgba(255,255,255,0.05);
 
-animation:
-windowAppear 0.5s ease;
+backdrop-filter:blur(8px);
+
+min-height:220px;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
 
 }
 
@@ -317,14 +371,15 @@ linear-gradient(
 #00ffff
 );
 
-opacity:0.7;
+opacity:0.65;
 
 }
 
 .desktop-app:hover{
 
 transform:
-translateY(-6px);
+translateY(-6px)
+scale(1.02);
 
 box-shadow:
 0 0 35px #00ffff;
@@ -347,52 +402,71 @@ cursive;
 
 font-size:14px;
 
+line-height:1.5;
+
 }
 
-/* BUTTONS */
+/* =========================================
+BUTTONS
+========================================= */
 
 button{
+
+padding:16px 20px;
 
 background:
 linear-gradient(
 180deg,
 #ff00ff,
-#8a00ff
+#7a00ff
 );
-
-color:white;
 
 border:
 2px solid #00ffff;
 
-padding:12px 18px;
+color:white;
 
 font-weight:bold;
 
 cursor:pointer;
 
 box-shadow:
-0 0 15px #ff00ff;
+0 0 18px rgba(255,0,255,0.35);
+
+transition:0.2s;
 
 }
 
-/* MUSIC PLAYER */
+button:hover{
+
+transform:
+translateY(-2px);
+
+box-shadow:
+0 0 24px #00ffff;
+
+}
+
+/* =========================================
+MUSIC PLAYER
+========================================= */
 
 #musicPlayer{
 
 position:fixed;
 
-bottom:20px;
-right:20px;
+bottom:18px;
+right:18px;
 
 width:340px;
 
 background:
-rgba(10,0,20,0.9);
+rgba(10,0,20,0.88);
 
-backdrop-filter:blur(14px);
+backdrop-filter:blur(12px);
 
-border:1px solid #ff4fd8;
+border:
+1px solid #ff4fd8;
 
 padding:16px;
 
@@ -404,9 +478,12 @@ box-shadow:
 }
 
 .music-controls{
+
 display:flex;
 gap:12px;
+
 margin-top:14px;
+
 }
 
 #musicURL{
@@ -414,9 +491,11 @@ margin-top:14px;
 width:100%;
 
 background:#111;
+
 color:white;
 
-border:1px solid #ff4fd8;
+border:
+1px solid #ff4fd8;
 
 padding:12px;
 
@@ -424,7 +503,392 @@ margin-top:10px;
 
 }
 
-/* TASKBAR */
+/* =========================================
+CHATROOM
+========================================= */
+
+.chatroom-layout{
+
+display:grid;
+
+grid-template-columns:
+320px 1fr;
+
+gap:24px;
+
+padding:30px;
+
+max-width:1600px;
+
+margin:auto;
+
+min-height:
+calc(100vh - 220px);
+
+}
+
+/* SIDEBAR */
+
+.chat-sidebar{
+
+background:
+rgba(15,0,25,0.85);
+
+border:
+2px solid #ff4fd8;
+
+padding:24px;
+
+backdrop-filter:
+blur(10px);
+
+box-shadow:
+0 0 25px rgba(255,79,216,0.25);
+
+height:fit-content;
+
+}
+
+.chat-sidebar h2{
+
+font-family:
+'Press Start 2P',
+cursive;
+
+font-size:14px;
+
+margin-bottom:20px;
+
+}
+
+/* PROFILE */
+
+.profile-section{
+
+display:flex;
+flex-direction:column;
+
+gap:14px;
+
+}
+
+.profile-section input{
+
+width:100%;
+
+padding:14px;
+
+background:#120018;
+
+border:
+1px solid #ff4fd8;
+
+color:white;
+
+font-size:14px;
+
+}
+
+.color-label{
+
+margin-top:8px;
+
+font-size:13px;
+
+opacity:0.8;
+
+}
+
+/* DIVIDER */
+
+.sidebar-divider{
+
+height:1px;
+
+background:
+rgba(255,255,255,0.1);
+
+margin:
+30px 0;
+
+}
+
+/* SETTINGS */
+
+.settings-buttons{
+
+display:flex;
+flex-direction:column;
+
+gap:14px;
+
+}
+
+.chat-btn{
+
+padding:16px;
+
+}
+
+.danger-btn{
+
+background:
+linear-gradient(
+180deg,
+#ff2255,
+#990022
+);
+
+}
+
+/* MAIN CHAT */
+
+.chat-main{
+
+display:flex;
+flex-direction:column;
+
+background:
+rgba(10,0,20,0.85);
+
+border:
+2px solid #ff4fd8;
+
+backdrop-filter:
+blur(10px);
+
+overflow:hidden;
+
+box-shadow:
+0 0 35px rgba(255,79,216,0.25);
+
+}
+
+/* CHAT BOX */
+
+#chatBox{
+
+flex:1;
+
+height:70vh;
+
+overflow-y:auto;
+
+padding:25px;
+
+display:flex;
+flex-direction:column;
+
+gap:18px;
+
+}
+
+/* MESSAGE */
+
+.chat-message{
+
+display:flex;
+align-items:flex-start;
+
+gap:14px;
+
+animation:
+windowAppear 0.25s ease;
+
+}
+
+/* PFP */
+
+.chat-pfp{
+
+width:56px;
+height:56px;
+
+min-width:56px;
+
+min-height:56px;
+
+max-width:56px;
+max-height:56px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:
+2px solid #ff4fd8;
+
+box-shadow:
+0 0 14px rgba(255,79,216,0.45);
+
+background:black;
+
+}
+
+/* BUBBLE */
+
+.chat-bubble{
+
+background:
+rgba(255,255,255,0.06);
+
+border:
+1px solid rgba(255,79,216,0.25);
+
+padding:14px 16px;
+
+border-radius:18px;
+
+max-width:700px;
+
+backdrop-filter:blur(6px);
+
+box-shadow:
+0 0 12px rgba(255,79,216,0.12);
+
+word-break:break-word;
+
+}
+
+/* USERNAME */
+
+.chat-username{
+
+font-size:18px;
+font-weight:bold;
+
+}
+
+/* BIO */
+
+.chat-bio{
+
+font-size:12px;
+
+opacity:0.7;
+
+margin:
+4px 0 10px;
+
+}
+
+/* TIME */
+
+.chat-time{
+
+font-size:11px;
+
+opacity:0.5;
+
+margin-left:10px;
+
+}
+
+/* INPUT BAR */
+
+.chat-input-bar{
+
+display:flex;
+
+gap:14px;
+
+padding:20px;
+
+border-top:
+1px solid rgba(255,255,255,0.08);
+
+background:
+rgba(0,0,0,0.3);
+
+}
+
+/* INPUT */
+
+#chatInput{
+
+flex:1;
+
+padding:16px;
+
+background:#120018;
+
+border:
+1px solid #ff4fd8;
+
+color:white;
+
+font-size:16px;
+
+}
+
+/* ARCHIVES */
+
+#archiveModal{
+
+position:fixed;
+inset:0;
+
+background:
+rgba(0,0,0,0.82);
+
+display:none;
+
+align-items:center;
+justify-content:center;
+
+z-index:999999;
+
+}
+
+.archive-content{
+
+width:
+min(900px,90vw);
+
+max-height:80vh;
+
+overflow-y:auto;
+
+background:#120018;
+
+border:
+2px solid #ff4fd8;
+
+padding:30px;
+
+box-shadow:
+0 0 35px rgba(255,79,216,0.35);
+
+}
+
+.archive-item{
+
+padding:16px;
+
+margin-bottom:14px;
+
+background:
+rgba(255,255,255,0.04);
+
+border:
+1px solid rgba(255,79,216,0.25);
+
+cursor:pointer;
+
+transition:0.2s;
+
+}
+
+.archive-item:hover{
+
+background:
+rgba(255,79,216,0.12);
+
+}
+
+/* =========================================
+TASKBAR
+========================================= */
 
 .taskbar{
 
@@ -452,7 +916,9 @@ z-index:99999;
 
 }
 
-/* BOOT */
+/* =========================================
+BOOT SCREEN
+========================================= */
 
 #bootScreen{
 
@@ -479,7 +945,7 @@ font-family:
 'Press Start 2P',
 cursive;
 
-font-size:50px;
+font-size:42px;
 
 color:#ff00ff;
 
@@ -488,7 +954,9 @@ text-shadow:
 
 }
 
-/* ANIMATIONS */
+/* =========================================
+ANIMATIONS
+========================================= */
 
 @keyframes bootFade{
 
@@ -515,89 +983,80 @@ transform:translateY(1000px);
 
 }
 
-@keyframes flicker{
-
-0%{opacity:1;}
-50%{opacity:0.98;}
-100%{opacity:1;}
-
-}
-
 @keyframes windowAppear{
 
 from{
+
 opacity:0;
+
 transform:
 translateY(20px)
 scale(0.95);
+
 }
 
 to{
+
 opacity:1;
+
 transform:
-translateY(0px)
+translateY(0)
 scale(1);
-}
-
-}
-.chat-pfp{
-
-width:48px;
-height:48px;
-
-min-width:48px;
-min-height:48px;
-
-max-width:48px;
-max-height:48px;
-
-border-radius:50%;
-
-object-fit:cover;
-
-border:2px solid #ff4fd8;
-
-box-shadow:
-0 0 12px rgba(255,79,216,0.45);
-
-background:black;
 
 }
 
-/* CHAT MESSAGE LAYOUT */
+}
 
-.chat-message{
+/* =========================================
+MOBILE
+========================================= */
 
-display:flex;
-align-items:flex-start;
+@media(max-width:900px){
 
-gap:12px;
+.topbar{
 
-margin-bottom:18px;
+justify-content:center;
 
 }
 
-/* CHAT BUBBLE */
+.chatroom-layout{
 
-.chat-bubble{
+grid-template-columns:
+1fr;
 
-background:
-rgba(255,255,255,0.06);
+}
 
-border:
-1px solid rgba(255,79,216,0.25);
+#chatBox{
 
-padding:12px 14px;
+height:60vh;
 
-border-radius:16px;
+}
 
-max-width:75%;
+.chat-input-bar{
 
-word-wrap:break-word;
+flex-direction:column;
 
-backdrop-filter:blur(6px);
+}
 
-box-shadow:
-0 0 10px rgba(255,79,216,0.12);
+button{
+
+width:100%;
+
+}
+
+.desktop-grid{
+
+grid-template-columns:
+1fr;
+
+}
+
+#musicPlayer{
+
+width:90vw;
+
+right:5vw;
+
+}
 
 }
