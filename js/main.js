@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
-/* CHAT ELEMENTS */
+/* =========================
+CHAT ELEMENTS
+========================= */
 
 const chatBox =
 document.getElementById("chatBox");
@@ -25,7 +27,24 @@ document.getElementById("chatInput");
 const chatSend =
 document.getElementById("chatSend");
 
-/* FIREBASE */
+const archiveChat =
+document.getElementById("archiveChat");
+
+const viewArchives =
+document.getElementById("viewArchives");
+
+const archiveModal =
+document.getElementById("archiveModal");
+
+const archiveList =
+document.getElementById("archiveList");
+
+const closeArchives =
+document.getElementById("closeArchives");
+
+/* =========================
+FIREBASE
+========================= */
 
 const firebaseConfig = {
 
@@ -60,7 +79,9 @@ firebase.initializeApp(firebaseConfig);
 
 const db = firebase.database();
 
-/* SEND MESSAGE */
+/* =========================
+SEND MESSAGE
+========================= */
 
 function sendMessage(){
 
@@ -74,20 +95,93 @@ const messageData = {
 username:
 usernameInput.value || "anon",
 
+pfp:
+pfpInput.value ||
+"https://i.imgur.com/8Km9tLL.png",
+
+bio:
+bioInput.value || "",
+
+color:
+colorInput.value || "#ff4fd8",
+
+text:text,
+
+time:Date.now()
+
+};
+
+db.ref("messages")
+.push(messageData)
+.then(()=>{
+
+chatInput.value="";
+
+})
+.catch(err=>{
+
+console.error(err);
+
+alert("Message failed to send.");
+
+});
+
+}
+
+/* SEND BUTTON */
+
+if(chatSend){
+
+chatSend.addEventListener(
+"click",
+sendMessage
+);
+
+}
+
+/* ENTER TO SEND */
+
+if(chatInput){
+
+chatInput.addEventListener(
+"keydown",
+e=>{
+
+if(e.key==="Enter"){
+sendMessage();
+}
+
+});
+
+}
+
+/* =========================
+RENDER MESSAGE
+========================= */
+
+function renderMessage(data){
+
+if(!data) return;
+
 const timestamp =
 new Date(data.time || Date.now());
 
 const timeString =
 timestamp.toLocaleTimeString([],{
-hour:'2-digit',
-minute:'2-digit'
+hour:"2-digit",
+minute:"2-digit"
 });
+
+const div =
+document.createElement("div");
+
+div.className = "chat-message";
 
 div.innerHTML = `
 
 <img
 class="chat-pfp"
-src="${data.pfp}"
+src="${data.pfp || 'https://i.imgur.com/8Km9tLL.png'}"
 onerror="this.src='https://i.imgur.com/8Km9tLL.png'">
 
 <div class="chat-bubble">
@@ -102,12 +196,12 @@ margin-bottom:4px;
 
 <div
 style="
-color:${data.color};
+color:${data.color || '#ff4fd8'};
 font-weight:bold;
 font-size:16px;
 ">
 
-${data.username}
+${data.username || 'anon'}
 
 </div>
 
@@ -135,89 +229,7 @@ ${data.bio || ""}
 </div>
 
 <div>
-${data.text}
-</div>
-
-</div>
-
-`;
-.catch(err=>{
-
-console.error(err);
-
-alert("Message failed to send.");
-
-});
-
-}
-
-/* SEND BUTTON */
-
-chatSend.addEventListener(
-"click",
-sendMessage
-);
-
-/* ENTER KEY */
-
-chatInput.addEventListener(
-"keydown",
-e=>{
-
-if(e.key==="Enter"){
-sendMessage();
-}
-
-});
-
-/* RECEIVE MESSAGES */
-
-db.ref("messages")
-.limitToLast(100)
-.on("child_added",snapshot=>{
-
-const data = snapshot.val();
-
-if(!data) return;
-
-const div =
-document.createElement("div");
-
-div.className = "chat-message";
-
-div.innerHTML = `
-
-<img
-class="chat-pfp"
-src="${data.pfp}"
-onerror="this.src='https://i.imgur.com/8Km9tLL.png'">
-
-<div class="chat-bubble">
-
-<div
-style="
-color:${data.color};
-font-weight:bold;
-font-size:16px;
-">
-
-${data.username}
-
-</div>
-
-<div
-style="
-font-size:12px;
-opacity:0.7;
-margin-bottom:6px;
-">
-
-${data.bio || ""}
-
-</div>
-
-<div>
-${data.text}
+${data.text || ""}
 </div>
 
 </div>
@@ -229,6 +241,147 @@ chatBox.appendChild(div);
 chatBox.scrollTop =
 chatBox.scrollHeight;
 
+}
+
+/* =========================
+LIVE MESSAGES
+========================= */
+
+db.ref("messages")
+.limitToLast(100)
+.on("child_added",snapshot=>{
+
+const data = snapshot.val();
+
+renderMessage(data);
+
 });
+
+/* =========================
+ARCHIVE CHAT
+========================= */
+
+if(archiveChat){
+
+archiveChat.addEventListener("click",()=>{
+
+db.ref("messages")
+.once("value",(snapshot)=>{
+
+const messages =
+snapshot.val();
+
+if(!messages){
+
+alert("No messages to archive.");
+
+return;
+
+}
+
+const archiveId =
+"archive_" + Date.now();
+
+db.ref("archives/" + archiveId)
+.set(messages)
+.then(()=>{
+
+db.ref("messages").remove();
+
+chatBox.innerHTML="";
+
+alert("Chat archived.");
+
+});
+
+});
+
+});
+
+}
+
+/* =========================
+VIEW ARCHIVES
+========================= */
+
+if(viewArchives){
+
+viewArchives.addEventListener("click",()=>{
+
+archiveModal.style.display="flex";
+
+archiveList.innerHTML="";
+
+db.ref("archives")
+.once("value",(snapshot)=>{
+
+const archives =
+snapshot.val();
+
+if(!archives){
+
+archiveList.innerHTML =
+"<p>No archives yet.</p>";
+
+return;
+
+}
+
+Object.keys(archives)
+.reverse()
+.forEach(key=>{
+
+const div =
+document.createElement("div");
+
+div.className =
+"archive-item";
+
+div.innerHTML =
+`📁 ${key}`;
+
+div.addEventListener("click",()=>{
+
+chatBox.innerHTML="";
+
+const archiveMessages =
+archives[key];
+
+Object.values(archiveMessages)
+.forEach(data=>{
+
+renderMessage(data);
+
+});
+
+archiveModal.style.display =
+"none";
+
+});
+
+archiveList.appendChild(div);
+
+});
+
+});
+
+});
+
+}
+
+/* =========================
+CLOSE ARCHIVES
+========================= */
+
+if(closeArchives){
+
+closeArchives.addEventListener("click",()=>{
+
+archiveModal.style.display =
+"none";
+
+});
+
+}
 
 });
