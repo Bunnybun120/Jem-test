@@ -1,69 +1,28 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
-/* DRAG */
+/* CHAT ELEMENTS */
 
-document.querySelectorAll(".draggable").forEach(win=>{
-
-const bar=win.querySelector(".titlebar");
-
-if(!bar) return;
-
-let drag=false;
-let x=0;
-let y=0;
-
-bar.addEventListener("mousedown",e=>{
-
-drag=true;
-
-x=e.clientX-win.offsetLeft;
-y=e.clientY-win.offsetTop;
-
-});
-
-document.addEventListener("mousemove",e=>{
-
-if(!drag) return;
-
-win.style.left=(e.clientX-x)+"px";
-win.style.top=(e.clientY-y)+"px";
-
-});
-
-document.addEventListener("mouseup",()=>{
-
-drag=false;
-
-});
-
-});
-
-/* CHAT */
-
-document.addEventListener("DOMContentLoaded",()=>{
-
-const chatBox=document.getElementById("chatBox");
+const chatBox =
+document.getElementById("chatBox");
 
 if(!chatBox) return;
 
-/* INPUTS */
-
-const usernameInput=
+const usernameInput =
 document.getElementById("usernameInput");
 
-const pfpInput=
+const pfpInput =
 document.getElementById("pfpInput");
 
-const bioInput=
+const bioInput =
 document.getElementById("bioInput");
 
-const colorInput=
+const colorInput =
 document.getElementById("colorInput");
 
-const chatInput=
+const chatInput =
 document.getElementById("chatInput");
 
-const chatSend=
+const chatSend =
 document.getElementById("chatSend");
 
 /* FIREBASE */
@@ -93,27 +52,31 @@ appId:
 
 };
 
+/* INIT */
+
 if(!firebase.apps.length){
 firebase.initializeApp(firebaseConfig);
 }
 
-const db=firebase.database();
+const db = firebase.database();
 
-/* SEND */
+/* SEND MESSAGE */
 
 function sendMessage(){
 
-const text=chatInput.value.trim();
+const text =
+chatInput.value.trim();
 
 if(!text) return;
 
-db.ref("messages").push({
+const messageData = {
 
 username:
 usernameInput.value || "anon",
 
 pfp:
-pfpInput.value || "",
+pfpInput.value ||
+"https://i.imgur.com/8Km9tLL.png",
 
 bio:
 bioInput.value || "",
@@ -125,16 +88,33 @@ text:text,
 
 time:Date.now()
 
-});
+};
+
+db.ref("messages")
+.push(messageData)
+.then(()=>{
 
 chatInput.value="";
 
+})
+.catch(err=>{
+
+console.error(err);
+
+alert("Message failed to send.");
+
+});
+
 }
+
+/* SEND BUTTON */
 
 chatSend.addEventListener(
 "click",
 sendMessage
 );
+
+/* ENTER KEY */
 
 chatInput.addEventListener(
 "keydown",
@@ -146,24 +126,27 @@ sendMessage();
 
 });
 
-/* RECEIVE */
+/* RECEIVE MESSAGES */
 
 db.ref("messages")
 .limitToLast(100)
-.on("child_added",snap=>{
+.on("child_added",snapshot=>{
 
-const data=snap.val();
+const data = snapshot.val();
 
-const div=
+if(!data) return;
+
+const div =
 document.createElement("div");
 
-div.className="chat-message";
+div.className = "chat-message";
 
-div.innerHTML=`
+div.innerHTML = `
 
 <img
 class="chat-pfp"
-src="${data.pfp || 'https://i.imgur.com/8Km9tLL.png'}">
+src="${data.pfp}"
+onerror="this.src='https://i.imgur.com/8Km9tLL.png'">
 
 <div class="chat-bubble">
 
@@ -180,8 +163,8 @@ ${data.username}
 
 <div
 style="
-opacity:0.7;
 font-size:12px;
+opacity:0.7;
 margin-bottom:6px;
 ">
 
@@ -199,7 +182,7 @@ ${data.text}
 
 chatBox.appendChild(div);
 
-chatBox.scrollTop=
+chatBox.scrollTop =
 chatBox.scrollHeight;
 
 });
