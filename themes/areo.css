@@ -291,3 +291,69 @@ border-top:
 1px solid rgba(255,255,255,.8);
 
 }
+/* =========================================
+REMOVE VAPOR EFFECTS
+========================================= */
+
+.vhs{
+
+display:none;
+
+}
+
+/* =========================================
+SOFT CLOUD GRID
+========================================= */
+
+.grid{
+
+background-image:
+
+linear-gradient(
+rgba(255,255,255,.2) 1px,
+transparent 1px
+),
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.2) 1px,
+transparent 1px
+);
+
+opacity:.18;
+
+filter:blur(.4px);
+
+}
+
+/* =========================================
+AERO GLOW
+========================================= */
+
+.retro-sun{
+
+background:
+
+radial-gradient(
+circle,
+rgba(255,255,255,.9),
+rgba(173,240,255,.45),
+transparent 70%
+);
+
+opacity:.55;
+
+}
+
+/* =========================================
+WINDOW TEXT
+========================================= */
+
+.window-title{
+
+color:#179dff;
+
+text-shadow:
+0 0 10px rgba(23,157,255,.45);
+
+}
