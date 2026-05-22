@@ -2,26 +2,29 @@
 
 position:fixed;
 
-top:110px;
-right:20px;
+top:95px;
+right:18px;
 
-width:320px;
+width:300px;
 
-padding:20px;
+max-width:
+calc(100vw - 36px);
 
-background:
-rgba(0,0,0,.75);
+max-height:78vh;
 
-border:
-1px solid rgba(255,255,255,.1);
+overflow-y:auto;
 
-border-radius:24px;
+padding:18px;
 
-backdrop-filter:blur(14px);
+border-radius:22px;
 
 z-index:999;
 
 }
+
+/* =========================================
+ALBUM ART
+========================================= */
 
 #albumArt{
 
@@ -29,29 +32,39 @@ width:100%;
 
 border-radius:18px;
 
-margin-bottom:20px;
+display:block;
+
+margin-bottom:18px;
 
 }
 
+/* =========================================
+TEXT
+========================================= */
+
 #trackTitle{
+
+font-size:11px;
 
 margin-bottom:10px;
 
-font-size:12px;
+line-height:1.5;
 
 }
 
 #artistName{
 
-margin-bottom:20px;
-
-font-size:10px;
+font-size:9px;
 
 opacity:.7;
 
+margin-bottom:18px;
+
 }
 
-/* VISUALIZER */
+/* =========================================
+VISUALIZER
+========================================= */
 
 .visualizer{
 
@@ -59,11 +72,11 @@ display:flex;
 
 align-items:flex-end;
 
-height:70px;
+gap:5px;
 
-gap:6px;
+height:60px;
 
-margin-bottom:20px;
+margin-bottom:18px;
 
 }
 
@@ -71,56 +84,15 @@ margin-bottom:20px;
 
 flex:1;
 
-background:#ff4fd8;
+min-height:10px;
 
-animation:
-bounce 1s infinite alternate;
-
-border-radius:8px 8px 0 0;
+border-radius:10px 10px 0 0;
 
 }
 
-.visualizer span:nth-child(2){
-
-animation-delay:.1s;
-
-}
-
-.visualizer span:nth-child(3){
-
-animation-delay:.2s;
-
-}
-
-.visualizer span:nth-child(4){
-
-animation-delay:.3s;
-
-}
-
-.visualizer span:nth-child(5){
-
-animation-delay:.4s;
-
-}
-
-@keyframes bounce{
-
-from{
-
-height:10px;
-
-}
-
-to{
-
-height:70px;
-
-}
-
-}
-
-/* INPUT */
+/* =========================================
+INPUT
+========================================= */
 
 #youtubeInput{
 
@@ -130,19 +102,23 @@ padding:12px;
 
 border-radius:12px;
 
-border:none;
+margin-bottom:16px;
 
-margin-bottom:20px;
+font-family:inherit;
+
+font-size:10px;
 
 }
 
-/* BUTTONS */
+/* =========================================
+CONTROLS
+========================================= */
 
 .controls{
 
 display:flex;
 
-gap:10px;
+gap:8px;
 
 }
 
@@ -152,17 +128,34 @@ flex:1;
 
 padding:12px;
 
-border:none;
-
 border-radius:12px;
 
-background:#ff4fd8;
+border:none;
 
-color:white;
+font-size:10px;
 
-font-family:
-inherit;
+}
 
-cursor:pointer;
+/* =========================================
+MOBILE
+========================================= */
+
+@media(max-width:900px){
+
+#musicPlayer{
+
+position:relative;
+
+top:auto;
+right:auto;
+
+width:100%;
+
+max-width:100%;
+
+margin:
+20px auto 120px;
+
+}
 
 }
