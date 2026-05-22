@@ -37,12 +37,22 @@ src="js/main.js">
 
 <div id="bootScreen">
 
-<h1>
-JEM.EXE
-</h1>
+<div class="boot-logo">
 
-<p>
-booting desktop OS...
+JEM.EXE
+
+</div>
+
+<div class="boot-bar">
+
+<div class="boot-progress"></div>
+
+</div>
+
+<p class="boot-text">
+
+INITIALIZING DESKTOP OS...
+
 </p>
 
 </div>
@@ -50,24 +60,35 @@ booting desktop OS...
 <!-- EFFECTS -->
 
 <div class="vhs"></div>
-
 <div class="stars"></div>
-
-<div class="grid-floor"></div>
-
 <div class="retro-sun"></div>
+<div class="grid-floor"></div>
 
 <!-- TOPBAR -->
 
 <nav class="topbar">
 
 <div class="logo">
+
 ✦ JEM.EXE ✦
+
 </div>
 
+<div class="topbar-buttons">
+
 <button id="themeButton">
+
 THEMES
+
 </button>
+
+<button id="adminOpen">
+
+ADMIN
+
+</button>
+
+</div>
 
 </nav>
 
@@ -77,39 +98,116 @@ THEMES
 
 </section>
 
-<!-- TASKBAR -->
-
-<div class="taskbar">
-
-<div class="taskbar-start">
-START
-</div>
-
-<div id="taskbarClock">
-00:00
-</div>
-
-</div>
-
 <!-- MUSIC PLAYER -->
 
 <div id="musicPlayer">
 
 <h3>
+
 ♫ SYSTEM PLAYER
+
 </h3>
 
 <div id="nowPlaying">
-nothing playing
+
+NOW PLAYING :: nothing loaded
+
 </div>
+
+<div id="albumArt">
+
+<img
+id="albumImage"
+src="https://i.imgur.com/8Km9tLL.png">
+
+</div>
+
+<div id="marqueeContainer">
+
+<div id="marqueeText">
+
+waiting for track...
+
+</div>
+
+</div>
+
+<div class="visualizer">
+
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+
+</div>
+
+<img
+id="cassetteGif"
+src="https://media.tenor.com/4dD3dS0i2xAAAAAi/cassette.gif">
 
 <input
 id="musicURL"
-placeholder="youtube link">
+placeholder="paste youtube link">
+
+<div class="music-controls">
 
 <button id="musicToggle">
+
 PLAY
+
 </button>
+
+<button id="loopButton">
+
+LOOP OFF
+
+</button>
+
+<input
+id="volumeSlider"
+type="range"
+min="0"
+max="100"
+value="40">
+
+</div>
+
+<div id="playlistQueue">
+
+QUEUE EMPTY
+
+</div>
+
+</div>
+
+<!-- FRIEND MODAL -->
+
+<div id="friendModal">
+
+<div class="friend-card">
+
+<img id="friendImage">
+
+<h2 id="friendName"></h2>
+
+<p id="friendBio"></p>
+
+<a
+id="friendSocial"
+target="_blank">
+
+VISIT SOCIAL
+
+</a>
+
+<button id="closeFriend">
+
+CLOSE
+
+</button>
+
+</div>
 
 </div>
 
@@ -117,14 +215,82 @@ PLAY
 
 <div id="adminPanel">
 
+<h2>
+
+ADMIN PANEL
+
+</h2>
+
 <input
 type="password"
 id="adminPassword"
 placeholder="password">
 
 <button id="adminLogin">
+
 LOGIN
+
 </button>
+
+<div id="adminTools">
+
+<button id="toggleEdit">
+
+EDIT MODE
+
+</button>
+
+<button id="saveLayout">
+
+SAVE SITE
+
+</button>
+
+<button id="themeVapor">
+
+VAPORWAVE</button>
+
+<button id="themeRosalina">
+
+ROSALINA</button>
+
+<button id="themeAero">
+
+FRUTIGER AERO</button>
+
+</div>
+
+</div>
+
+<!-- MOBILE BUTTONS -->
+
+<button id="mobileEditButton">
+
+✦ EDIT
+
+</button>
+
+<button id="mobileSaveButton">
+
+SAVE
+
+</button>
+
+<!-- TASKBAR -->
+
+<div class="taskbar">
+
+<div class="taskbar-start">
+
+START
+
+</div>
+
+<div id="taskbarClock">
+
+00:00
+
+</div>
 
 </div>
 
