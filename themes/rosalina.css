@@ -1,6 +1,6 @@
 /* =========================================
-ULTIMATE ROSALINA COSMIC THEME
-GALAXY / STARFIELD / MILKY WAY
+ROSALINA COSMIC THEME
+STABLE VERSION
 ========================================= */
 
 body{
@@ -9,43 +9,13 @@ background:
 
 linear-gradient(
 to bottom,
-#01030d 0%,
-#071b46 25%,
-#132f63 45%,
-#3159a5 70%,
-#9edcff 100%
+#020611 0%,
+#071b46 30%,
+#18376f 55%,
+#7dcfff 100%
 );
 
 color:white;
-
-overflow-x:hidden;
-
-animation:
-cosmicPulse 14s infinite alternate;
-
-}
-
-/* =========================================
-COSMIC GLOW
-========================================= */
-
-@keyframes cosmicPulse{
-
-from{
-
-filter:
-brightness(1)
-saturate(1);
-
-}
-
-to{
-
-filter:
-brightness(1.08)
-saturate(1.15);
-
-}
 
 }
 
@@ -65,20 +35,15 @@ background:
 linear-gradient(
 120deg,
 transparent 0%,
-rgba(255,255,255,.08) 35%,
-rgba(255,255,255,.18) 50%,
-rgba(180,220,255,.1) 65%,
+rgba(255,255,255,.05) 35%,
+rgba(255,255,255,.15) 50%,
+rgba(180,220,255,.08) 65%,
 transparent 100%
 );
 
-filter:
-blur(2px);
-
-opacity:.9;
-
-z-index:-2;
-
 pointer-events:none;
+
+z-index:-1;
 
 }
 
@@ -87,9 +52,6 @@ STARS
 ========================================= */
 
 .stars{
-
-position:fixed;
-inset:0;
 
 background-image:
 
@@ -106,150 +68,61 @@ transparent 2px
 radial-gradient(
 #ffffff 3px,
 transparent 3px
-),
-
-radial-gradient(
-#dff6ff 4px,
-transparent 4px
 );
 
 background-size:
 140px 140px,
 260px 260px,
-420px 420px,
-700px 700px;
-
-animation:
-starMove 140s linear infinite;
+420px 420px;
 
 opacity:.95;
-
-z-index:-4;
-
-}
-
-@keyframes starMove{
-
-from{
-
-transform:
-translateY(0px);
-
-}
-
-to{
-
-transform:
-translateY(-600px);
-
-}
 
 }
 
 /* =========================================
-GALAXY AURORA
+GALAXY GLOW
 ========================================= */
 
 .retro-sun{
-
-position:fixed;
-
-top:5%;
-left:50%;
-
-transform:
-translateX(-50%);
-
-width:1100px;
-height:1100px;
-
-border-radius:50%;
 
 background:
 
 radial-gradient(
 circle,
-rgba(255,255,255,.6),
-rgba(143,220,255,.35),
-rgba(120,140,255,.15),
+rgba(255,255,255,.5),
+rgba(143,220,255,.25),
+rgba(120,140,255,.1),
 transparent 70%
 );
 
-filter:
-blur(90px);
-
 opacity:.7;
 
-animation:
-auroraDrift 12s infinite alternate;
-
-z-index:-5;
-
-}
-
-@keyframes auroraDrift{
-
-from{
-
-transform:
-translateX(-50%)
-scale(1);
-
-}
-
-to{
-
-transform:
-translateX(-50%)
-scale(1.1);
-
-}
+filter:blur(90px);
 
 }
 
 /* =========================================
-CONSTELLATION GRID
+GRID
 ========================================= */
 
 .grid{
 
-position:fixed;
-
-bottom:-10%;
-left:0;
-
-width:100%;
-height:50%;
-
 background-image:
 
 linear-gradient(
-rgba(255,255,255,.08) 1px,
+rgba(255,255,255,.06) 1px,
 transparent 1px
 ),
 
 linear-gradient(
 90deg,
-rgba(255,255,255,.08) 1px,
+rgba(255,255,255,.06) 1px,
 transparent 1px
 );
 
-background-size:
-90px 90px;
-
-transform:
-perspective(700px)
-rotateX(78deg);
-
 opacity:.12;
 
-z-index:-3;
-
 }
-
-/* =========================================
-SOFT VHS
-========================================= */
 
 .vhs{
 
@@ -268,17 +141,14 @@ background:
 linear-gradient(
 to bottom,
 rgba(10,20,60,.8),
-rgba(5,10,25,.5)
+rgba(5,10,25,.55)
 );
 
 border-bottom:
-1px solid rgba(255,255,255,.18);
+1px solid rgba(255,255,255,.12);
 
 backdrop-filter:
-blur(22px);
-
-box-shadow:
-0 0 30px rgba(143,220,255,.25);
+blur(20px);
 
 }
 
@@ -293,8 +163,7 @@ color:#dff6ff;
 text-shadow:
 
 0 0 10px rgba(255,255,255,.8),
-0 0 30px rgba(143,220,255,.7),
-0 0 60px rgba(143,220,255,.4);
+0 0 30px rgba(143,220,255,.5);
 
 }
 
@@ -308,75 +177,19 @@ background:
 
 linear-gradient(
 to bottom,
-rgba(255,255,255,.14),
-rgba(10,20,60,.45)
+rgba(255,255,255,.12),
+rgba(10,20,60,.42)
 );
 
 border:
-1px solid rgba(255,255,255,.2);
+1px solid rgba(255,255,255,.18);
 
 box-shadow:
 
-0 0 30px rgba(143,220,255,.18),
-0 0 70px rgba(143,220,255,.1);
+0 0 30px rgba(143,220,255,.15);
 
 backdrop-filter:
-blur(22px);
-
-position:fixed;
-
-overflow:hidden;
-
-}
-
-/* =========================================
-WINDOW SHIMMER
-========================================= */
-
-.app-window::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:-120%;
-
-width:220%;
-height:100%;
-
-background:
-
-linear-gradient(
-120deg,
-transparent,
-rgba(255,255,255,.12),
-transparent
-);
-
-transform:
-skewX(-18deg);
-
-animation:
-windowGlow 12s infinite linear;
-
-pointer-events:none;
-
-}
-
-@keyframes windowGlow{
-
-from{
-
-left:-120%;
-
-}
-
-to{
-
-left:120%;
-
-}
+blur(20px);
 
 }
 
@@ -390,7 +203,7 @@ background:
 
 linear-gradient(
 to bottom,
-rgba(255,255,255,.15),
+rgba(255,255,255,.12),
 rgba(20,40,90,.45)
 );
 
@@ -398,11 +211,6 @@ border-bottom:
 1px solid rgba(255,255,255,.12);
 
 color:#dff6ff;
-
-text-shadow:
-
-0 0 10px rgba(255,255,255,.7),
-0 0 20px rgba(143,220,255,.5);
 
 }
 
@@ -421,28 +229,12 @@ rgba(10,20,60,.25)
 );
 
 border:
-1px solid rgba(255,255,255,.18);
+1px solid rgba(255,255,255,.15);
 
 border-radius:24px;
 
 backdrop-filter:
-blur(12px);
-
-box-shadow:
-0 0 20px rgba(143,220,255,.12);
-
-}
-
-.desktop-icon:hover{
-
-transform:
-translateY(-8px)
-scale(1.05);
-
-box-shadow:
-
-0 0 25px rgba(143,220,255,.35),
-0 0 60px rgba(255,255,255,.15);
+blur(10px);
 
 }
 
@@ -465,11 +257,6 @@ border:
 
 color:#123;
 
-box-shadow:
-
-0 0 12px rgba(143,220,255,.5),
-0 0 20px rgba(255,255,255,.3);
-
 }
 
 /* =========================================
@@ -483,19 +270,15 @@ background:
 linear-gradient(
 to bottom,
 rgba(255,255,255,.12),
-rgba(10,20,60,.45)
+rgba(10,20,60,.42)
 );
 
 border:
-1px solid rgba(255,255,255,.2);
+1px solid rgba(255,255,255,.18);
 
 box-shadow:
 
-0 0 30px rgba(143,220,255,.18),
-0 0 70px rgba(143,220,255,.1);
-
-backdrop-filter:
-blur(22px);
+0 0 30px rgba(143,220,255,.15);
 
 }
 
@@ -513,11 +296,6 @@ to top,
 white
 );
 
-box-shadow:
-
-0 0 10px rgba(255,255,255,.7),
-0 0 20px rgba(143,220,255,.6);
-
 }
 
 /* =========================================
@@ -530,48 +308,30 @@ background:
 
 linear-gradient(
 to bottom,
-rgba(10,20,60,.85),
-rgba(5,10,25,.55)
+rgba(10,20,60,.82),
+rgba(5,10,25,.6)
 );
 
 border-top:
 1px solid rgba(255,255,255,.15);
 
 backdrop-filter:
-blur(22px);
-
-box-shadow:
-0 0 25px rgba(143,220,255,.2);
+blur(20px);
 
 }
 
 /* =========================================
-SCROLLBAR
+INPUTS
 ========================================= */
 
-::-webkit-scrollbar{
-
-width:12px;
-
-}
-
-::-webkit-scrollbar-track{
+input{
 
 background:
-rgba(255,255,255,.08);
+rgba(255,255,255,.1);
 
-}
+border:
+1px solid rgba(255,255,255,.2);
 
-::-webkit-scrollbar-thumb{
-
-background:
-
-linear-gradient(
-to bottom,
-#dff6ff,
-#8fdcff
-);
-
-border-radius:20px;
+color:white;
 
 }
