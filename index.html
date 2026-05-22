@@ -4,7 +4,10 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>JEM.EXE</title>
 
@@ -12,29 +15,25 @@
 href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
 rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css">
-
-<!-- YOUTUBE API -->
+<link
+rel="stylesheet"
+href="css/style.css">
 
 <script src="https://www.youtube.com/iframe_api"></script>
 
-<!-- MAIN JS -->
+<script
+defer
+src="js/main.js">
 
-<script defer src="js/main.js"></script>
+</script>
 
 </head>
 
 <body>
 
-<!-- =========================================
-HIDDEN YOUTUBE PLAYER
-========================================= -->
-
 <div id="youtubePlayer"></div>
 
-<!-- =========================================
-BOOT SCREEN
-========================================= -->
+<!-- BOOT -->
 
 <div id="bootScreen">
 
@@ -43,28 +42,22 @@ JEM.EXE
 </h1>
 
 <p>
-booting retro desktop OS...
+booting desktop OS...
 </p>
 
 </div>
 
-<!-- =========================================
-BACKGROUND EFFECTS
-========================================= -->
+<!-- EFFECTS -->
 
 <div class="vhs"></div>
 
-<div class="particles"></div>
-
 <div class="stars"></div>
-
-<div class="retro-sun"></div>
 
 <div class="grid-floor"></div>
 
-<!-- =========================================
-TOPBAR
-========================================= -->
+<div class="retro-sun"></div>
+
+<!-- TOPBAR -->
 
 <nav class="topbar">
 
@@ -72,405 +65,66 @@ TOPBAR
 ✦ JEM.EXE ✦
 </div>
 
-<div class="nav-links">
-
-<a href="chatroom.html">CHATROOM</a>
-
-</div>
+<button id="themeButton">
+THEMES
+</button>
 
 </nav>
 
-<!-- =========================================
-HERO
-========================================= -->
+<!-- DESKTOP -->
 
-<section class="hero">
-
-<h1 class="glow">
-RETRO DESKTOP SOCIAL OS
-</h1>
-
-<p>
-editable vaporwave profile system ✦ multiplayer chat ✦ draggable windows
-</p>
+<section id="desktop">
 
 </section>
 
-<!-- =========================================
-DESKTOP SYSTEM
-========================================= -->
+<!-- TASKBAR -->
 
-<section id="desktopContainer">
+<div class="taskbar">
 
-<!-- ABOUT -->
+<div class="taskbar-start">
+START
+</div>
 
-<div
-class="desktop-app draggable-window"
-data-window="about">
-
-<div class="window-header">
-
-<span>
-💖 ABOUT.EXE
-</span>
-
-<div class="window-buttons">
-
-<div class="window-btn"></div>
-<div class="window-btn"></div>
-<div class="window-btn"></div>
-
+<div id="taskbarClock">
+00:00
 </div>
 
 </div>
 
-<div class="window-content">
-
-<h2>
-ABOUT ME
-</h2>
-
-<p contenteditable="false">
-
-Hi, I'm Jay.  
-I love retro web aesthetics, cats, games, music, and coding weird internet projects.
-
-</p>
-
-</div>
-
-</div>
-
-<!-- MUSIC -->
-
-<div
-class="desktop-app draggable-window"
-data-window="music">
-
-<div class="window-header">
-
-<span>
-🎵 MUSIC.EXE
-</span>
-
-<div class="window-buttons">
-
-<div class="window-btn"></div>
-<div class="window-btn"></div>
-<div class="window-btn"></div>
-
-</div>
-
-</div>
-
-<div class="window-content">
-
-<h2>
-MUSIC
-</h2>
-
-<p contenteditable="false">
-
-Vocaloid ✦ Sonic OSTs ✦ Indie ✦ Alternative ✦ Hyperpop
-
-</p>
-
-</div>
-
-</div>
-
-<!-- GAMES -->
-
-<div
-class="desktop-app draggable-window"
-data-window="games">
-
-<div class="window-header">
-
-<span>
-🎮 GAMES.EXE
-</span>
-
-<div class="window-buttons">
-
-<div class="window-btn"></div>
-<div class="window-btn"></div>
-<div class="window-btn"></div>
-
-</div>
-
-</div>
-
-<div class="window-content">
-
-<h2>
-GAMES
-</h2>
-
-<p contenteditable="false">
-
-Sonic ✦ Zelda ✦ Stardew Valley ✦ Roblox ✦ Retro games
-
-</p>
-
-</div>
-
-</div>
-
-<!-- SHOWS -->
-
-<div
-class="desktop-app draggable-window"
-data-window="shows">
-
-<div class="window-header">
-
-<span>
-📺 SHOWS.EXE
-</span>
-
-<div class="window-buttons">
-
-<div class="window-btn"></div>
-<div class="window-btn"></div>
-<div class="window-btn"></div>
-
-</div>
-
-</div>
-
-<div class="window-content">
-
-<h2>
-SHOWS
-</h2>
-
-<p contenteditable="false">
-
-Anime ✦ Movies ✦ Comfort series ✦ YouTube rabbit holes
-
-</p>
-
-</div>
-
-</div>
-
-<!-- FRIENDS -->
-
-<div
-class="desktop-app draggable-window"
-data-window="friends">
-
-<div class="window-header">
-
-<span>
-👥 FRIENDS.EXE
-</span>
-
-<div class="window-buttons">
-
-<div class="window-btn"></div>
-<div class="window-btn"></div>
-<div class="window-btn"></div>
-
-</div>
-
-</div>
-
-<div class="window-content">
-
-<h2>
-FRIENDS
-</h2>
-
-<p contenteditable="false">
-
-online mutuals ✦ gaming friends ✦ cool internet people
-
-</p>
-
-</div>
-
-</div>
-
-<!-- BLOG -->
-
-<div
-class="desktop-app draggable-window"
-data-window="blog">
-
-<div class="window-header">
-
-<span>
-📝 BLOG.EXE
-</span>
-
-<div class="window-buttons">
-
-<div class="window-btn"></div>
-<div class="window-btn"></div>
-<div class="window-btn"></div>
-
-</div>
-
-</div>
-
-<div class="window-content">
-
-<h2>
-BLOG
-</h2>
-
-<p contenteditable="false">
-
-Welcome to the retro internet blog zone.
-
-</p>
-
-</div>
-
-</div>
-
-<!-- MOODBOARD -->
-
-<div
-class="desktop-app draggable-window"
-data-window="moodboard">
-
-<div class="window-header">
-
-<span>
-🖼️ MOODBOARD.EXE
-</span>
-
-<div class="window-buttons">
-
-<div class="window-btn"></div>
-<div class="window-btn"></div>
-<div class="window-btn"></div>
-
-</div>
-
-</div>
-
-<div class="window-content">
-
-<h2>
-MOODBOARD
-</h2>
-
-<p contenteditable="false">
-
-vaporwave ✦ scene ✦ neon ✦ old web ✦ glitchcore
-
-</p>
-
-</div>
-
-</div>
-
-<!-- CHATROOM -->
-
-<a
-href="chatroom.html"
-class="desktop-app chat-launcher">
-
-<div class="window-header">
-
-<span>
-💬 CHATROOM.EXE
-</span>
-
-</div>
-
-<div class="window-content">
-
-<h2>
-MULTIPLAYER CHAT
-</h2>
-
-<p>
-
-open global chatroom
-
-</p>
-
-</div>
-
-</a>
-
-</section>
-
-<!-- =========================================
-EDIT MODE BAR
-========================================= -->
-
-<div id="editBar">
-
-<button id="toggleEdit">
-
-EDIT MODE
-
-</button>
-
-<button id="saveLayout">
-
-SAVE
-
-</button>
-
-</div>
-
-<!-- =========================================
-MUSIC PLAYER
-========================================= -->
+<!-- MUSIC PLAYER -->
 
 <div id="musicPlayer">
 
 <h3>
-♫ SYSTEM THEME PLAYER
+♫ SYSTEM PLAYER
 </h3>
+
+<div id="nowPlaying">
+nothing playing
+</div>
 
 <input
 id="musicURL"
-placeholder="paste youtube link...">
-
-<div class="music-controls">
+placeholder="youtube link">
 
 <button id="musicToggle">
 PLAY
 </button>
 
+</div>
+
+<!-- ADMIN PANEL -->
+
+<div id="adminPanel">
+
 <input
-id="volumeSlider"
-type="range"
-min="0"
-max="100"
-value="40">
+type="password"
+id="adminPassword"
+placeholder="password">
 
-</div>
-
-</div>
-
-<!-- =========================================
-TASKBAR
-========================================= -->
-
-<div class="taskbar">
-
-<div class="taskbar-start">
-
-START
-
-</div>
-
-<div
-class="taskbar-clock"
-id="taskbarClock">
-
-00:00
-
-</div>
+<button id="adminLogin">
+LOGIN
+</button>
 
 </div>
 
