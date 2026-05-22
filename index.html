@@ -15,82 +15,49 @@ content="width=device-width, initial-scale=1.0">
 href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
 rel="stylesheet">
 
-<link
-rel="stylesheet"
-href="css/style.css">
+<link rel="stylesheet" href="css/core.css">
+<link rel="stylesheet" href="css/windows.css">
+<link rel="stylesheet" href="css/player.css">
+<link rel="stylesheet" href="css/animations.css">
 
 <link
 id="themeStylesheet"
 rel="stylesheet"
 href="themes/vaporwave.css">
 
-<script src="https://www.youtube.com/iframe_api"></script>
-
-<script
-defer
-src="js/main.js">
-
-</script>
+<script defer src="js/desktop.js"></script>
+<script defer src="js/player.js"></script>
+<script defer src="js/themes.js"></script>
+<script defer src="js/friends.js"></script>
 
 </head>
 
 <body>
 
-<!-- =========================================
-YOUTUBE PLAYER
-========================================= -->
-
-<div id="youtubePlayer"></div>
-
-<!-- =========================================
-BOOT SCREEN
-========================================= -->
+<!-- BOOT -->
 
 <div id="bootScreen">
 
-<div class="boot-logo">
+<h1>JEM.EXE</h1>
 
-JEM.EXE
+<p>
 
-</div>
+INITIALIZING RETRO DESKTOP...
 
-<div class="boot-subtitle">
-
-RETRO SOCIAL DESKTOP OS
+</p>
 
 </div>
 
-<div class="boot-bar">
-
-<div class="boot-progress"></div>
-
-</div>
-
-<div class="boot-loading">
-
-INITIALIZING SYSTEM...
-
-</div>
-
-</div>
-
-<!-- =========================================
-BACKGROUND FX
-========================================= -->
-
-<div class="vhs"></div>
+<!-- BACKGROUND FX -->
 
 <div class="stars"></div>
-
+<div class="grid"></div>
 <div class="retro-sun"></div>
+<div class="vhs"></div>
 
-<div class="grid-floor"></div>
+<!-- TOPBAR -->
 
-<!-- =========================================
-TOPBAR
-========================================= -->
-
-<nav class="topbar">
+<header class="topbar">
 
 <div class="logo">
 
@@ -98,71 +65,169 @@ TOPBAR
 
 </div>
 
-<div class="topbar-buttons">
+<div class="top-actions">
 
-<button id="themeButton">
+<button onclick="setTheme('vaporwave')">
 
-THEMES
+VAPOR
 
 </button>
 
-<button id="adminOpen">
+<button onclick="setTheme('rosalina')">
 
-ADMIN
+ROSALINA
+
+</button>
+
+<button onclick="setTheme('aero')">
+
+AERO
 
 </button>
 
 </div>
 
-</nav>
+</header>
 
-<!-- =========================================
-DESKTOP
-========================================= -->
+<!-- DESKTOP -->
 
-<section id="desktop">
+<main id="desktop">
+
+<!-- ABOUT -->
+
+<section class="desktop-window">
+
+<div class="window-title">
+
+💖 ABOUT.EXE
+
+</div>
+
+<div class="window-content">
+
+Retro internet themed profile system.
+
+</div>
 
 </section>
 
-<!-- =========================================
-MUSIC PLAYER
-========================================= -->
+<!-- MUSIC -->
 
-<div id="musicPlayer">
+<section class="desktop-window">
 
-<h3>
+<div class="window-title">
 
-♫ SYSTEM PLAYER
+🎵 MUSIC.EXE
 
-</h3>
+</div>
 
-<div id="nowPlaying">
+<div class="window-content">
 
-NOW PLAYING :: nothing loaded
+Favorite music, playlists, and visualizers.
+
+</div>
+
+</section>
+
+<!-- GAMES -->
+
+<section class="desktop-window">
+
+<div class="window-title">
+
+🎮 GAMES.EXE
+
+</div>
+
+<div class="window-content">
+
+Games archive and multiplayer stuff.
+
+</div>
+
+</section>
+
+<!-- SHOWS -->
+
+<section class="desktop-window">
+
+<div class="window-title">
+
+📺 SHOWS.EXE
+
+</div>
+
+<div class="window-content">
+
+Anime, cartoons, movies, series.
+
+</div>
+
+</section>
+
+<!-- BLOG -->
+
+<section class="desktop-window">
+
+<div class="window-title">
+
+📝 BLOG.EXE
+
+</div>
+
+<div class="window-content">
+
+Blog posts and updates.
+
+</div>
+
+</section>
+
+<!-- FRIENDS -->
+
+<section
+class="desktop-window friend-window"
+onclick="openFriend()">
+
+<div class="window-title">
+
+💫 FRIENDS.EXE
+
+</div>
+
+<div class="window-content">
+
+Friend profiles and socials.
+
+</div>
+
+</section>
+
+</main>
+
+<!-- MUSIC PLAYER -->
+
+<aside id="musicPlayer">
+
+<h2>
+
+SYSTEM PLAYER
+
+</h2>
+
+<img
+id="albumArt"
+src="https://i.imgur.com/8Km9tLL.png">
+
+<div id="trackTitle">
+
+waiting for track...
 
 </div>
 
 <div id="artistName">
 
-ARTIST :: unknown
-
-</div>
-
-<div id="albumArt">
-
-<img
-id="albumImage"
-src="https://i.imgur.com/8Km9tLL.png">
-
-</div>
-
-<div id="marqueeContainer">
-
-<div id="marqueeText">
-
-waiting for track...
-
-</div>
+artist unknown
 
 </div>
 
@@ -170,86 +235,71 @@ waiting for track...
 
 <div class="visualizer">
 
-<div class="bar"></div>
-<div class="bar"></div>
-<div class="bar"></div>
-<div class="bar"></div>
-<div class="bar"></div>
-<div class="bar"></div>
-<div class="bar"></div>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
 
 </div>
 
-<!-- CASSETTE -->
-
-<img
-id="cassetteGif"
-src="https://media.tenor.com/4dD3dS0i2xAAAAAi/cassette.gif">
-
-<!-- MUSIC INPUT -->
+<!-- URL -->
 
 <input
-id="musicURL"
+id="youtubeInput"
 placeholder="paste youtube link">
 
-<!-- CONTROLS -->
+<!-- BUTTONS -->
 
-<div class="music-controls">
+<div class="controls">
 
-<button id="musicToggle">
+<button id="playBtn">
 
 PLAY
 
 </button>
 
-<button id="loopButton">
+<button id="pauseBtn">
 
-LOOP OFF
+STOP
 
 </button>
 
-<input
-id="volumeSlider"
-type="range"
-min="0"
-max="100"
-value="40">
-
 </div>
 
-<!-- QUEUE -->
+</aside>
 
-<div id="playlistQueue">
-
-QUEUE EMPTY
-
-</div>
-
-</div>
-
-<!-- =========================================
-FRIEND MODAL
-========================================= -->
+<!-- FRIEND MODAL -->
 
 <div id="friendModal">
 
 <div class="friend-card">
 
-<img id="friendImage">
+<img
+src="https://i.imgur.com/8Km9tLL.png">
 
-<h2 id="friendName"></h2>
+<h2>
 
-<p id="friendBio"></p>
+SKYLER
+
+</h2>
+
+<p>
+
+Cool person and gamer.
+
+</p>
 
 <a
-id="friendSocial"
+href="https://twitter.com"
 target="_blank">
 
 VISIT SOCIAL
 
 </a>
 
-<button id="closeFriend">
+<button onclick="closeFriend()">
 
 CLOSE
 
@@ -259,100 +309,23 @@ CLOSE
 
 </div>
 
-<!-- =========================================
-ADMIN PANEL
-========================================= -->
+<!-- TASKBAR -->
 
-<div id="adminPanel">
+<footer class="taskbar">
 
-<h2>
-
-ADMIN PANEL
-
-</h2>
-
-<input
-type="password"
-id="adminPassword"
-placeholder="password">
-
-<button id="adminLogin">
-
-LOGIN
-
-</button>
-
-<div id="adminTools">
-
-<button id="toggleEdit">
-
-EDIT MODE
-
-</button>
-
-<button id="saveLayout">
-
-SAVE SITE
-
-</button>
-
-<button id="themeVapor">
-
-VAPORWAVE
-
-</button>
-
-<button id="themeRosalina">
-
-ROSALINA
-
-</button>
-
-<button id="themeAero">
-
-FRUTIGER AERO
-
-</button>
-
-</div>
-
-</div>
-
-<!-- =========================================
-MOBILE BUTTONS
-========================================= -->
-
-<button id="mobileEditButton">
-
-✦ EDIT
-
-</button>
-
-<button id="mobileSaveButton">
-
-SAVE
-
-</button>
-
-<!-- =========================================
-TASKBAR
-========================================= -->
-
-<div class="taskbar">
-
-<div class="taskbar-start">
+<div>
 
 START
 
 </div>
 
-<div id="taskbarClock">
+<div id="clock">
 
 00:00
 
 </div>
 
-</div>
+</footer>
 
 </body>
 </html>
