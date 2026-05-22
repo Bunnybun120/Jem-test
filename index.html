@@ -34,28 +34,38 @@ href="themes/vaporwave.css">
 
 <body>
 
-<!-- BOOT -->
+<!-- =========================================
+BOOT
+========================================= -->
 
 <div id="bootScreen">
 
-<h1>JEM.EXE</h1>
+<h1>
+
+JEM.EXE
+
+</h1>
 
 <p>
 
-INITIALIZING RETRO DESKTOP...
+LOADING RETRO SYSTEM...
 
 </p>
 
 </div>
 
-<!-- BACKGROUND FX -->
+<!-- =========================================
+BACKGROUND FX
+========================================= -->
 
 <div class="stars"></div>
 <div class="grid"></div>
 <div class="retro-sun"></div>
 <div class="vhs"></div>
 
-<!-- TOPBAR -->
+<!-- =========================================
+TOPBAR
+========================================= -->
 
 <header class="topbar">
 
@@ -89,123 +99,425 @@ AERO
 
 </header>
 
-<!-- DESKTOP -->
+<!-- =========================================
+DESKTOP ICONS
+========================================= -->
 
 <main id="desktop">
 
-<!-- ABOUT -->
+<div
+class="desktop-icon"
+onclick="openWindow('aboutWindow')">
 
-<section class="desktop-window">
-
-<div class="window-title">
-
-💖 ABOUT.EXE
-
-</div>
-
-<div class="window-content">
-
-Retro internet themed profile system.
+💖
+<p>ABOUT</p>
 
 </div>
 
-</section>
+<div
+class="desktop-icon"
+onclick="openWindow('musicWindow')">
 
-<!-- MUSIC -->
-
-<section class="desktop-window">
-
-<div class="window-title">
-
-🎵 MUSIC.EXE
+🎵
+<p>MUSIC</p>
 
 </div>
 
-<div class="window-content">
+<div
+class="desktop-icon"
+onclick="openWindow('gamesWindow')">
 
-Favorite music, playlists, and visualizers.
-
-</div>
-
-</section>
-
-<!-- GAMES -->
-
-<section class="desktop-window">
-
-<div class="window-title">
-
-🎮 GAMES.EXE
+🎮
+<p>GAMES</p>
 
 </div>
 
-<div class="window-content">
+<div
+class="desktop-icon"
+onclick="openWindow('showsWindow')">
 
-Games archive and multiplayer stuff.
-
-</div>
-
-</section>
-
-<!-- SHOWS -->
-
-<section class="desktop-window">
-
-<div class="window-title">
-
-📺 SHOWS.EXE
+📺
+<p>SHOWS</p>
 
 </div>
 
-<div class="window-content">
+<div
+class="desktop-icon"
+onclick="openWindow('blogWindow')">
 
-Anime, cartoons, movies, series.
-
-</div>
-
-</section>
-
-<!-- BLOG -->
-
-<section class="desktop-window">
-
-<div class="window-title">
-
-📝 BLOG.EXE
+📝
+<p>BLOG</p>
 
 </div>
 
-<div class="window-content">
+<div
+class="desktop-icon"
+onclick="openWindow('friendsWindow')">
 
-Blog posts and updates.
-
-</div>
-
-</section>
-
-<!-- FRIENDS -->
-
-<section
-class="desktop-window friend-window"
-onclick="openFriend()">
-
-<div class="window-title">
-
-💫 FRIENDS.EXE
+💫
+<p>FRIENDS</p>
 
 </div>
 
-<div class="window-content">
+<div
+class="desktop-icon"
+onclick="openWindow('chatWindow')">
 
-Friend profiles and socials.
+💬
+<p>CHATROOM</p>
 
 </div>
 
-</section>
+<div
+class="desktop-icon"
+onclick="openWindow('moodboardWindow')">
+
+🌌
+<p>MOODBOARD</p>
+
+</div>
+
+<div
+class="desktop-icon"
+onclick="openWindow('fandomsWindow')">
+
+⭐
+<p>FANDOMS</p>
+
+</div>
 
 </main>
 
-<!-- MUSIC PLAYER -->
+<!-- =========================================
+ABOUT WINDOW
+========================================= -->
+
+<div
+class="app-window"
+id="aboutWindow">
+
+<div class="titlebar">
+
+ABOUT.EXE
+
+<button onclick="closeWindow('aboutWindow')">
+
+X
+
+</button>
+
+</div>
+
+<div class="window-body">
+
+<h2>
+
+ABOUT ME
+
+</h2>
+
+<p>
+
+Retro webcore desktop system.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- =========================================
+MUSIC WINDOW
+========================================= -->
+
+<div
+class="app-window"
+id="musicWindow">
+
+<div class="titlebar">
+
+MUSIC.EXE
+
+<button onclick="closeWindow('musicWindow')">
+
+X
+
+</button>
+
+</div>
+
+<div class="window-body">
+
+<p>
+
+Music archive and playlists.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- =========================================
+GAMES WINDOW
+========================================= -->
+
+<div
+class="app-window"
+id="gamesWindow">
+
+<div class="titlebar">
+
+GAMES.EXE
+
+<button onclick="closeWindow('gamesWindow')">
+
+X
+
+</button>
+
+</div>
+
+<div class="window-body">
+
+<p>
+
+Games section.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- =========================================
+SHOWS WINDOW
+========================================= -->
+
+<div
+class="app-window"
+id="showsWindow">
+
+<div class="titlebar">
+
+SHOWS.EXE
+
+<button onclick="closeWindow('showsWindow')">
+
+X
+
+</button>
+
+</div>
+
+<div class="window-body">
+
+<p>
+
+Shows and anime archive.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- =========================================
+BLOG WINDOW
+========================================= -->
+
+<div
+class="app-window"
+id="blogWindow">
+
+<div class="titlebar">
+
+BLOG.EXE
+
+<button onclick="closeWindow('blogWindow')">
+
+X
+
+</button>
+
+</div>
+
+<div class="window-body">
+
+<p>
+
+Blog posts here.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- =========================================
+FRIENDS WINDOW
+========================================= -->
+
+<div
+class="app-window"
+id="friendsWindow">
+
+<div class="titlebar">
+
+FRIENDS.EXE
+
+<button onclick="closeWindow('friendsWindow')">
+
+X
+
+</button>
+
+</div>
+
+<div class="window-body">
+
+<div class="friend-entry">
+
+<img
+src="https://i.imgur.com/8Km9tLL.png">
+
+<h3>
+
+SKYLER
+
+</h3>
+
+<p>
+
+Bestie + gamer.
+
+</p>
+
+<a
+href="https://twitter.com"
+target="_blank">
+
+VISIT SOCIAL
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================================
+CHATROOM
+========================================= -->
+
+<div
+class="app-window"
+id="chatWindow">
+
+<div class="titlebar">
+
+CHATROOM.EXE
+
+<button onclick="closeWindow('chatWindow')">
+
+X
+
+</button>
+
+</div>
+
+<div class="window-body">
+
+<div id="chatMessages"></div>
+
+<input
+id="chatInput"
+placeholder="type message">
+
+<button id="sendMessage">
+
+SEND
+
+</button>
+
+<button id="clearChat">
+
+CLEAR CHAT
+
+</button>
+
+</div>
+
+</div>
+
+<!-- =========================================
+MOODBOARD
+========================================= -->
+
+<div
+class="app-window"
+id="moodboardWindow">
+
+<div class="titlebar">
+
+MOODBOARD.EXE
+
+<button onclick="closeWindow('moodboardWindow')">
+
+X
+
+</button>
+
+</div>
+
+<div class="window-body">
+
+<p>
+
+Moodboards here.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- =========================================
+FANDOMS
+========================================= -->
+
+<div
+class="app-window"
+id="fandomsWindow">
+
+<div class="titlebar">
+
+FANDOMS.EXE
+
+<button onclick="closeWindow('fandomsWindow')">
+
+X
+
+</button>
+
+</div>
+
+<div class="window-body">
+
+<p>
+
+Fandom shrines and pages.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- =========================================
+MUSIC PLAYER
+========================================= -->
 
 <aside id="musicPlayer">
 
@@ -221,17 +533,15 @@ src="https://i.imgur.com/8Km9tLL.png">
 
 <div id="trackTitle">
 
-waiting for track...
+NO TRACK
 
 </div>
 
 <div id="artistName">
 
-artist unknown
+UNKNOWN ARTIST
 
 </div>
-
-<!-- VISUALIZER -->
 
 <div class="visualizer">
 
@@ -240,17 +550,12 @@ artist unknown
 <span></span>
 <span></span>
 <span></span>
-<span></span>
 
 </div>
 
-<!-- URL -->
-
 <input
 id="youtubeInput"
-placeholder="paste youtube link">
-
-<!-- BUTTONS -->
+placeholder="paste youtube url">
 
 <div class="controls">
 
@@ -268,48 +573,19 @@ STOP
 
 </div>
 
+<iframe
+id="youtubePlayer"
+width="0"
+height="0"
+allow="autoplay">
+
+</iframe>
+
 </aside>
 
-<!-- FRIEND MODAL -->
-
-<div id="friendModal">
-
-<div class="friend-card">
-
-<img
-src="https://i.imgur.com/8Km9tLL.png">
-
-<h2>
-
-SKYLER
-
-</h2>
-
-<p>
-
-Cool person and gamer.
-
-</p>
-
-<a
-href="https://twitter.com"
-target="_blank">
-
-VISIT SOCIAL
-
-</a>
-
-<button onclick="closeFriend()">
-
-CLOSE
-
-</button>
-
-</div>
-
-</div>
-
-<!-- TASKBAR -->
+<!-- =========================================
+TASKBAR
+========================================= -->
 
 <footer class="taskbar">
 
