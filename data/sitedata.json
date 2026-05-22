@@ -1,0 +1,33 @@
+{
+  "windows":[
+
+    {
+      "id":"about",
+      "title":"ABOUT.EXE",
+      "icon":"💖",
+      "content":"Hi, I'm Jay. I love games, music, cats, and retro web aesthetics."
+    },
+
+    {
+      "id":"music",
+      "title":"MUSIC.EXE",
+      "icon":"🎵",
+      "content":"Vocaloid, Sonic OSTs, indie, alternative."
+    },
+
+    {
+      "id":"games",
+      "title":"GAMES.EXE",
+      "icon":"🎮",
+      "content":"Sonic, Zelda, Stardew Valley."
+    },
+
+    {
+      "id":"friends",
+      "title":"FRIENDS.EXE",
+      "icon":"👥",
+      "content":"friend profiles loading..."
+    }
+
+  ]
+}
