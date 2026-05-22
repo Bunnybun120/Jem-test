@@ -46,10 +46,7 @@ const volumeSlider =
 document.getElementById(
 "volumeSlider"
 );
-const nowPlaying =
-document.getElementById(
-"nowPlaying"
-);
+
 /* =========================================
 SAFE PAGE CHECK
 ========================================= */
@@ -65,50 +62,7 @@ GET VIDEO ID
 ========================================= */
 
 function getYoutubeVideoID(url){
-/* =========================================
-NOW PLAYING
-========================================= */
 
-async function updateNowPlaying(videoID){
-
-if(!nowPlaying) return;
-
-try{
-
-const response =
-await fetch(
-
-`https://noembed.com/embed?url=https://www.youtube.com/watch?v=${videoID}`
-
-);
-
-const data =
-await response.json();
-
-if(data.title){
-
-nowPlaying.innerText =
-
-"NOW PLAYING :: " +
-data.title;
-
-}else{
-
-nowPlaying.innerText =
-
-"NOW PLAYING :: unknown track";
-
-}
-
-}catch{
-
-nowPlaying.innerText =
-
-"NOW PLAYING :: unable to load";
-
-}
-
-}
 try{
 
 const parsed =
@@ -291,12 +245,8 @@ return;
 const videoID =
 getYoutubeVideoID(url);
 
-updateNowPlaying(
-videoID
-);
 if(!videoID){
-/
-}
+
 alert(
 "Invalid YouTube link."
 );
