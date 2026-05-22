@@ -46,7 +46,10 @@ const volumeSlider =
 document.getElementById(
 "volumeSlider"
 );
-
+const nowPlaying =
+document.getElementById(
+"nowPlaying"
+);
 /* =========================================
 SAFE PAGE CHECK
 ========================================= */
@@ -245,8 +248,54 @@ return;
 const videoID =
 getYoutubeVideoID(url);
 
+updateNowPlaying(
+videoID
+);
 if(!videoID){
+/* =========================================
+NOW PLAYING
+========================================= */
 
+async function updateNowPlaying(videoID){
+
+if(!nowPlaying) return;
+
+try{
+
+const response =
+await fetch(
+
+`https://noembed.com/embed?url=https://www.youtube.com/watch?v=${videoID}`
+
+);
+
+const data =
+await response.json();
+
+if(data.title){
+
+nowPlaying.innerText =
+
+"NOW PLAYING :: " +
+data.title;
+
+}else{
+
+nowPlaying.innerText =
+
+"NOW PLAYING :: unknown track";
+
+}
+
+}catch{
+
+nowPlaying.innerText =
+
+"NOW PLAYING :: unable to load";
+
+}
+
+}
 alert(
 "Invalid YouTube link."
 );
