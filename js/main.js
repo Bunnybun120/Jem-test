@@ -19,6 +19,8 @@ document.getElementById(
 
 desktop.innerHTML = "";
 
+/* WINDOWS */
+
 data.windows.forEach(windowData=>{
 
 const div =
@@ -29,12 +31,12 @@ div.className =
 
 div.innerHTML = `
 
-<div class="window-header">
+<h2>
 
 ${windowData.icon}
 ${windowData.title}
 
-</div>
+</h2>
 
 <div class="window-content">
 
@@ -76,13 +78,11 @@ ${friend.name}
 
 `;
 
-friendDiv.addEventListener(
-"click",
-()=>{
+friendDiv.onclick = ()=>{
 
 openFriend(friend);
 
-});
+};
 
 desktop.appendChild(friendDiv);
 
@@ -173,6 +173,13 @@ SAVE
 
 function saveEdits(){
 
+localStorage.setItem(
+"desktopHTML",
+document.getElementById(
+"desktop"
+).innerHTML
+);
+
 alert(
 "site saved locally"
 );
@@ -188,6 +195,68 @@ document.getElementById(
 "mobileSaveButton"
 ).onclick =
 saveEdits;
+
+/* =========================================
+LOAD SAVED
+========================================= */
+
+window.addEventListener(
+"load",
+()=>{
+
+const saved =
+localStorage.getItem(
+"desktopHTML"
+);
+
+if(saved){
+
+document.getElementById(
+"desktop"
+).innerHTML =
+saved;
+
+}
+
+});
+
+/* =========================================
+THEMES
+========================================= */
+
+function setTheme(theme){
+
+document.getElementById(
+"themeStylesheet"
+).href =
+
+`themes/${theme}.css`;
+
+}
+
+document.getElementById(
+"themeVapor"
+).onclick = ()=>{
+
+setTheme("vaporwave");
+
+};
+
+document.getElementById(
+"themeRosalina"
+).onclick = ()=>{
+
+setTheme("rosalina");
+
+};
+
+document.getElementById(
+"themeAero"
+).onclick = ()=>{
+
+setTheme("aero");
+
+};
 
 /* =========================================
 ADMIN PANEL
@@ -232,59 +301,25 @@ alert(
 };
 
 /* =========================================
-THEMES
+CLOCK
 ========================================= */
 
-document.getElementById(
-"themeRosalina"
-).onclick = ()=>{
+function updateClock(){
 
-document.documentElement
-.style.setProperty(
-"--bg",
-"#7ecbff"
-);
-
-document.documentElement
-.style.setProperty(
-"--accent",
-"#bfe9ff"
-);
-
-};
+const now =
+new Date();
 
 document.getElementById(
-"themeAero"
-).onclick = ()=>{
+"taskbarClock"
+).innerText =
 
-document.documentElement
-.style.setProperty(
-"--bg",
-"#8fd3ff"
+now.toLocaleTimeString();
+
+}
+
+setInterval(
+updateClock,
+1000
 );
 
-document.documentElement
-.style.setProperty(
-"--accent",
-"#ffffff"
-);
-
-};
-
-document.getElementById(
-"themeVapor"
-).onclick = ()=>{
-
-document.documentElement
-.style.setProperty(
-"--bg",
-"#120018"
-);
-
-document.documentElement
-.style.setProperty(
-"--accent",
-"#ff4fd8"
-);
-
-};
+updateClock();
