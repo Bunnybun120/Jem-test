@@ -19,6 +19,11 @@ rel="stylesheet">
 rel="stylesheet"
 href="css/style.css">
 
+<link
+id="themeStylesheet"
+rel="stylesheet"
+href="themes/vaporwave.css">
+
 <script src="https://www.youtube.com/iframe_api"></script>
 
 <script
@@ -31,9 +36,15 @@ src="js/main.js">
 
 <body>
 
+<!-- =========================================
+YOUTUBE PLAYER
+========================================= -->
+
 <div id="youtubePlayer"></div>
 
-<!-- BOOT -->
+<!-- =========================================
+BOOT SCREEN
+========================================= -->
 
 <div id="bootScreen">
 
@@ -43,28 +54,41 @@ JEM.EXE
 
 </div>
 
+<div class="boot-subtitle">
+
+RETRO SOCIAL DESKTOP OS
+
+</div>
+
 <div class="boot-bar">
 
 <div class="boot-progress"></div>
 
 </div>
 
-<p class="boot-text">
+<div class="boot-loading">
 
-INITIALIZING DESKTOP OS...
-
-</p>
+INITIALIZING SYSTEM...
 
 </div>
 
-<!-- EFFECTS -->
+</div>
+
+<!-- =========================================
+BACKGROUND FX
+========================================= -->
 
 <div class="vhs"></div>
+
 <div class="stars"></div>
+
 <div class="retro-sun"></div>
+
 <div class="grid-floor"></div>
 
-<!-- TOPBAR -->
+<!-- =========================================
+TOPBAR
+========================================= -->
 
 <nav class="topbar">
 
@@ -92,13 +116,17 @@ ADMIN
 
 </nav>
 
-<!-- DESKTOP -->
+<!-- =========================================
+DESKTOP
+========================================= -->
 
 <section id="desktop">
 
 </section>
 
-<!-- MUSIC PLAYER -->
+<!-- =========================================
+MUSIC PLAYER
+========================================= -->
 
 <div id="musicPlayer">
 
@@ -111,6 +139,12 @@ ADMIN
 <div id="nowPlaying">
 
 NOW PLAYING :: nothing loaded
+
+</div>
+
+<div id="artistName">
+
+ARTIST :: unknown
 
 </div>
 
@@ -132,8 +166,12 @@ waiting for track...
 
 </div>
 
+<!-- VISUALIZER -->
+
 <div class="visualizer">
 
+<div class="bar"></div>
+<div class="bar"></div>
 <div class="bar"></div>
 <div class="bar"></div>
 <div class="bar"></div>
@@ -142,13 +180,19 @@ waiting for track...
 
 </div>
 
+<!-- CASSETTE -->
+
 <img
 id="cassetteGif"
 src="https://media.tenor.com/4dD3dS0i2xAAAAAi/cassette.gif">
 
+<!-- MUSIC INPUT -->
+
 <input
 id="musicURL"
 placeholder="paste youtube link">
+
+<!-- CONTROLS -->
 
 <div class="music-controls">
 
@@ -173,6 +217,8 @@ value="40">
 
 </div>
 
+<!-- QUEUE -->
+
 <div id="playlistQueue">
 
 QUEUE EMPTY
@@ -181,7 +227,9 @@ QUEUE EMPTY
 
 </div>
 
-<!-- FRIEND MODAL -->
+<!-- =========================================
+FRIEND MODAL
+========================================= -->
 
 <div id="friendModal">
 
@@ -211,7 +259,9 @@ CLOSE
 
 </div>
 
-<!-- ADMIN PANEL -->
+<!-- =========================================
+ADMIN PANEL
+========================================= -->
 
 <div id="adminPanel">
 
@@ -248,21 +298,29 @@ SAVE SITE
 
 <button id="themeVapor">
 
-VAPORWAVE</button>
+VAPORWAVE
+
+</button>
 
 <button id="themeRosalina">
 
-ROSALINA</button>
+ROSALINA
+
+</button>
 
 <button id="themeAero">
 
-FRUTIGER AERO</button>
+FRUTIGER AERO
+
+</button>
 
 </div>
 
 </div>
 
-<!-- MOBILE BUTTONS -->
+<!-- =========================================
+MOBILE BUTTONS
+========================================= -->
 
 <button id="mobileEditButton">
 
@@ -276,7 +334,9 @@ SAVE
 
 </button>
 
-<!-- TASKBAR -->
+<!-- =========================================
+TASKBAR
+========================================= -->
 
 <div class="taskbar">
 
