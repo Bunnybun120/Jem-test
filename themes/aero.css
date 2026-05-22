@@ -1,64 +1,119 @@
 /* =========================================
-FRUTIGER AERO THEME
+ULTIMATE FRUTIGER AERO
+WINDOWS VISTA + 2000s INTERNET
 ========================================= */
 
 body{
 
 background:
+
 linear-gradient(
 to bottom,
-#73dfff 0%,
-#d6f7ff 40%,
-#ffffff 100%
+#79dfff 0%,
+#baf2ff 30%,
+#ffffff 65%,
+#dff8ff 100%
 );
 
-color:#134;
+color:#124;
 
 overflow-x:hidden;
 
+animation:
+aeroGlow 10s infinite alternate;
+
 }
 
 /* =========================================
-BUBBLE OVERLAY
+AERO LIGHTING
 ========================================= */
 
-body::before{
+@keyframes aeroGlow{
 
-content:"";
+from{
 
-position:fixed;
-inset:0;
+filter:
+brightness(1)
+saturate(1);
 
-background-image:
+}
 
-radial-gradient(
-circle at 10% 20%,
-rgba(255,255,255,.8) 0%,
-transparent 8%
-),
+to{
 
-radial-gradient(
-circle at 80% 30%,
-rgba(255,255,255,.7) 0%,
-transparent 10%
-),
+filter:
+brightness(1.06)
+saturate(1.12);
 
-radial-gradient(
-circle at 50% 80%,
-rgba(255,255,255,.5) 0%,
-transparent 12%
-);
-
-pointer-events:none;
-
-opacity:.7;
-
-z-index:-2;
+}
 
 }
 
 /* =========================================
-FLOATING BUBBLES
+GIANT LIGHT BLOOM
+========================================= */
+
+.retro-sun{
+
+position:fixed;
+
+top:-150px;
+left:50%;
+
+transform:
+translateX(-50%);
+
+width:1100px;
+height:1100px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(
+circle,
+rgba(255,255,255,.95) 0%,
+rgba(180,245,255,.85) 25%,
+rgba(120,225,255,.45) 45%,
+rgba(255,255,255,.1) 60%,
+transparent 75%
+);
+
+filter:
+blur(90px);
+
+opacity:.8;
+
+z-index:-5;
+
+animation:
+sunFloat 14s infinite alternate ease-in-out;
+
+}
+
+@keyframes sunFloat{
+
+from{
+
+transform:
+translateX(-50%)
+translateY(0px)
+scale(1);
+
+}
+
+to{
+
+transform:
+translateX(-50%)
+translateY(20px)
+scale(1.08);
+
+}
+
+}
+
+/* =========================================
+FLOATING SOAP BUBBLES
 ========================================= */
 
 .stars{
@@ -69,25 +124,31 @@ inset:0;
 background-image:
 
 radial-gradient(
-rgba(255,255,255,.8) 2px,
-transparent 2px
+rgba(255,255,255,.95) 3px,
+transparent 3px
 ),
 
 radial-gradient(
-rgba(173,240,255,.8) 4px,
-transparent 4px
+rgba(173,240,255,.9) 6px,
+transparent 6px
+),
+
+radial-gradient(
+rgba(255,255,255,.65) 10px,
+transparent 10px
 );
 
 background-size:
-200px 200px,
-350px 350px;
+240px 240px,
+420px 420px,
+600px 600px;
 
 animation:
-bubbleFloat 60s linear infinite;
+bubbleFloat 90s linear infinite;
 
-opacity:.5;
+opacity:.7;
 
-z-index:-1;
+z-index:-3;
 
 }
 
@@ -103,82 +164,88 @@ translateY(0px);
 to{
 
 transform:
-translateY(-300px);
+translateY(-500px);
 
 }
 
 }
 
 /* =========================================
-AERO GLOW
+AERO GRID
 ========================================= */
 
-.retro-sun{
+.grid{
 
 position:fixed;
 
-top:100px;
-left:50%;
+bottom:-20%;
+left:0;
 
-transform:
-translateX(-50%);
+width:100%;
+height:60%;
 
-width:700px;
-height:700px;
+background-image:
 
-border-radius:50%;
-
-background:
-
-radial-gradient(
-circle,
-rgba(255,255,255,.8),
-rgba(173,240,255,.4),
-transparent 70%
-);
-
-filter:blur(60px);
-
-opacity:.5;
-
-z-index:-3;
-
-}
-
-/* =========================================
-WINDOWS
-========================================= */
-
-.desktop-window{
-
-background:
 linear-gradient(
-to bottom,
-rgba(255,255,255,.7),
-rgba(255,255,255,.35)
+rgba(255,255,255,.22) 1px,
+transparent 1px
+),
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.22) 1px,
+transparent 1px
 );
 
-border:
-1px solid rgba(255,255,255,.8);
+background-size:
+80px 80px;
 
-backdrop-filter:blur(20px);
+transform:
+perspective(700px)
+rotateX(76deg);
 
-box-shadow:
-0 10px 30px rgba(0,150,255,.15);
+opacity:.14;
+
+filter:blur(.3px);
+
+z-index:-2;
 
 }
 
 /* =========================================
-WINDOW HOVER
+REMOVE VHS
 ========================================= */
 
-.desktop-window:hover{
+.vhs{
 
-transform:
-translateY(-8px);
+display:none;
 
-box-shadow:
-0 20px 50px rgba(0,180,255,.25);
+}
+
+/* =========================================
+GLASS OVERLAY
+========================================= */
+
+body::before{
+
+content:"";
+
+position:fixed;
+inset:0;
+
+background:
+
+linear-gradient(
+120deg,
+rgba(255,255,255,.08) 0%,
+rgba(255,255,255,.25) 40%,
+rgba(255,255,255,.08) 60%,
+transparent 100%
+);
+
+pointer-events:none;
+
+z-index:-1;
 
 }
 
@@ -189,16 +256,23 @@ TOPBAR
 .topbar{
 
 background:
+
 linear-gradient(
 to bottom,
-rgba(255,255,255,.7),
-rgba(255,255,255,.35)
+rgba(255,255,255,.92),
+rgba(210,245,255,.6)
 );
 
 border-bottom:
-1px solid rgba(255,255,255,.9);
+1px solid rgba(255,255,255,.95);
 
-backdrop-filter:blur(18px);
+backdrop-filter:
+blur(25px);
+
+box-shadow:
+
+0 0 20px rgba(120,225,255,.35),
+0 0 60px rgba(255,255,255,.3);
 
 }
 
@@ -211,7 +285,189 @@ LOGO
 color:#2ca7ff;
 
 text-shadow:
-0 0 12px rgba(44,167,255,.6);
+
+0 0 8px rgba(44,167,255,.8),
+0 0 20px rgba(255,255,255,.8),
+0 0 35px rgba(120,225,255,.7);
+
+animation:
+logoShimmer 5s infinite alternate;
+
+}
+
+@keyframes logoShimmer{
+
+from{
+
+transform:
+translateY(0px);
+
+}
+
+to{
+
+transform:
+translateY(-2px);
+
+}
+
+}
+
+/* =========================================
+WINDOWS
+========================================= */
+
+.app-window{
+
+background:
+
+linear-gradient(
+to bottom,
+rgba(255,255,255,.82),
+rgba(220,248,255,.48)
+);
+
+border:
+1px solid rgba(255,255,255,.95);
+
+box-shadow:
+
+0 0 25px rgba(120,225,255,.25),
+0 10px 50px rgba(120,225,255,.18);
+
+backdrop-filter:
+blur(28px);
+
+overflow:hidden;
+
+position:fixed;
+
+}
+
+/* =========================================
+WINDOW SHINE
+========================================= */
+
+.app-window::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:220%;
+height:100%;
+
+background:
+
+linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.35),
+transparent
+);
+
+transform:
+skewX(-18deg);
+
+animation:
+windowShine 10s infinite linear;
+
+pointer-events:none;
+
+}
+
+@keyframes windowShine{
+
+from{
+
+left:-120%;
+
+}
+
+to{
+
+left:120%;
+
+}
+
+}
+
+/* =========================================
+TITLEBAR
+========================================= */
+
+.titlebar{
+
+background:
+
+linear-gradient(
+to bottom,
+rgba(255,255,255,.95),
+rgba(180,235,255,.55)
+);
+
+border-bottom:
+1px solid rgba(255,255,255,.9);
+
+color:#179dff;
+
+text-shadow:
+0 0 10px rgba(23,157,255,.45);
+
+}
+
+/* =========================================
+WINDOW CONTENT
+========================================= */
+
+.window-body{
+
+color:#245;
+
+}
+
+/* =========================================
+DESKTOP ICONS
+========================================= */
+
+.desktop-icon{
+
+background:
+
+linear-gradient(
+to bottom,
+rgba(255,255,255,.4),
+rgba(255,255,255,.15)
+);
+
+border:
+1px solid rgba(255,255,255,.6);
+
+border-radius:24px;
+
+backdrop-filter:
+blur(10px);
+
+box-shadow:
+0 0 20px rgba(120,225,255,.2);
+
+padding:20px;
+
+}
+
+.desktop-icon:hover{
+
+transform:
+translateY(-6px)
+scale(1.06);
+
+box-shadow:
+
+0 0 25px rgba(120,225,255,.35),
+0 0 50px rgba(255,255,255,.3);
 
 }
 
@@ -222,19 +478,36 @@ BUTTONS
 button{
 
 background:
+
 linear-gradient(
 to bottom,
-#f8ffff,
-#9ee7ff
+#ffffff,
+#9fe8ff
 );
 
 border:
-1px solid rgba(255,255,255,.9);
+1px solid rgba(255,255,255,.95);
 
-color:#125;
+color:#135;
 
 box-shadow:
-0 0 10px rgba(255,255,255,.5);
+
+0 0 12px rgba(255,255,255,.8),
+0 0 20px rgba(120,225,255,.4);
+
+transition:.25s;
+
+}
+
+button:hover{
+
+transform:
+translateY(-2px);
+
+box-shadow:
+
+0 0 20px rgba(255,255,255,.9),
+0 0 35px rgba(120,225,255,.6);
 
 }
 
@@ -245,17 +518,36 @@ PLAYER
 #musicPlayer{
 
 background:
+
 linear-gradient(
 to bottom,
-rgba(255,255,255,.75),
-rgba(255,255,255,.4)
+rgba(255,255,255,.82),
+rgba(220,248,255,.45)
 );
 
 border:
-1px solid rgba(255,255,255,.9);
+1px solid rgba(255,255,255,.95);
 
 box-shadow:
-0 10px 40px rgba(0,180,255,.25);
+
+0 0 25px rgba(120,225,255,.3),
+0 10px 50px rgba(120,225,255,.2);
+
+backdrop-filter:
+blur(25px);
+
+}
+
+/* =========================================
+ALBUM ART
+========================================= */
+
+#albumArt{
+
+box-shadow:
+
+0 0 20px rgba(255,255,255,.8),
+0 0 35px rgba(120,225,255,.5);
 
 }
 
@@ -266,11 +558,17 @@ VISUALIZER
 .visualizer span{
 
 background:
+
 linear-gradient(
 to top,
-#4ddfff,
-white
+#42dfff,
+#ffffff
 );
+
+box-shadow:
+
+0 0 12px rgba(255,255,255,.8),
+0 0 20px rgba(66,223,255,.6);
 
 }
 
@@ -281,79 +579,73 @@ TASKBAR
 .taskbar{
 
 background:
+
 linear-gradient(
 to bottom,
-rgba(255,255,255,.7),
-rgba(255,255,255,.35)
+rgba(255,255,255,.92),
+rgba(180,235,255,.6)
 );
 
 border-top:
-1px solid rgba(255,255,255,.8);
+1px solid rgba(255,255,255,.95);
 
-}
-/* =========================================
-REMOVE VAPOR EFFECTS
-========================================= */
+backdrop-filter:
+blur(25px);
 
-.vhs{
+box-shadow:
 
-display:none;
-
-}
-
-/* =========================================
-SOFT CLOUD GRID
-========================================= */
-
-.grid{
-
-background-image:
-
-linear-gradient(
-rgba(255,255,255,.2) 1px,
-transparent 1px
-),
-
-linear-gradient(
-90deg,
-rgba(255,255,255,.2) 1px,
-transparent 1px
-);
-
-opacity:.18;
-
-filter:blur(.4px);
+0 0 20px rgba(120,225,255,.35),
+0 0 50px rgba(255,255,255,.25);
 
 }
 
 /* =========================================
-AERO GLOW
+SCROLLBAR
 ========================================= */
 
-.retro-sun{
+::-webkit-scrollbar{
+
+width:12px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:
+rgba(255,255,255,.35);
+
+}
+
+::-webkit-scrollbar-thumb{
 
 background:
 
-radial-gradient(
-circle,
-rgba(255,255,255,.9),
-rgba(173,240,255,.45),
-transparent 70%
+linear-gradient(
+to bottom,
+#8fe8ff,
+#ffffff
 );
 
-opacity:.55;
+border-radius:20px;
 
 }
 
 /* =========================================
-WINDOW TEXT
+INPUTS
 ========================================= */
 
-.window-title{
+input{
 
-color:#179dff;
+background:
+rgba(255,255,255,.6);
 
-text-shadow:
-0 0 10px rgba(23,157,255,.45);
+border:
+1px solid rgba(255,255,255,.95);
+
+color:#135;
+
+box-shadow:
+
+0 0 12px rgba(255,255,255,.6);
 
 }
