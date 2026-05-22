@@ -323,3 +323,395 @@ updateClock,
 );
 
 updateClock();
+/* =========================================
+YOUTUBE MUSIC SYSTEM
+========================================= */
+
+let ytPlayer = null;
+
+let ytReady = false;
+
+let musicLoaded = false;
+
+let currentVideoID = null;
+
+/* =========================================
+ELEMENTS
+========================================= */
+
+const musicToggle =
+document.getElementById(
+"musicToggle"
+);
+
+const musicURL =
+document.getElementById(
+"musicURL"
+);
+
+const volumeSlider =
+document.getElementById(
+"volumeSlider"
+);
+
+/* =========================================
+SAFE PAGE CHECK
+========================================= */
+
+const musicSystemExists =
+
+musicToggle &&
+musicURL &&
+volumeSlider;
+
+/* =========================================
+GET VIDEO ID
+========================================= */
+
+function getYoutubeVideoID(url){
+
+try{
+
+const parsed =
+new URL(url);
+
+if(
+parsed.hostname.includes(
+"youtu.be"
+)
+){
+
+return parsed.pathname.slice(1);
+
+}
+
+if(
+parsed.searchParams.get("v")
+){
+
+return parsed.searchParams.get("v");
+
+}
+
+return null;
+
+}catch{
+
+return null;
+
+}
+
+}
+
+/* =========================================
+YOUTUBE API READY
+========================================= */
+
+window.onYouTubeIframeAPIReady =
+function(){
+
+if(
+!document.getElementById(
+"youtubePlayer"
+)
+){
+
+return;
+
+}
+
+ytPlayer =
+new YT.Player(
+"youtubePlayer",
+{
+
+height:"0",
+width:"0",
+
+videoId:"",
+
+playerVars:{
+
+autoplay:0,
+controls:0,
+disablekb:1,
+fs:0,
+modestbranding:1
+
+},
+
+events:{
+
+onReady:()=>{
+
+ytReady = true;
+
+console.log(
+"YouTube player ready"
+);
+
+/* LOAD SAVED URL */
+
+const savedURL =
+localStorage.getItem(
+"site_music_url"
+);
+
+if(
+savedURL &&
+musicURL
+){
+
+musicURL.value =
+savedURL;
+
+}
+
+},
+
+onStateChange:(event)=>{
+
+if(
+event.data ===
+YT.PlayerState.PLAYING
+){
+
+musicLoaded = true;
+
+if(musicToggle){
+
+musicToggle.innerText =
+"PAUSE";
+
+}
+
+}
+
+if(
+event.data ===
+YT.PlayerState.PAUSED
+){
+
+if(musicToggle){
+
+musicToggle.innerText =
+"PLAY";
+
+}
+
+}
+
+}
+
+}
+
+});
+
+};
+
+/* =========================================
+PLAY MUSIC
+========================================= */
+
+function playMusic(){
+
+if(
+!musicSystemExists
+){
+
+return;
+
+}
+
+if(
+!ytReady ||
+!ytPlayer
+){
+
+alert(
+"Music system still loading..."
+);
+
+return;
+
+}
+
+const url =
+musicURL.value.trim();
+
+if(!url){
+
+alert(
+"Paste a YouTube link."
+);
+
+return;
+
+}
+
+const videoID =
+getYoutubeVideoID(url);
+
+if(!videoID){
+
+alert(
+"Invalid YouTube link."
+);
+
+return;
+
+}
+
+/* SAVE URL */
+
+localStorage.setItem(
+"site_music_url",
+url
+);
+
+/* LOAD NEW SONG */
+
+if(
+currentVideoID !== videoID
+){
+
+ytPlayer.loadVideoById(
+videoID
+);
+
+currentVideoID =
+videoID;
+
+}else{
+
+ytPlayer.playVideo();
+
+}
+
+/* VOLUME */
+
+ytPlayer.setVolume(
+volumeSlider.value
+);
+
+musicLoaded = true;
+
+musicToggle.innerText =
+"PAUSE";
+
+}
+
+/* =========================================
+PAUSE MUSIC
+========================================= */
+
+function pauseMusic(){
+
+if(
+ytPlayer &&
+musicLoaded
+){
+
+ytPlayer.pauseVideo();
+
+musicToggle.innerText =
+"PLAY";
+
+}
+
+}
+
+/* =========================================
+BUTTON
+========================================= */
+
+if(
+musicSystemExists
+){
+
+musicToggle.addEventListener(
+"click",
+()=>{
+
+if(
+!musicLoaded
+){
+
+playMusic();
+
+return;
+
+}
+
+const state =
+ytPlayer.getPlayerState();
+
+/* PLAY */
+
+if(
+state !==
+YT.PlayerState.PLAYING
+){
+
+ytPlayer.playVideo();
+
+musicToggle.innerText =
+"PAUSE";
+
+}
+
+/* PAUSE */
+
+else{
+
+pauseMusic();
+
+}
+
+});
+
+}
+
+/* =========================================
+ENTER KEY
+========================================= */
+
+if(musicURL){
+
+musicURL.addEventListener(
+"keydown",
+(e)=>{
+
+if(
+e.key === "Enter"
+){
+
+playMusic();
+
+}
+
+});
+
+}
+
+/* =========================================
+VOLUME
+========================================= */
+
+if(volumeSlider){
+
+volumeSlider.addEventListener(
+"input",
+()=>{
+
+if(ytPlayer){
+
+ytPlayer.setVolume(
+volumeSlider.value
+);
+
+}
+
+});
+
+}
