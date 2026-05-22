@@ -16,16 +16,21 @@ boot.style.display = "none";
 }
 
 },3000);
-
 /* =========================================
-YOUTUBE MUSIC PLAYER
+YOUTUBE MUSIC SYSTEM
 ========================================= */
 
-let ytPlayer;
-let ytReady = false;
-let isPlaying = false;
+let ytPlayer = null;
 
-/* ELEMENTS */
+let ytReady = false;
+
+let musicLoaded = false;
+
+let currentVideoID = null;
+
+/* =========================================
+ELEMENTS
+========================================= */
 
 const musicToggle =
 document.getElementById(
@@ -43,10 +48,20 @@ document.getElementById(
 );
 
 /* =========================================
+SAFE PAGE CHECK
+========================================= */
+
+const musicSystemExists =
+
+musicToggle &&
+musicURL &&
+volumeSlider;
+
+/* =========================================
 GET VIDEO ID
 ========================================= */
 
-function extractVideoID(url){
+function getYoutubeVideoID(url){
 
 try{
 
@@ -82,11 +97,21 @@ return null;
 }
 
 /* =========================================
-API READY
+YOUTUBE API READY
 ========================================= */
 
 window.onYouTubeIframeAPIReady =
 function(){
+
+if(
+!document.getElementById(
+"youtubePlayer"
+)
+){
+
+return;
+
+}
 
 ytPlayer =
 new YT.Player(
@@ -100,8 +125,11 @@ videoId:"",
 
 playerVars:{
 
-autoplay:1,
-controls:0
+autoplay:0,
+controls:0,
+disablekb:1,
+fs:0,
+modestbranding:1
 
 },
 
@@ -111,15 +139,58 @@ onReady:()=>{
 
 ytReady = true;
 
-const saved =
-localStorage.getItem(
-"site_music"
+console.log(
+"YouTube player ready"
 );
 
-if(saved){
+/* LOAD SAVED URL */
+
+const savedURL =
+localStorage.getItem(
+"site_music_url"
+);
+
+if(
+savedURL &&
+musicURL
+){
 
 musicURL.value =
-saved;
+savedURL;
+
+}
+
+},
+
+onStateChange:(event)=>{
+
+if(
+event.data ===
+YT.PlayerState.PLAYING
+){
+
+musicLoaded = true;
+
+if(musicToggle){
+
+musicToggle.innerText =
+"PAUSE";
+
+}
+
+}
+
+if(
+event.data ===
+YT.PlayerState.PAUSED
+){
+
+if(musicToggle){
+
+musicToggle.innerText =
+"PLAY";
+
+}
 
 }
 
@@ -132,15 +203,26 @@ saved;
 };
 
 /* =========================================
-LOAD MUSIC
+PLAY MUSIC
 ========================================= */
 
 function playMusic(){
 
-if(!ytReady){
+if(
+!musicSystemExists
+){
+
+return;
+
+}
+
+if(
+!ytReady ||
+!ytPlayer
+){
 
 alert(
-"YouTube API not ready yet."
+"Music system still loading..."
 );
 
 return;
@@ -161,34 +243,51 @@ return;
 }
 
 const videoID =
-extractVideoID(url);
+getYoutubeVideoID(url);
 
 if(!videoID){
 
 alert(
-"Invalid YouTube URL."
+"Invalid YouTube link."
 );
 
 return;
 
 }
 
+/* SAVE URL */
+
+localStorage.setItem(
+"site_music_url",
+url
+);
+
+/* LOAD NEW SONG */
+
+if(
+currentVideoID !== videoID
+){
+
 ytPlayer.loadVideoById(
 videoID
 );
 
+currentVideoID =
+videoID;
+
+}else{
+
 ytPlayer.playVideo();
+
+}
+
+/* VOLUME */
 
 ytPlayer.setVolume(
 volumeSlider.value
 );
 
-localStorage.setItem(
-"site_music",
-url
-);
-
-isPlaying = true;
+musicLoaded = true;
 
 musicToggle.innerText =
 "PAUSE";
@@ -196,27 +295,91 @@ musicToggle.innerText =
 }
 
 /* =========================================
+PAUSE MUSIC
+========================================= */
+
+function pauseMusic(){
+
+if(
+ytPlayer &&
+musicLoaded
+){
+
+ytPlayer.pauseVideo();
+
+musicToggle.innerText =
+"PLAY";
+
+}
+
+}
+
+/* =========================================
 BUTTON
 ========================================= */
 
-if(musicToggle){
+if(
+musicSystemExists
+){
 
 musicToggle.addEventListener(
 "click",
 ()=>{
 
-if(!isPlaying){
+if(
+!musicLoaded
+){
 
 playMusic();
 
-}else{
+return;
 
-ytPlayer.pauseVideo();
+}
 
-isPlaying = false;
+const state =
+ytPlayer.getPlayerState();
+
+/* PLAY */
+
+if(
+state !==
+YT.PlayerState.PLAYING
+){
+
+ytPlayer.playVideo();
 
 musicToggle.innerText =
-"PLAY";
+"PAUSE";
+
+}
+
+/* PAUSE */
+
+else{
+
+pauseMusic();
+
+}
+
+});
+
+}
+
+/* =========================================
+ENTER KEY
+========================================= */
+
+if(musicURL){
+
+musicURL.addEventListener(
+"keydown",
+(e)=>{
+
+if(
+e.key === "Enter"
+){
+
+playMusic();
 
 }
 
@@ -773,3 +936,102 @@ particle
 }
 
 }
+/* =========================================
+LOAD SITE CONTENT
+========================================= */
+
+async function loadDesktopApps(){
+
+const response =
+await fetch(
+"data/data.json"
+);
+
+const data =
+await response.json();
+
+const desktop =
+document.getElementById(
+"desktopContainer"
+);
+
+desktop.innerHTML = "";
+
+/* LOOP */
+
+Object.entries(data)
+.forEach(([key,value])=>{
+
+const windowDiv =
+document.createElement("div");
+
+windowDiv.className =
+"desktop-app";
+
+windowDiv.innerHTML = `
+
+<div class="app-icon">
+💖
+</div>
+
+<div class="app-name">
+${value.title}
+</div>
+
+<p>
+${value.content}
+</p>
+
+`;
+
+desktop.appendChild(
+windowDiv
+);
+
+});
+
+}
+
+loadDesktopApps();
+/* =========================================
+EDIT MODE
+========================================= */
+
+let editMode = false;
+
+function toggleEditMode(){
+
+editMode = !editMode;
+
+document.body.classList.toggle(
+"editing"
+);
+
+const apps =
+document.querySelectorAll(
+".desktop-app p"
+);
+
+apps.forEach(app=>{
+
+app.contentEditable =
+editMode;
+
+});
+
+}
+
+document.addEventListener(
+"keydown",
+(e)=>{
+
+if(
+e.ctrlKey &&
+e.key === "e"
+){
+
+toggleEditMode();
+
+}
+
+});
