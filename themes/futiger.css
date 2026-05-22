@@ -1,36 +1,293 @@
+/* =========================================
+FRUTIGER AERO THEME
+========================================= */
+
 body{
 
 background:
 linear-gradient(
 to bottom,
-#79dfff,
-#dff8ff
+#73dfff 0%,
+#d6f7ff 40%,
+#ffffff 100%
 );
 
+color:#134;
+
+overflow-x:hidden;
+
 }
+
+/* =========================================
+BUBBLE OVERLAY
+========================================= */
+
+body::before{
+
+content:"";
+
+position:fixed;
+inset:0;
+
+background-image:
+
+radial-gradient(
+circle at 10% 20%,
+rgba(255,255,255,.8) 0%,
+transparent 8%
+),
+
+radial-gradient(
+circle at 80% 30%,
+rgba(255,255,255,.7) 0%,
+transparent 10%
+),
+
+radial-gradient(
+circle at 50% 80%,
+rgba(255,255,255,.5) 0%,
+transparent 12%
+);
+
+pointer-events:none;
+
+opacity:.7;
+
+z-index:-2;
+
+}
+
+/* =========================================
+FLOATING BUBBLES
+========================================= */
+
+.stars{
+
+position:fixed;
+inset:0;
+
+background-image:
+
+radial-gradient(
+rgba(255,255,255,.8) 2px,
+transparent 2px
+),
+
+radial-gradient(
+rgba(173,240,255,.8) 4px,
+transparent 4px
+);
+
+background-size:
+200px 200px,
+350px 350px;
+
+animation:
+bubbleFloat 60s linear infinite;
+
+opacity:.5;
+
+z-index:-1;
+
+}
+
+@keyframes bubbleFloat{
+
+from{
+
+transform:
+translateY(0px);
+
+}
+
+to{
+
+transform:
+translateY(-300px);
+
+}
+
+}
+
+/* =========================================
+AERO GLOW
+========================================= */
+
+.retro-sun{
+
+position:fixed;
+
+top:100px;
+left:50%;
+
+transform:
+translateX(-50%);
+
+width:700px;
+height:700px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(
+circle,
+rgba(255,255,255,.8),
+rgba(173,240,255,.4),
+transparent 70%
+);
+
+filter:blur(60px);
+
+opacity:.5;
+
+z-index:-3;
+
+}
+
+/* =========================================
+WINDOWS
+========================================= */
 
 .desktop-window{
 
 background:
-rgba(255,255,255,0.35);
+linear-gradient(
+to bottom,
+rgba(255,255,255,.7),
+rgba(255,255,255,.35)
+);
+
+border:
+1px solid rgba(255,255,255,.8);
 
 backdrop-filter:blur(20px);
 
-border:
-1px solid rgba(255,255,255,0.6);
+box-shadow:
+0 10px 30px rgba(0,150,255,.15);
 
 }
 
-.topbar,
+/* =========================================
+WINDOW HOVER
+========================================= */
+
+.desktop-window:hover{
+
+transform:
+translateY(-8px);
+
+box-shadow:
+0 20px 50px rgba(0,180,255,.25);
+
+}
+
+/* =========================================
+TOPBAR
+========================================= */
+
+.topbar{
+
+background:
+linear-gradient(
+to bottom,
+rgba(255,255,255,.7),
+rgba(255,255,255,.35)
+);
+
+border-bottom:
+1px solid rgba(255,255,255,.9);
+
+backdrop-filter:blur(18px);
+
+}
+
+/* =========================================
+LOGO
+========================================= */
+
+.logo{
+
+color:#2ca7ff;
+
+text-shadow:
+0 0 12px rgba(44,167,255,.6);
+
+}
+
+/* =========================================
+BUTTONS
+========================================= */
+
+button{
+
+background:
+linear-gradient(
+to bottom,
+#f8ffff,
+#9ee7ff
+);
+
+border:
+1px solid rgba(255,255,255,.9);
+
+color:#125;
+
+box-shadow:
+0 0 10px rgba(255,255,255,.5);
+
+}
+
+/* =========================================
+PLAYER
+========================================= */
+
+#musicPlayer{
+
+background:
+linear-gradient(
+to bottom,
+rgba(255,255,255,.75),
+rgba(255,255,255,.4)
+);
+
+border:
+1px solid rgba(255,255,255,.9);
+
+box-shadow:
+0 10px 40px rgba(0,180,255,.25);
+
+}
+
+/* =========================================
+VISUALIZER
+========================================= */
+
+.visualizer span{
+
+background:
+linear-gradient(
+to top,
+#4ddfff,
+white
+);
+
+}
+
+/* =========================================
+TASKBAR
+========================================= */
+
 .taskbar{
 
 background:
-rgba(255,255,255,0.4);
+linear-gradient(
+to bottom,
+rgba(255,255,255,.7),
+rgba(255,255,255,.35)
+);
 
-}
-
-.bar{
-
-background:#5ec8ff;
+border-top:
+1px solid rgba(255,255,255,.8);
 
 }
