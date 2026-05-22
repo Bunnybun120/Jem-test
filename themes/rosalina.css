@@ -1,26 +1,56 @@
 /* =========================================
-ROSALINA GALAXY THEME
+ULTIMATE ROSALINA COSMIC THEME
+GALAXY / STARFIELD / MILKY WAY
 ========================================= */
 
 body{
 
 background:
+
 linear-gradient(
 to bottom,
-#020412 0%,
-#071f4d 30%,
-#183f7a 55%,
-#8fdcff 100%
+#01030d 0%,
+#071b46 25%,
+#132f63 45%,
+#3159a5 70%,
+#9edcff 100%
 );
 
 color:white;
 
 overflow-x:hidden;
 
+animation:
+cosmicPulse 14s infinite alternate;
+
 }
 
 /* =========================================
-MILKY WAY OVERLAY
+COSMIC GLOW
+========================================= */
+
+@keyframes cosmicPulse{
+
+from{
+
+filter:
+brightness(1)
+saturate(1);
+
+}
+
+to{
+
+filter:
+brightness(1.08)
+saturate(1.15);
+
+}
+
+}
+
+/* =========================================
+MILKY WAY
 ========================================= */
 
 body::before{
@@ -32,43 +62,28 @@ inset:0;
 
 background:
 
-radial-gradient(
-circle at 20% 20%,
-rgba(255,255,255,.6) 0%,
-transparent 10%
-),
-
-radial-gradient(
-circle at 80% 30%,
-rgba(255,255,255,.45) 0%,
-transparent 12%
-),
-
-radial-gradient(
-circle at 60% 70%,
-rgba(173,216,255,.3) 0%,
-transparent 20%
-),
-
 linear-gradient(
 120deg,
 transparent 0%,
-rgba(255,255,255,.06) 45%,
-rgba(255,255,255,.15) 50%,
-rgba(255,255,255,.06) 55%,
+rgba(255,255,255,.08) 35%,
+rgba(255,255,255,.18) 50%,
+rgba(180,220,255,.1) 65%,
 transparent 100%
 );
 
-filter:blur(2px);
+filter:
+blur(2px);
+
+opacity:.9;
+
+z-index:-2;
 
 pointer-events:none;
-
-z-index:-3;
 
 }
 
 /* =========================================
-FLOATING STARS
+STARS
 ========================================= */
 
 .stars{
@@ -78,55 +93,75 @@ inset:0;
 
 background-image:
 
-radial-gradient(white 1px, transparent 1px),
-radial-gradient(#8fdcff 1px, transparent 1px),
-radial-gradient(#ffffff 2px, transparent 2px);
+radial-gradient(
+white 1px,
+transparent 1px
+),
+
+radial-gradient(
+#8fdcff 2px,
+transparent 2px
+),
+
+radial-gradient(
+#ffffff 3px,
+transparent 3px
+),
+
+radial-gradient(
+#dff6ff 4px,
+transparent 4px
+);
 
 background-size:
-120px 120px,
-200px 200px,
-300px 300px;
+140px 140px,
+260px 260px,
+420px 420px,
+700px 700px;
 
 animation:
-starDrift 120s linear infinite;
+starMove 140s linear infinite;
 
-opacity:.8;
+opacity:.95;
 
-z-index:-2;
+z-index:-4;
 
 }
 
-@keyframes starDrift{
+@keyframes starMove{
 
 from{
 
-transform:translateY(0px);
+transform:
+translateY(0px);
 
 }
 
 to{
 
-transform:translateY(-400px);
+transform:
+translateY(-600px);
 
 }
 
 }
 
 /* =========================================
-AURORA
+GALAXY AURORA
 ========================================= */
 
 .retro-sun{
 
 position:fixed;
 
-top:10%;
+top:5%;
 left:50%;
 
-transform:translateX(-50%);
+transform:
+translateX(-50%);
 
-width:800px;
-height:800px;
+width:1100px;
+height:1100px;
 
 border-radius:50%;
 
@@ -134,21 +169,25 @@ background:
 
 radial-gradient(
 circle,
-rgba(180,240,255,.35),
-rgba(143,220,255,.15),
+rgba(255,255,255,.6),
+rgba(143,220,255,.35),
+rgba(120,140,255,.15),
 transparent 70%
 );
 
-filter:blur(80px);
+filter:
+blur(90px);
+
+opacity:.7;
 
 animation:
-auroraPulse 8s infinite alternate;
+auroraDrift 12s infinite alternate;
 
-z-index:-4;
+z-index:-5;
 
 }
 
-@keyframes auroraPulse{
+@keyframes auroraDrift{
 
 from{
 
@@ -162,35 +201,59 @@ to{
 
 transform:
 translateX(-50%)
-scale(1.15);
+scale(1.1);
 
 }
 
 }
 
 /* =========================================
-WINDOWS
+CONSTELLATION GRID
 ========================================= */
 
-.desktop-window{
+.grid{
 
-background:
-rgba(255,255,255,.12);
+position:fixed;
 
-border:
-1px solid rgba(255,255,255,.25);
+bottom:-10%;
+left:0;
 
-backdrop-filter:blur(18px);
+width:100%;
+height:50%;
 
-box-shadow:
-0 0 40px rgba(143,220,255,.25);
+background-image:
+
+linear-gradient(
+rgba(255,255,255,.08) 1px,
+transparent 1px
+),
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.08) 1px,
+transparent 1px
+);
+
+background-size:
+90px 90px;
+
+transform:
+perspective(700px)
+rotateX(78deg);
+
+opacity:.12;
+
+z-index:-3;
 
 }
 
-.desktop-window:hover{
+/* =========================================
+SOFT VHS
+========================================= */
 
-box-shadow:
-0 0 60px rgba(143,220,255,.45);
+.vhs{
+
+opacity:.08;
 
 }
 
@@ -201,21 +264,211 @@ TOPBAR
 .topbar{
 
 background:
-rgba(255,255,255,.08);
+
+linear-gradient(
+to bottom,
+rgba(10,20,60,.8),
+rgba(5,10,25,.5)
+);
 
 border-bottom:
-1px solid rgba(255,255,255,.15);
+1px solid rgba(255,255,255,.18);
 
-backdrop-filter:blur(16px);
+backdrop-filter:
+blur(22px);
+
+box-shadow:
+0 0 30px rgba(143,220,255,.25);
 
 }
+
+/* =========================================
+LOGO
+========================================= */
 
 .logo{
 
 color:#dff6ff;
 
 text-shadow:
-0 0 15px rgba(255,255,255,.8);
+
+0 0 10px rgba(255,255,255,.8),
+0 0 30px rgba(143,220,255,.7),
+0 0 60px rgba(143,220,255,.4);
+
+}
+
+/* =========================================
+WINDOWS
+========================================= */
+
+.app-window{
+
+background:
+
+linear-gradient(
+to bottom,
+rgba(255,255,255,.14),
+rgba(10,20,60,.45)
+);
+
+border:
+1px solid rgba(255,255,255,.2);
+
+box-shadow:
+
+0 0 30px rgba(143,220,255,.18),
+0 0 70px rgba(143,220,255,.1);
+
+backdrop-filter:
+blur(22px);
+
+position:fixed;
+
+overflow:hidden;
+
+}
+
+/* =========================================
+WINDOW SHIMMER
+========================================= */
+
+.app-window::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:-120%;
+
+width:220%;
+height:100%;
+
+background:
+
+linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.12),
+transparent
+);
+
+transform:
+skewX(-18deg);
+
+animation:
+windowGlow 12s infinite linear;
+
+pointer-events:none;
+
+}
+
+@keyframes windowGlow{
+
+from{
+
+left:-120%;
+
+}
+
+to{
+
+left:120%;
+
+}
+
+}
+
+/* =========================================
+TITLEBAR
+========================================= */
+
+.titlebar{
+
+background:
+
+linear-gradient(
+to bottom,
+rgba(255,255,255,.15),
+rgba(20,40,90,.45)
+);
+
+border-bottom:
+1px solid rgba(255,255,255,.12);
+
+color:#dff6ff;
+
+text-shadow:
+
+0 0 10px rgba(255,255,255,.7),
+0 0 20px rgba(143,220,255,.5);
+
+}
+
+/* =========================================
+DESKTOP ICONS
+========================================= */
+
+.desktop-icon{
+
+background:
+
+linear-gradient(
+to bottom,
+rgba(255,255,255,.12),
+rgba(10,20,60,.25)
+);
+
+border:
+1px solid rgba(255,255,255,.18);
+
+border-radius:24px;
+
+backdrop-filter:
+blur(12px);
+
+box-shadow:
+0 0 20px rgba(143,220,255,.12);
+
+}
+
+.desktop-icon:hover{
+
+transform:
+translateY(-8px)
+scale(1.05);
+
+box-shadow:
+
+0 0 25px rgba(143,220,255,.35),
+0 0 60px rgba(255,255,255,.15);
+
+}
+
+/* =========================================
+BUTTONS
+========================================= */
+
+button{
+
+background:
+
+linear-gradient(
+to bottom,
+#dff6ff,
+#8fdcff
+);
+
+border:
+1px solid rgba(255,255,255,.3);
+
+color:#123;
+
+box-shadow:
+
+0 0 12px rgba(143,220,255,.5),
+0 0 20px rgba(255,255,255,.3);
 
 }
 
@@ -226,13 +479,23 @@ PLAYER
 #musicPlayer{
 
 background:
-rgba(255,255,255,.08);
+
+linear-gradient(
+to bottom,
+rgba(255,255,255,.12),
+rgba(10,20,60,.45)
+);
 
 border:
-1px solid rgba(255,255,255,.15);
+1px solid rgba(255,255,255,.2);
 
 box-shadow:
-0 0 30px rgba(143,220,255,.3);
+
+0 0 30px rgba(143,220,255,.18),
+0 0 70px rgba(143,220,255,.1);
+
+backdrop-filter:
+blur(22px);
 
 }
 
@@ -243,6 +506,7 @@ VISUALIZER
 .visualizer span{
 
 background:
+
 linear-gradient(
 to top,
 #8fdcff,
@@ -250,7 +514,9 @@ white
 );
 
 box-shadow:
-0 0 10px rgba(143,220,255,.8);
+
+0 0 10px rgba(255,255,255,.7),
+0 0 20px rgba(143,220,255,.6);
 
 }
 
@@ -261,45 +527,51 @@ TASKBAR
 .taskbar{
 
 background:
-rgba(255,255,255,.08);
+
+linear-gradient(
+to bottom,
+rgba(10,20,60,.85),
+rgba(5,10,25,.55)
+);
 
 border-top:
-1px solid rgba(255,255,255,.12);
+1px solid rgba(255,255,255,.15);
 
-}
-/* =========================================
-SOFT VHS
-========================================= */
+backdrop-filter:
+blur(22px);
 
-.vhs{
-
-opacity:.12;
+box-shadow:
+0 0 25px rgba(143,220,255,.2);
 
 }
 
 /* =========================================
-STAR GRID
+SCROLLBAR
 ========================================= */
 
-.grid{
+::-webkit-scrollbar{
 
-opacity:.08;
-
-filter:blur(1px);
+width:12px;
 
 }
 
-/* =========================================
-WINDOW TITLES
-========================================= */
+::-webkit-scrollbar-track{
 
-.window-title{
+background:
+rgba(255,255,255,.08);
 
-color:#dff6ff;
+}
 
-text-shadow:
+::-webkit-scrollbar-thumb{
 
-0 0 10px rgba(255,255,255,.8),
-0 0 30px rgba(143,220,255,.6);
+background:
+
+linear-gradient(
+to bottom,
+#dff6ff,
+#8fdcff
+);
+
+border-radius:20px;
 
 }
