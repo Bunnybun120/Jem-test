@@ -1,0 +1,36 @@
+body{
+
+background:
+linear-gradient(
+to bottom,
+#79dfff,
+#dff8ff
+);
+
+}
+
+.desktop-window{
+
+background:
+rgba(255,255,255,0.35);
+
+backdrop-filter:blur(20px);
+
+border:
+1px solid rgba(255,255,255,0.6);
+
+}
+
+.topbar,
+.taskbar{
+
+background:
+rgba(255,255,255,0.4);
+
+}
+
+.bar{
+
+background:#5ec8ff;
+
+}
