@@ -1,314 +1,120 @@
 /* =========================================
-RESET
+ROOT
 ========================================= */
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+:root{
+
+--bg:#120018;
+--accent:#ff4fd8;
+--text:white;
+
 }
 
-html,
+/* =========================================
+BODY
+========================================= */
+
 body{
 
-  
-width:100%;
-min-height:100%;
+margin:0;
 
 overflow-x:hidden;
 
+background:var(--bg);
+
+color:var(--text);
+
 font-family:
-"Trebuchet MS",
-sans-serif;
+'Press Start 2P',
+cursive;
 
-background:
-linear-gradient(
-180deg,
-#120018 0%,
-#090014 40%,
-#000000 100%
-);
-
-color:white;
-
-position:relative;
-
-  isolation:isolate;
-}
-
-/* =========================================
-VAPORWAVE OVERLAY
-========================================= */
-
-body::before{
-
-content:"";
-
-position:fixed;
-inset:0;
-
-background:
-
-radial-gradient(
-circle at top,
-rgba(255,0,255,0.22),
-transparent 35%
-),
-
-radial-gradient(
-circle at bottom,
-rgba(0,255,255,0.12),
-transparent 35%
-),
-
-linear-gradient(
-180deg,
-rgba(255,0,255,0.04),
-rgba(0,0,0,0)
-);
-
-pointer-events:none;
-
-z-index:0;
+min-height:100vh;
 
 }
 
 /* =========================================
-CRT SCANLINES
+BOOT SCREEN
 ========================================= */
 
-body::after{
-
-content:"";
+#bootScreen{
 
 position:fixed;
 inset:0;
 
-background:
-linear-gradient(
-rgba(255,255,255,0.03) 50%,
-rgba(0,0,0,0.08) 50%
-);
-
-background-size:
-100% 4px;
-
-pointer-events:none;
-
-opacity:0.25;
+background:black;
 
 z-index:999999;
 
-mix-blend-mode:overlay;
+display:flex;
+flex-direction:column;
 
-}
+justify-content:center;
+align-items:center;
 
-/* =========================================
-GRID FLOOR
-========================================= */
-
-.grid-floor{
-
-position:fixed;
-
-left:0;
-right:0;
-bottom:-15%;
-
-height:65vh;
-
-background:
-
-linear-gradient(
-rgba(255,0,255,0.28) 1px,
-transparent 1px
-),
-
-linear-gradient(
-90deg,
-rgba(255,0,255,0.28) 1px,
-transparent 1px
-);
-
-background-size:
-80px 80px;
-
-transform:
-perspective(500px)
-rotateX(72deg);
-
-opacity:0.45;
-
-pointer-events:none;
-
-z-index:0;
-
-}
-
-/* =========================================
-STARS
-========================================= */
-
-.stars{
-
-position:fixed;
-inset:0;
-
-background-image:
-radial-gradient(
-white 1px,
-transparent 1px
-);
-
-background-size:
-120px 120px;
-
-opacity:0.4;
+gap:20px;
 
 animation:
-starScroll 180s linear infinite;
-
-pointer-events:none;
-
-z-index:0;
+bootFade 4s forwards;
 
 }
 
-/* =========================================
-SUN
-========================================= */
+.boot-logo{
 
-.retro-sun{
+font-size:42px;
 
-position:fixed;
+color:var(--accent);
 
-top:100px;
-left:50%;
-
-transform:
-translateX(-50%);
-
-width:520px;
-height:520px;
-
-border-radius:50%;
-
-background:
-linear-gradient(
-180deg,
-#ffcc00,
-#ff0066
-);
-
-opacity:0.5;
-
-filter:blur(2px);
-
-box-shadow:
-0 0 120px #ff0088;
-
-pointer-events:none;
-
-z-index:0;
+text-shadow:
+0 0 20px var(--accent);
 
 }
 
-/* =========================================
-VHS
-========================================= */
+.boot-bar{
 
-.vhs{
+width:320px;
+height:20px;
 
-position:fixed;
-inset:0;
-
-pointer-events:none;
-
-z-index:99999;
-
-overflow:hidden;
-
-mix-blend-mode:screen;
-
-opacity:0.4;
+border:
+2px solid var(--accent);
 
 }
 
-.vhs::before{
+.boot-progress{
 
-content:"";
+height:100%;
+width:0%;
 
-position:absolute;
-inset:0;
-
-background:
-linear-gradient(
-transparent 0%,
-rgba(255,255,255,0.03) 50%,
-transparent 100%
-);
+background:var(--accent);
 
 animation:
-vhsScan 7s linear infinite;
+bootLoad 3s forwards;
 
 }
 
-.vhs::after{
+@keyframes bootLoad{
 
-content:"";
+to{
 
-position:absolute;
-inset:0;
-
-background:
-repeating-linear-gradient(
-
-0deg,
-
-rgba(255,255,255,0.02) 0px,
-rgba(255,255,255,0.02) 1px,
-
-transparent 1px,
-transparent 4px
-
-);
-
-opacity:0.35;
+width:100%;
 
 }
 
-/* =========================================
-PARTICLES
-========================================= */
+}
 
-.particles{
+@keyframes bootFade{
 
-position:fixed;
-inset:0;
+0%,85%{
 
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
 pointer-events:none;
 
-overflow:hidden;
-
-z-index:0;
-
 }
-
-.particle{
-
-position:absolute;
-
-width:4px;
-height:4px;
-
-background:white;
-
-border-radius:50%;
-
-opacity:0.5;
-
-animation:
-floatParticle linear infinite;
 
 }
 
@@ -318,116 +124,46 @@ TOPBAR
 
 .topbar{
 
-position:sticky;
+position:fixed;
+
 top:0;
+left:0;
+
+width:100%;
+
+height:70px;
 
 display:flex;
+
 justify-content:space-between;
 align-items:center;
 
-padding:16px 30px;
+padding:0 20px;
 
 background:
-linear-gradient(
-90deg,
-#ff00ff,
-#7a00ff,
-#00d9ff
-);
+rgba(0,0,0,0.7);
 
-box-shadow:
-0 0 25px #ff00ff;
+backdrop-filter:blur(12px);
 
 z-index:9999;
-
-flex-wrap:wrap;
-
-gap:16px;
-
-}
-
-.logo{
-
-font-family:
-'Press Start 2P',
-cursive;
-
-font-size:22px;
-
-text-shadow:
-0 0 10px white,
-0 0 20px #ff00ff,
-0 0 40px #00ffff;
-
-}
-
-.nav-links{
-
-display:flex;
-gap:16px;
-flex-wrap:wrap;
-
-}
-
-.nav-links a{
-
-color:white;
-
-text-decoration:none;
-
-font-weight:bold;
-
-text-shadow:
-0 0 10px #fff;
-
-transition:0.2s;
-
-}
-
-.nav-links a:hover{
-
-color:#00ffff;
 
 }
 
 /* =========================================
-HERO
+DESKTOP
 ========================================= */
 
-.hero{
+#desktop{
 
-text-align:center;
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
 
 padding:
-80px 20px 50px;
-
-}
-
-.hero h1{
-
-font-family:
-'Press Start 2P',
-cursive;
-
-font-size:
-clamp(26px,5vw,46px);
-
-margin-bottom:24px;
-
-text-shadow:
-0 0 25px #ff00ff;
-
-line-height:1.4;
-
-}
-
-.hero p{
-
-font-size:18px;
-
-letter-spacing:2px;
-
-opacity:0.9;
+120px 30px;
 
 }
 
@@ -435,248 +171,31 @@ opacity:0.9;
 WINDOWS
 ========================================= */
 
-.window{
+.desktop-window{
 
 background:
-linear-gradient(
-180deg,
-rgba(60,0,100,0.95),
-rgba(15,0,30,0.95)
-);
+rgba(255,255,255,0.08);
 
 border:
-3px solid #ff4fd8;
+1px solid rgba(255,255,255,0.1);
 
-box-shadow:
-0 0 30px rgba(255,0,255,0.35);
-
-backdrop-filter:blur(8px);
-
-overflow:hidden;
-
-animation:
-windowAppear 0.25s ease;
-
-}
-
-.titlebar{
-
-background:
-linear-gradient(
-90deg,
-#ffffff,
-#ff00ff,
-#00ffff
-);
-
-padding:12px 16px;
-
-font-family:
-'Press Start 2P',
-cursive;
-
-font-size:12px;
-
-color:black;
-
-}
-
-.window-content{
-
-padding:24px;
-
-line-height:1.7;
-
-}
-
-/* =========================================
-DESKTOP APPS
-========================================= */
-
-.desktop-grid{
-
-display:grid;
-
-grid-template-columns:
-repeat(auto-fit,minmax(240px,1fr));
-
-gap:28px;
-
-max-width:1500px;
-
-margin:60px auto;
+backdrop-filter:blur(12px);
 
 padding:20px;
 
-}
-
-.desktop-app{
-
-background:
-linear-gradient(
-180deg,
-rgba(60,0,100,0.95),
-rgba(15,0,30,0.95)
-);
-
-border:
-3px solid #ff4fd8;
-
-padding:30px;
-
-text-decoration:none;
-
-color:white;
-
-position:relative;
-
-overflow:hidden;
-
-transition:0.2s;
+border-radius:18px;
 
 box-shadow:
-0 0 20px #ff00ff,
-inset 0 0 20px rgba(255,255,255,0.05);
+0 0 30px rgba(255,0,255,0.2);
 
-backdrop-filter:blur(8px);
-
-min-height:240px;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
+transition:.3s;
 
 }
 
-.desktop-app::before{
-
-content:"";
-
-position:absolute;
-
-top:0;
-left:0;
-right:0;
-
-height:24px;
-
-background:
-linear-gradient(
-90deg,
-#ffffff,
-#ff00ff,
-#00ffff
-);
-
-opacity:0.65;
-
-}
-
-.desktop-app:hover{
+.desktop-window:hover{
 
 transform:
-translateY(-6px)
-scale(1.02);
-
-box-shadow:
-0 0 35px #00ffff;
-
-}
-
-.app-icon{
-
-font-size:58px;
-
-margin-bottom:20px;
-
-}
-
-.app-name{
-
-font-family:
-'Press Start 2P',
-cursive;
-
-font-size:14px;
-
-line-height:1.5;
-
-}
-
-/* =========================================
-PROFILE / BLOG / ABOUT TEXT
-========================================= */
-
-pre{
-
-white-space:pre-wrap;
-
-font-size:15px;
-
-line-height:1.8;
-
-}
-
-/* =========================================
-BUTTONS
-========================================= */
-
-button{
-
-padding:16px 20px;
-
-background:
-linear-gradient(
-180deg,
-#ff00ff,
-#7a00ff
-);
-
-border:
-2px solid #00ffff;
-
-color:white;
-
-font-weight:bold;
-
-cursor:pointer;
-
-box-shadow:
-0 0 18px rgba(255,0,255,0.35);
-
-transition:0.2s;
-
-}
-
-button:hover{
-
-transform:
-translateY(-2px);
-
-box-shadow:
-0 0 24px #00ffff;
-
-}
-
-/* =========================================
-INPUTS
-========================================= */
-
-input,
-textarea{
-
-width:100%;
-
-padding:14px;
-
-background:#120018;
-
-border:
-1px solid #ff4fd8;
-
-color:white;
-
-font-size:14px;
+translateY(-5px);
 
 }
 
@@ -688,204 +207,267 @@ MUSIC PLAYER
 
 position:fixed;
 
-bottom:18px;
-right:18px;
+right:20px;
+bottom:90px;
 
 width:340px;
 
+padding:20px;
+
+border-radius:20px;
+
 background:
-rgba(10,0,20,0.88);
+rgba(0,0,0,0.7);
 
 backdrop-filter:blur(12px);
 
-border:
-1px solid #ff4fd8;
-
-padding:16px;
-
-z-index:999999;
-
-box-shadow:
-0 0 25px rgba(255,79,216,0.35);
+z-index:9999;
 
 }
 
-.music-controls{
+#albumImage{
 
-display:flex;
-gap:12px;
+width:100%;
+
+border-radius:12px;
 
 margin-top:14px;
 
 }
 
-#volumeSlider{
+.visualizer{
 
-width:100%;
+display:flex;
+align-items:flex-end;
+
+gap:4px;
+
+height:70px;
+
+margin:20px 0;
 
 }
 
-#youtubePlayer{
+.bar{
 
-position:absolute;
+flex:1;
 
-width:0;
-height:0;
+background:var(--accent);
 
-overflow:hidden;
+animation:
+bars 1s infinite alternate;
 
-pointer-events:none;
+}
+
+.bar:nth-child(2){
+
+animation-delay:.2s;
+
+}
+
+.bar:nth-child(3){
+
+animation-delay:.4s;
+
+}
+
+.bar:nth-child(4){
+
+animation-delay:.6s;
+
+}
+
+.bar:nth-child(5){
+
+animation-delay:.8s;
+
+}
+
+@keyframes bars{
+
+from{
+
+height:10px;
+
+}
+
+to{
+
+height:70px;
+
+}
+
+}
+
+#cassetteGif{
+
+width:120px;
+
+display:block;
+
+margin:20px auto;
 
 }
 
 /* =========================================
-CHATROOM
+MARQUEE
 ========================================= */
 
-.chatroom-layout{
-
-display:grid;
-
-grid-template-columns:
-320px 1fr;
-
-gap:24px;
-
-padding:30px;
-
-max-width:1600px;
-
-margin:auto;
-
-min-height:
-calc(100vh - 220px);
-
-}
-
-.chat-sidebar{
-
-background:
-rgba(15,0,25,0.85);
-
-border:
-2px solid #ff4fd8;
-
-padding:24px;
-
-backdrop-filter:
-blur(10px);
-
-box-shadow:
-0 0 25px rgba(255,79,216,0.25);
-
-height:fit-content;
-
-}
-
-.chat-main{
-
-display:flex;
-flex-direction:column;
-
-background:
-rgba(10,0,20,0.85);
-
-border:
-2px solid #ff4fd8;
-
-backdrop-filter:
-blur(10px);
+#marqueeContainer{
 
 overflow:hidden;
 
-box-shadow:
-0 0 35px rgba(255,79,216,0.25);
+white-space:nowrap;
+
+margin:12px 0;
 
 }
 
-#chatBox{
+#marqueeText{
 
-flex:1;
+display:inline-block;
 
-height:70vh;
+padding-left:100%;
 
-overflow-y:auto;
-
-padding:25px;
-
-display:flex;
-flex-direction:column;
-
-gap:18px;
+animation:
+marquee 12s linear infinite;
 
 }
 
-.chat-message{
+@keyframes marquee{
 
-display:flex;
-align-items:flex-start;
+from{
 
-gap:14px;
+transform:
+translateX(0);
 
 }
 
-.chat-pfp{
+to{
 
-width:56px;
-height:56px;
+transform:
+translateX(-100%);
 
-min-width:56px;
+}
+
+}
+
+/* =========================================
+ADMIN PANEL
+========================================= */
+
+#adminPanel{
+
+position:fixed;
+
+top:50%;
+left:50%;
+
+transform:
+translate(-50%,-50%);
+
+padding:30px;
+
+border-radius:20px;
+
+background:
+rgba(0,0,0,0.9);
+
+display:none;
+
+z-index:999999;
+
+}
+
+/* =========================================
+FRIEND MODAL
+========================================= */
+
+#friendModal{
+
+position:fixed;
+inset:0;
+
+background:
+rgba(0,0,0,0.8);
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+z-index:999999;
+
+}
+
+.friend-card{
+
+width:300px;
+
+padding:30px;
+
+border-radius:20px;
+
+background:#111;
+
+text-align:center;
+
+}
+
+.friend-card img{
+
+width:120px;
+height:120px;
 
 border-radius:50%;
 
 object-fit:cover;
 
-border:
-2px solid #ff4fd8;
-
-box-shadow:
-0 0 14px rgba(255,79,216,0.45);
-
-background:black;
-
 }
 
-.chat-bubble{
+/* =========================================
+MOBILE BUTTONS
+========================================= */
 
-background:
-rgba(255,255,255,0.06);
+#mobileEditButton,
+#mobileSaveButton{
 
-border:
-1px solid rgba(255,79,216,0.25);
+position:fixed;
+
+right:20px;
 
 padding:14px 16px;
 
-border-radius:18px;
+border:none;
 
-max-width:700px;
+border-radius:14px;
 
-backdrop-filter:blur(6px);
+background:
+rgba(255,255,255,0.1);
 
-box-shadow:
-0 0 12px rgba(255,79,216,0.12);
+backdrop-filter:blur(12px);
 
-word-break:break-word;
+color:white;
+
+font-family:
+'Press Start 2P',
+cursive;
+
+font-size:10px;
+
+z-index:999999;
 
 }
 
-.chat-input-bar{
+#mobileEditButton{
 
-display:flex;
+bottom:160px;
 
-gap:14px;
+}
 
-padding:20px;
+#mobileSaveButton{
 
-border-top:
-1px solid rgba(255,255,255,0.08);
-
-background:
-rgba(0,0,0,0.3);
+bottom:100px;
 
 }
 
@@ -897,11 +479,12 @@ TASKBAR
 
 position:fixed;
 
-left:0;
-right:0;
 bottom:0;
+left:0;
 
-height:46px;
+width:100%;
+
+height:60px;
 
 display:flex;
 
@@ -911,355 +494,10 @@ align-items:center;
 padding:0 20px;
 
 background:
-linear-gradient(
-90deg,
-#ff00ff,
-#4b0082
-);
+rgba(0,0,0,0.7);
 
-border-top:
-2px solid #00ffff;
+backdrop-filter:blur(12px);
 
-z-index:999999;
-
-box-shadow:
-0 0 20px #ff00ff;
-
-}
-
-/* =========================================
-ANIMATIONS
-========================================= */
-
-@keyframes starScroll{
-
-from{
-transform:translateY(0);
-}
-
-to{
-transform:translateY(1000px);
-}
-
-}
-
-@keyframes vhsScan{
-
-0%{
-transform:translateY(-100%);
-}
-
-100%{
-transform:translateY(100%);
-}
-
-}
-
-@keyframes floatParticle{
-
-from{
-
-transform:
-translateY(100vh);
-
-opacity:0;
-
-}
-
-20%{
-
-opacity:0.5;
-
-}
-
-to{
-
-transform:
-translateY(-20vh);
-
-opacity:0;
-
-}
-
-}
-
-@keyframes windowAppear{
-
-from{
-
-opacity:0;
-
-transform:
-translateY(20px)
-scale(0.95);
-
-}
-
-to{
-
-opacity:1;
-
-transform:
-translateY(0)
-scale(1);
-
-}
-
-}
-
-/* =========================================
-MOBILE
-========================================= */
-
-@media(max-width:900px){
-
-.topbar{
-
-justify-content:center;
-
-}
-
-.chatroom-layout{
-
-grid-template-columns:
-1fr;
-
-}
-
-#chatBox{
-
-height:60vh;
-
-}
-
-.chat-input-bar{
-
-flex-direction:column;
-
-}
-
-button{
-
-width:100%;
-
-}
-
-.desktop-grid{
-
-grid-template-columns:
-1fr;
-
-}
-
-#musicPlayer{
-
-width:90vw;
-
-right:5vw;
-
-}
-
-}
-/* =========================================
-BACKGROUND LAYERS FIX
-========================================= */
-
-.vhs,
-.particles,
-.stars,
-.retro-sun,
-.grid-floor{
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-}
-
-/* STARS */
-
-.stars{
-
-z-index:0;
-
-}
-
-/* SUN */
-
-.retro-sun{
-
-z-index:1;
-
-}
-
-/* GRID */
-
-.grid-floor{
-
-z-index:2;
-
-}
-
-/* PARTICLES */
-
-.particles{
-
-z-index:3;
-
-}
-
-/* VHS */
-
-.vhs{
-
-z-index:99999;
-
-}
-/* =========================================
-MUSIC PLAYER
-========================================= */
-
-#musicPlayer{
-
-position:fixed;
-
-bottom:20px;
-right:20px;
-
-width:340px;
-
-padding:18px;
-
-background:
-rgba(10,0,20,0.9);
-
-border:
-2px solid #ff4fd8;
-
-backdrop-filter:blur(10px);
-
-box-shadow:
-0 0 30px rgba(255,0,255,0.35);
-
-z-index:999999;
-
-}
-
-#musicPlayer h3{
-
-margin-bottom:14px;
-
-font-size:14px;
-
-font-family:
-'Press Start 2P',
-cursive;
-
-}
-
-#musicURL{
-
-width:100%;
-
-padding:12px;
-
-background:#120018;
-
-border:
-1px solid #ff4fd8;
-
-color:white;
-
-margin-bottom:14px;
-
-}
-
-.music-controls{
-
-display:flex;
-
-gap:12px;
-
-align-items:center;
-
-}
-
-#musicToggle{
-
-min-width:90px;
-
-}
-
-#volumeSlider{
-
-flex:1;
-
-}
-
-#youtubePlayer{
-
-position:absolute;
-
-width:0;
-height:0;
-
-overflow:hidden;
-
-pointer-events:none;
-
-}
-/* =========================================
-NOW PLAYING
-========================================= */
-
-#nowPlaying{
-
-margin-bottom:14px;
-
-padding:10px;
-
-background:
-rgba(255,255,255,0.06);
-
-border:
-1px solid rgba(255,255,255,0.08);
-
-font-size:12px;
-
-line-height:1.6;
-
-color:#ff9df6;
-
-text-shadow:
-0 0 10px rgba(255,0,255,0.5);
-
-overflow:hidden;
-
-white-space:nowrap;
-
-text-overflow:ellipsis;
-
-animation:
-nowPlayingGlow 2s infinite alternate;
-
-}
-
-@keyframes nowPlayingGlow{
-
-from{
-
-box-shadow:
-0 0 10px rgba(255,0,255,0.15);
-
-}
-
-to{
-
-box-shadow:
-0 0 22px rgba(255,0,255,0.4);
-
-}
+z-index:9999;
 
 }
