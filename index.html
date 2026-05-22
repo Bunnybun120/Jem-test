@@ -35,7 +35,7 @@ href="themes/vaporwave.css">
 <body>
 
 <!-- =========================================
-BOOT
+BOOT SCREEN
 ========================================= -->
 
 <div id="bootScreen">
@@ -48,7 +48,7 @@ JEM.EXE
 
 <p>
 
-LOADING RETRO SYSTEM...
+BOOTING RETRO SYSTEM...
 
 </p>
 
@@ -63,6 +63,12 @@ BACKGROUND FX
 <div class="retro-sun"></div>
 <div class="vhs"></div>
 
+<!-- AERO FX -->
+
+<div class="aero-orbs"></div>
+<div class="aero-light"></div>
+<div class="aero-bubbles"></div>
+
 <!-- =========================================
 TOPBAR
 ========================================= -->
@@ -75,7 +81,7 @@ TOPBAR
 
 </div>
 
-<div class="top-actions">
+<div class="top-controls">
 
 <button onclick="setTheme('vaporwave')">
 
@@ -97,10 +103,16 @@ AERO
 
 </div>
 
+<div id="clock">
+
+00:00
+
+</div>
+
 </header>
 
 <!-- =========================================
-DESKTOP ICONS
+DESKTOP
 ========================================= -->
 
 <main id="desktop">
@@ -110,7 +122,12 @@ class="desktop-icon"
 onclick="openWindow('aboutWindow')">
 
 💖
-<p>ABOUT</p>
+
+<span>
+
+ABOUT
+
+</span>
 
 </div>
 
@@ -119,7 +136,12 @@ class="desktop-icon"
 onclick="openWindow('musicWindow')">
 
 🎵
-<p>MUSIC</p>
+
+<span>
+
+MUSIC
+
+</span>
 
 </div>
 
@@ -128,7 +150,12 @@ class="desktop-icon"
 onclick="openWindow('gamesWindow')">
 
 🎮
-<p>GAMES</p>
+
+<span>
+
+GAMES
+
+</span>
 
 </div>
 
@@ -137,16 +164,12 @@ class="desktop-icon"
 onclick="openWindow('showsWindow')">
 
 📺
-<p>SHOWS</p>
 
-</div>
+<span>
 
-<div
-class="desktop-icon"
-onclick="openWindow('blogWindow')">
+SHOWS
 
-📝
-<p>BLOG</p>
+</span>
 
 </div>
 
@@ -155,7 +178,12 @@ class="desktop-icon"
 onclick="openWindow('friendsWindow')">
 
 💫
-<p>FRIENDS</p>
+
+<span>
+
+FRIENDS
+
+</span>
 
 </div>
 
@@ -164,7 +192,26 @@ class="desktop-icon"
 onclick="openWindow('chatWindow')">
 
 💬
-<p>CHATROOM</p>
+
+<span>
+
+CHATROOM
+
+</span>
+
+</div>
+
+<div
+class="desktop-icon"
+onclick="openWindow('blogWindow')">
+
+📝
+
+<span>
+
+BLOG
+
+</span>
 
 </div>
 
@@ -173,23 +220,19 @@ class="desktop-icon"
 onclick="openWindow('moodboardWindow')">
 
 🌌
-<p>MOODBOARD</p>
 
-</div>
+<span>
 
-<div
-class="desktop-icon"
-onclick="openWindow('fandomsWindow')">
+MOODBOARD
 
-⭐
-<p>FANDOMS</p>
+</span>
 
 </div>
 
 </main>
 
 <!-- =========================================
-ABOUT WINDOW
+ABOUT
 ========================================= -->
 
 <div
@@ -218,7 +261,12 @@ ABOUT ME
 
 <p>
 
-Retro webcore desktop system.
+Retro webcore desktop system inspired by:
+Frutiger Aero, Vaporwave,
+old web forums,
+Winamp,
+Vista,
+and 2000s internet aesthetics.
 
 </p>
 
@@ -227,7 +275,7 @@ Retro webcore desktop system.
 </div>
 
 <!-- =========================================
-MUSIC WINDOW
+MUSIC
 ========================================= -->
 
 <div
@@ -250,158 +298,9 @@ X
 
 <p>
 
-Music archive and playlists.
+Main music archive.
 
 </p>
-
-</div>
-
-</div>
-
-<!-- =========================================
-GAMES WINDOW
-========================================= -->
-
-<div
-class="app-window"
-id="gamesWindow">
-
-<div class="titlebar">
-
-GAMES.EXE
-
-<button onclick="closeWindow('gamesWindow')">
-
-X
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<p>
-
-Games section.
-
-</p>
-
-</div>
-
-</div>
-
-<!-- =========================================
-SHOWS WINDOW
-========================================= -->
-
-<div
-class="app-window"
-id="showsWindow">
-
-<div class="titlebar">
-
-SHOWS.EXE
-
-<button onclick="closeWindow('showsWindow')">
-
-X
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<p>
-
-Shows and anime archive.
-
-</p>
-
-</div>
-
-</div>
-
-<!-- =========================================
-BLOG WINDOW
-========================================= -->
-
-<div
-class="app-window"
-id="blogWindow">
-
-<div class="titlebar">
-
-BLOG.EXE
-
-<button onclick="closeWindow('blogWindow')">
-
-X
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<p>
-
-Blog posts here.
-
-</p>
-
-</div>
-
-</div>
-
-<!-- =========================================
-FRIENDS WINDOW
-========================================= -->
-
-<div
-class="app-window"
-id="friendsWindow">
-
-<div class="titlebar">
-
-FRIENDS.EXE
-
-<button onclick="closeWindow('friendsWindow')">
-
-X
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<div class="friend-entry">
-
-<img
-src="https://i.imgur.com/8Km9tLL.png">
-
-<h3>
-
-SKYLER
-
-</h3>
-
-<p>
-
-Bestie + gamer.
-
-</p>
-
-<a
-href="https://twitter.com"
-target="_blank">
-
-VISIT SOCIAL
-
-</a>
-
-</div>
 
 </div>
 
@@ -433,7 +332,9 @@ X
 
 <input
 id="chatInput"
-placeholder="type message">
+placeholder="type message...">
+
+<div class="chat-controls">
 
 <button id="sendMessage">
 
@@ -443,9 +344,160 @@ SEND
 
 <button id="clearChat">
 
-CLEAR CHAT
+CLEAR
 
 </button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================================
+FRIENDS
+========================================= -->
+
+<div
+class="app-window"
+id="friendsWindow">
+
+<div class="titlebar">
+
+FRIENDS.EXE
+
+<button onclick="closeWindow('friendsWindow')">
+
+X
+
+</button>
+
+</div>
+
+<div class="window-body">
+
+<div class="friend-card">
+
+<img
+src="https://i.imgur.com/8Km9tLL.png">
+
+<h3>
+
+SKYLER
+
+</h3>
+
+<p>
+
+Bestie + gamer.
+
+</p>
+
+<a
+href="https://twitter.com"
+target="_blank">
+
+VISIT SOCIAL
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================================
+GAMES
+========================================= -->
+
+<div
+class="app-window"
+id="gamesWindow">
+
+<div class="titlebar">
+
+GAMES.EXE
+
+<button onclick="closeWindow('gamesWindow')">
+
+X
+
+</button>
+
+</div>
+
+<div class="window-body">
+
+<p>
+
+Games collection.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- =========================================
+SHOWS
+========================================= -->
+
+<div
+class="app-window"
+id="showsWindow">
+
+<div class="titlebar">
+
+SHOWS.EXE
+
+<button onclick="closeWindow('showsWindow')">
+
+X
+
+</button>
+
+</div>
+
+<div class="window-body">
+
+<p>
+
+Shows + anime archive.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- =========================================
+BLOG
+========================================= -->
+
+<div
+class="app-window"
+id="blogWindow">
+
+<div class="titlebar">
+
+BLOG.EXE
+
+<button onclick="closeWindow('blogWindow')">
+
+X
+
+</button>
+
+</div>
+
+<div class="window-body">
+
+<p>
+
+Blog posts go here.
+
+</p>
 
 </div>
 
@@ -475,39 +527,7 @@ X
 
 <p>
 
-Moodboards here.
-
-</p>
-
-</div>
-
-</div>
-
-<!-- =========================================
-FANDOMS
-========================================= -->
-
-<div
-class="app-window"
-id="fandomsWindow">
-
-<div class="titlebar">
-
-FANDOMS.EXE
-
-<button onclick="closeWindow('fandomsWindow')">
-
-X
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<p>
-
-Fandom shrines and pages.
+Moodboards + aesthetics.
 
 </p>
 
@@ -582,26 +602,6 @@ allow="autoplay">
 </iframe>
 
 </aside>
-
-<!-- =========================================
-TASKBAR
-========================================= -->
-
-<footer class="taskbar">
-
-<div>
-
-START
-
-</div>
-
-<div id="clock">
-
-00:00
-
-</div>
-
-</footer>
 
 </body>
 </html>
