@@ -1,36 +1,269 @@
+/* =========================================
+ROSALINA GALAXY THEME
+========================================= */
+
 body{
 
 background:
 linear-gradient(
 to bottom,
-#8fdcff,
-#cdefff,
-#f5fbff
+#020412 0%,
+#071f4d 30%,
+#183f7a 55%,
+#8fdcff 100%
 );
 
-color:#123;
+color:white;
+
+overflow-x:hidden;
 
 }
+
+/* =========================================
+MILKY WAY OVERLAY
+========================================= */
+
+body::before{
+
+content:"";
+
+position:fixed;
+inset:0;
+
+background:
+
+radial-gradient(
+circle at 20% 20%,
+rgba(255,255,255,.6) 0%,
+transparent 10%
+),
+
+radial-gradient(
+circle at 80% 30%,
+rgba(255,255,255,.45) 0%,
+transparent 12%
+),
+
+radial-gradient(
+circle at 60% 70%,
+rgba(173,216,255,.3) 0%,
+transparent 20%
+),
+
+linear-gradient(
+120deg,
+transparent 0%,
+rgba(255,255,255,.06) 45%,
+rgba(255,255,255,.15) 50%,
+rgba(255,255,255,.06) 55%,
+transparent 100%
+);
+
+filter:blur(2px);
+
+pointer-events:none;
+
+z-index:-3;
+
+}
+
+/* =========================================
+FLOATING STARS
+========================================= */
+
+.stars{
+
+position:fixed;
+inset:0;
+
+background-image:
+
+radial-gradient(white 1px, transparent 1px),
+radial-gradient(#8fdcff 1px, transparent 1px),
+radial-gradient(#ffffff 2px, transparent 2px);
+
+background-size:
+120px 120px,
+200px 200px,
+300px 300px;
+
+animation:
+starDrift 120s linear infinite;
+
+opacity:.8;
+
+z-index:-2;
+
+}
+
+@keyframes starDrift{
+
+from{
+
+transform:translateY(0px);
+
+}
+
+to{
+
+transform:translateY(-400px);
+
+}
+
+}
+
+/* =========================================
+AURORA
+========================================= */
+
+.retro-sun{
+
+position:fixed;
+
+top:10%;
+left:50%;
+
+transform:translateX(-50%);
+
+width:800px;
+height:800px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(
+circle,
+rgba(180,240,255,.35),
+rgba(143,220,255,.15),
+transparent 70%
+);
+
+filter:blur(80px);
+
+animation:
+auroraPulse 8s infinite alternate;
+
+z-index:-4;
+
+}
+
+@keyframes auroraPulse{
+
+from{
+
+transform:
+translateX(-50%)
+scale(1);
+
+}
+
+to{
+
+transform:
+translateX(-50%)
+scale(1.15);
+
+}
+
+}
+
+/* =========================================
+WINDOWS
+========================================= */
 
 .desktop-window{
 
 background:
-rgba(255,255,255,0.4);
+rgba(255,255,255,.12);
+
+border:
+1px solid rgba(255,255,255,.25);
+
+backdrop-filter:blur(18px);
+
+box-shadow:
+0 0 40px rgba(143,220,255,.25);
+
+}
+
+.desktop-window:hover{
+
+box-shadow:
+0 0 60px rgba(143,220,255,.45);
+
+}
+
+/* =========================================
+TOPBAR
+========================================= */
+
+.topbar{
+
+background:
+rgba(255,255,255,.08);
+
+border-bottom:
+1px solid rgba(255,255,255,.15);
 
 backdrop-filter:blur(16px);
 
 }
 
-.bar{
+.logo{
 
-background:#8fdcff;
+color:#dff6ff;
+
+text-shadow:
+0 0 15px rgba(255,255,255,.8);
 
 }
 
-.topbar,
+/* =========================================
+PLAYER
+========================================= */
+
+#musicPlayer{
+
+background:
+rgba(255,255,255,.08);
+
+border:
+1px solid rgba(255,255,255,.15);
+
+box-shadow:
+0 0 30px rgba(143,220,255,.3);
+
+}
+
+/* =========================================
+VISUALIZER
+========================================= */
+
+.visualizer span{
+
+background:
+linear-gradient(
+to top,
+#8fdcff,
+white
+);
+
+box-shadow:
+0 0 10px rgba(143,220,255,.8);
+
+}
+
+/* =========================================
+TASKBAR
+========================================= */
+
 .taskbar{
 
 background:
-rgba(255,255,255,0.3);
+rgba(255,255,255,.08);
+
+border-top:
+1px solid rgba(255,255,255,.12);
 
 }
