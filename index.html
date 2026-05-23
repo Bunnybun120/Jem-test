@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -9,95 +10,57 @@
 name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>JEM.EXE</title>
+<title>Jem.EXE</title>
+
+<!-- =========================================
+FONTS
+========================================= -->
 
 <link
-href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Nunito:wght@400;700&family=VT323&display=swap"
 rel="stylesheet">
 
-<link rel="stylesheet" href="css/core.css">
-<link rel="stylesheet" href="css/windows.css">
-<link rel="stylesheet" href="css/player.css">
-<link rel="stylesheet" href="css/animations.css">
+<!-- =========================================
+CSS
+========================================= -->
 
 <link
-id="themeStylesheet"
 rel="stylesheet"
-href="themes/vaporwave.css">
+href="css/windows.css">
 
-<script defer src="js/desktop.js"></script>
-<script defer src="js/player.js"></script>
-<script defer src="js/themes.js"></script>
+<link
+rel="stylesheet"
+href="themes/vaporwave.css"
+id="themeStylesheet">
 
 </head>
 
 <body>
 
 <!-- =========================================
-BOOT SCREEN
+THEME LAYERS
 ========================================= -->
 
-<div id="bootScreen">
-
-<h1>
-
-JEM.EXE
-
-</h1>
-
-<p>
-
-BOOTING SYSTEM...
-
-</p>
-
-</div>
-
-<!-- =========================================
-GLOBAL ENVIRONMENT LAYERS
-========================================= -->
-
-<div class="theme-bg"></div>
-
-<!-- VAPOR -->
-
+<div class="vapor-stars"></div>
 <div class="vapor-sun"></div>
 <div class="vapor-city"></div>
 <div class="vapor-grid"></div>
-<div class="vapor-stars"></div>
 <div class="vapor-fog"></div>
 <div class="vapor-vhs"></div>
-
-<!-- AERO -->
-
-<div class="aero-clouds"></div>
-<div class="aero-bubbles"></div>
-<div class="aero-light"></div>
-<div class="aero-water"></div>
-<div class="aero-orbs"></div>
-
-<!-- ROSALINA -->
-
-<div class="rosa-nebula"></div>
-<div class="rosa-stars"></div>
-<div class="rosa-sparkles"></div>
-<div class="rosa-galaxy"></div>
-<div class="rosa-fog"></div>
-<div class="rosa-shooting"></div>
 
 <!-- =========================================
 TOPBAR
 ========================================= -->
 
-<header class="topbar">
+<div class="topbar">
 
 <div class="logo">
 
-✦ JEM.EXE ✦
+JEM.EXE
 
 </div>
 
-<div class="theme-switcher">
+<div class="topbar-right">
 
 <button onclick="setTheme('vaporwave')">
 
@@ -117,27 +80,28 @@ ROSALINA
 
 </button>
 
-</div>
-
 <div id="clock">
 
-00:00
+12:00 PM
 
 </div>
 
-</header>
+</div>
+
+</div>
 
 <!-- =========================================
-DESKTOP
+DESKTOP ICONS
 ========================================= -->
 
-<main id="desktop">
+<div class="desktop-icons">
 
 <div
 class="desktop-icon"
 onclick="openWindow('aboutWindow')">
 
-💖
+<img
+src="https://cdn-icons-png.flaticon.com/512/747/747376.png">
 
 <span>
 
@@ -151,7 +115,8 @@ ABOUT
 class="desktop-icon"
 onclick="openWindow('musicWindow')">
 
-🎵
+<img
+src="https://cdn-icons-png.flaticon.com/512/3659/3659898.png">
 
 <span>
 
@@ -165,7 +130,8 @@ MUSIC
 class="desktop-icon"
 onclick="openWindow('gamesWindow')">
 
-🎮
+<img
+src="https://cdn-icons-png.flaticon.com/512/686/686589.png">
 
 <span>
 
@@ -179,7 +145,8 @@ GAMES
 class="desktop-icon"
 onclick="openWindow('showsWindow')">
 
-📺
+<img
+src="https://cdn-icons-png.flaticon.com/512/1179/1179069.png">
 
 <span>
 
@@ -193,7 +160,8 @@ SHOWS
 class="desktop-icon"
 onclick="openWindow('friendsWindow')">
 
-💫
+<img
+src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
 
 <span>
 
@@ -207,7 +175,8 @@ FRIENDS
 class="desktop-icon"
 onclick="openWindow('chatWindow')">
 
-💬
+<img
+src="https://cdn-icons-png.flaticon.com/512/1380/1380338.png">
 
 <span>
 
@@ -217,58 +186,261 @@ CHATROOM
 
 </div>
 
-<div
-class="desktop-icon"
-onclick="openWindow('blogWindow')">
-
-📝
-
-<span>
-
-BLOG
-
-</span>
-
 </div>
 
-<div
-class="desktop-icon"
-onclick="openWindow('moodboardWindow')">
-
-🌌
-
-<span>
-
-MOODBOARD
-
-</span>
-
-</div>
-
-</main>
 <!-- =========================================
-CHATROOM.EXE
+ABOUT WINDOW
 ========================================= -->
 
 <div
 class="app-window"
-id="chatWindow">
+id="aboutWindow"
+style="display:none;">
 
 <div class="titlebar">
 
-<span>
-
-CHATROOM.EXE
-
-</span>
+ABOUT.EXE
 
 <div class="titlebar-buttons">
 
-<button onclick="minimizeWindow('chatWindow')">
+<button onclick="closeWindow('aboutWindow')">
 
-＿
+✕
 
 </button>
+
+</div>
+
+</div>
+
+<div class="window-body">
+
+<h1>
+
+WELCOME TO JEM.EXE
+
+</h1>
+
+<p>
+
+A nostalgic internet desktop universe.
+
+</p>
+
+</div>
+
+</div>
+
+<!-- =========================================
+MUSIC WINDOW
+========================================= -->
+
+<div
+class="app-window"
+id="musicWindow"
+style="display:none;">
+
+<div class="titlebar">
+
+MUSIC.EXE
+
+<div class="titlebar-buttons">
+
+<button onclick="closeWindow('musicWindow')">
+
+✕
+
+</button>
+
+</div>
+
+</div>
+
+<div class="window-body">
+
+<div id="musicPlayer">
+
+<img
+id="albumArt"
+src="https://i.imgur.com/8Km9tLL.png">
+
+<div id="trackInfo">
+
+<div id="trackTitle">
+
+No Track
+
+</div>
+
+<div id="artistName">
+
+Unknown Artist
+
+</div>
+
+</div>
+
+<div class="player-controls">
+
+<button id="playButton">
+
+▶
+
+</button>
+
+<button id="pauseButton">
+
+⏸
+
+</button>
+
+</div>
+
+<div class="visualizer">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================================
+GAMES WINDOW
+========================================= -->
+
+<div
+class="app-window"
+id="gamesWindow"
+style="display:none;">
+
+<div class="titlebar">
+
+GAMES.EXE
+
+<div class="titlebar-buttons">
+
+<button onclick="closeWindow('gamesWindow')">
+
+✕
+
+</button>
+
+</div>
+
+</div>
+
+<div class="window-body">
+
+<h2>
+
+GAME COLLECTION
+
+</h2>
+
+</div>
+
+</div>
+
+<!-- =========================================
+SHOWS WINDOW
+========================================= -->
+
+<div
+class="app-window"
+id="showsWindow"
+style="display:none;">
+
+<div class="titlebar">
+
+SHOWS.EXE
+
+<div class="titlebar-buttons">
+
+<button onclick="closeWindow('showsWindow')">
+
+✕
+
+</button>
+
+</div>
+
+</div>
+
+<div class="window-body">
+
+<h2>
+
+WATCHLIST
+
+</h2>
+
+</div>
+
+</div>
+
+<!-- =========================================
+FRIENDS WINDOW
+========================================= -->
+
+<div
+class="app-window"
+id="friendsWindow"
+style="display:none;">
+
+<div class="titlebar">
+
+FRIENDS.EXE
+
+<div class="titlebar-buttons">
+
+<button onclick="closeWindow('friendsWindow')">
+
+✕
+
+</button>
+
+</div>
+
+</div>
+
+<div class="window-body">
+
+<h2>
+
+FRIEND DIRECTORY
+
+</h2>
+
+</div>
+
+</div>
+
+<!-- =========================================
+CHATROOM WINDOW
+========================================= -->
+
+<div
+class="app-window"
+id="chatWindow"
+style="display:none;">
+
+<div class="titlebar">
+
+<div class="titlebar-left">
+
+💬 CHATROOM.EXE
+
+</div>
+
+<div class="titlebar-buttons">
 
 <button onclick="closeWindow('chatWindow')">
 
@@ -282,13 +454,11 @@ CHATROOM.EXE
 
 <div class="window-body chat-layout">
 
-<!-- =========================================
-CHANNELS
-========================================= -->
+<!-- CHANNELS -->
 
 <div class="chat-channels">
 
-<div class="channel-title">
+<div class="channel-header">
 
 CHANNELS
 
@@ -318,31 +488,20 @@ CHANNELS
 
 </button>
 
-<button class="channel">
-
-# random
-
-</button>
-
 </div>
 
-<!-- =========================================
-CHAT MAIN
-========================================= -->
+<!-- MAIN -->
 
 <div class="chat-main">
 
-<div id="chatMessages">
+<div id="chatMessages"></div>
 
-</div>
-
-<div id="typingIndicator">
-
-</div>
+<div id="typingIndicator"></div>
 
 <div class="chat-input-row">
 
 <input
+type="text"
 id="chatInput"
 placeholder="type message...">
 
@@ -356,9 +515,7 @@ SEND
 
 </div>
 
-<!-- =========================================
-PROFILE PANEL
-========================================= -->
+<!-- PROFILE -->
 
 <div class="chat-profile">
 
@@ -367,10 +524,12 @@ id="profilePreview"
 src="https://i.imgur.com/8Km9tLL.png">
 
 <input
+type="text"
 id="usernameInput"
 placeholder="username">
 
 <input
+type="text"
 id="pfpInput"
 placeholder="paste image url">
 
@@ -382,7 +541,7 @@ SAVE PROFILE
 
 <div class="profile-divider"></div>
 
-<div class="online-title">
+<div class="online-header">
 
 ONLINE
 
@@ -403,378 +562,50 @@ ONLINE
 </div>
 
 </div>
+
 <!-- =========================================
-ABOUT WINDOW
+TASKBAR
 ========================================= -->
 
-<div
-class="app-window"
-id="aboutWindow">
+<div class="taskbar">
 
-<div class="titlebar">
+<div class="taskbar-left">
 
-ABOUT.EXE
-
-<button onclick="closeWindow('aboutWindow')">
-
-X
-
-</button>
+JEM.EXE
 
 </div>
 
-<div class="window-body">
+<div class="taskbar-right">
 
-<h2>
+<span id="taskbarClock">
 
-ABOUT ME
+12:00 PM
 
-</h2>
-
-<p>
-
-Retro futuristic webcore desktop inspired by:
-Frutiger Aero,
-Vaporwave,
-Mario Galaxy,
-Winamp,
-Vista,
-and old internet aesthetics.
-
-</p>
+</span>
 
 </div>
 
 </div>
 
 <!-- =========================================
-MUSIC WINDOW
+AUDIO
 ========================================= -->
 
-<div
-class="app-window"
-id="musicWindow">
+<audio
+id="audioPlayer"
+src="assets/music/song.mp3">
 
-<div class="titlebar">
-
-MUSIC.EXE
-
-<button onclick="closeWindow('musicWindow')">
-
-X
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<p>
-
-Music archive goes here.
-
-</p>
-
-</div>
-
-</div>
+</audio>
 
 <!-- =========================================
-CHATROOM WINDOW
+JS
 ========================================= -->
 
-<div
-class="app-window"
-id="chatWindow">
-
-<div class="titlebar">
-
-CHATROOM.EXE
-
-<button onclick="closeWindow('chatWindow')">
-
-X
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<div id="chatMessages"></div>
-
-<input
-id="chatInput"
-placeholder="type message...">
-
-<div class="chat-controls">
-
-<button id="sendMessage">
-
-SEND
-
-</button>
-
-<button id="clearChat">
-
-CLEAR
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- =========================================
-FRIENDS WINDOW
-========================================= -->
-
-<div
-class="app-window"
-id="friendsWindow">
-
-<div class="titlebar">
-
-FRIENDS.EXE
-
-<button onclick="closeWindow('friendsWindow')">
-
-X
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<div class="friend-card">
-
-<img
-src="https://i.imgur.com/8Km9tLL.png">
-
-<h3>
-
-SKYLER
-
-</h3>
-
-<p>
-
-Bestie + gamer.
-
-</p>
-
-<a
-href="https://twitter.com"
-target="_blank">
-
-VISIT SOCIAL
-
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- =========================================
-GAMES WINDOW
-========================================= -->
-
-<div
-class="app-window"
-id="gamesWindow">
-
-<div class="titlebar">
-
-GAMES.EXE
-
-<button onclick="closeWindow('gamesWindow')">
-
-X
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<p>
-
-Games archive.
-
-</p>
-
-</div>
-
-</div>
-
-<!-- =========================================
-SHOWS WINDOW
-========================================= -->
-
-<div
-class="app-window"
-id="showsWindow">
-
-<div class="titlebar">
-
-SHOWS.EXE
-
-<button onclick="closeWindow('showsWindow')">
-
-X
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<p>
-
-Shows + anime archive.
-
-</p>
-
-</div>
-
-</div>
-
-<!-- =========================================
-BLOG WINDOW
-========================================= -->
-
-<div
-class="app-window"
-id="blogWindow">
-
-<div class="titlebar">
-
-BLOG.EXE
-
-<button onclick="closeWindow('blogWindow')">
-
-X
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<p>
-
-Blog posts go here.
-
-</p>
-
-</div>
-
-</div>
-
-<!-- =========================================
-MOODBOARD WINDOW
-========================================= -->
-
-<div
-class="app-window"
-id="moodboardWindow">
-
-<div class="titlebar">
-
-MOODBOARD.EXE
-
-<button onclick="closeWindow('moodboardWindow')">
-
-X
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<p>
-
-Moodboards and aesthetics.
-
-</p>
-
-</div>
-
-</div>
-
-<!-- =========================================
-MUSIC PLAYER
-========================================= -->
-
-<aside id="musicPlayer">
-
-<h2>
-
-SYSTEM PLAYER
-
-</h2>
-
-<img
-id="albumArt"
-src="https://i.imgur.com/8Km9tLL.png">
-
-<div id="trackTitle">
-
-NO TRACK
-
-</div>
-
-<div id="artistName">
-
-UNKNOWN ARTIST
-
-</div>
-
-<div class="visualizer">
-
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-
-</div>
-
-<input
-id="youtubeInput"
-placeholder="paste youtube url">
-
-<div class="controls">
-
-<button id="playBtn">
-
-PLAY
-
-</button>
-
-<button id="pauseBtn">
-
-STOP
-
-</button>
-
-</div>
-
-<iframe
-id="youtubePlayer"
-width="0"
-height="0"
-allow="autoplay">
-
-</iframe>
-
-</aside>
+<script src="js/windows.js"></script>
+<script src="js/music.js"></script>
 <script src="js/chat.js"></script>
+<script src="js/themes.js"></script>
+
 </body>
+
 </html>
