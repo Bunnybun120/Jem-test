@@ -1,6 +1,5 @@
 /* =========================================
-ROSALINA COSMIC THEME
-STABLE VERSION
+ROSALINA COSMIC WORLD
 ========================================= */
 
 body{
@@ -9,161 +8,149 @@ background:
 
 linear-gradient(
 to bottom,
-#020611 0%,
-#071b46 30%,
-#18376f 55%,
-#7dcfff 100%
+#081229,
+#10244f,
+#0a1633
 );
 
-color:white;
+color:#dff7ff;
 
 }
 
 /* =========================================
-MILKY WAY
+NEBULA
 ========================================= */
 
-body::before{
-
-content:"";
+.rosa-nebula{
 
 position:fixed;
 inset:0;
 
 background:
 
-linear-gradient(
-120deg,
-transparent 0%,
-rgba(255,255,255,.05) 35%,
-rgba(255,255,255,.15) 50%,
-rgba(180,220,255,.08) 65%,
-transparent 100%
+radial-gradient(
+circle at 30% 30%,
+rgba(120,180,255,.25),
+transparent 45%
+),
+
+radial-gradient(
+circle at 70% 60%,
+rgba(180,220,255,.18),
+transparent 45%
 );
 
-pointer-events:none;
+filter:
+blur(80px);
 
-z-index:-1;
+z-index:-12;
 
 }
 
 /* =========================================
-STARS
+GALAXY
 ========================================= */
 
-.stars{
+.rosa-galaxy{
 
-background-image:
+position:fixed;
 
-radial-gradient(
-white 1px,
-transparent 1px
-),
+top:50%;
+left:50%;
 
-radial-gradient(
-#8fdcff 2px,
-transparent 2px
-),
+transform:
+translate(-50%,-50%);
 
-radial-gradient(
-#ffffff 3px,
-transparent 3px
-);
+width:700px;
+height:700px;
 
-background-size:
-140px 140px,
-260px 260px,
-420px 420px;
-
-opacity:.95;
-
-}
-
-/* =========================================
-GALAXY GLOW
-========================================= */
-
-.retro-sun{
+border-radius:50%;
 
 background:
 
 radial-gradient(
 circle,
-rgba(255,255,255,.5),
-rgba(143,220,255,.25),
-rgba(120,140,255,.1),
+rgba(180,220,255,.5),
+rgba(90,120,255,.1),
 transparent 70%
 );
 
-opacity:.7;
+filter:
+blur(40px);
 
-filter:blur(90px);
+animation:
+galaxySpin 80s linear infinite;
+
+z-index:-11;
+
+}
+
+@keyframes galaxySpin{
+
+from{
+
+transform:
+translate(-50%,-50%)
+rotate(0deg);
+
+}
+
+to{
+
+transform:
+translate(-50%,-50%)
+rotate(360deg);
+
+}
 
 }
 
 /* =========================================
-GRID
+SPARKLES
 ========================================= */
 
-.grid{
+.rosa-sparkles{
+
+position:fixed;
+inset:0;
 
 background-image:
 
-linear-gradient(
-rgba(255,255,255,.06) 1px,
-transparent 1px
-),
-
-linear-gradient(
-90deg,
-rgba(255,255,255,.06) 1px,
-transparent 1px
+radial-gradient(
+white 1px,
+transparent 2px
 );
 
-opacity:.12;
+background-size:
+120px 120px;
 
-}
+opacity:.55;
 
-.vhs{
-
-opacity:.08;
+z-index:-10;
 
 }
 
 /* =========================================
-TOPBAR
+FOG
 ========================================= */
 
-.topbar{
+.rosa-fog{
+
+position:fixed;
+inset:0;
 
 background:
 
-linear-gradient(
-to bottom,
-rgba(10,20,60,.8),
-rgba(5,10,25,.55)
+radial-gradient(
+circle,
+rgba(180,220,255,.12),
+transparent 70%
 );
 
-border-bottom:
-1px solid rgba(255,255,255,.12);
+filter:
+blur(100px);
 
-backdrop-filter:
-blur(20px);
-
-}
-
-/* =========================================
-LOGO
-========================================= */
-
-.logo{
-
-color:#dff6ff;
-
-text-shadow:
-
-0 0 10px rgba(255,255,255,.8),
-0 0 30px rgba(143,220,255,.5);
+z-index:-9;
 
 }
 
@@ -177,161 +164,18 @@ background:
 
 linear-gradient(
 to bottom,
-rgba(255,255,255,.12),
-rgba(10,20,60,.42)
+rgba(160,200,255,.18),
+rgba(40,60,120,.35)
 );
 
 border:
-1px solid rgba(255,255,255,.18);
+1px solid rgba(180,220,255,.35);
+
+backdrop-filter:
+blur(22px);
 
 box-shadow:
 
-0 0 30px rgba(143,220,255,.15);
-
-backdrop-filter:
-blur(20px);
-
-}
-
-/* =========================================
-TITLEBAR
-========================================= */
-
-.titlebar{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(255,255,255,.12),
-rgba(20,40,90,.45)
-);
-
-border-bottom:
-1px solid rgba(255,255,255,.12);
-
-color:#dff6ff;
-
-}
-
-/* =========================================
-DESKTOP ICONS
-========================================= */
-
-.desktop-icon{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(255,255,255,.12),
-rgba(10,20,60,.25)
-);
-
-border:
-1px solid rgba(255,255,255,.15);
-
-border-radius:24px;
-
-backdrop-filter:
-blur(10px);
-
-}
-
-/* =========================================
-BUTTONS
-========================================= */
-
-button{
-
-background:
-
-linear-gradient(
-to bottom,
-#dff6ff,
-#8fdcff
-);
-
-border:
-1px solid rgba(255,255,255,.3);
-
-color:#123;
-
-}
-
-/* =========================================
-PLAYER
-========================================= */
-
-#musicPlayer{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(255,255,255,.12),
-rgba(10,20,60,.42)
-);
-
-border:
-1px solid rgba(255,255,255,.18);
-
-box-shadow:
-
-0 0 30px rgba(143,220,255,.15);
-
-}
-
-/* =========================================
-VISUALIZER
-========================================= */
-
-.visualizer span{
-
-background:
-
-linear-gradient(
-to top,
-#8fdcff,
-white
-);
-
-}
-
-/* =========================================
-TASKBAR
-========================================= */
-
-.taskbar{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(10,20,60,.82),
-rgba(5,10,25,.6)
-);
-
-border-top:
-1px solid rgba(255,255,255,.15);
-
-backdrop-filter:
-blur(20px);
-
-}
-
-/* =========================================
-INPUTS
-========================================= */
-
-input{
-
-background:
-rgba(255,255,255,.1);
-
-border:
-1px solid rgba(255,255,255,.2);
-
-color:white;
+0 0 40px rgba(120,180,255,.18);
 
 }
