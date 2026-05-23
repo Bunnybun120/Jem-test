@@ -1,6 +1,5 @@
 /* =========================================
-FRUTIGER AERO THEME
-STABLE VERSION
+REAL FRUTIGER AERO
 ========================================= */
 
 body{
@@ -9,9 +8,9 @@ background:
 
 linear-gradient(
 to bottom,
-#7fe7ff 0%,
-#b8f3ff 35%,
-#ffffff 70%,
+#86e8ff 0%,
+#bff5ff 30%,
+#ffffff 60%,
 #dff8ff 100%
 );
 
@@ -20,67 +19,147 @@ color:#134;
 }
 
 /* =========================================
-BACKGROUND FX
+SKY BLOOM
 ========================================= */
 
-.retro-sun{
+.aero-light{
 
 background:
 
 radial-gradient(
-circle,
+ellipse at center,
 rgba(255,255,255,.95) 0%,
-rgba(180,240,255,.7) 35%,
-rgba(120,220,255,.25) 55%,
-transparent 75%
+rgba(180,240,255,.55) 35%,
+transparent 70%
 );
 
-opacity:.8;
+filter:
+blur(100px);
 
-filter:blur(80px);
+opacity:.9;
+
+z-index:-5;
 
 }
 
-.stars{
+/* =========================================
+SOAP BUBBLES
+========================================= */
+
+.aero-bubbles{
 
 background-image:
 
 radial-gradient(
-rgba(255,255,255,.95) 3px,
+rgba(255,255,255,.8) 2px,
 transparent 3px
 ),
 
 radial-gradient(
-rgba(180,240,255,.7) 6px,
-transparent 6px
+rgba(180,240,255,.7) 8px,
+transparent 9px
+),
+
+radial-gradient(
+rgba(255,255,255,.5) 14px,
+transparent 15px
 );
 
 background-size:
-240px 240px,
-420px 420px;
+220px 220px,
+500px 500px,
+800px 800px;
 
 opacity:.5;
 
+animation:
+bubbleFloat 60s linear infinite;
+
+z-index:-4;
+
 }
+
+@keyframes bubbleFloat{
+
+from{
+
+transform:
+translateY(0px);
+
+}
+
+to{
+
+transform:
+translateY(-400px);
+
+}
+
+}
+
+/* =========================================
+ORB GLOW
+========================================= */
+
+.aero-orbs{
+
+background-image:
+
+radial-gradient(
+circle at 20% 20%,
+rgba(255,255,255,.85),
+transparent 30%
+),
+
+radial-gradient(
+circle at 80% 60%,
+rgba(120,225,255,.5),
+transparent 35%
+);
+
+opacity:.8;
+
+z-index:-4;
+
+}
+
+/* =========================================
+CLOUD GRID
+========================================= */
 
 .grid{
 
 background-image:
 
 linear-gradient(
-rgba(255,255,255,.18) 1px,
+rgba(255,255,255,.15) 1px,
 transparent 1px
 ),
 
 linear-gradient(
 90deg,
-rgba(255,255,255,.18) 1px,
+rgba(255,255,255,.15) 1px,
 transparent 1px
 );
 
+background-size:
+80px 80px;
+
+transform:
+perspective(700px)
+rotateX(75deg);
+
 opacity:.15;
 
+bottom:-20%;
+
+z-index:-3;
+
 }
+
+/* =========================================
+REMOVE VHS
+========================================= */
 
 .vhs{
 
@@ -98,18 +177,20 @@ background:
 
 linear-gradient(
 to bottom,
-rgba(255,255,255,.9),
-rgba(210,245,255,.65)
+rgba(255,255,255,.95),
+rgba(200,245,255,.65)
 );
 
 border-bottom:
-1px solid rgba(255,255,255,.9);
+1px solid rgba(255,255,255,.95);
 
 backdrop-filter:
 blur(20px);
 
 box-shadow:
-0 0 25px rgba(120,225,255,.3);
+
+0 0 20px rgba(120,225,255,.35),
+0 0 60px rgba(255,255,255,.3);
 
 }
 
@@ -119,12 +200,12 @@ LOGO
 
 .logo{
 
-color:#1ea5ff;
+color:#20a8ff;
 
 text-shadow:
 
-0 0 10px rgba(30,165,255,.6),
-0 0 25px rgba(255,255,255,.7);
+0 0 8px rgba(32,168,255,.7),
+0 0 25px rgba(255,255,255,.8);
 
 }
 
@@ -147,11 +228,11 @@ border:
 
 box-shadow:
 
-0 0 25px rgba(120,225,255,.25),
-0 10px 50px rgba(120,225,255,.15);
+0 0 25px rgba(120,225,255,.3),
+0 10px 50px rgba(120,225,255,.18);
 
 backdrop-filter:
-blur(22px);
+blur(25px);
 
 }
 
@@ -165,24 +246,14 @@ background:
 
 linear-gradient(
 to bottom,
-rgba(255,255,255,.95),
+rgba(255,255,255,.98),
 rgba(180,235,255,.55)
 );
 
-border-bottom:
-1px solid rgba(255,255,255,.9);
-
 color:#179dff;
 
-}
-
-/* =========================================
-WINDOW BODY
-========================================= */
-
-.window-body{
-
-color:#245;
+border-bottom:
+1px solid rgba(255,255,255,.9);
 
 }
 
@@ -196,12 +267,12 @@ background:
 
 linear-gradient(
 to bottom,
-rgba(255,255,255,.35),
-rgba(255,255,255,.12)
+rgba(255,255,255,.45),
+rgba(255,255,255,.15)
 );
 
 border:
-1px solid rgba(255,255,255,.5);
+1px solid rgba(255,255,255,.6);
 
 border-radius:24px;
 
@@ -209,7 +280,8 @@ backdrop-filter:
 blur(10px);
 
 box-shadow:
-0 0 20px rgba(120,225,255,.18);
+
+0 0 20px rgba(120,225,255,.25);
 
 }
 
@@ -217,7 +289,12 @@ box-shadow:
 
 transform:
 translateY(-6px)
-scale(1.04);
+scale(1.06);
+
+box-shadow:
+
+0 0 30px rgba(120,225,255,.4),
+0 0 50px rgba(255,255,255,.25);
 
 }
 
@@ -240,6 +317,10 @@ border:
 
 color:#135;
 
+box-shadow:
+
+0 0 12px rgba(255,255,255,.7);
+
 }
 
 /* =========================================
@@ -252,7 +333,7 @@ background:
 
 linear-gradient(
 to bottom,
-rgba(255,255,255,.82),
+rgba(255,255,255,.85),
 rgba(220,248,255,.5)
 );
 
@@ -261,7 +342,7 @@ border:
 
 box-shadow:
 
-0 0 25px rgba(120,225,255,.3);
+0 0 30px rgba(120,225,255,.3);
 
 }
 
@@ -279,30 +360,9 @@ to top,
 #ffffff
 );
 
-}
-
-/* =========================================
-TASKBAR
-========================================= */
-
-.taskbar{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(255,255,255,.9),
-rgba(180,235,255,.6)
-);
-
-border-top:
-1px solid rgba(255,255,255,.95);
-
-backdrop-filter:
-blur(20px);
-
 box-shadow:
-0 0 20px rgba(120,225,255,.25);
+
+0 0 12px rgba(255,255,255,.8);
 
 }
 
@@ -313,7 +373,7 @@ INPUTS
 input{
 
 background:
-rgba(255,255,255,.7);
+rgba(255,255,255,.75);
 
 border:
 1px solid rgba(255,255,255,.95);
