@@ -1,10 +1,26 @@
 const audio =
-document.getElementById("audio");
+document.getElementById(
+"audioPlayer"
+);
 
-document
-.getElementById("playBtn")
-.addEventListener("click", () => {audio.play();});
+const playButton =
+document.getElementById(
+"playButton"
+);
 
-document
-.getElementById("pauseBtn")
-.addEventListener("click", () => {audio.pause();});
+const pauseButton =
+document.getElementById(
+"pauseButton"
+);
+
+playButton.onclick = ()=>{
+
+audio.play();
+
+};
+
+pauseButton.onclick = ()=>{
+
+audio.pause();
+
+};
