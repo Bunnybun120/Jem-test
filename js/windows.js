@@ -1,5 +1,5 @@
 /* =========================================
-CLOCK
+CLOCK SYSTEM
 ========================================= */
 
 function updateClock(){
@@ -38,7 +38,7 @@ updateClock,
 updateClock();
 
 /* =========================================
-WINDOWS
+WINDOW SYSTEM
 ========================================= */
 
 function openWindow(id){
@@ -49,6 +49,9 @@ document.getElementById(id);
 if(win){
 
 win.style.display = "flex";
+
+win.style.zIndex =
+Date.now();
 
 }
 
@@ -71,6 +74,10 @@ win.style.display = "none";
 CHATROOM
 ========================================= */
 
+window.addEventListener(
+"DOMContentLoaded",
+()=>{
+
 const sendButton =
 document.getElementById(
 "sendMessage"
@@ -80,10 +87,6 @@ const clearButton =
 document.getElementById(
 "clearChat"
 );
-
-if(sendButton){
-
-sendButton.onclick = ()=>{
 
 const input =
 document.getElementById(
@@ -95,6 +98,26 @@ document.getElementById(
 "chatMessages"
 );
 
+/* LOAD SAVED CHAT */
+
+const savedChat =
+localStorage.getItem(
+"jemChatroom"
+);
+
+if(savedChat){
+
+messages.innerHTML =
+savedChat;
+
+}
+
+/* SEND */
+
+if(sendButton){
+
+sendButton.onclick = ()=>{
+
 if(input.value.trim() === "")
 return;
 
@@ -103,10 +126,34 @@ document.createElement(
 "div"
 );
 
-msg.style.marginBottom = "12px";
+msg.className =
+"chat-message";
 
-msg.innerText =
-input.value;
+const timestamp =
+new Date()
+.toLocaleTimeString(
+[],
+{
+hour:'2-digit',
+minute:'2-digit'
+}
+);
+
+msg.innerHTML =
+
+`
+<div class="chat-timestamp">
+
+[${timestamp}]
+
+</div>
+
+<div class="chat-text">
+
+${input.value}
+
+</div>
+`;
 
 messages.appendChild(msg);
 
@@ -115,18 +162,31 @@ input.value = "";
 messages.scrollTop =
 messages.scrollHeight;
 
+/* SAVE */
+
+localStorage.setItem(
+"jemChatroom",
+messages.innerHTML
+);
+
 };
 
 }
+
+/* CLEAR */
 
 if(clearButton){
 
 clearButton.onclick = ()=>{
 
-document.getElementById(
-"chatMessages"
-).innerHTML = "";
+messages.innerHTML = "";
+
+localStorage.removeItem(
+"jemChatroom"
+);
 
 };
 
 }
+
+});
