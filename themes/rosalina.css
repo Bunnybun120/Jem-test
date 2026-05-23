@@ -5,23 +5,46 @@ ROSALINA COSMIC WORLD
 body{
 
 background:
-
-linear-gradient(
-to bottom,
-#081229,
-#10244f,
-#0a1633
-);
+#071120;
 
 color:#dff7ff;
+
+overflow-x:hidden;
 
 }
 
 /* =========================================
-NEBULA
+GALAXY BACKDROP
 ========================================= */
 
 .rosa-nebula{
+
+position:fixed;
+inset:0;
+
+background-image:url(
+'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=1974&auto=format&fit=crop'
+);
+
+background-size:cover;
+background-position:center;
+
+opacity:.38;
+
+z-index:-20;
+
+filter:
+
+saturate(1.3)
+brightness(.8);
+
+}
+
+/* =========================================
+COSMIC FOG
+========================================= */
+
+.rosa-fog{
 
 position:fixed;
 inset:0;
@@ -30,25 +53,25 @@ background:
 
 radial-gradient(
 circle at 30% 30%,
-rgba(120,180,255,.25),
-transparent 45%
+rgba(140,200,255,.25),
+transparent 40%
 ),
 
 radial-gradient(
 circle at 70% 60%,
-rgba(180,220,255,.18),
+rgba(255,255,255,.1),
 transparent 45%
 );
 
 filter:
 blur(80px);
 
-z-index:-12;
+z-index:-18;
 
 }
 
 /* =========================================
-GALAXY
+GALAXY CORE
 ========================================= */
 
 .rosa-galaxy{
@@ -61,8 +84,8 @@ left:50%;
 transform:
 translate(-50%,-50%);
 
-width:700px;
-height:700px;
+width:900px;
+height:900px;
 
 border-radius:50%;
 
@@ -70,8 +93,8 @@ background:
 
 radial-gradient(
 circle,
-rgba(180,220,255,.5),
-rgba(90,120,255,.1),
+rgba(255,255,255,.35),
+rgba(140,180,255,.2),
 transparent 70%
 );
 
@@ -79,9 +102,11 @@ filter:
 blur(40px);
 
 animation:
-galaxySpin 80s linear infinite;
+galaxySpin 120s linear infinite;
 
-z-index:-11;
+opacity:.8;
+
+z-index:-17;
 
 }
 
@@ -106,10 +131,10 @@ rotate(360deg);
 }
 
 /* =========================================
-SPARKLES
+STARS
 ========================================= */
 
-.rosa-sparkles{
+.rosa-stars{
 
 position:fixed;
 inset:0;
@@ -124,33 +149,124 @@ transparent 2px
 background-size:
 120px 120px;
 
-opacity:.55;
+opacity:.7;
 
-z-index:-10;
+z-index:-16;
+
+animation:
+starDrift 80s linear infinite;
+
+}
+
+@keyframes starDrift{
+
+from{
+
+transform:
+translateY(0px);
+
+}
+
+to{
+
+transform:
+translateY(-300px);
+
+}
 
 }
 
 /* =========================================
-FOG
+SPARKLES
 ========================================= */
 
-.rosa-fog{
+.rosa-sparkles{
 
 position:fixed;
 inset:0;
 
-background:
+background-image:
 
 radial-gradient(
-circle,
-rgba(180,220,255,.12),
-transparent 70%
+rgba(255,255,255,.8) 2px,
+transparent 4px
 );
 
-filter:
-blur(100px);
+background-size:
+300px 300px;
 
-z-index:-9;
+opacity:.35;
+
+animation:
+sparkleTwinkle 4s infinite alternate;
+
+z-index:-15;
+
+}
+
+@keyframes sparkleTwinkle{
+
+from{
+
+opacity:.2;
+
+}
+
+to{
+
+opacity:.6;
+
+}
+
+}
+
+/* =========================================
+SHOOTING STARS
+========================================= */
+
+.rosa-shooting{
+
+position:fixed;
+inset:0;
+
+background-image:
+
+linear-gradient(
+45deg,
+transparent 45%,
+rgba(255,255,255,.8) 50%,
+transparent 55%
+);
+
+background-size:
+500px 500px;
+
+opacity:.12;
+
+animation:
+shootingMove 10s linear infinite;
+
+z-index:-14;
+
+}
+
+@keyframes shootingMove{
+
+from{
+
+transform:
+translateX(-100px)
+translateY(0px);
+
+}
+
+to{
+
+transform:
+translateX(100px)
+translateY(100px);
+
+}
 
 }
 
@@ -164,8 +280,8 @@ background:
 
 linear-gradient(
 to bottom,
-rgba(160,200,255,.18),
-rgba(40,60,120,.35)
+rgba(100,140,255,.16),
+rgba(20,40,90,.42)
 );
 
 border:
@@ -176,6 +292,57 @@ blur(22px);
 
 box-shadow:
 
-0 0 40px rgba(120,180,255,.18);
+0 0 40px rgba(140,180,255,.2),
+0 0 100px rgba(255,255,255,.06);
+
+}
+
+/* =========================================
+TOPBAR
+========================================= */
+
+.topbar{
+
+background:
+
+linear-gradient(
+to bottom,
+rgba(120,160,255,.15),
+rgba(20,40,90,.55)
+);
+
+backdrop-filter:
+blur(18px);
+
+border-bottom:
+1px solid rgba(180,220,255,.2);
+
+}
+
+/* =========================================
+DESKTOP ICONS
+========================================= */
+
+.desktop-icon{
+
+background:
+
+linear-gradient(
+to bottom,
+rgba(255,255,255,.08),
+rgba(120,180,255,.05)
+);
+
+border:
+1px solid rgba(180,220,255,.18);
+
+border-radius:24px;
+
+backdrop-filter:
+blur(10px);
+
+box-shadow:
+
+0 0 20px rgba(140,180,255,.12);
 
 }
