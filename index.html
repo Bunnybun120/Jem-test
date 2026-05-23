@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -12,37 +11,29 @@ content="width=device-width, initial-scale=1.0">
 
 <title>JEM.EXE</title>
 
-<!-- =========================================
-FONTS
-========================================= -->
+<!-- FONTS -->
 
 <link
-href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Nunito:wght@400;700&family=VT323&display=swap"
+href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=VT323&family=Nunito:wght@400;700&display=swap"
 rel="stylesheet">
 
-<!-- =========================================
-MAIN CSS
-========================================= -->
+<!-- CSS -->
 
 <link
 rel="stylesheet"
 href="css/windows.css">
 
-<!-- =========================================
-THEME CSS
-========================================= -->
-
 <link
+id="themeStylesheet"
 rel="stylesheet"
-href="themes/vaporwave.css"
-id="themeStylesheet">
+href="themes/vaporwave.css">
 
 </head>
 
 <body>
 
 <!-- =========================================
-THEME BACKGROUND CONTAINER
+THEME CONTAINER
 ========================================= -->
 
 <div id="themeBackground"></div>
@@ -79,11 +70,7 @@ ROSALINA
 
 </button>
 
-<div id="clock">
-
-12:00 PM
-
-</div>
+<div id="clock"></div>
 
 </div>
 
@@ -188,7 +175,7 @@ CHATROOM
 </div>
 
 <!-- =========================================
-ABOUT WINDOW
+ABOUT
 ========================================= -->
 
 <div
@@ -218,7 +205,7 @@ WELCOME TO JEM.EXE
 
 <p>
 
-Your nostalgic internet desktop.
+Retro desktop world.
 
 </p>
 
@@ -227,7 +214,7 @@ Your nostalgic internet desktop.
 </div>
 
 <!-- =========================================
-MUSIC WINDOW
+MUSIC
 ========================================= -->
 
 <div
@@ -304,7 +291,7 @@ Unknown Artist
 </div>
 
 <!-- =========================================
-GAMES WINDOW
+GAMES
 ========================================= -->
 
 <div
@@ -337,7 +324,7 @@ GAME COLLECTION
 </div>
 
 <!-- =========================================
-SHOWS WINDOW
+SHOWS
 ========================================= -->
 
 <div
@@ -370,7 +357,7 @@ WATCHLIST
 </div>
 
 <!-- =========================================
-FRIENDS WINDOW
+FRIENDS
 ========================================= -->
 
 <div
@@ -403,7 +390,7 @@ FRIEND DIRECTORY
 </div>
 
 <!-- =========================================
-CHATROOM WINDOW
+CHATROOM
 ========================================= -->
 
 <div
@@ -428,12 +415,6 @@ style="display:none;">
 <!-- CHANNELS -->
 
 <div class="chat-channels">
-
-<div class="channel-header">
-
-CHANNELS
-
-</div>
 
 <button class="channel active">
 
@@ -461,7 +442,7 @@ CHANNELS
 
 </div>
 
-<!-- MAIN -->
+<!-- CHAT -->
 
 <div class="chat-main">
 
@@ -472,7 +453,6 @@ CHANNELS
 <div class="chat-input-row">
 
 <input
-type="text"
 id="chatInput"
 placeholder="type message...">
 
@@ -495,12 +475,10 @@ id="profilePreview"
 src="https://i.imgur.com/8Km9tLL.png">
 
 <input
-type="text"
 id="usernameInput"
 placeholder="username">
 
 <input
-type="text"
 id="pfpInput"
 placeholder="paste image url">
 
@@ -509,24 +487,6 @@ placeholder="paste image url">
 SAVE PROFILE
 
 </button>
-
-<div class="profile-divider"></div>
-
-<div class="online-header">
-
-ONLINE
-
-</div>
-
-<div id="onlineUsers">
-
-<div class="online-user">
-
-🟢 YOU
-
-</div>
-
-</div>
 
 </div>
 
@@ -546,11 +506,7 @@ JEM.EXE
 
 </div>
 
-<div id="taskbarClock">
-
-12:00 PM
-
-</div>
+<div id="taskbarClock"></div>
 
 </div>
 
@@ -558,14 +514,16 @@ JEM.EXE
 AUDIO
 ========================================= -->
 
-<audio
-id="audioPlayer"
-src="assets/music/song.mp3">
+<audio id="audioPlayer">
+
+<source
+src="assets/music/song.mp3"
+type="audio/mpeg">
 
 </audio>
 
 <!-- =========================================
-SCRIPTS
+JS
 ========================================= -->
 
 <script src="js/windows.js"></script>
