@@ -1,33 +1,94 @@
 /* =========================================
-WINDOWS
+DESKTOP ICONS
 ========================================= */
 
-.app-window{
+.desktop-icons{
 
 position:fixed;
 
-top:110px;
-left:120px;
+top:90px;
+left:30px;
 
-width:700px;
-
-max-width:
-calc(100vw - 40px);
-
-height:500px;
-
-max-height:
-calc(100vh - 140px);
-
-display:none;
-
+display:flex;
 flex-direction:column;
 
-border-radius:22px;
+gap:22px;
 
-overflow:hidden;
+z-index:20;
 
-z-index:999;
+}
+
+/* =========================================
+ICON BOX
+========================================= */
+
+.desktop-icon{
+
+width:90px;
+
+display:flex;
+flex-direction:column;
+
+align-items:center;
+
+gap:10px;
+
+padding:12px;
+
+cursor:pointer;
+
+border-radius:20px;
+
+transition:.2s;
+
+background:
+rgba(255,255,255,.05);
+
+backdrop-filter:
+blur(10px);
+
+}
+
+.desktop-icon:hover{
+
+transform:
+scale(1.06);
+
+background:
+rgba(255,255,255,.12);
+
+}
+
+/* =========================================
+ICON IMAGE
+========================================= */
+
+.desktop-icon img{
+
+width:52px;
+height:52px;
+
+object-fit:contain;
+
+filter:
+
+drop-shadow(
+0 0 10px rgba(255,255,255,.25)
+);
+
+}
+
+/* =========================================
+ICON TEXT
+========================================= */
+
+.desktop-icon span{
+
+font-size:.8rem;
+
+text-align:center;
+
+letter-spacing:1px;
 
 }
 
