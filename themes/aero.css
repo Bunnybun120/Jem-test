@@ -1,5 +1,5 @@
 /* =========================================
-REAL FRUTIGER AERO
+FRUTIGER AERO WORLD
 ========================================= */
 
 body{
@@ -8,10 +8,9 @@ background:
 
 linear-gradient(
 to bottom,
-#86e8ff 0%,
-#bff5ff 30%,
-#ffffff 60%,
-#dff8ff 100%
+#84dcff,
+#d7f7ff,
+#ffffff
 );
 
 color:#134;
@@ -19,63 +18,87 @@ color:#134;
 }
 
 /* =========================================
-SKY BLOOM
+CLOUDS
 ========================================= */
 
-.aero-light{
+.aero-clouds{
 
-background:
+position:fixed;
+inset:0;
 
-radial-gradient(
-ellipse at center,
-rgba(255,255,255,.95) 0%,
-rgba(180,240,255,.55) 35%,
-transparent 70%
+background-image:url(
+'https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=1974&auto=format&fit=crop'
 );
 
-filter:
-blur(100px);
+background-size:cover;
+background-position:center;
 
-opacity:.9;
+opacity:.35;
 
-z-index:-5;
+z-index:-12;
 
 }
 
 /* =========================================
-SOAP BUBBLES
+WATER
+========================================= */
+
+.aero-water{
+
+position:fixed;
+
+bottom:0;
+left:0;
+
+width:100%;
+height:40vh;
+
+background:
+
+linear-gradient(
+to top,
+rgba(80,220,255,.35),
+transparent
+);
+
+backdrop-filter:
+blur(12px);
+
+z-index:-10;
+
+}
+
+/* =========================================
+BUBBLES
 ========================================= */
 
 .aero-bubbles{
 
+position:fixed;
+inset:0;
+
 background-image:
 
 radial-gradient(
-rgba(255,255,255,.8) 2px,
+rgba(255,255,255,.9) 2px,
 transparent 3px
 ),
 
 radial-gradient(
-rgba(180,240,255,.7) 8px,
+rgba(160,240,255,.6) 8px,
 transparent 9px
-),
-
-radial-gradient(
-rgba(255,255,255,.5) 14px,
-transparent 15px
 );
 
 background-size:
 220px 220px,
-500px 500px,
-800px 800px;
-
-opacity:.5;
+500px 500px;
 
 animation:
 bubbleFloat 60s linear infinite;
 
-z-index:-4;
+opacity:.55;
+
+z-index:-9;
 
 }
 
@@ -91,79 +114,98 @@ translateY(0px);
 to{
 
 transform:
-translateY(-400px);
+translateY(-300px);
 
 }
 
 }
 
 /* =========================================
-ORB GLOW
+LIGHT BLOOM
+========================================= */
+
+.aero-light{
+
+position:fixed;
+
+top:-10%;
+left:50%;
+
+transform:
+translateX(-50%);
+
+width:1200px;
+height:800px;
+
+background:
+
+radial-gradient(
+ellipse,
+rgba(255,255,255,.95),
+rgba(180,240,255,.45),
+transparent 70%
+);
+
+filter:
+blur(90px);
+
+z-index:-11;
+
+}
+
+/* =========================================
+ORBS
 ========================================= */
 
 .aero-orbs{
+
+position:fixed;
+inset:0;
 
 background-image:
 
 radial-gradient(
 circle at 20% 20%,
-rgba(255,255,255,.85),
-transparent 30%
+rgba(255,255,255,.9),
+transparent 25%
 ),
 
 radial-gradient(
 circle at 80% 60%,
 rgba(120,225,255,.5),
-transparent 35%
+transparent 30%
 );
 
-opacity:.8;
+opacity:.7;
 
-z-index:-4;
+z-index:-10;
 
 }
 
 /* =========================================
-CLOUD GRID
+WINDOWS
 ========================================= */
 
-.grid{
+.app-window{
 
-background-image:
-
-linear-gradient(
-rgba(255,255,255,.15) 1px,
-transparent 1px
-),
+background:
 
 linear-gradient(
-90deg,
-rgba(255,255,255,.15) 1px,
-transparent 1px
+to bottom,
+rgba(255,255,255,.8),
+rgba(220,248,255,.45)
 );
 
-background-size:
-80px 80px;
+backdrop-filter:
+blur(25px);
 
-transform:
-perspective(700px)
-rotateX(75deg);
+border:
+1px solid rgba(255,255,255,.95);
 
-opacity:.15;
+box-shadow:
 
-bottom:-20%;
-
-z-index:-3;
-
-}
-
-/* =========================================
-REMOVE VHS
-========================================= */
-
-.vhs{
-
-display:none;
+0 0 30px rgba(120,225,255,.35),
+0 10px 60px rgba(120,225,255,.25);
 
 }
 
@@ -178,206 +220,13 @@ background:
 linear-gradient(
 to bottom,
 rgba(255,255,255,.95),
-rgba(200,245,255,.65)
+rgba(180,240,255,.55)
 );
-
-border-bottom:
-1px solid rgba(255,255,255,.95);
 
 backdrop-filter:
 blur(20px);
 
-box-shadow:
-
-0 0 20px rgba(120,225,255,.35),
-0 0 60px rgba(255,255,255,.3);
-
-}
-
-/* =========================================
-LOGO
-========================================= */
-
-.logo{
-
-color:#20a8ff;
-
-text-shadow:
-
-0 0 8px rgba(32,168,255,.7),
-0 0 25px rgba(255,255,255,.8);
-
-}
-
-/* =========================================
-WINDOWS
-========================================= */
-
-.app-window{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(255,255,255,.82),
-rgba(220,248,255,.55)
-);
-
-border:
-1px solid rgba(255,255,255,.95);
-
-box-shadow:
-
-0 0 25px rgba(120,225,255,.3),
-0 10px 50px rgba(120,225,255,.18);
-
-backdrop-filter:
-blur(25px);
-
-}
-
-/* =========================================
-TITLEBAR
-========================================= */
-
-.titlebar{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(255,255,255,.98),
-rgba(180,235,255,.55)
-);
-
-color:#179dff;
-
 border-bottom:
 1px solid rgba(255,255,255,.9);
-
-}
-
-/* =========================================
-DESKTOP ICONS
-========================================= */
-
-.desktop-icon{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(255,255,255,.45),
-rgba(255,255,255,.15)
-);
-
-border:
-1px solid rgba(255,255,255,.6);
-
-border-radius:24px;
-
-backdrop-filter:
-blur(10px);
-
-box-shadow:
-
-0 0 20px rgba(120,225,255,.25);
-
-}
-
-.desktop-icon:hover{
-
-transform:
-translateY(-6px)
-scale(1.06);
-
-box-shadow:
-
-0 0 30px rgba(120,225,255,.4),
-0 0 50px rgba(255,255,255,.25);
-
-}
-
-/* =========================================
-BUTTONS
-========================================= */
-
-button{
-
-background:
-
-linear-gradient(
-to bottom,
-#ffffff,
-#9fe8ff
-);
-
-border:
-1px solid rgba(255,255,255,.95);
-
-color:#135;
-
-box-shadow:
-
-0 0 12px rgba(255,255,255,.7);
-
-}
-
-/* =========================================
-PLAYER
-========================================= */
-
-#musicPlayer{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(255,255,255,.85),
-rgba(220,248,255,.5)
-);
-
-border:
-1px solid rgba(255,255,255,.95);
-
-box-shadow:
-
-0 0 30px rgba(120,225,255,.3);
-
-}
-
-/* =========================================
-VISUALIZER
-========================================= */
-
-.visualizer span{
-
-background:
-
-linear-gradient(
-to top,
-#42dfff,
-#ffffff
-);
-
-box-shadow:
-
-0 0 12px rgba(255,255,255,.8);
-
-}
-
-/* =========================================
-INPUTS
-========================================= */
-
-input{
-
-background:
-rgba(255,255,255,.75);
-
-border:
-1px solid rgba(255,255,255,.95);
-
-color:#135;
 
 }
