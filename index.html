@@ -10,7 +10,7 @@
 name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Jem.EXE</title>
+<title>JEM.EXE</title>
 
 <!-- =========================================
 FONTS
@@ -21,12 +21,16 @@ href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Nuni
 rel="stylesheet">
 
 <!-- =========================================
-CSS
+MAIN CSS
 ========================================= -->
 
 <link
 rel="stylesheet"
 href="css/windows.css">
+
+<!-- =========================================
+THEME CSS
+========================================= -->
 
 <link
 rel="stylesheet"
@@ -38,15 +42,10 @@ id="themeStylesheet">
 <body>
 
 <!-- =========================================
-THEME LAYERS
+THEME BACKGROUND CONTAINER
 ========================================= -->
 
-<div class="vapor-stars"></div>
-<div class="vapor-sun"></div>
-<div class="vapor-city"></div>
-<div class="vapor-grid"></div>
-<div class="vapor-fog"></div>
-<div class="vapor-vhs"></div>
+<div id="themeBackground"></div>
 
 <!-- =========================================
 TOPBAR
@@ -201,15 +200,11 @@ style="display:none;">
 
 ABOUT.EXE
 
-<div class="titlebar-buttons">
-
 <button onclick="closeWindow('aboutWindow')">
 
 ✕
 
 </button>
-
-</div>
 
 </div>
 
@@ -223,7 +218,7 @@ WELCOME TO JEM.EXE
 
 <p>
 
-A nostalgic internet desktop universe.
+Your nostalgic internet desktop.
 
 </p>
 
@@ -244,15 +239,11 @@ style="display:none;">
 
 MUSIC.EXE
 
-<div class="titlebar-buttons">
-
 <button onclick="closeWindow('musicWindow')">
 
 ✕
 
 </button>
-
-</div>
 
 </div>
 
@@ -325,15 +316,11 @@ style="display:none;">
 
 GAMES.EXE
 
-<div class="titlebar-buttons">
-
 <button onclick="closeWindow('gamesWindow')">
 
 ✕
 
 </button>
-
-</div>
 
 </div>
 
@@ -362,15 +349,11 @@ style="display:none;">
 
 SHOWS.EXE
 
-<div class="titlebar-buttons">
-
 <button onclick="closeWindow('showsWindow')">
 
 ✕
 
 </button>
-
-</div>
 
 </div>
 
@@ -399,15 +382,11 @@ style="display:none;">
 
 FRIENDS.EXE
 
-<div class="titlebar-buttons">
-
 <button onclick="closeWindow('friendsWindow')">
 
 ✕
 
 </button>
-
-</div>
 
 </div>
 
@@ -434,21 +413,13 @@ style="display:none;">
 
 <div class="titlebar">
 
-<div class="titlebar-left">
-
 💬 CHATROOM.EXE
-
-</div>
-
-<div class="titlebar-buttons">
 
 <button onclick="closeWindow('chatWindow')">
 
 ✕
 
 </button>
-
-</div>
 
 </div>
 
@@ -569,19 +540,15 @@ TASKBAR
 
 <div class="taskbar">
 
-<div class="taskbar-left">
+<div>
 
 JEM.EXE
 
 </div>
 
-<div class="taskbar-right">
-
-<span id="taskbarClock">
+<div id="taskbarClock">
 
 12:00 PM
-
-</span>
 
 </div>
 
@@ -598,7 +565,7 @@ src="assets/music/song.mp3">
 </audio>
 
 <!-- =========================================
-JS
+SCRIPTS
 ========================================= -->
 
 <script src="js/windows.js"></script>
