@@ -1,46 +1,132 @@
-const draggables =
-document.querySelectorAll(".draggable");
+/* =========================================
+CLOCK
+========================================= */
 
-draggables.forEach(windowEl => {
+function updateClock(){
 
-  const title =
-  windowEl.querySelector(".titlebar");
+const now =
+new Date();
 
-  let isDragging = false;
+const time =
 
-  let offsetX = 0;
-  let offsetY = 0;
+now.toLocaleTimeString(
+[],
+{
+hour:'2-digit',
+minute:'2-digit'
+}
+);
 
-  title.addEventListener("mousedown", e => {
+const clock =
+document.getElementById(
+"clock"
+);
 
-    isDragging = true;
+if(clock){
 
-    offsetX =
-      e.clientX -
-      windowEl.offsetLeft;
+clock.innerText = time;
 
-    offsetY =
-      e.clientY -
-      windowEl.offsetTop;
+}
 
-  });
+}
 
-  document.addEventListener("mousemove", e => {
+setInterval(
+updateClock,
+1000
+);
 
-    if(!isDragging) return;
+updateClock();
 
-    windowEl.style.left =
-      e.clientX - offsetX + "px";
+/* =========================================
+WINDOWS
+========================================= */
 
-    windowEl.style.top =
-      e.clientY - offsetY + "px";
+function openWindow(id){
 
-  });
+const win =
+document.getElementById(id);
 
-  document.addEventListener("mouseup", () => {
+if(win){
 
-    isDragging = false;
+win.style.display = "flex";
 
-  });
+}
 
-});
+}
+
+function closeWindow(id){
+
+const win =
+document.getElementById(id);
+
+if(win){
+
+win.style.display = "none";
+
+}
+
+}
+
+/* =========================================
+CHATROOM
+========================================= */
+
+const sendButton =
+document.getElementById(
+"sendMessage"
+);
+
+const clearButton =
+document.getElementById(
+"clearChat"
+);
+
+if(sendButton){
+
+sendButton.onclick = ()=>{
+
+const input =
+document.getElementById(
+"chatInput"
+);
+
+const messages =
+document.getElementById(
+"chatMessages"
+);
+
+if(input.value.trim() === "")
+return;
+
+const msg =
+document.createElement(
+"div"
+);
+
+msg.style.marginBottom = "12px";
+
+msg.innerText =
+input.value;
+
+messages.appendChild(msg);
+
+input.value = "";
+
+messages.scrollTop =
+messages.scrollHeight;
+
+};
+
+}
+
+if(clearButton){
+
+clearButton.onclick = ()=>{
+
+document.getElementById(
+"chatMessages"
+).innerHTML = "";
+
+};
+
+}
