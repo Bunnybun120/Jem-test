@@ -31,18 +31,19 @@ document.body.style.fontFamily =
 
 bg.innerHTML = `
 
-<div class="vapor-grid"></div>
+<div class="vapor-stars"></div>
 
 <div class="vapor-sun"></div>
 
-<div class="vapor-stars"></div>
+<div class="vapor-grid"></div>
+
+<div class="vapor-fog"></div>
 
 <div class="vapor-vhs"></div>
 
+<div class="vapor-palms"></div>
+
 `;
-
-}
-
 /* =========================================
 AERO
 ========================================= */
