@@ -7,111 +7,14 @@ body{
 background:
 linear-gradient(
 180deg,
-#120018,
-#2f003b,
+#14001f,
+#30003d,
 #ff4fd8
 );
 
-}
+overflow:hidden;
 
-/* =========================================
-GRID
-========================================= */
-
-.vapor-grid{
-
-position:fixed;
-
-bottom:-20vh;
-left:-50vw;
-
-width:200vw;
-height:80vh;
-
-background-image:
-
-linear-gradient(
-rgba(255,0,255,.35) 2px,
-transparent 2px
-),
-
-linear-gradient(
-90deg,
-rgba(255,0,255,.35) 2px,
-transparent 2px
-);
-
-background-size:
-80px 80px;
-
-transform:
-perspective(700px)
-rotateX(78deg);
-
-animation:
-gridMove 12s linear infinite;
-
-opacity:.55;
-
-}
-
-@keyframes gridMove{
-
-from{
-
-transform:
-perspective(700px)
-rotateX(78deg)
-translateY(0);
-
-}
-
-to{
-
-transform:
-perspective(700px)
-rotateX(78deg)
-translateY(80px);
-
-}
-
-}
-
-/* =========================================
-SUN
-========================================= */
-
-.vapor-sun{
-
-position:fixed;
-
-top:80px;
-left:50%;
-
-transform:
-translateX(-50%);
-
-width:420px;
-height:420px;
-
-border-radius:50%;
-
-background:
-
-linear-gradient(
-180deg,
-#ffea00,
-#ff4fd8
-);
-
-box-shadow:
-
-0 0 120px #ff4fd8;
-
-filter:
-blur(1px);
-
-opacity:.9;
+color:#fff;
 
 }
 
@@ -128,21 +31,21 @@ inset:0;
 background-image:
 
 radial-gradient(
-white 1px,
+rgba(255,255,255,.9) 1px,
 transparent 1px
 );
 
 background-size:
-120px 120px;
+140px 140px;
 
 opacity:.35;
 
 animation:
-starDrift 40s linear infinite;
+starScroll 60s linear infinite;
 
 }
 
-@keyframes starDrift{
+@keyframes starScroll{
 
 from{
 
@@ -154,14 +57,192 @@ translateY(0);
 to{
 
 transform:
-translateY(120px);
+translateY(140px);
 
 }
 
 }
 
 /* =========================================
-VHS
+SUN
+========================================= */
+
+.vapor-sun{
+
+position:fixed;
+
+top:60px;
+left:50%;
+
+transform:
+translateX(-50%);
+
+width:500px;
+height:500px;
+
+border-radius:50%;
+
+background:
+
+linear-gradient(
+180deg,
+#ffe600,
+#ff7ae6
+);
+
+box-shadow:
+
+0 0 120px #ff4fd8,
+
+0 0 240px rgba(255,0,255,.5);
+
+overflow:hidden;
+
+}
+
+.vapor-sun::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+repeating-linear-gradient(
+180deg,
+transparent 0px,
+transparent 14px,
+rgba(255,255,255,.18) 15px
+);
+
+opacity:.45;
+
+}
+
+/* =========================================
+GRID
+========================================= */
+
+.vapor-grid{
+
+position:fixed;
+
+bottom:-30vh;
+left:-50vw;
+
+width:200vw;
+height:90vh;
+
+background-image:
+
+linear-gradient(
+rgba(255,0,255,.35) 2px,
+transparent 2px
+),
+
+linear-gradient(
+90deg,
+rgba(255,0,255,.35) 2px,
+transparent 2px
+);
+
+background-size:
+90px 90px;
+
+transform:
+perspective(800px)
+rotateX(78deg);
+
+animation:
+gridMove 10s linear infinite;
+
+opacity:.55;
+
+}
+
+@keyframes gridMove{
+
+from{
+
+transform:
+perspective(800px)
+rotateX(78deg)
+translateY(0);
+
+}
+
+to{
+
+transform:
+perspective(800px)
+rotateX(78deg)
+translateY(90px);
+
+}
+
+}
+
+/* =========================================
+FOG
+========================================= */
+
+.vapor-fog{
+
+position:fixed;
+
+inset:0;
+
+background:
+
+radial-gradient(
+circle at 30% 60%,
+rgba(255,0,255,.18),
+transparent 40%
+),
+
+radial-gradient(
+circle at 70% 20%,
+rgba(0,255,255,.15),
+transparent 35%
+);
+
+filter:
+blur(50px);
+
+animation:
+fogMove 18s ease-in-out infinite;
+
+}
+
+@keyframes fogMove{
+
+0%{
+
+transform:
+translateX(0);
+
+}
+
+50%{
+
+transform:
+translateX(30px);
+
+}
+
+100%{
+
+transform:
+translateX(0);
+
+}
+
+}
+
+/* =========================================
+SCANLINES
 ========================================= */
 
 .vapor-vhs{
@@ -175,7 +256,7 @@ pointer-events:none;
 background:
 
 linear-gradient(
-rgba(255,255,255,.03) 50%,
+rgba(255,255,255,.04) 50%,
 transparent 50%
 );
 
@@ -184,17 +265,103 @@ background-size:
 
 mix-blend-mode:overlay;
 
-opacity:.25;
+opacity:.28;
 
 animation:
-flicker .15s infinite;
+vhsFlicker .15s infinite;
 
 }
 
-@keyframes flicker{
+@keyframes vhsFlicker{
 
-0%{opacity:.2;}
-50%{opacity:.28;}
-100%{opacity:.2;}
+0%{opacity:.24;}
+50%{opacity:.3;}
+100%{opacity:.24;}
+
+}
+
+/* =========================================
+PALMS
+========================================= */
+
+.vapor-palms{
+
+position:fixed;
+
+bottom:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:
+
+url('https://i.imgur.com/6QJjYMe.png')
+bottom center/cover
+no-repeat;
+
+opacity:.22;
+
+pointer-events:none;
+
+}
+
+/* =========================================
+WINDOWS
+========================================= */
+
+body .app-window{
+
+background:
+rgba(25,10,35,.72);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+box-shadow:
+
+0 0 60px rgba(255,0,255,.2),
+
+0 0 120px rgba(0,255,255,.08);
+
+backdrop-filter:
+blur(22px);
+
+}
+
+body .titlebar{
+
+background:
+
+linear-gradient(
+90deg,
+rgba(255,0,255,.25),
+rgba(0,255,255,.12)
+);
+
+}
+
+body .desktop-icon{
+
+background:
+rgba(255,255,255,.06);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+}
+
+/* =========================================
+TEXT GLOW
+========================================= */
+
+body .logo,
+body #trackTitle{
+
+text-shadow:
+
+0 0 10px #ff4fd8,
+
+0 0 20px #00ffff;
 
 }
