@@ -4,119 +4,158 @@ background:
 linear-gradient(
 180deg,
 #120018,
-#2a0035,
+#29002f,
 #ff4fd8
 );
 
-color:#ffd8ff;
+color:#ffe6ff;
 
 font-family:
-"Orbitron",
-sans-serif;
+"VT323",
+monospace;
+
+overflow:hidden;
 
 }
 
-.theme-vaporwave .sky-layer{
+/* ===================================== */
+/* BACKGROUND */
+/* ===================================== */
+
+.theme-vaporwave .bg-back{
 
 background:
 
 linear-gradient(
 180deg,
 #120018,
-#2a0035 40%,
+#29002f,
 #ff4fd8
 );
 
 }
 
-.theme-vaporwave .floating-logo{
+.theme-vaporwave .bg-mid{
 
-color:#ff9bf2;
+background:
+
+url("https://i.imgur.com/N5uCbDu.png")
+center bottom / cover no-repeat;
+
+opacity:.95;
+
+}
+
+.theme-vaporwave .bg-front{
+
+background:
+
+linear-gradient(
+rgba(255,255,255,.03) 1px,
+transparent 1px
+);
+
+background-size:
+100% 4px;
+
+opacity:.2;
+
+pointer-events:none;
+
+}
+
+/* ===================================== */
+/* SUN */
+/* ===================================== */
+
+.theme-vaporwave .environment{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+url("https://i.imgur.com/VW9Qm8v.png")
+center bottom / cover no-repeat;
+
+pointer-events:none;
+
+opacity:.95;
+
+}
+
+/* ===================================== */
+/* LOGO */
+/* ===================================== */
+
+.theme-vaporwave .logo{
+
+font-size:90px;
+
+color:#ff9ef7;
 
 text-shadow:
 
 0 0 20px #ff4fd8,
-0 0 60px #00ffff;
+0 0 60px #00ffff,
+0 0 120px rgba(255,0,255,.4);
 
 }
 
-.theme-vaporwave .portal{
+/* ===================================== */
+/* LINKS */
+/* ===================================== */
+
+.theme-vaporwave .world-link{
 
 background:
-rgba(20,0,25,.45);
+rgba(25,0,35,.45);
 
 border:
 1px solid rgba(255,255,255,.08);
 
+backdrop-filter:
+blur(20px);
+
 box-shadow:
 
-0 0 50px rgba(255,0,255,.15),
+0 0 40px rgba(255,0,255,.15),
 
-0 0 90px rgba(0,255,255,.08);
+0 0 100px rgba(0,255,255,.08);
+
+color:#ffe6ff;
 
 }
 
-.theme-vaporwave .portal-glow{
+.theme-vaporwave .world-link:hover{
+
+box-shadow:
+
+0 0 60px rgba(255,0,255,.35),
+
+0 0 120px rgba(0,255,255,.15);
+
+}
+
+/* ===================================== */
+/* PLAYER */
+/* ===================================== */
+
+.theme-vaporwave .music-player{
 
 background:
-
-radial-gradient(
-circle,
-rgba(255,0,255,.3),
-transparent 70%
-);
-
-}
-
-.theme-vaporwave .music-orb{
-
-background:
-
-radial-gradient(
-circle,
-rgba(255,0,255,.18),
-transparent 70%
-);
-
-}
-
-.theme-vaporwave .orb-core{
-
-background:#ff4fd8;
-
-}
-
-.theme-vaporwave .orb-ring{
-
-border-color:
-rgba(255,0,255,.4);
-
-}
-
-.theme-vaporwave .profile-shrine{
-
-background:
-rgba(20,0,30,.55);
+rgba(25,0,35,.55);
 
 border:
 1px solid rgba(255,255,255,.08);
 
+backdrop-filter:
+blur(25px);
+
 box-shadow:
 
-0 0 40px rgba(255,0,255,.12);
-
-}
-
-.theme-vaporwave button{
-
-background:
-linear-gradient(
-180deg,
-#ff4fd8,
-#9d4dff
-);
-
-color:white;
+0 0 50px rgba(255,0,255,.18);
 
 }
 
@@ -129,8 +168,62 @@ color:white;
 
 }
 
-.theme-vaporwave .visualizer span{
+.theme-vaporwave button{
 
-background:#ff4fd8;
+background:
+linear-gradient(
+180deg,
+#ff4fd8,
+#944dff
+);
+
+color:white;
+
+}
+
+/* ===================================== */
+/* PROFILE */
+/* ===================================== */
+
+.theme-vaporwave .profile-area{
+
+background:
+rgba(25,0,35,.45);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+box-shadow:
+0 0 40px rgba(255,0,255,.15);
+
+}
+
+/* ===================================== */
+/* CRT EFFECT */
+/* ===================================== */
+
+.theme-vaporwave body::after{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+background:
+
+linear-gradient(
+rgba(255,255,255,.03) 1px,
+transparent 1px
+);
+
+background-size:
+100% 4px;
+
+opacity:.2;
+
+mix-blend-mode:screen;
 
 }
