@@ -1,3 +1,14 @@
+const windows =
+document.querySelectorAll(
+".app-window"
+);
+
+windows.forEach(win=>{
+
+win.style.display = "none";
+
+});
+
 function openWindow(id){
 
 document.getElementById(id)
@@ -11,6 +22,10 @@ document.getElementById(id)
 .style.display = "none";
 
 }
+
+/* =========================================
+CLOCK
+========================================= */
 
 function updateClock(){
 
@@ -26,10 +41,6 @@ minute:'2-digit'
 
 document.getElementById(
 'clock'
-).innerText = time;
-
-document.getElementById(
-'taskbarClock'
 ).innerText = time;
 
 }
