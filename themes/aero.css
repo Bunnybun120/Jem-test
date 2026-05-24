@@ -1,16 +1,62 @@
+/* =========================================
+AERO BODY
+========================================= */
+
 body{
 
 background:
 linear-gradient(
 180deg,
-#78d7ff,
-#c7f3ff
+#74d8ff,
+#dff7ff
 );
+
+color:#05354f;
 
 }
 
 /* =========================================
-LIGHT
+SKY
+========================================= */
+
+.aero-clouds{
+
+position:fixed;
+
+inset:0;
+
+background:
+
+url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop')
+center/cover;
+
+opacity:.35;
+
+animation:
+cloudPan 80s linear infinite;
+
+}
+
+@keyframes cloudPan{
+
+from{
+
+transform:
+translateX(0);
+
+}
+
+to{
+
+transform:
+translateX(-120px);
+
+}
+
+}
+
+/* =========================================
+LIGHT BLOOM
 ========================================= */
 
 .aero-light{
@@ -20,27 +66,29 @@ position:fixed;
 top:-200px;
 left:-200px;
 
-width:800px;
-height:800px;
+width:900px;
+height:900px;
 
 border-radius:50%;
 
 background:
 
 radial-gradient(
-rgba(255,255,255,.75),
+rgba(255,255,255,.95),
 transparent 70%
 );
 
 filter:
-blur(50px);
+blur(60px);
+
+opacity:.8;
 
 animation:
-pulse 6s ease-in-out infinite;
+aeroPulse 8s ease-in-out infinite;
 
 }
 
-@keyframes pulse{
+@keyframes aeroPulse{
 
 0%{
 
@@ -52,7 +100,7 @@ scale(1);
 50%{
 
 transform:
-scale(1.08);
+scale(1.1);
 
 }
 
@@ -75,6 +123,8 @@ position:fixed;
 
 inset:0;
 
+pointer-events:none;
+
 overflow:hidden;
 
 }
@@ -86,10 +136,31 @@ content:"";
 
 position:absolute;
 
-width:240px;
-height:240px;
-
 border-radius:50%;
+
+backdrop-filter:
+blur(20px);
+
+border:
+2px solid rgba(255,255,255,.45);
+
+box-shadow:
+
+inset 0 0 30px rgba(255,255,255,.35),
+
+0 0 40px rgba(255,255,255,.35);
+
+}
+
+/* BIG BUBBLE */
+
+.aero-bubbles::before{
+
+width:320px;
+height:320px;
+
+top:12%;
+left:10%;
 
 background:
 
@@ -98,27 +169,30 @@ rgba(255,255,255,.5),
 rgba(255,255,255,.08)
 );
 
-backdrop-filter:
-blur(10px);
-
 animation:
-floatBubble 12s infinite ease-in-out;
+floatBubble 12s ease-in-out infinite;
 
 }
 
-.aero-bubbles::before{
-
-top:20%;
-left:15%;
-
-}
+/* SMALL BUBBLE */
 
 .aero-bubbles::after{
 
-bottom:10%;
-right:12%;
+width:180px;
+height:180px;
 
-animation-delay:6s;
+bottom:10%;
+right:8%;
+
+background:
+
+radial-gradient(
+rgba(255,255,255,.45),
+rgba(255,255,255,.05)
+);
+
+animation:
+floatBubble2 16s ease-in-out infinite;
 
 }
 
@@ -147,42 +221,74 @@ translateY(0px);
 
 }
 
+@keyframes floatBubble2{
+
+0%{
+
+transform:
+translateY(0px);
+
+}
+
+50%{
+
+transform:
+translateY(30px);
+
+}
+
+100%{
+
+transform:
+translateY(0px);
+
+}
+
+}
+
 /* =========================================
-CLOUDS
+WINDOWS
 ========================================= */
 
-.aero-clouds{
+body .app-window{
 
-position:fixed;
+background:
+rgba(255,255,255,.28);
 
-inset:0;
+border:
+1px solid rgba(255,255,255,.45);
+
+box-shadow:
+
+0 0 60px rgba(255,255,255,.35);
+
+backdrop-filter:
+blur(30px);
+
+color:#05354f;
+
+}
+
+body .titlebar{
 
 background:
 
-url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1974&auto=format&fit=crop')
-center/cover;
+linear-gradient(
+180deg,
+rgba(255,255,255,.65),
+rgba(255,255,255,.18)
+);
 
-opacity:.22;
-
-animation:
-cloudMove 60s linear infinite;
-
-}
-
-@keyframes cloudMove{
-
-from{
-
-transform:
-translateX(0);
+color:#05354f;
 
 }
 
-to{
+body .desktop-icon{
 
-transform:
-translateX(-120px);
+background:
+rgba(255,255,255,.2);
 
-}
+border:
+1px solid rgba(255,255,255,.4);
 
 }
