@@ -17,7 +17,7 @@ overflow-x:hidden;
 
 body{
 
-padding:24px;
+padding:28px;
 
 transition:
 background .5s,
@@ -25,9 +25,9 @@ color .5s;
 
 }
 
-/* ========================================= */
+/* ===================================== */
 /* BACKGROUND */
-/* ========================================= */
+/* ===================================== */
 
 #themeBackground{
 
@@ -41,42 +41,33 @@ overflow:hidden;
 
 }
 
-/* ========================================= */
-/* OVERLAY */
-/* ========================================= */
+.stars,
+.fog,
+.gradient{
 
-.overlay{
-
-position:fixed;
+position:absolute;
 
 inset:0;
 
-pointer-events:none;
-
-z-index:-998;
-
-backdrop-filter:
-blur(0px);
-
 }
 
-/* ========================================= */
-/* SITE SHELL */
-/* ========================================= */
+/* ===================================== */
+/* WORLD */
+/* ===================================== */
 
-.site-shell{
+.world{
 
-max-width:1500px;
+max-width:1600px;
 
 margin:auto;
 
 }
 
-/* ========================================= */
-/* TOPBAR */
-/* ========================================= */
+/* ===================================== */
+/* NAVBAR */
+/* ===================================== */
 
-.topbar{
+.navbar{
 
 display:flex;
 
@@ -84,27 +75,35 @@ justify-content:space-between;
 
 align-items:center;
 
-margin-bottom:24px;
+margin-bottom:30px;
 
-padding:18px;
+padding:18px 24px;
 
-border-radius:20px;
+border-radius:999px;
+
+backdrop-filter:blur(20px);
 
 }
 
-.logo{
+.site-logo{
 
 font-size:42px;
 
-font-weight:bold;
+font-weight:700;
 
 }
 
-/* ========================================= */
-/* NAV */
-/* ========================================= */
+.nav-links{
 
-.top-nav{
+display:flex;
+
+gap:18px;
+
+flex-wrap:wrap;
+
+}
+
+.theme-switcher{
 
 display:flex;
 
@@ -112,11 +111,71 @@ gap:10px;
 
 }
 
-/* ========================================= */
-/* LAYOUT */
-/* ========================================= */
+/* ===================================== */
+/* HERO */
+/* ===================================== */
 
-.layout{
+.hero{
+
+position:relative;
+
+padding:90px 40px;
+
+text-align:center;
+
+border-radius:40px;
+
+margin-bottom:30px;
+
+overflow:hidden;
+
+}
+
+.hero-glow{
+
+position:absolute;
+
+inset:0;
+
+opacity:.4;
+
+pointer-events:none;
+
+}
+
+.hero h1{
+
+font-size:88px;
+
+margin-bottom:20px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.hero p{
+
+font-size:20px;
+
+max-width:800px;
+
+margin:auto;
+
+line-height:1.8;
+
+position:relative;
+
+z-index:2;
+
+}
+
+/* ===================================== */
+/* GRID */
+/* ===================================== */
+
+.main-grid{
 
 display:grid;
 
@@ -127,81 +186,72 @@ grid-template-columns:
 
 gap:24px;
 
-align-items:start;
-
 }
 
-/* ========================================= */
-/* PANELS */
-/* ========================================= */
+/* ===================================== */
+/* FLOATING CARDS */
+/* ===================================== */
 
-.panel{
+.floating-card{
 
-padding:18px;
-
-border-radius:22px;
-
-margin-bottom:22px;
-
-transition:
-transform .2s;
-
-}
-
-.panel:hover{
-
-transform:
-translateY(-3px);
-
-}
-
-/* ========================================= */
-/* HERO */
-/* ========================================= */
-
-.hero{
-
-padding:60px;
+padding:22px;
 
 border-radius:30px;
 
 margin-bottom:24px;
 
-text-align:center;
+backdrop-filter:blur(20px);
+
+transition:
+transform .25s,
+box-shadow .25s;
 
 }
 
-.hero h1{
+.floating-card:hover{
 
-font-size:72px;
-
-margin-bottom:16px;
-
-}
-
-.hero p{
-
-font-size:18px;
-
-line-height:1.7;
-
-max-width:700px;
-
-margin:auto;
+transform:
+translateY(-5px);
 
 }
 
-/* ========================================= */
+.large-card{
+
+min-height:220px;
+
+}
+
+.card-grid{
+
+display:grid;
+
+grid-template-columns:
+1fr
+1fr;
+
+gap:24px;
+
+}
+
+.mini-card{
+
+min-height:180px;
+
+}
+
+/* ===================================== */
 /* PROFILE */
-/* ========================================= */
+/* ===================================== */
 
 .avatar{
 
 width:100%;
 
-border-radius:20px;
+border-radius:24px;
 
-margin-bottom:12px;
+margin-bottom:14px;
+
+display:block;
 
 }
 
@@ -213,66 +263,82 @@ font-size:14px;
 
 }
 
-/* ========================================= */
+/* ===================================== */
+/* TYPOGRAPHY */
+/* ===================================== */
+
+h2{
+
+margin-bottom:16px;
+
+font-size:30px;
+
+}
+
+h3{
+
+margin-bottom:14px;
+
+font-size:20px;
+
+}
+
+p,
+li{
+
+line-height:1.8;
+
+font-size:15px;
+
+}
+
+ul{
+
+padding-left:18px;
+
+}
+
+/* ===================================== */
 /* LINKS */
-/* ========================================= */
+/* ===================================== */
 
 a{
 
-display:block;
-
-margin-bottom:8px;
-
 text-decoration:none;
+
+transition:.2s;
 
 }
 
-/* ========================================= */
+/* ===================================== */
 /* BUTTONS */
-/* ========================================= */
+/* ===================================== */
 
 button{
 
-padding:10px 16px;
+padding:10px 18px;
 
 border:none;
+
+border-radius:999px;
 
 cursor:pointer;
 
-border-radius:12px;
+transition:.2s;
 
 }
 
-/* ========================================= */
-/* INPUT */
-/* ========================================= */
-
-input{
-
-width:100%;
-
-padding:12px;
-
-border:none;
-
-border-radius:12px;
-
-margin-top:14px;
-margin-bottom:14px;
-
-}
-
-/* ========================================= */
-/* MUSIC */
-/* ========================================= */
+/* ===================================== */
+/* PLAYER */
+/* ===================================== */
 
 .player-screen{
 
-padding:10px;
+padding:12px;
 
-border-radius:12px;
+border-radius:18px;
 
-margin-bottom:14px;
+margin-bottom:16px;
 
 overflow:hidden;
 
@@ -286,9 +352,9 @@ display:flex;
 
 align-items:flex-end;
 
-gap:4px;
+gap:5px;
 
-margin-bottom:14px;
+margin-bottom:16px;
 
 }
 
@@ -357,74 +423,71 @@ height:45px;
 
 }
 
-/* ========================================= */
-/* CARDS */
-/* ========================================= */
+input{
 
-.cards{
+width:100%;
 
-display:grid;
+padding:14px;
 
-grid-template-columns:
-1fr
-1fr;
+border:none;
 
-gap:12px;
+border-radius:18px;
 
-margin-top:14px;
+margin-bottom:16px;
+
+outline:none;
 
 }
 
-.mini-card{
-
-padding:18px;
-
-border-radius:16px;
-
-text-align:center;
-
-}
-
-/* ========================================= */
+/* ===================================== */
 /* COUNTER */
-/* ========================================= */
+/* ===================================== */
 
 .counter{
 
-font-size:32px;
+font-size:36px;
+
+font-weight:700;
 
 text-align:center;
-
-font-weight:bold;
 
 letter-spacing:4px;
 
 }
 
-/* ========================================= */
+/* ===================================== */
 /* MOBILE */
-/* ========================================= */
+/* ===================================== */
 
-@media(max-width:1000px){
+@media(max-width:1200px){
 
-.layout{
+.main-grid{
 
 grid-template-columns:
 1fr;
 
 }
 
-.hero h1{
+.card-grid{
 
-font-size:52px;
+grid-template-columns:
+1fr;
 
 }
 
-.topbar{
+.navbar{
 
 flex-direction:column;
 
-gap:18px;
+gap:20px;
+
+border-radius:30px;
+
+}
+
+.hero h1{
+
+font-size:58px;
 
 }
 
