@@ -1,26 +1,28 @@
-const audio =
+const loadSong =
 document.getElementById(
-"audioPlayer"
+"loadSong"
 );
 
-const playButton =
+loadSong.onclick = ()=>{
+
+const link =
 document.getElementById(
-"playButton"
-);
+"youtubeLink"
+).value;
 
-const pauseButton =
 document.getElementById(
-"pauseButton"
-);
+"youtubeContainer"
+).innerHTML = `
 
-playButton.onclick = ()=>{
+<iframe
+width="100%"
+height="300"
+src="${link}"
+frameborder="0"
+allowfullscreen>
 
-audio.play();
+</iframe>
 
-};
-
-pauseButton.onclick = ()=>{
-
-audio.pause();
+`;
 
 };
