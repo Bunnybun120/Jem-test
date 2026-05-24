@@ -1,217 +1,68 @@
-/* =========================================
-SPACE
-========================================= */
-
-body{
+body.theme-rosalina{
 
 background:
-linear-gradient(
-180deg,
-#040816,
-#0b1433,
-#122657
-);
+#060816;
 
-color:#dff4ff;
+font-family:
+Tahoma,
+sans-serif;
 
-overflow:hidden;
+color:#d8f7ff;
 
 }
 
-/* =========================================
-NEBULA
-========================================= */
+.theme-rosalina .panel{
 
-.rosa-nebula{
+background:#13192B;
 
-position:fixed;
-
-inset:0;
-
-background:
-
-radial-gradient(
-circle at 20% 30%,
-rgba(130,180,255,.4),
-transparent 30%
-),
-
-radial-gradient(
-circle at 70% 60%,
-rgba(255,255,255,.15),
-transparent 35%
-),
-
-radial-gradient(
-circle at 50% 80%,
-rgba(110,150,255,.25),
-transparent 40%
-);
-
-filter:
-blur(50px);
-
-animation:
-nebulaPulse 12s ease-in-out infinite;
+border:
+2px dashed #40E0D0;
 
 }
 
-@keyframes nebulaPulse{
+.theme-rosalina .panel-title{
 
-0%{
+color:#40E0D0;
 
-transform:
-scale(1);
-
-}
-
-50%{
-
-transform:
-scale(1.08);
+font-size:12px;
 
 }
 
-100%{
+.theme-rosalina a{
 
-transform:
-scale(1);
-
-}
+color:#40E0D0;
 
 }
 
-/* =========================================
-STARS
-========================================= */
+.theme-rosalina a:hover{
 
-.rosa-stars{
+color:#ffe066;
 
-position:fixed;
+}
 
-inset:0;
+.theme-rosalina button{
+
+background:#13192B;
+
+border:
+1px solid #40E0D0;
+
+color:#40E0D0;
+
+}
+
+.theme-rosalina #themeBackground{
 
 background-image:
 
 radial-gradient(
-white 1px,
+rgba(255,255,255,.9) 1px,
 transparent 1px
 );
 
 background-size:
-120px 120px;
-
-opacity:.45;
-
-animation:
-starDrift 60s linear infinite;
-
-}
-
-@keyframes starDrift{
-
-from{
-
-transform:
-translateY(0);
-
-}
-
-to{
-
-transform:
-translateY(120px);
-
-}
-
-}
-
-/* =========================================
-TWINKLES
-========================================= */
-
-.rosa-sparkles{
-
-position:fixed;
-
-inset:0;
-
-background-image:
-
-radial-gradient(
-rgba(255,255,255,.9) 2px,
-transparent 2px
-);
-
-background-size:
-240px 240px;
-
-animation:
-sparkleTwinkle 4s infinite alternate;
+80px 80px;
 
 opacity:.5;
-
-}
-
-@keyframes sparkleTwinkle{
-
-from{
-
-opacity:.15;
-
-}
-
-to{
-
-opacity:.55;
-
-}
-
-}
-
-/* =========================================
-WINDOWS
-========================================= */
-
-body .app-window{
-
-background:
-rgba(15,25,50,.62);
-
-border:
-1px solid rgba(180,220,255,.18);
-
-backdrop-filter:
-blur(24px);
-
-box-shadow:
-
-0 0 60px rgba(130,180,255,.18);
-
-}
-
-body .titlebar{
-
-background:
-
-linear-gradient(
-180deg,
-rgba(120,170,255,.25),
-rgba(255,255,255,.05)
-);
-
-}
-
-/* =========================================
-ICONS
-========================================= */
-
-body .desktop-icon{
-
-background:
-rgba(255,255,255,.05);
-
-border:
-1px solid rgba(255,255,255,.08);
 
 }
