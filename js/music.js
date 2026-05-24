@@ -1,28 +1,53 @@
-const loadSong =
-document.getElementById(
-"loadSong"
-);
+function loadSong(){
 
-loadSong.onclick = ()=>{
+const input =
 
-const link =
 document.getElementById(
-"youtubeLink"
+"youtubeInput"
 ).value;
 
+if(!input) return;
+
+let videoId = "";
+
+if(input.includes("watch?v=")){
+
+videoId =
+input.split("watch?v=")[1];
+
+}
+
+else if(input.includes("youtu.be/")){
+
+videoId =
+input.split("youtu.be/")[1];
+
+}
+
+if(videoId.includes("&")){
+
+videoId =
+videoId.split("&")[0];
+
+}
+
 document.getElementById(
-"youtubeContainer"
-).innerHTML = `
+"songTitle"
+).innerText =
+"NOW PLAYING :: " + videoId;
 
+document.getElementById(
+"youtubeEmbed"
+).innerHTML =
+
+`
 <iframe
-width="100%"
-height="300"
-src="${link}"
-frameborder="0"
-allowfullscreen>
-
+width="0"
+height="0"
+src="https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1"
+allow="autoplay"
+>
 </iframe>
-
 `;
 
-};
+}
