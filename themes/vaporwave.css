@@ -4,7 +4,7 @@ background:
 linear-gradient(
 180deg,
 #120018,
-#2e0038,
+#2a0035,
 #ff4fd8
 );
 
@@ -16,46 +16,94 @@ sans-serif;
 
 }
 
-.theme-vaporwave #themeBackground{
+.theme-vaporwave .sky-layer{
 
-background-image:
-
-linear-gradient(
-rgba(255,0,255,.15) 2px,
-transparent 2px
-),
+background:
 
 linear-gradient(
-90deg,
-rgba(255,0,255,.15) 2px,
-transparent 2px
+180deg,
+#120018,
+#2a0035 40%,
+#ff4fd8
 );
-
-background-size:
-70px 70px;
-
-opacity:.35;
 
 }
 
-.theme-vaporwave .topbar,
-.theme-vaporwave .panel,
-.theme-vaporwave .hero{
+.theme-vaporwave .floating-logo{
+
+color:#ff9bf2;
+
+text-shadow:
+
+0 0 20px #ff4fd8,
+0 0 60px #00ffff;
+
+}
+
+.theme-vaporwave .portal{
 
 background:
-rgba(20,10,30,.72);
-
-backdrop-filter:
-blur(12px);
+rgba(20,0,25,.45);
 
 border:
 1px solid rgba(255,255,255,.08);
 
 box-shadow:
 
-0 0 50px rgba(255,0,255,.2),
+0 0 50px rgba(255,0,255,.15),
 
 0 0 90px rgba(0,255,255,.08);
+
+}
+
+.theme-vaporwave .portal-glow{
+
+background:
+
+radial-gradient(
+circle,
+rgba(255,0,255,.3),
+transparent 70%
+);
+
+}
+
+.theme-vaporwave .music-orb{
+
+background:
+
+radial-gradient(
+circle,
+rgba(255,0,255,.18),
+transparent 70%
+);
+
+}
+
+.theme-vaporwave .orb-core{
+
+background:#ff4fd8;
+
+}
+
+.theme-vaporwave .orb-ring{
+
+border-color:
+rgba(255,0,255,.4);
+
+}
+
+.theme-vaporwave .profile-shrine{
+
+background:
+rgba(20,0,30,.55);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+box-shadow:
+
+0 0 40px rgba(255,0,255,.12);
 
 }
 
@@ -64,8 +112,8 @@ box-shadow:
 background:
 linear-gradient(
 180deg,
-#ff66d9,
-#a855ff
+#ff4fd8,
+#9d4dff
 );
 
 color:white;
@@ -81,22 +129,8 @@ color:white;
 
 }
 
-.theme-vaporwave .player-screen,
-.theme-vaporwave .mini-card{
-
-background:
-rgba(255,255,255,.04);
-
-}
-
-.theme-vaporwave a{
-
-color:#ff7eff;
-
-}
-
 .theme-vaporwave .visualizer span{
 
-background:#ff66ff;
+background:#ff4fd8;
 
 }
