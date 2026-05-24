@@ -5,227 +5,321 @@
 
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>JEM.EXE</title>
-
-<!-- =========================================
-FONTS
-========================================= -->
-
-<link
-href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=VT323&family=Nunito:wght@400;700&display=swap"
-rel="stylesheet">
-
-<!-- =========================================
-CSS
-========================================= -->
+<title>Bunny.exe</title>
 
 <link
 rel="stylesheet"
-href="css/windows.css">
+href="style.css"
+>
 
 <link
 id="themeStylesheet"
 rel="stylesheet"
-href="themes/vaporwave.css">
+href="themes/vaporwave.css"
+>
+
+<link
+href="https://fonts.googleapis.com/css2?family=VT323&family=Orbitron:wght@400;700&family=Nunito:wght@400;700&display=swap"
+rel="stylesheet"
+>
 
 </head>
 
-<body>
-
-<!-- =========================================
-THEME BACKGROUND
-========================================= -->
+<body class="theme-vaporwave">
 
 <div id="themeBackground"></div>
 
-<!-- =========================================
-TOPBAR
-========================================= -->
+<!-- ===================================== -->
+<!-- TOP MARQUEE -->
+<!-- ===================================== -->
 
-<div class="topbar">
+<div class="top-marquee">
 
-<div class="logo">
+<marquee
+scrollamount="8"
+behavior="scroll"
+>
 
-JEM.EXE
+★ Bunny.exe ★ Welcome to my internet bedroom ★ Hyperfixation central ★ Under permanent construction ★
+
+</marquee>
 
 </div>
 
-<div class="theme-buttons">
+<!-- ===================================== -->
+<!-- MAIN PROFILE -->
+<!-- ===================================== -->
+
+<div class="profile-layout">
+
+<!-- ===================================== -->
+<!-- LEFT -->
+<!-- ===================================== -->
+
+<div class="sidebar left-sidebar">
+
+<div class="panel">
+
+<div class="panel-title">
+PROFILE.EXE
+</div>
+
+<img
+class="pfp"
+src="https://i.imgur.com/8Km9tLL.gif"
+>
+
+<div class="status">
+Listening to strange music...
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="panel-title">
+THEMES
+</div>
 
 <button onclick="setTheme('vaporwave')">
-
-VAPOR
-
+VAPORWAVE
 </button>
 
 <button onclick="setTheme('aero')">
-
-AERO
-
+FRUTIGER AERO
 </button>
 
 <button onclick="setTheme('rosalina')">
-
 ROSALINA
-
 </button>
 
 </div>
 
-<div id="clock">
+<div class="panel">
 
-00:00
+<div class="panel-title">
+BLINKIES
+</div>
+
+<div class="blinkies">
+
+<img src="https://files.catbox.moe/v7v6rd.gif">
+<img src="https://files.catbox.moe/3h4t0a.gif">
+<img src="https://files.catbox.moe/v95q0b.gif">
 
 </div>
 
 </div>
 
-<!-- =========================================
-DESKTOP
-========================================= -->
+<div class="panel">
 
-<div class="desktop-icons">
-
-<div
-class="desktop-icon"
-onclick="openWindow('aboutWindow')">
-
-<img
-src="https://cdn-icons-png.flaticon.com/512/747/747376.png">
-
-<span>
-
-ABOUT
-
-</span>
-
+<div class="panel-title">
+STAMP COLLECTION
 </div>
 
-<div
-class="desktop-icon"
-onclick="openWindow('musicWindow')">
+<div class="stamps">
 
-<img
-src="https://cdn-icons-png.flaticon.com/512/3659/3659898.png">
-
-<span>
-
-MUSIC
-
-</span>
-
-</div>
-
-<div
-class="desktop-icon"
-onclick="openWindow('chatWindow')">
-
-<img
-src="https://cdn-icons-png.flaticon.com/512/1380/1380338.png">
-
-<span>
-
-CHATROOM
-
-</span>
+<img src="https://files.catbox.moe/f2mb6m.png">
+<img src="https://files.catbox.moe/1v2v2j.png">
 
 </div>
 
 </div>
 
-<!-- =========================================
-ABOUT WINDOW
-========================================= -->
+</div>
 
-<div
-class="app-window"
-id="aboutWindow">
+<!-- ===================================== -->
+<!-- CENTER -->
+<!-- ===================================== -->
 
-<div class="titlebar">
+<div class="main-column">
 
-ABOUT.EXE
+<div class="panel hero-panel">
 
-<button onclick="closeWindow('aboutWindow')">
+<div class="hero-title">
+BUNNY.EXE
+</div>
 
-✕
+<div class="hero-subtitle">
 
-</button>
+Digital landfill of hyperfixations,
+music, games, anime, and internet junk.
 
 </div>
 
-<div class="window-body">
+</div>
 
-<h1>
+<div class="panel">
 
-WELCOME TO JEM.EXE
-
-</h1>
+<div class="panel-title">
+ABOUT ME
+</div>
 
 <p>
 
-A nostalgic customizable desktop world.
+Hi hello welcome to my weird little profile.
+
+I like:
+anime, Vocaloid, weird web aesthetics,
+retro internet junk, rhythm games,
+old forums, music collecting,
+and making cursed playlists at 3am.
 
 </p>
 
 </div>
 
+<div class="panel">
+
+<div class="panel-title">
+CURRENT HYPERFIXATIONS
 </div>
 
-<!-- =========================================
-MUSIC WINDOW
-========================================= -->
+<ul>
 
-<div
-class="app-window"
-id="musicWindow">
+<li>Serial Experiments Lain</li>
+<li>Mario Galaxy</li>
+<li>Vocaloid</li>
+<li>Old internet aesthetics</li>
+<li>Rhythm games</li>
+<li>Hyperpop</li>
 
-<div class="titlebar">
-
-MUSIC.EXE
-
-<button onclick="closeWindow('musicWindow')">
-
-✕
-
-</button>
+</ul>
 
 </div>
 
-<div class="window-body">
+<div class="panel">
 
-<div id="musicPlayer">
+<div class="panel-title">
+FRIENDS SPACE
+</div>
 
-<img
-id="albumArt"
-src="https://i.imgur.com/8Km9tLL.png">
+<div class="friends-grid">
 
-<div id="trackTitle">
+<div class="friend-card">
 
-No Song Loaded
+<img src="https://i.imgur.com/WxNkK7J.png">
+
+<div>
+Mika
+</div>
+
+<a href="#">
+Visit Profile
+</a>
 
 </div>
 
-<div id="artistName">
+<div class="friend-card">
 
-Unknown Artist
+<img src="https://i.imgur.com/WxNkK7J.png">
+
+<div>
+Ren
+</div>
+
+<a href="#">
+Visit Profile
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ===================================== -->
+<!-- RIGHT -->
+<!-- ===================================== -->
+
+<div class="sidebar right-sidebar">
+
+<div class="panel music-panel">
+
+<div class="panel-title">
+NOW PLAYING
+</div>
+
+<div class="fake-player">
+
+<div class="player-screen">
+
+<marquee id="songTitle">
+
+No song loaded...
+
+</marquee>
+
+</div>
+
+<div class="visualizer">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
 
 </div>
 
 <input
-id="youtubeLink"
-placeholder="paste youtube embed link">
+id="youtubeInput"
+placeholder="paste youtube link"
+>
 
-<button id="loadSong">
+<button onclick="loadSong()">
 
 LOAD SONG
 
 </button>
 
-<div id="youtubeContainer">
+</div>
+
+<div id="youtubeEmbed"></div>
+
+</div>
+
+<div class="panel">
+
+<div class="panel-title">
+VISITOR COUNT
+</div>
+
+<div class="counter">
+
+00042069
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<div class="panel-title">
+LINKS
+</div>
+
+<a href="#">
+Last.fm
+</a>
+
+<a href="#">
+Spotify
+</a>
+
+<a href="#">
+Backloggd
+</a>
+
+<a href="#">
+TV Time
+</a>
 
 </div>
 
@@ -233,115 +327,8 @@ LOAD SONG
 
 </div>
 
-</div>
-
-<!-- =========================================
-CHATROOM WINDOW
-========================================= -->
-
-<div
-class="app-window"
-id="chatWindow">
-
-<div class="titlebar">
-
-CHATROOM.EXE
-
-<button onclick="closeWindow('chatWindow')">
-
-✕
-
-</button>
-
-</div>
-
-<div class="window-body chat-layout">
-
-<!-- SIDEBAR -->
-
-<div class="chat-sidebar">
-
-<div class="channel active">
-
-# general
-
-</div>
-
-<div class="channel">
-
-# music
-
-</div>
-
-<div class="channel">
-
-# games
-
-</div>
-
-</div>
-
-<!-- CHAT -->
-
-<div class="chat-main">
-
-<div id="chatMessages">
-
-</div>
-
-<div class="chat-input-row">
-
-<input
-id="chatInput"
-placeholder="type message...">
-
-<button id="sendMessage">
-
-SEND
-
-</button>
-
-</div>
-
-</div>
-
-<!-- PROFILE -->
-
-<div class="chat-profile">
-
-<img
-id="profilePreview"
-src="https://i.imgur.com/8Km9tLL.png">
-
-<input
-id="usernameInput"
-placeholder="username">
-
-<input
-id="pfpInput"
-placeholder="pfp image link">
-
-<button id="saveProfile">
-
-SAVE
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- =========================================
-JS
-========================================= -->
-
-<script src="js/windows.js"></script>
-<script src="js/music.js"></script>
-<script src="js/chat.js"></script>
-<script src="js/themes.js"></script>
+<script src="theme.js"></script>
+<script src="music.js"></script>
 
 </body>
-
 </html>
