@@ -1,1 +1,326 @@
+*{
 
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+body{
+
+font-family:Tahoma,sans-serif;
+
+overflow-x:hidden;
+
+min-height:100vh;
+
+padding:20px;
+
+color:white;
+
+}
+
+/* ===================================== */
+/* BACKGROUND */
+/* ===================================== */
+
+#themeBackground{
+
+position:fixed;
+
+inset:0;
+
+z-index:-100;
+
+overflow:hidden;
+
+}
+
+/* ===================================== */
+/* MARQUEE */
+/* ===================================== */
+
+.top-marquee{
+
+margin-bottom:20px;
+
+border:2px solid white;
+
+padding:8px;
+
+background:black;
+
+font-size:12px;
+
+}
+
+/* ===================================== */
+/* LAYOUT */
+/* ===================================== */
+
+.profile-layout{
+
+display:grid;
+
+grid-template-columns:
+260px
+1fr
+260px;
+
+gap:18px;
+
+align-items:start;
+
+}
+
+/* ===================================== */
+/* PANELS */
+/* ===================================== */
+
+.panel{
+
+padding:12px;
+
+margin-bottom:18px;
+
+}
+
+.panel-title{
+
+font-weight:bold;
+
+margin-bottom:12px;
+
+font-size:14px;
+
+text-transform:uppercase;
+
+}
+
+/* ===================================== */
+/* PROFILE */
+/* ===================================== */
+
+.pfp{
+
+width:100%;
+
+image-rendering:pixelated;
+
+margin-bottom:10px;
+
+}
+
+.status{
+
+font-size:12px;
+
+}
+
+/* ===================================== */
+/* HERO */
+/* ===================================== */
+
+.hero-title{
+
+font-size:48px;
+
+font-weight:bold;
+
+margin-bottom:10px;
+
+}
+
+.hero-subtitle{
+
+font-size:14px;
+
+}
+
+/* ===================================== */
+/* MUSIC */
+/* ===================================== */
+
+.fake-player{
+
+display:flex;
+
+flex-direction:column;
+
+gap:10px;
+
+}
+
+.player-screen{
+
+padding:8px;
+
+font-size:12px;
+
+}
+
+.visualizer{
+
+display:flex;
+
+align-items:flex-end;
+
+gap:4px;
+
+height:50px;
+
+}
+
+.visualizer span{
+
+width:12px;
+
+background:white;
+
+animation:bars 1s infinite alternate;
+
+}
+
+.visualizer span:nth-child(2){
+
+animation-delay:.2s;
+
+}
+
+.visualizer span:nth-child(3){
+
+animation-delay:.4s;
+
+}
+
+.visualizer span:nth-child(4){
+
+animation-delay:.6s;
+
+}
+
+.visualizer span:nth-child(5){
+
+animation-delay:.8s;
+
+}
+
+.visualizer span:nth-child(6){
+
+animation-delay:1s;
+
+}
+
+.visualizer span:nth-child(7){
+
+animation-delay:1.2s;
+
+}
+
+@keyframes bars{
+
+from{
+
+height:10px;
+
+}
+
+to{
+
+height:45px;
+
+}
+
+}
+
+input{
+
+padding:8px;
+
+border:none;
+
+outline:none;
+
+}
+
+button{
+
+padding:8px;
+
+cursor:pointer;
+
+border:none;
+
+}
+
+/* ===================================== */
+/* FRIENDS */
+/* ===================================== */
+
+.friends-grid{
+
+display:grid;
+
+grid-template-columns:
+1fr
+1fr;
+
+gap:10px;
+
+}
+
+.friend-card{
+
+text-align:center;
+
+font-size:12px;
+
+}
+
+.friend-card img{
+
+width:100%;
+
+}
+
+/* ===================================== */
+/* BLINKIES */
+/* ===================================== */
+
+.blinkies,
+.stamps{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:6px;
+
+}
+
+.blinkies img{
+
+width:150px;
+
+}
+
+.stamps img{
+
+width:99px;
+
+}
+
+/* ===================================== */
+/* MOBILE */
+/* ===================================== */
+
+@media(max-width:900px){
+
+.profile-layout{
+
+grid-template-columns:
+1fr;
+
+}
+
+}
