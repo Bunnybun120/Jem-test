@@ -11,13 +11,17 @@ content="width=device-width, initial-scale=1.0">
 
 <title>JEM.EXE</title>
 
-<!-- FONTS -->
+<!-- =========================================
+FONTS
+========================================= -->
 
 <link
-href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=VT323&family=Nunito:wght@400;700&display=swap"
+href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=VT323&family=Nunito:wght@400;700&display=swap"
 rel="stylesheet">
 
-<!-- CSS -->
+<!-- =========================================
+CSS
+========================================= -->
 
 <link
 rel="stylesheet"
@@ -33,7 +37,7 @@ href="themes/vaporwave.css">
 <body>
 
 <!-- =========================================
-THEME CONTAINER
+THEME BACKGROUND
 ========================================= -->
 
 <div id="themeBackground"></div>
@@ -50,7 +54,7 @@ JEM.EXE
 
 </div>
 
-<div class="topbar-right">
+<div class="theme-buttons">
 
 <button onclick="setTheme('vaporwave')">
 
@@ -70,14 +74,18 @@ ROSALINA
 
 </button>
 
-<div id="clock"></div>
+</div>
+
+<div id="clock">
+
+00:00
 
 </div>
 
 </div>
 
 <!-- =========================================
-DESKTOP ICONS
+DESKTOP
 ========================================= -->
 
 <div class="desktop-icons">
@@ -114,51 +122,6 @@ MUSIC
 
 <div
 class="desktop-icon"
-onclick="openWindow('gamesWindow')">
-
-<img
-src="https://cdn-icons-png.flaticon.com/512/686/686589.png">
-
-<span>
-
-GAMES
-
-</span>
-
-</div>
-
-<div
-class="desktop-icon"
-onclick="openWindow('showsWindow')">
-
-<img
-src="https://cdn-icons-png.flaticon.com/512/1179/1179069.png">
-
-<span>
-
-SHOWS
-
-</span>
-
-</div>
-
-<div
-class="desktop-icon"
-onclick="openWindow('friendsWindow')">
-
-<img
-src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png">
-
-<span>
-
-FRIENDS
-
-</span>
-
-</div>
-
-<div
-class="desktop-icon"
 onclick="openWindow('chatWindow')">
 
 <img
@@ -175,13 +138,12 @@ CHATROOM
 </div>
 
 <!-- =========================================
-ABOUT
+ABOUT WINDOW
 ========================================= -->
 
 <div
 class="app-window"
-id="aboutWindow"
-style="display:none;">
+id="aboutWindow">
 
 <div class="titlebar">
 
@@ -205,7 +167,7 @@ WELCOME TO JEM.EXE
 
 <p>
 
-Retro desktop world.
+A nostalgic customizable desktop world.
 
 </p>
 
@@ -214,13 +176,12 @@ Retro desktop world.
 </div>
 
 <!-- =========================================
-MUSIC
+MUSIC WINDOW
 ========================================= -->
 
 <div
 class="app-window"
-id="musicWindow"
-style="display:none;">
+id="musicWindow">
 
 <div class="titlebar">
 
@@ -242,11 +203,9 @@ MUSIC.EXE
 id="albumArt"
 src="https://i.imgur.com/8Km9tLL.png">
 
-<div id="trackInfo">
-
 <div id="trackTitle">
 
-No Track
+No Song Loaded
 
 </div>
 
@@ -256,31 +215,17 @@ Unknown Artist
 
 </div>
 
-</div>
+<input
+id="youtubeLink"
+placeholder="paste youtube embed link">
 
-<div class="player-controls">
+<button id="loadSong">
 
-<button id="playButton">
-
-▶
-
-</button>
-
-<button id="pauseButton">
-
-⏸
+LOAD SONG
 
 </button>
 
-</div>
-
-<div class="visualizer">
-
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
+<div id="youtubeContainer">
 
 </div>
 
@@ -291,116 +236,16 @@ Unknown Artist
 </div>
 
 <!-- =========================================
-GAMES
+CHATROOM WINDOW
 ========================================= -->
 
 <div
 class="app-window"
-id="gamesWindow"
-style="display:none;">
+id="chatWindow">
 
 <div class="titlebar">
 
-GAMES.EXE
-
-<button onclick="closeWindow('gamesWindow')">
-
-✕
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<h2>
-
-GAME COLLECTION
-
-</h2>
-
-</div>
-
-</div>
-
-<!-- =========================================
-SHOWS
-========================================= -->
-
-<div
-class="app-window"
-id="showsWindow"
-style="display:none;">
-
-<div class="titlebar">
-
-SHOWS.EXE
-
-<button onclick="closeWindow('showsWindow')">
-
-✕
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<h2>
-
-WATCHLIST
-
-</h2>
-
-</div>
-
-</div>
-
-<!-- =========================================
-FRIENDS
-========================================= -->
-
-<div
-class="app-window"
-id="friendsWindow"
-style="display:none;">
-
-<div class="titlebar">
-
-FRIENDS.EXE
-
-<button onclick="closeWindow('friendsWindow')">
-
-✕
-
-</button>
-
-</div>
-
-<div class="window-body">
-
-<h2>
-
-FRIEND DIRECTORY
-
-</h2>
-
-</div>
-
-</div>
-
-<!-- =========================================
-CHATROOM
-========================================= -->
-
-<div
-class="app-window"
-id="chatWindow"
-style="display:none;">
-
-<div class="titlebar">
-
-💬 CHATROOM.EXE
+CHATROOM.EXE
 
 <button onclick="closeWindow('chatWindow')">
 
@@ -412,33 +257,27 @@ style="display:none;">
 
 <div class="window-body chat-layout">
 
-<!-- CHANNELS -->
+<!-- SIDEBAR -->
 
-<div class="chat-channels">
+<div class="chat-sidebar">
 
-<button class="channel active">
+<div class="channel active">
 
 # general
 
-</button>
+</div>
 
-<button class="channel">
+<div class="channel">
 
 # music
 
-</button>
+</div>
 
-<button class="channel">
+<div class="channel">
 
 # games
 
-</button>
-
-<button class="channel">
-
-# anime
-
-</button>
+</div>
 
 </div>
 
@@ -446,9 +285,9 @@ style="display:none;">
 
 <div class="chat-main">
 
-<div id="chatMessages"></div>
+<div id="chatMessages">
 
-<div id="typingIndicator"></div>
+</div>
 
 <div class="chat-input-row">
 
@@ -480,11 +319,11 @@ placeholder="username">
 
 <input
 id="pfpInput"
-placeholder="paste image url">
+placeholder="pfp image link">
 
 <button id="saveProfile">
 
-SAVE PROFILE
+SAVE
 
 </button>
 
@@ -493,34 +332,6 @@ SAVE PROFILE
 </div>
 
 </div>
-
-<!-- =========================================
-TASKBAR
-========================================= -->
-
-<div class="taskbar">
-
-<div>
-
-JEM.EXE
-
-</div>
-
-<div id="taskbarClock"></div>
-
-</div>
-
-<!-- =========================================
-AUDIO
-========================================= -->
-
-<audio id="audioPlayer">
-
-<source
-src="assets/music/song.mp3"
-type="audio/mpeg">
-
-</audio>
 
 <!-- =========================================
 JS
