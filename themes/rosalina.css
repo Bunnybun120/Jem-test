@@ -1,17 +1,25 @@
+/* =========================================
+SPACE
+========================================= */
+
 body{
 
 background:
 linear-gradient(
 180deg,
-#07111f,
-#0d1f38,
-#162d59
+#040816,
+#0b1433,
+#122657
 );
+
+color:#dff4ff;
+
+overflow:hidden;
 
 }
 
 /* =========================================
-GALAXY
+NEBULA
 ========================================= */
 
 .rosa-nebula{
@@ -23,8 +31,8 @@ inset:0;
 background:
 
 radial-gradient(
-circle at 30% 40%,
-rgba(120,170,255,.45),
+circle at 20% 30%,
+rgba(130,180,255,.4),
 transparent 30%
 ),
 
@@ -32,17 +40,23 @@ radial-gradient(
 circle at 70% 60%,
 rgba(255,255,255,.15),
 transparent 35%
+),
+
+radial-gradient(
+circle at 50% 80%,
+rgba(110,150,255,.25),
+transparent 40%
 );
 
 filter:
 blur(50px);
 
 animation:
-nebulaMove 16s ease-in-out infinite;
+nebulaPulse 12s ease-in-out infinite;
 
 }
 
-@keyframes nebulaMove{
+@keyframes nebulaPulse{
 
 0%{
 
@@ -85,16 +99,16 @@ transparent 1px
 );
 
 background-size:
-100px 100px;
+120px 120px;
 
-opacity:.5;
+opacity:.45;
 
 animation:
-starFlow 50s linear infinite;
+starDrift 60s linear infinite;
 
 }
 
-@keyframes starFlow{
+@keyframes starDrift{
 
 from{
 
@@ -106,14 +120,14 @@ translateY(0);
 to{
 
 transform:
-translateY(100px);
+translateY(120px);
 
 }
 
 }
 
 /* =========================================
-SPARKLES
+TWINKLES
 ========================================= */
 
 .rosa-sparkles{
@@ -122,37 +136,82 @@ position:fixed;
 
 inset:0;
 
-pointer-events:none;
-
-background:
+background-image:
 
 radial-gradient(
-white 2px,
+rgba(255,255,255,.9) 2px,
 transparent 2px
 );
 
 background-size:
-200px 200px;
-
-opacity:.4;
+240px 240px;
 
 animation:
-twinkle 3s infinite alternate;
+sparkleTwinkle 4s infinite alternate;
+
+opacity:.5;
 
 }
 
-@keyframes twinkle{
+@keyframes sparkleTwinkle{
 
 from{
 
-opacity:.2;
+opacity:.15;
 
 }
 
 to{
 
-opacity:.5;
+opacity:.55;
 
 }
+
+}
+
+/* =========================================
+WINDOWS
+========================================= */
+
+body .app-window{
+
+background:
+rgba(15,25,50,.62);
+
+border:
+1px solid rgba(180,220,255,.18);
+
+backdrop-filter:
+blur(24px);
+
+box-shadow:
+
+0 0 60px rgba(130,180,255,.18);
+
+}
+
+body .titlebar{
+
+background:
+
+linear-gradient(
+180deg,
+rgba(120,170,255,.25),
+rgba(255,255,255,.05)
+);
+
+}
+
+/* =========================================
+ICONS
+========================================= */
+
+body .desktop-icon{
+
+background:
+rgba(255,255,255,.05);
+
+border:
+1px solid rgba(255,255,255,.08);
 
 }
