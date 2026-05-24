@@ -1,367 +1,93 @@
-/* =========================================
-BODY
-========================================= */
-
-body{
+body.theme-vaporwave{
 
 background:
 linear-gradient(
 180deg,
 #14001f,
-#30003d,
+#2b003d,
 #ff4fd8
 );
 
-overflow:hidden;
+font-family:
+"MS Sans Serif",
+sans-serif;
 
-color:#fff;
-
-}
-
-/* =========================================
-STARS
-========================================= */
-
-.vapor-stars{
-
-position:fixed;
-
-inset:0;
-
-background-image:
-
-radial-gradient(
-rgba(255,255,255,.9) 1px,
-transparent 1px
-);
-
-background-size:
-140px 140px;
-
-opacity:.35;
-
-animation:
-starScroll 60s linear infinite;
+color:#ff9af5;
 
 }
 
-@keyframes starScroll{
+.theme-vaporwave .panel{
 
-from{
+background:#c0c0c0;
 
-transform:
-translateY(0);
-
-}
-
-to{
-
-transform:
-translateY(140px);
-
-}
-
-}
-
-/* =========================================
-SUN
-========================================= */
-
-.vapor-sun{
-
-position:fixed;
-
-top:60px;
-left:50%;
-
-transform:
-translateX(-50%);
-
-width:500px;
-height:500px;
-
-border-radius:50%;
-
-background:
-
-linear-gradient(
-180deg,
-#ffe600,
-#ff7ae6
-);
+border:
+2px solid #fff;
 
 box-shadow:
+inset -2px -2px #000,
+inset 2px 2px #fff;
 
-0 0 120px #ff4fd8,
-
-0 0 240px rgba(255,0,255,.5);
-
-overflow:hidden;
+color:black;
 
 }
 
-.vapor-sun::after{
+.theme-vaporwave .panel-title{
 
-content:"";
+background:#000080;
 
-position:absolute;
+color:white;
 
-inset:0;
+padding:4px;
 
-background:
-
-repeating-linear-gradient(
-180deg,
-transparent 0px,
-transparent 14px,
-rgba(255,255,255,.18) 15px
-);
-
-opacity:.45;
+font-size:12px;
 
 }
 
-/* =========================================
-GRID
-========================================= */
+.theme-vaporwave a{
 
-.vapor-grid{
+color:#ff00ff;
 
-position:fixed;
+}
 
-bottom:-30vh;
-left:-50vw;
+.theme-vaporwave button{
 
-width:200vw;
-height:90vh;
+background:#c0c0c0;
+
+border:
+2px outset white;
+
+}
+
+.theme-vaporwave .player-screen{
+
+background:black;
+
+color:#00ffcc;
+
+font-family:
+"Lucida Console",
+monospace;
+
+}
+
+.theme-vaporwave #themeBackground{
 
 background-image:
 
 linear-gradient(
-rgba(255,0,255,.35) 2px,
+rgba(255,0,255,.25) 2px,
 transparent 2px
 ),
 
 linear-gradient(
 90deg,
-rgba(255,0,255,.35) 2px,
+rgba(255,0,255,.25) 2px,
 transparent 2px
 );
 
 background-size:
-90px 90px;
+60px 60px;
 
-transform:
-perspective(800px)
-rotateX(78deg);
-
-animation:
-gridMove 10s linear infinite;
-
-opacity:.55;
-
-}
-
-@keyframes gridMove{
-
-from{
-
-transform:
-perspective(800px)
-rotateX(78deg)
-translateY(0);
-
-}
-
-to{
-
-transform:
-perspective(800px)
-rotateX(78deg)
-translateY(90px);
-
-}
-
-}
-
-/* =========================================
-FOG
-========================================= */
-
-.vapor-fog{
-
-position:fixed;
-
-inset:0;
-
-background:
-
-radial-gradient(
-circle at 30% 60%,
-rgba(255,0,255,.18),
-transparent 40%
-),
-
-radial-gradient(
-circle at 70% 20%,
-rgba(0,255,255,.15),
-transparent 35%
-);
-
-filter:
-blur(50px);
-
-animation:
-fogMove 18s ease-in-out infinite;
-
-}
-
-@keyframes fogMove{
-
-0%{
-
-transform:
-translateX(0);
-
-}
-
-50%{
-
-transform:
-translateX(30px);
-
-}
-
-100%{
-
-transform:
-translateX(0);
-
-}
-
-}
-
-/* =========================================
-SCANLINES
-========================================= */
-
-.vapor-vhs{
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
-
-background:
-
-linear-gradient(
-rgba(255,255,255,.04) 50%,
-transparent 50%
-);
-
-background-size:
-100% 4px;
-
-mix-blend-mode:overlay;
-
-opacity:.28;
-
-animation:
-vhsFlicker .15s infinite;
-
-}
-
-@keyframes vhsFlicker{
-
-0%{opacity:.24;}
-50%{opacity:.3;}
-100%{opacity:.24;}
-
-}
-
-/* =========================================
-PALMS
-========================================= */
-
-.vapor-palms{
-
-position:fixed;
-
-bottom:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:
-
-url('https://i.imgur.com/6QJjYMe.png')
-bottom center/cover
-no-repeat;
-
-opacity:.22;
-
-pointer-events:none;
-
-}
-
-/* =========================================
-WINDOWS
-========================================= */
-
-body .app-window{
-
-background:
-rgba(25,10,35,.72);
-
-border:
-1px solid rgba(255,255,255,.08);
-
-box-shadow:
-
-0 0 60px rgba(255,0,255,.2),
-
-0 0 120px rgba(0,255,255,.08);
-
-backdrop-filter:
-blur(22px);
-
-}
-
-body .titlebar{
-
-background:
-
-linear-gradient(
-90deg,
-rgba(255,0,255,.25),
-rgba(0,255,255,.12)
-);
-
-}
-
-body .desktop-icon{
-
-background:
-rgba(255,255,255,.06);
-
-border:
-1px solid rgba(255,255,255,.08);
-
-}
-
-/* =========================================
-TEXT GLOW
-========================================= */
-
-body .logo,
-body #trackTitle{
-
-text-shadow:
-
-0 0 10px #ff4fd8,
-
-0 0 20px #00ffff;
+opacity:.4;
 
 }
