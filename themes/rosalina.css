@@ -3,125 +3,196 @@ body.theme-rosalina{
 background:
 linear-gradient(
 180deg,
-#030712,
-#09142d,
-#10214d
+#02040d,
+#081126,
+#132850
 );
 
-color:#dff6ff;
+color:#ecf7ff;
 
 font-family:
-"Quicksand",
-sans-serif;
+"Great Vibes",
+"Cinzel",
+serif;
+
+overflow:hidden;
 
 }
 
-.theme-rosalina .sky-layer{
+/* ===================================== */
+/* BACKGROUND */
+/* ===================================== */
+
+.theme-rosalina .bg-back{
 
 background:
 
 radial-gradient(
 circle at top,
-rgba(120,180,255,.25),
-transparent 50%
+rgba(130,180,255,.2),
+transparent 45%
 ),
 
 linear-gradient(
 180deg,
-#020611,
-#09142d,
-#10214d
+#02040d,
+#081126,
+#132850
 );
 
 }
 
-.theme-rosalina .floating-logo{
+.theme-rosalina .bg-mid{
 
-color:#dff6ff;
+background-image:
+
+radial-gradient(
+rgba(255,255,255,.7) 1px,
+transparent 1px
+),
+
+radial-gradient(
+rgba(255,255,255,.3) 1px,
+transparent 1px
+);
+
+background-size:
+120px 120px,
+240px 240px;
+
+opacity:.45;
+
+animation:
+starDrift 120s linear infinite;
+
+}
+
+.theme-rosalina .bg-front{
+
+background:
+
+radial-gradient(
+circle at 20% 20%,
+rgba(255,255,255,.08),
+transparent 30%
+),
+
+radial-gradient(
+circle at 80% 40%,
+rgba(160,210,255,.08),
+transparent 40%
+);
+
+filter:blur(50px);
+
+animation:
+fogFloat 40s ease-in-out infinite;
+
+}
+
+/* ===================================== */
+/* ENVIRONMENT */
+/* ===================================== */
+
+.theme-rosalina .environment{
+
+position:absolute;
+
+inset:0;
+
+background:
+
+url("https://i.imgur.com/t7fO6uZ.png")
+center bottom / cover no-repeat;
+
+opacity:.95;
+
+pointer-events:none;
+
+}
+
+/* ===================================== */
+/* LOGO */
+/* ===================================== */
+
+.theme-rosalina .logo{
+
+font-size:90px;
+
+color:#ffffff;
 
 text-shadow:
 
-0 0 20px #8ad8ff,
-0 0 60px #5ea6ff;
+0 0 20px #9ad7ff,
+0 0 60px #76b7ff,
+0 0 120px rgba(118,183,255,.5);
 
 }
 
-.theme-rosalina .portal{
+/* ===================================== */
+/* LINKS */
+/* ===================================== */
+
+.theme-rosalina .world-link{
 
 background:
-rgba(12,20,45,.45);
+rgba(10,18,40,.4);
 
 border:
-1px solid rgba(138,216,255,.18);
+1px solid rgba(160,220,255,.18);
+
+backdrop-filter:
+blur(20px);
 
 box-shadow:
 
-0 0 40px rgba(138,216,255,.12),
+0 0 30px rgba(120,180,255,.15),
 
-inset 0 0 30px rgba(255,255,255,.03);
+inset 0 0 20px rgba(255,255,255,.03);
+
+color:#e8f6ff;
 
 }
 
-.theme-rosalina .portal-glow{
+.theme-rosalina .world-link:hover{
+
+box-shadow:
+
+0 0 60px rgba(120,180,255,.35),
+
+0 0 120px rgba(120,180,255,.12);
+
+}
+
+/* ===================================== */
+/* PLAYER */
+/* ===================================== */
+
+.theme-rosalina .music-player{
+
+background:
+rgba(10,18,40,.5);
+
+border:
+1px solid rgba(160,220,255,.15);
+
+backdrop-filter:
+blur(25px);
+
+box-shadow:
+0 0 40px rgba(120,180,255,.18);
+
+}
+
+.theme-rosalina .player-glow{
 
 background:
 
 radial-gradient(
 circle,
-rgba(138,216,255,.25),
+rgba(160,220,255,.25),
 transparent 70%
 );
-
-}
-
-.theme-rosalina .music-orb{
-
-background:
-
-radial-gradient(
-circle,
-rgba(138,216,255,.18),
-transparent 70%
-);
-
-}
-
-.theme-rosalina .orb-core{
-
-background:#8ad8ff;
-
-}
-
-.theme-rosalina .orb-ring{
-
-border-color:
-rgba(138,216,255,.4);
-
-}
-
-.theme-rosalina .profile-shrine{
-
-background:
-rgba(10,18,40,.55);
-
-border:
-1px solid rgba(138,216,255,.12);
-
-box-shadow:
-0 0 30px rgba(138,216,255,.12);
-
-}
-
-.theme-rosalina button{
-
-background:
-linear-gradient(
-180deg,
-#8ad8ff,
-#5ea6ff
-);
-
-color:white;
 
 }
 
@@ -134,8 +205,32 @@ color:white;
 
 }
 
-.theme-rosalina .visualizer span{
+.theme-rosalina button{
 
-background:#8ad8ff;
+background:
+linear-gradient(
+180deg,
+#9ad7ff,
+#5da8ff
+);
+
+color:white;
+
+}
+
+/* ===================================== */
+/* PROFILE */
+/* ===================================== */
+
+.theme-rosalina .profile-area{
+
+background:
+rgba(10,18,40,.45);
+
+border:
+1px solid rgba(160,220,255,.12);
+
+box-shadow:
+0 0 30px rgba(120,180,255,.18);
 
 }
