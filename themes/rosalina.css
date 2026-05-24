@@ -1,68 +1,114 @@
 body.theme-rosalina{
 
 background:
-#060816;
+linear-gradient(
+180deg,
+#050816,
+#0f1838,
+#182b59
+);
+
+color:#dff6ff;
 
 font-family:
-Tahoma,
+"Quicksand",
 sans-serif;
-
-color:#d8f7ff;
-
-}
-
-.theme-rosalina .panel{
-
-background:#13192B;
-
-border:
-2px dashed #40E0D0;
-
-}
-
-.theme-rosalina .panel-title{
-
-color:#40E0D0;
-
-font-size:12px;
-
-}
-
-.theme-rosalina a{
-
-color:#40E0D0;
-
-}
-
-.theme-rosalina a:hover{
-
-color:#ffe066;
-
-}
-
-.theme-rosalina button{
-
-background:#13192B;
-
-border:
-1px solid #40E0D0;
-
-color:#40E0D0;
 
 }
 
 .theme-rosalina #themeBackground{
 
-background-image:
+background:
 
 radial-gradient(
-rgba(255,255,255,.9) 1px,
+white 1px,
 transparent 1px
 );
 
 background-size:
-80px 80px;
+120px 120px;
 
-opacity:.5;
+opacity:.3;
+
+animation:
+stars 80s linear infinite;
+
+}
+
+@keyframes stars{
+
+from{
+
+transform:
+translateY(0);
+
+}
+
+to{
+
+transform:
+translateY(120px);
+
+}
+
+}
+
+.theme-rosalina .topbar,
+.theme-rosalina .panel,
+.theme-rosalina .hero{
+
+background:
+rgba(15,25,55,.65);
+
+backdrop-filter:
+blur(12px);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+box-shadow:
+0 0 40px rgba(120,170,255,.15);
+
+}
+
+.theme-rosalina button{
+
+background:
+linear-gradient(
+180deg,
+#79b8ff,
+#4d79ff
+);
+
+color:white;
+
+}
+
+.theme-rosalina input{
+
+background:
+rgba(255,255,255,.08);
+
+color:white;
+
+}
+
+.theme-rosalina .player-screen,
+.theme-rosalina .mini-card{
+
+background:
+rgba(255,255,255,.05);
+
+}
+
+.theme-rosalina a{
+
+color:#8ad8ff;
+
+}
+
+.theme-rosalina .visualizer span{
+
+background:#8ad8ff;
 
 }
