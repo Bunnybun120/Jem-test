@@ -1,69 +1,67 @@
-/* =========================================
-REAL FRUTIGER AERO
-========================================= */
-
 body{
 
-background:#c9f4ff;
-
-font-family:
-'Orbitron',
-sans-serif;
-
-color:#134;
-
-overflow-x:hidden;
-
-}
-
-/* =========================================
-CLOUD SKY
-========================================= */
-
-.aero-clouds{
-
-position:fixed;
-inset:0;
-
-background-image:url(
-'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1974&auto=format&fit=crop'
+background:
+linear-gradient(
+180deg,
+#78d7ff,
+#c7f3ff
 );
 
-background-size:cover;
-background-position:center;
-
-opacity:.45;
-
-z-index:-20;
-
 }
 
 /* =========================================
-WATER
+LIGHT
 ========================================= */
 
-.aero-water{
+.aero-light{
 
 position:fixed;
 
-bottom:0;
-left:0;
+top:-200px;
+left:-200px;
 
-width:100%;
-height:40vh;
+width:800px;
+height:800px;
+
+border-radius:50%;
 
 background:
 
-linear-gradient(
-to top,
-rgba(120,240,255,.45),
-transparent
+radial-gradient(
+rgba(255,255,255,.75),
+transparent 70%
 );
 
-backdrop-filter:
-blur(10px);
+filter:
+blur(50px);
 
-z-index:-18;
+animation:
+pulse 6s ease-in-out infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:
+scale(1);
+
+}
+
+50%{
+
+transform:
+scale(1.08);
+
+}
+
+100%{
+
+transform:
+scale(1);
+
+}
 
 }
 
@@ -74,273 +72,117 @@ BUBBLES
 .aero-bubbles{
 
 position:fixed;
+
 inset:0;
 
-background-image:
-
-radial-gradient(
-rgba(255,255,255,.85) 2px,
-transparent 4px
-),
-
-radial-gradient(
-rgba(180,240,255,.8) 12px,
-transparent 14px
-);
-
-background-size:
-200px 200px,
-500px 500px;
-
-opacity:.6;
-
-animation:
-bubbleFloat 60s linear infinite;
-
-z-index:-17;
+overflow:hidden;
 
 }
 
-@keyframes bubbleFloat{
+.aero-bubbles::before,
+.aero-bubbles::after{
 
-from{
+content:"";
+
+position:absolute;
+
+width:240px;
+height:240px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(
+rgba(255,255,255,.5),
+rgba(255,255,255,.08)
+);
+
+backdrop-filter:
+blur(10px);
+
+animation:
+floatBubble 12s infinite ease-in-out;
+
+}
+
+.aero-bubbles::before{
+
+top:20%;
+left:15%;
+
+}
+
+.aero-bubbles::after{
+
+bottom:10%;
+right:12%;
+
+animation-delay:6s;
+
+}
+
+@keyframes floatBubble{
+
+0%{
 
 transform:
 translateY(0px);
 
 }
 
+50%{
+
+transform:
+translateY(-40px);
+
+}
+
+100%{
+
+transform:
+translateY(0px);
+
+}
+
+}
+
+/* =========================================
+CLOUDS
+========================================= */
+
+.aero-clouds{
+
+position:fixed;
+
+inset:0;
+
+background:
+
+url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1974&auto=format&fit=crop')
+center/cover;
+
+opacity:.22;
+
+animation:
+cloudMove 60s linear infinite;
+
+}
+
+@keyframes cloudMove{
+
+from{
+
+transform:
+translateX(0);
+
+}
+
 to{
 
 transform:
-translateY(-300px);
+translateX(-120px);
 
 }
-
-}
-
-/* =========================================
-LIGHT BLOOM
-========================================= */
-
-.aero-light{
-
-position:fixed;
-
-top:-10%;
-left:50%;
-
-transform:
-translateX(-50%);
-
-width:1200px;
-height:800px;
-
-background:
-
-radial-gradient(
-ellipse,
-rgba(255,255,255,.95),
-rgba(180,240,255,.45),
-transparent 70%
-);
-
-filter:
-blur(90px);
-
-z-index:-19;
-
-}
-
-/* =========================================
-ORBS
-========================================= */
-
-.aero-orbs{
-
-position:fixed;
-inset:0;
-
-background-image:
-
-radial-gradient(
-circle at 20% 20%,
-rgba(255,255,255,.95),
-transparent 25%
-),
-
-radial-gradient(
-circle at 80% 60%,
-rgba(120,225,255,.5),
-transparent 30%
-);
-
-opacity:.75;
-
-z-index:-16;
-
-}
-
-/* =========================================
-WINDOWS
-========================================= */
-
-.app-window{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(255,255,255,.82),
-rgba(220,248,255,.48)
-);
-
-border:
-1px solid rgba(255,255,255,.95);
-
-backdrop-filter:
-blur(24px);
-
-box-shadow:
-
-0 0 35px rgba(120,225,255,.3),
-0 10px 80px rgba(120,225,255,.15);
-
-}
-
-/* =========================================
-TITLEBAR
-========================================= */
-
-.titlebar{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(255,255,255,.95),
-rgba(180,240,255,.55)
-);
-
-border-bottom:
-1px solid rgba(255,255,255,.95);
-
-color:#169cff;
-
-}
-
-/* =========================================
-TOPBAR
-========================================= */
-
-.topbar{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(255,255,255,.95),
-rgba(180,240,255,.55)
-);
-
-border-bottom:
-1px solid rgba(255,255,255,.9);
-
-backdrop-filter:
-blur(20px);
-
-}
-
-/* =========================================
-DESKTOP ICONS
-========================================= */
-
-.desktop-icon{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(255,255,255,.45),
-rgba(255,255,255,.12)
-);
-
-border:
-1px solid rgba(255,255,255,.65);
-
-border-radius:24px;
-
-backdrop-filter:
-blur(12px);
-
-box-shadow:
-
-0 0 20px rgba(120,225,255,.22);
-
-}
-
-/* =========================================
-PLAYER
-========================================= */
-
-#musicPlayer{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(255,255,255,.92),
-rgba(210,245,255,.78)
-);
-
-border:
-1px solid rgba(255,255,255,.95);
-
-backdrop-filter:
-blur(25px);
-
-box-shadow:
-
-0 0 35px rgba(120,225,255,.35);
-
-}
-
-/* =========================================
-PLAYER TEXT
-========================================= */
-
-#trackTitle{
-
-color:#169cff;
-
-text-shadow:
-
-0 0 8px rgba(22,156,255,.35);
-
-}
-
-#artistName{
-
-color:#357;
-
-}
-
-/* =========================================
-VISUALIZER
-========================================= */
-
-.visualizer span{
-
-background:
-
-linear-gradient(
-to top,
-#42dfff,
-#ffffff
-);
-
-box-shadow:
-
-0 0 12px rgba(255,255,255,.8);
 
 }
