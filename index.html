@@ -17,7 +17,7 @@ href="themes/rosalina.css"
 >
 
 <link
-href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Nunito:wght@400;700&family=Quicksand:wght@400;700&display=swap"
+href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Nunito:wght@400;700&family=Orbitron:wght@400;700&display=swap"
 rel="stylesheet"
 >
 
@@ -25,67 +25,129 @@ rel="stylesheet"
 
 <body class="theme-rosalina">
 
-<!-- ========================================= -->
+<!-- ===================================== -->
 <!-- BACKGROUND -->
-<!-- ========================================= -->
+<!-- ===================================== -->
 
-<div id="themeBackground"></div>
+<div id="themeBackground">
 
-<!-- ========================================= -->
-<!-- FLOATING ORBS -->
-<!-- ========================================= -->
+<div class="stars"></div>
+<div class="fog"></div>
+<div class="gradient"></div>
 
-<div class="overlay"></div>
+</div>
 
-<!-- ========================================= -->
-<!-- MAIN CONTAINER -->
-<!-- ========================================= -->
+<!-- ===================================== -->
+<!-- FLOATING PARTICLES -->
+<!-- ===================================== -->
 
-<div class="site-shell">
+<div class="particles"></div>
 
-<!-- ========================================= -->
-<!-- TOPBAR -->
-<!-- ========================================= -->
+<!-- ===================================== -->
+<!-- MAIN WRAPPER -->
+<!-- ===================================== -->
 
-<header class="topbar">
+<div class="world">
 
-<div class="logo">
+<!-- ===================================== -->
+<!-- NAV -->
+<!-- ===================================== -->
+
+<header class="navbar">
+
+<div class="site-logo">
 
 Bunny.exe
 
 </div>
 
-<nav class="top-nav">
+<nav class="nav-links">
 
-<button onclick="setTheme('rosalina')">
-Rosalina
-</button>
+<a href="index.html">
+Home
+</a>
 
-<button onclick="setTheme('aero')">
-Aero
-</button>
+<a href="music.html">
+Music
+</a>
 
-<button onclick="setTheme('vaporwave')">
-Vaporwave
-</button>
+<a href="games.html">
+Games
+</a>
+
+<a href="shows.html">
+Shows
+</a>
+
+<a href="fandoms.html">
+Fandoms
+</a>
+
+<a href="blog.html">
+Blog
+</a>
+
+<a href="guestbook.html">
+Guestbook
+</a>
 
 </nav>
 
+<div class="theme-switcher">
+
+<button data-theme="rosalina">
+Rosalina
+</button>
+
+<button data-theme="aero">
+Aero
+</button>
+
+<button data-theme="vaporwave">
+Vaporwave
+</button>
+
+</div>
+
 </header>
 
-<!-- ========================================= -->
-<!-- GRID -->
-<!-- ========================================= -->
+<!-- ===================================== -->
+<!-- HERO -->
+<!-- ===================================== -->
 
-<div class="layout">
+<section class="hero">
 
-<!-- ========================================= -->
+<div class="hero-glow"></div>
+
+<h1>
+
+Bunny.exe
+
+</h1>
+
+<p>
+
+A dreamy digital universe filled with
+music, games, anime, aesthetics,
+hyperfixations, and weird internet energy.
+
+</p>
+
+</section>
+
+<!-- ===================================== -->
+<!-- MAIN GRID -->
+<!-- ===================================== -->
+
+<div class="main-grid">
+
+<!-- ===================================== -->
 <!-- LEFT -->
-<!-- ========================================= -->
+<!-- ===================================== -->
 
 <aside class="sidebar">
 
-<div class="panel profile-panel">
+<div class="floating-card profile-card">
 
 <img
 class="avatar"
@@ -94,118 +156,152 @@ src="https://i.imgur.com/8Km9tLL.gif"
 
 <h2>Bunny</h2>
 
-<p class="status">
+<span class="status">
 
 Listening to strange music...
 
-</p>
+</span>
 
 </div>
 
-<div class="panel">
+<div class="floating-card">
 
-<h3>Hyperfixations</h3>
+<h3>Current Hyperfixations</h3>
 
 <ul>
 
 <li>Mario Galaxy</li>
+<li>Serial Experiments Lain</li>
+<li>Breakcore</li>
 <li>Vocaloid</li>
-<li>Retro aesthetics</li>
-<li>Rhythm games</li>
-<li>Anime</li>
+<li>Dreamcore aesthetics</li>
 
 </ul>
 
 </div>
 
-<div class="panel">
+<div class="floating-card">
 
 <h3>Links</h3>
 
-<a href="#">Backloggd</a>
-<a href="#">TV Time</a>
-<a href="#">Spotify</a>
-<a href="#">Last.fm</a>
+<a href="#">
+Backloggd
+</a>
+
+<a href="#">
+TV Time
+</a>
+
+<a href="#">
+Spotify
+</a>
+
+<a href="#">
+Last.fm
+</a>
 
 </div>
 
 </aside>
 
-<!-- ========================================= -->
+<!-- ===================================== -->
 <!-- CENTER -->
-<!-- ========================================= -->
+<!-- ===================================== -->
 
-<main class="main-column">
+<main class="content">
 
-<section class="hero">
+<div class="floating-card large-card">
 
-<h1>Bunny.exe</h1>
-
-<p>
-
-Digital bedroom filled with games,
-music, anime, weird aesthetics,
-and internet junk.
-
-</p>
-
-</section>
-
-<section class="panel">
-
-<h3>About Me</h3>
+<h2>About This World</h2>
 
 <p>
 
-Welcome to my weird little corner
-of the internet.
-
-This site is inspired by:
+This site is a personal digital universe
+inspired by:
 Wii menus,
-retro internet aesthetics,
 space observatories,
-Vista-era design,
-and neon cyber lounges.
+retro internet aesthetics,
+dreamy media rooms,
+and neon lounges.
+
+Every theme transforms the atmosphere
+into a completely different world.
 
 </p>
 
-</section>
-
-<section class="panel">
-
-<h3>Current Favorites</h3>
-
-<div class="cards">
-
-<div class="mini-card">
-Mario Galaxy
 </div>
 
-<div class="mini-card">
-Serial Experiments Lain
-</div>
+<div class="card-grid">
 
-<div class="mini-card">
-Hatsune Miku
-</div>
+<div class="floating-card mini-card">
 
-<div class="mini-card">
-Breakcore
-</div>
+<h3>Music Lounge</h3>
+
+<p>
+
+Floating playlists,
+genre galaxies,
+and late-night listening sessions.
+
+</p>
 
 </div>
 
-</section>
+<div class="floating-card mini-card">
+
+<h3>Arcade Nexus</h3>
+
+<p>
+
+Favorite games,
+screenshots,
+OSTs,
+and digital arcades.
+
+</p>
+
+</div>
+
+<div class="floating-card mini-card">
+
+<h3>Media Theater</h3>
+
+<p>
+
+Anime,
+shows,
+movies,
+and comfort media archives.
+
+</p>
+
+</div>
+
+<div class="floating-card mini-card">
+
+<h3>Shrine Hall</h3>
+
+<p>
+
+Fandom pages,
+character shrines,
+and hyperfixation dumps.
+
+</p>
+
+</div>
+
+</div>
 
 </main>
 
-<!-- ========================================= -->
+<!-- ===================================== -->
 <!-- RIGHT -->
-<!-- ========================================= -->
+<!-- ===================================== -->
 
 <aside class="sidebar">
 
-<div class="panel player-panel">
+<div class="floating-card music-player">
 
 <h3>Now Playing</h3>
 
@@ -236,9 +332,9 @@ id="youtubeInput"
 placeholder="paste youtube link"
 >
 
-<button onclick="loadSong()">
+<button id="loadSongButton">
 
-LOAD SONG
+Load Song
 
 </button>
 
@@ -246,20 +342,19 @@ LOAD SONG
 
 </div>
 
-<div class="panel">
+<div class="floating-card">
 
 <h3>Status</h3>
 
 <p>
 
-Building cool stuff and collecting
-hyperfixations.
+Building digital dream spaces.
 
 </p>
 
 </div>
 
-<div class="panel">
+<div class="floating-card">
 
 <h3>Visitor Counter</h3>
 
