@@ -4,168 +4,99 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Bunny.exe</title>
 
-<link
-rel="stylesheet"
-href="style.css"
->
+<link rel="stylesheet" href="style.css">
 
 <link
 id="themeStylesheet"
 rel="stylesheet"
-href="themes/vaporwave.css"
+href="themes/rosalina.css"
 >
 
 <link
-href="https://fonts.googleapis.com/css2?family=VT323&family=Orbitron:wght@400;700&family=Nunito:wght@400;700&display=swap"
+href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Nunito:wght@400;700&family=Quicksand:wght@400;700&display=swap"
 rel="stylesheet"
 >
 
 </head>
 
-<body class="theme-vaporwave">
+<body class="theme-rosalina">
+
+<!-- ========================================= -->
+<!-- BACKGROUND -->
+<!-- ========================================= -->
 
 <div id="themeBackground"></div>
 
-<!-- ===================================== -->
-<!-- TOP MARQUEE -->
-<!-- ===================================== -->
+<!-- ========================================= -->
+<!-- FLOATING ORBS -->
+<!-- ========================================= -->
 
-<div class="top-marquee">
+<div class="overlay"></div>
 
-<marquee
-scrollamount="8"
-behavior="scroll"
->
+<!-- ========================================= -->
+<!-- MAIN CONTAINER -->
+<!-- ========================================= -->
 
-★ Bunny.exe ★ Welcome to my internet bedroom ★ Hyperfixation central ★ Under permanent construction ★
+<div class="site-shell">
 
-</marquee>
+<!-- ========================================= -->
+<!-- TOPBAR -->
+<!-- ========================================= -->
 
-</div>
+<header class="topbar">
 
-<!-- ===================================== -->
-<!-- MAIN PROFILE -->
-<!-- ===================================== -->
+<div class="logo">
 
-<div class="profile-layout">
-
-<!-- ===================================== -->
-<!-- LEFT -->
-<!-- ===================================== -->
-
-<div class="sidebar left-sidebar">
-
-<div class="panel">
-
-<div class="panel-title">
-PROFILE.EXE
-</div>
-
-<img
-class="pfp"
-src="https://i.imgur.com/8Km9tLL.gif"
->
-
-<div class="status">
-Listening to strange music...
-</div>
+Bunny.exe
 
 </div>
 
-<div class="panel">
+<nav class="top-nav">
 
-<div class="panel-title">
-THEMES
-</div>
-
-<button onclick="setTheme('vaporwave')">
-VAPORWAVE
+<button onclick="setTheme('rosalina')">
+Rosalina
 </button>
 
 <button onclick="setTheme('aero')">
-FRUTIGER AERO
+Aero
 </button>
 
-<button onclick="setTheme('rosalina')">
-ROSALINA
+<button onclick="setTheme('vaporwave')">
+Vaporwave
 </button>
 
-</div>
+</nav>
 
-<div class="panel">
+</header>
 
-<div class="panel-title">
-BLINKIES
-</div>
+<!-- ========================================= -->
+<!-- GRID -->
+<!-- ========================================= -->
 
-<div class="blinkies">
+<div class="layout">
 
-<img src="https://files.catbox.moe/v7v6rd.gif">
-<img src="https://files.catbox.moe/3h4t0a.gif">
-<img src="https://files.catbox.moe/v95q0b.gif">
+<!-- ========================================= -->
+<!-- LEFT -->
+<!-- ========================================= -->
 
-</div>
+<aside class="sidebar">
 
-</div>
+<div class="panel profile-panel">
 
-<div class="panel">
+<img
+class="avatar"
+src="https://i.imgur.com/8Km9tLL.gif"
+>
 
-<div class="panel-title">
-STAMP COLLECTION
-</div>
+<h2>Bunny</h2>
 
-<div class="stamps">
+<p class="status">
 
-<img src="https://files.catbox.moe/f2mb6m.png">
-<img src="https://files.catbox.moe/1v2v2j.png">
-
-</div>
-
-</div>
-
-</div>
-
-<!-- ===================================== -->
-<!-- CENTER -->
-<!-- ===================================== -->
-
-<div class="main-column">
-
-<div class="panel hero-panel">
-
-<div class="hero-title">
-BUNNY.EXE
-</div>
-
-<div class="hero-subtitle">
-
-Digital landfill of hyperfixations,
-music, games, anime, and internet junk.
-
-</div>
-
-</div>
-
-<div class="panel">
-
-<div class="panel-title">
-ABOUT ME
-</div>
-
-<p>
-
-Hi hello welcome to my weird little profile.
-
-I like:
-anime, Vocaloid, weird web aesthetics,
-retro internet junk, rhythm games,
-old forums, music collecting,
-and making cursed playlists at 3am.
+Listening to strange music...
 
 </p>
 
@@ -173,18 +104,15 @@ and making cursed playlists at 3am.
 
 <div class="panel">
 
-<div class="panel-title">
-CURRENT HYPERFIXATIONS
-</div>
+<h3>Hyperfixations</h3>
 
 <ul>
 
-<li>Serial Experiments Lain</li>
 <li>Mario Galaxy</li>
 <li>Vocaloid</li>
-<li>Old internet aesthetics</li>
+<li>Retro aesthetics</li>
 <li>Rhythm games</li>
-<li>Hyperpop</li>
+<li>Anime</li>
 
 </ul>
 
@@ -192,59 +120,94 @@ CURRENT HYPERFIXATIONS
 
 <div class="panel">
 
-<div class="panel-title">
-FRIENDS SPACE
-</div>
+<h3>Links</h3>
 
-<div class="friends-grid">
-
-<div class="friend-card">
-
-<img src="https://i.imgur.com/WxNkK7J.png">
-
-<div>
-Mika
-</div>
-
-<a href="#">
-Visit Profile
-</a>
+<a href="#">Backloggd</a>
+<a href="#">TV Time</a>
+<a href="#">Spotify</a>
+<a href="#">Last.fm</a>
 
 </div>
 
-<div class="friend-card">
+</aside>
 
-<img src="https://i.imgur.com/WxNkK7J.png">
+<!-- ========================================= -->
+<!-- CENTER -->
+<!-- ========================================= -->
 
-<div>
-Ren
+<main class="main-column">
+
+<section class="hero">
+
+<h1>Bunny.exe</h1>
+
+<p>
+
+Digital bedroom filled with games,
+music, anime, weird aesthetics,
+and internet junk.
+
+</p>
+
+</section>
+
+<section class="panel">
+
+<h3>About Me</h3>
+
+<p>
+
+Welcome to my weird little corner
+of the internet.
+
+This site is inspired by:
+Wii menus,
+retro internet aesthetics,
+space observatories,
+Vista-era design,
+and neon cyber lounges.
+
+</p>
+
+</section>
+
+<section class="panel">
+
+<h3>Current Favorites</h3>
+
+<div class="cards">
+
+<div class="mini-card">
+Mario Galaxy
 </div>
 
-<a href="#">
-Visit Profile
-</a>
+<div class="mini-card">
+Serial Experiments Lain
+</div>
 
+<div class="mini-card">
+Hatsune Miku
+</div>
+
+<div class="mini-card">
+Breakcore
 </div>
 
 </div>
 
-</div>
+</section>
 
-</div>
+</main>
 
-<!-- ===================================== -->
+<!-- ========================================= -->
 <!-- RIGHT -->
-<!-- ===================================== -->
+<!-- ========================================= -->
 
-<div class="sidebar right-sidebar">
+<aside class="sidebar">
 
-<div class="panel music-panel">
+<div class="panel player-panel">
 
-<div class="panel-title">
-NOW PLAYING
-</div>
-
-<div class="fake-player">
+<h3>Now Playing</h3>
 
 <div class="player-screen">
 
@@ -279,17 +242,26 @@ LOAD SONG
 
 </button>
 
-</div>
-
 <div id="youtubeEmbed"></div>
 
 </div>
 
 <div class="panel">
 
-<div class="panel-title">
-VISITOR COUNT
+<h3>Status</h3>
+
+<p>
+
+Building cool stuff and collecting
+hyperfixations.
+
+</p>
+
 </div>
+
+<div class="panel">
+
+<h3>Visitor Counter</h3>
 
 <div class="counter">
 
@@ -299,29 +271,7 @@ VISITOR COUNT
 
 </div>
 
-<div class="panel">
-
-<div class="panel-title">
-LINKS
-</div>
-
-<a href="#">
-Last.fm
-</a>
-
-<a href="#">
-Spotify
-</a>
-
-<a href="#">
-Backloggd
-</a>
-
-<a href="#">
-TV Time
-</a>
-
-</div>
+</aside>
 
 </div>
 
