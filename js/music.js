@@ -5,25 +5,55 @@ window.addEventListener(
 const button =
 
 document.getElementById(
-"loadSongButton"
+"loadMusic"
 );
 
 button.addEventListener(
 "click",
-loadSong
+loadMusic
 );
 
-});
+}
+);
 
-function loadSong(){
+function loadMusic(){
 
 const input =
 
 document.getElementById(
-"youtubeInput"
+"musicInput"
 ).value;
 
-if(!input) return;
+const frame =
+
+document.getElementById(
+"musicFrame"
+);
+
+const status =
+
+document.querySelector(
+".music-status"
+);
+
+if(!input){
+
+status.innerText =
+"No link detected.";
+
+return;
+
+}
+
+/* ===================================== */
+/* YOUTUBE */
+/* ===================================== */
+
+if(
+input.includes("youtube.com")
+||
+input.includes("youtu.be")
+){
 
 let videoId = "";
 
@@ -48,23 +78,63 @@ videoId.split("&")[0];
 
 }
 
-document.getElementById(
-"songTitle"
-).innerText =
-"NOW PLAYING :: " + videoId;
+frame.src =
 
-document.getElementById(
-"youtubeEmbed"
-).innerHTML =
+`https://www.youtube.com/embed/${videoId}?autoplay=1`;
 
-`
-<iframe
-width="0"
-height="0"
-src="https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1"
-allow="autoplay"
->
-</iframe>
-`;
+status.innerText =
+"YouTube transmission loaded.";
+
+}
+
+/* ===================================== */
+/* SPOTIFY */
+/* ===================================== */
+
+else if(
+input.includes("spotify.com")
+){
+
+const embedLink =
+
+input.replace(
+"open.spotify.com",
+"open.spotify.com/embed"
+);
+
+frame.src = embedLink;
+
+status.innerText =
+"Spotify signal connected.";
+
+}
+
+/* ===================================== */
+/* SOUNDCLOUD */
+/* ===================================== */
+
+else if(
+input.includes("soundcloud.com")
+){
+
+frame.src =
+
+`https://w.soundcloud.com/player/?url=${encodeURIComponent(input)}`;
+
+status.innerText =
+"SoundCloud frequency connected.";
+
+}
+
+/* ===================================== */
+/* INVALID */
+/* ===================================== */
+
+else{
+
+status.innerText =
+"Unknown transmission format.";
+
+}
 
 }
