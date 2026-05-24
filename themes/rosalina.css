@@ -3,9 +3,9 @@ body.theme-rosalina{
 background:
 linear-gradient(
 180deg,
-#050816,
-#0f1838,
-#182b59
+#030712,
+#09142d,
+#10214d
 );
 
 color:#dff6ff;
@@ -16,58 +16,99 @@ sans-serif;
 
 }
 
-.theme-rosalina #themeBackground{
+.theme-rosalina .sky-layer{
 
 background:
 
 radial-gradient(
-white 1px,
-transparent 1px
+circle at top,
+rgba(120,180,255,.25),
+transparent 50%
+),
+
+linear-gradient(
+180deg,
+#020611,
+#09142d,
+#10214d
 );
 
-background-size:
-120px 120px;
+}
 
-opacity:.3;
+.theme-rosalina .floating-logo{
 
-animation:
-stars 80s linear infinite;
+color:#dff6ff;
+
+text-shadow:
+
+0 0 20px #8ad8ff,
+0 0 60px #5ea6ff;
 
 }
 
-@keyframes stars{
-
-from{
-
-transform:
-translateY(0);
-
-}
-
-to{
-
-transform:
-translateY(120px);
-
-}
-
-}
-
-.theme-rosalina .topbar,
-.theme-rosalina .panel,
-.theme-rosalina .hero{
+.theme-rosalina .portal{
 
 background:
-rgba(15,25,55,.65);
-
-backdrop-filter:
-blur(12px);
+rgba(12,20,45,.45);
 
 border:
-1px solid rgba(255,255,255,.08);
+1px solid rgba(138,216,255,.18);
 
 box-shadow:
-0 0 40px rgba(120,170,255,.15);
+
+0 0 40px rgba(138,216,255,.12),
+
+inset 0 0 30px rgba(255,255,255,.03);
+
+}
+
+.theme-rosalina .portal-glow{
+
+background:
+
+radial-gradient(
+circle,
+rgba(138,216,255,.25),
+transparent 70%
+);
+
+}
+
+.theme-rosalina .music-orb{
+
+background:
+
+radial-gradient(
+circle,
+rgba(138,216,255,.18),
+transparent 70%
+);
+
+}
+
+.theme-rosalina .orb-core{
+
+background:#8ad8ff;
+
+}
+
+.theme-rosalina .orb-ring{
+
+border-color:
+rgba(138,216,255,.4);
+
+}
+
+.theme-rosalina .profile-shrine{
+
+background:
+rgba(10,18,40,.55);
+
+border:
+1px solid rgba(138,216,255,.12);
+
+box-shadow:
+0 0 30px rgba(138,216,255,.12);
 
 }
 
@@ -76,8 +117,8 @@ box-shadow:
 background:
 linear-gradient(
 180deg,
-#79b8ff,
-#4d79ff
+#8ad8ff,
+#5ea6ff
 );
 
 color:white;
@@ -90,20 +131,6 @@ background:
 rgba(255,255,255,.08);
 
 color:white;
-
-}
-
-.theme-rosalina .player-screen,
-.theme-rosalina .mini-card{
-
-background:
-rgba(255,255,255,.05);
-
-}
-
-.theme-rosalina a{
-
-color:#8ad8ff;
 
 }
 
