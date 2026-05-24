@@ -13,18 +13,30 @@ document.getElementById(
 
 bg.innerHTML = "";
 
-/* LOAD CSS FILE */
+/* LOAD CSS */
 
 document.getElementById(
 "themeStylesheet"
 ).href =
 `themes/${theme}.css`;
 
+/* REMOVE OLD BODY CLASSES */
+
+document.body.classList.remove(
+"theme-vaporwave",
+"theme-aero",
+"theme-rosalina"
+);
+
 /* =========================================
 VAPORWAVE
 ========================================= */
 
 if(theme === "vaporwave"){
+
+document.body.classList.add(
+"theme-vaporwave"
+);
 
 document.body.style.fontFamily =
 "'Orbitron', sans-serif";
@@ -44,11 +56,18 @@ bg.innerHTML = `
 <div class="vapor-palms"></div>
 
 `;
+
+}
+
 /* =========================================
 AERO
 ========================================= */
 
 if(theme === "aero"){
+
+document.body.classList.add(
+"theme-aero"
+);
 
 document.body.style.fontFamily =
 "'Nunito', sans-serif";
@@ -70,6 +89,10 @@ ROSALINA
 ========================================= */
 
 if(theme === "rosalina"){
+
+document.body.classList.add(
+"theme-rosalina"
+);
 
 document.body.style.fontFamily =
 "'VT323', monospace";
@@ -110,3 +133,31 @@ localStorage.getItem(
 "vaporwave";
 
 setTheme(savedTheme);
+
+/* =========================================
+OPTIONAL PARALLAX
+========================================= */
+
+document.addEventListener(
+"mousemove",
+(e)=>{
+
+const x =
+(e.clientX / window.innerWidth -.5) * 20;
+
+const y =
+(e.clientY / window.innerHeight -.5) * 20;
+
+document.querySelectorAll(
+
+".vapor-fog, .rosa-nebula, .aero-light"
+
+).forEach(layer=>{
+
+layer.style.transform =
+
+`translate(${x}px, ${y}px)`;
+
+});
+
+});
