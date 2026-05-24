@@ -11,13 +11,11 @@ localStorage.setItem(
 theme
 );
 
-const stylesheet =
-
-document.getElementById(
+document
+.getElementById(
 "themeStylesheet"
-);
-
-stylesheet.href =
+)
+.href =
 `themes/${theme}.css`;
 
 }
@@ -30,6 +28,6 @@ localStorage.getItem(
 
 ||
 
-"vaporwave";
+"rosalina";
 
 setTheme(savedTheme);
