@@ -3,44 +3,382 @@ body.theme-aero{
 background:
 linear-gradient(
 180deg,
-#9de4ff,
-#e9fcff
+#b7ecff,
+#e8fbff,
+#ffffff
 );
 
-color:#003049;
+color:#12405f;
 
 font-family:
 "Nunito",
 sans-serif;
 
+overflow-x:hidden;
+
 }
 
-.theme-aero #themeBackground{
+/* ===================================== */
+/* SKY */
+/* ===================================== */
+
+.theme-aero .sky-layer{
 
 background:
 
 radial-gradient(
-rgba(255,255,255,.6),
-transparent 60%
+circle at top,
+rgba(255,255,255,.95),
+transparent 45%
+),
+
+linear-gradient(
+180deg,
+#8fdfff,
+#dff8ff,
+#ffffff
 );
 
 }
 
-.theme-aero .topbar,
-.theme-aero .panel,
-.theme-aero .hero{
+/* ===================================== */
+/* CLOUD FOG */
+/* ===================================== */
+
+.theme-aero .fog-layer{
 
 background:
-rgba(255,255,255,.55);
 
-backdrop-filter:
-blur(14px);
+radial-gradient(
+circle at 20% 20%,
+rgba(255,255,255,.95),
+transparent 35%
+),
+
+radial-gradient(
+circle at 80% 40%,
+rgba(255,255,255,.8),
+transparent 40%
+),
+
+radial-gradient(
+circle at 50% 80%,
+rgba(255,255,255,.7),
+transparent 45%
+);
+
+filter:blur(60px);
+
+opacity:.9;
+
+animation:
+aeroClouds 40s ease-in-out infinite;
+
+}
+
+@keyframes aeroClouds{
+
+0%{
+
+transform:
+translateX(0px)
+translateY(0px);
+
+}
+
+50%{
+
+transform:
+translateX(-50px)
+translateY(15px);
+
+}
+
+100%{
+
+transform:
+translateX(0px)
+translateY(0px);
+
+}
+
+}
+
+/* ===================================== */
+/* BUBBLES */
+/* ===================================== */
+
+.theme-aero .particles-layer::before{
+
+background-image:
+radial-gradient(
+rgba(255,255,255,.7) 3px,
+transparent 3px
+);
+
+background-size:
+180px 180px;
+
+opacity:.35;
+
+animation:
+bubbleFloat 70s linear infinite;
+
+}
+
+.theme-aero .particles-layer::after{
+
+background-image:
+radial-gradient(
+rgba(180,240,255,.4) 4px,
+transparent 4px
+);
+
+background-size:
+240px 240px;
+
+opacity:.2;
+
+animation:
+bubbleFloat2 100s linear infinite;
+
+}
+
+@keyframes bubbleFloat{
+
+from{
+
+transform:
+translateY(0px)
+translateX(0px);
+
+}
+
+to{
+
+transform:
+translateY(-250px)
+translateX(120px);
+
+}
+
+}
+
+@keyframes bubbleFloat2{
+
+from{
+
+transform:
+translateY(0px)
+translateX(0px);
+
+}
+
+to{
+
+transform:
+translateY(-350px)
+translateX(-140px);
+
+}
+
+}
+
+/* ===================================== */
+/* LOGO */
+/* ===================================== */
+
+.theme-aero .floating-logo{
+
+color:#ffffff;
+
+text-shadow:
+
+0 0 20px rgba(255,255,255,.9),
+
+0 0 40px rgba(120,220,255,.8),
+
+0 0 80px rgba(120,220,255,.5);
+
+}
+
+/* ===================================== */
+/* OBSERVATORY */
+/* ===================================== */
+
+.theme-aero .hero-text h1{
+
+color:#ffffff;
+
+text-shadow:
+
+0 0 20px rgba(255,255,255,.9),
+
+0 0 50px rgba(120,220,255,.6);
+
+}
+
+.theme-aero .hero-text p{
+
+color:#1e5d85;
+
+}
+
+/* ===================================== */
+/* PORTALS */
+/* ===================================== */
+
+.theme-aero .portal{
+
+background:
+linear-gradient(
+180deg,
+rgba(255,255,255,.5),
+rgba(220,245,255,.28)
+);
 
 border:
-1px solid rgba(255,255,255,.7);
+1px solid rgba(255,255,255,.75);
 
 box-shadow:
-0 0 30px rgba(255,255,255,.7);
+
+0 0 40px rgba(255,255,255,.8),
+
+0 0 80px rgba(120,220,255,.3),
+
+inset 0 0 30px rgba(255,255,255,.5);
+
+backdrop-filter:
+blur(25px);
+
+}
+
+/* ===================================== */
+/* PORTAL GLOW */
+/* ===================================== */
+
+.theme-aero .portal-glow{
+
+background:
+
+radial-gradient(
+circle,
+rgba(255,255,255,.8),
+transparent 70%
+);
+
+}
+
+/* ===================================== */
+/* PORTAL TEXT */
+/* ===================================== */
+
+.theme-aero .portal h2{
+
+color:#1670a6;
+
+text-shadow:
+0 0 10px rgba(255,255,255,.7);
+
+}
+
+.theme-aero .portal span{
+
+color:#2f6f96;
+
+}
+
+/* ===================================== */
+/* MUSIC ORB */
+/* ===================================== */
+
+.theme-aero .music-orb{
+
+background:
+
+radial-gradient(
+circle,
+rgba(255,255,255,.5),
+transparent 70%
+);
+
+box-shadow:
+
+0 0 60px rgba(255,255,255,.8),
+
+0 0 120px rgba(120,220,255,.25);
+
+}
+
+/* ===================================== */
+/* ORB CORE */
+/* ===================================== */
+
+.theme-aero .orb-core{
+
+background:
+
+radial-gradient(
+circle,
+#ffffff,
+#9be8ff
+);
+
+box-shadow:
+
+0 0 40px rgba(255,255,255,.9),
+
+0 0 80px rgba(120,220,255,.6);
+
+}
+
+/* ===================================== */
+/* ORB RING */
+/* ===================================== */
+
+.theme-aero .orb-ring{
+
+border-color:
+rgba(255,255,255,.85);
+
+box-shadow:
+0 0 30px rgba(255,255,255,.6);
+
+}
+
+/* ===================================== */
+/* PLAYER */
+/* ===================================== */
+
+.theme-aero .player-ui{
+
+color:#1c5b81;
+
+}
+
+.theme-aero .visualizer span{
+
+background:
+linear-gradient(
+180deg,
+#ffffff,
+#66d7ff
+);
+
+box-shadow:
+0 0 10px rgba(255,255,255,.8);
+
+}
+
+.theme-aero input{
+
+background:
+rgba(255,255,255,.7);
+
+color:#12405f;
+
+box-shadow:
+0 0 15px rgba(255,255,255,.6);
 
 }
 
@@ -49,36 +387,112 @@ box-shadow:
 background:
 linear-gradient(
 180deg,
-#dff9ff,
-#7fdcff
+#ffffff,
+#8de4ff
 );
 
-color:#004766;
+color:#12557c;
+
+box-shadow:
+
+0 0 20px rgba(255,255,255,.7),
+
+inset 0 0 10px rgba(255,255,255,.8);
 
 }
 
-.theme-aero input{
+/* ===================================== */
+/* PROFILE SHRINE */
+/* ===================================== */
 
-background:white;
-
-}
-
-.theme-aero .player-screen,
-.theme-aero .mini-card{
+.theme-aero .profile-shrine{
 
 background:
-rgba(255,255,255,.45);
+linear-gradient(
+180deg,
+rgba(255,255,255,.55),
+rgba(220,245,255,.3)
+);
+
+border:
+1px solid rgba(255,255,255,.8);
+
+box-shadow:
+
+0 0 40px rgba(255,255,255,.7),
+
+0 0 90px rgba(120,220,255,.2);
 
 }
 
-.theme-aero a{
+.theme-aero .profile-info h2{
 
-color:#0077ff;
+color:#1670a6;
 
 }
 
-.theme-aero .visualizer span{
+.theme-aero .profile-info p{
 
-background:#00bfff;
+color:#346f91;
+
+}
+
+/* ===================================== */
+/* ALTAR BUTTONS */
+/* ===================================== */
+
+.theme-aero .theme-altars button{
+
+background:
+linear-gradient(
+180deg,
+#ffffff,
+#9de6ff
+);
+
+color:#14597d;
+
+border:
+1px solid rgba(255,255,255,.9);
+
+box-shadow:
+
+0 0 20px rgba(255,255,255,.7),
+
+inset 0 0 10px rgba(255,255,255,.8);
+
+}
+
+/* ===================================== */
+/* DREAM LIGHT */
+/* ===================================== */
+
+.theme-aero body::after{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+background:
+
+radial-gradient(
+circle at top,
+rgba(255,255,255,.5),
+transparent 50%
+),
+
+radial-gradient(
+circle at bottom,
+rgba(120,220,255,.15),
+transparent 60%
+);
+
+mix-blend-mode:screen;
+
+opacity:.8;
 
 }
