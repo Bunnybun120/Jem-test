@@ -17,7 +17,7 @@ href="themes/rosalina.css"
 >
 
 <link
-href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Orbitron:wght@400;700&family=VT323&family=Quicksand:wght@400;700&family=Great+Vibes&display=swap"
+href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=VT323&family=Nunito:wght@400;700&display=swap"
 rel="stylesheet"
 >
 
@@ -25,29 +25,17 @@ rel="stylesheet"
 
 <body class="theme-rosalina">
 
-<!-- ===================================== -->
 <!-- BACKGROUND -->
-<!-- ===================================== -->
 
-<div id="background">
+<div class="background">
 
-<div class="bg-layer bg-back"></div>
-<div class="bg-layer bg-mid"></div>
-<div class="bg-layer bg-front"></div>
-
-<div class="particles"></div>
+<div class="background-overlay"></div>
 
 </div>
 
-<!-- ===================================== -->
-<!-- WORLD -->
-<!-- ===================================== -->
+<!-- NAV -->
 
-<div class="world">
-
-<!-- ===================================== -->
-<!-- LOGO -->
-<!-- ===================================== -->
+<header class="topbar">
 
 <div class="logo">
 
@@ -55,146 +43,20 @@ Bunny.exe
 
 </div>
 
-<!-- ===================================== -->
-<!-- MAIN SCENE -->
-<!-- ===================================== -->
+<nav class="nav">
 
-<section class="scene">
+<a href="index.html">Home</a>
+<a href="music.html">Music</a>
+<a href="games.html">Games</a>
+<a href="shows.html">Shows</a>
+<a href="fandoms.html">Fandoms</a>
+<a href="blog.html">Blog</a>
+<a href="guestbook.html">Guestbook</a>
+<a href="chatroom.html">Chatroom</a>
 
-<div class="environment"></div>
+</nav>
 
-<!-- ===================================== -->
-<!-- NAVIGATION -->
-<!-- ===================================== -->
-
-<a class="world-link music-link" href="music.html">
-
-<span>Music Lounge</span>
-
-</a>
-
-<a class="world-link games-link" href="games.html">
-
-<span>Arcade Nexus</span>
-
-</a>
-
-<a class="world-link shows-link" href="shows.html">
-
-<span>Media Theater</span>
-
-</a>
-
-<a class="world-link fandoms-link" href="fandoms.html">
-
-<span>Shrine Hall</span>
-
-</a>
-
-<a class="world-link blog-link" href="blog.html">
-
-<span>Dream Journal</span>
-
-</a>
-
-<a class="world-link guestbook-link" href="guestbook.html">
-
-<span>Visitor Terminal</span>
-
-</a>
-
-<a class="world-link chatroom-link" href="chatroom.html">
-
-<span>Chatroom</span>
-
-</a>
-
-</section>
-
-<!-- ===================================== -->
-<!-- MUSIC PLAYER -->
-<!-- ===================================== -->
-
-<section class="music-player">
-
-<div class="player-glow"></div>
-
-<h2>
-
-Now Playing
-
-</h2>
-
-<input
-id="musicInput"
-placeholder="paste spotify / soundcloud / youtube link"
->
-
-<button id="loadMusic">
-
-Load Music
-
-</button>
-
-<div class="music-status">
-
-Waiting for transmission...
-
-</div>
-
-<audio
-id="audioPlayer"
-controls
-style="display:none;"
-></audio>
-
-<iframe
-id="musicFrame"
-allow="autoplay"
-allowfullscreen
-></iframe>
-
-</section>
-
-<!-- ===================================== -->
-<!-- PROFILE -->
-<!-- ===================================== -->
-
-<section class="profile-area">
-
-<img
-class="pfp"
-src="https://i.imgur.com/8Km9tLL.gif"
->
-
-<div class="profile-text">
-
-<h2>
-
-Bunny
-
-</h2>
-
-<p>
-
-A drifting archive of games,
-music,
-anime,
-internet aesthetics,
-dream worlds,
-and strange hyperfixations.
-
-</p>
-
-</div>
-
-</section>
-
-<!-- ===================================== -->
-<!-- THEMES -->
-<!-- ===================================== -->
-
-<div class="theme-switcher">
+<div class="theme-buttons">
 
 <button data-theme="rosalina">
 
@@ -216,10 +78,81 @@ Vaporwave
 
 </div>
 
-</div>
+</header>
+
+<!-- MAIN -->
+
+<main class="landing">
+
+<section class="hero">
+
+<h1>
+
+Welcome To Bunny.exe
+
+</h1>
+
+<p>
+
+A dreamy internet world full of music,
+games,
+anime,
+aesthetics,
+and digital nostalgia.
+
+</p>
+
+</section>
+
+<section class="portal-grid">
+
+<a href="music.html" class="portal">
+
+Music Lounge
+
+</a>
+
+<a href="games.html" class="portal">
+
+Arcade Nexus
+
+</a>
+
+<a href="shows.html" class="portal">
+
+Media Theater
+
+</a>
+
+<a href="fandoms.html" class="portal">
+
+Shrine Hall
+
+</a>
+
+<a href="blog.html" class="portal">
+
+Dream Journal
+
+</a>
+
+<a href="guestbook.html" class="portal">
+
+Visitor Terminal
+
+</a>
+
+<a href="chatroom.html" class="portal">
+
+Chatroom
+
+</a>
+
+</section>
+
+</main>
 
 <script src="theme.js"></script>
-<script src="music.js"></script>
 
 </body>
 </html>
