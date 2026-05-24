@@ -1,3 +1,20 @@
+window.addEventListener(
+"DOMContentLoaded",
+() => {
+
+const button =
+
+document.getElementById(
+"loadSongButton"
+);
+
+button.addEventListener(
+"click",
+loadSong
+);
+
+});
+
 function loadSong(){
 
 const input =
