@@ -17,7 +17,7 @@ href="themes/rosalina.css"
 >
 
 <link
-href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Nunito:wght@400;700&family=Orbitron:wght@400;700&display=swap"
+href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Orbitron:wght@400;700&family=VT323&family=Quicksand:wght@400;700&family=Great+Vibes&display=swap"
 rel="stylesheet"
 >
 
@@ -26,15 +26,16 @@ rel="stylesheet"
 <body class="theme-rosalina">
 
 <!-- ===================================== -->
-<!-- WORLD BACKGROUND -->
+<!-- BACKGROUND -->
 <!-- ===================================== -->
 
-<div id="worldBackground">
+<div id="background">
 
-<div class="sky-layer"></div>
-<div class="fog-layer"></div>
-<div class="stars-layer"></div>
-<div class="particles-layer"></div>
+<div class="bg-layer bg-back"></div>
+<div class="bg-layer bg-mid"></div>
+<div class="bg-layer bg-front"></div>
+
+<div class="particles"></div>
 
 </div>
 
@@ -48,239 +49,125 @@ rel="stylesheet"
 <!-- LOGO -->
 <!-- ===================================== -->
 
-<div class="floating-logo">
+<div class="logo">
 
 Bunny.exe
 
 </div>
 
 <!-- ===================================== -->
-<!-- OBSERVATORY -->
+<!-- MAIN SCENE -->
 <!-- ===================================== -->
 
-<section class="observatory">
+<section class="scene">
 
-<div class="hero-text">
-
-<h1>
-
-Welcome To My World
-
-</h1>
-
-<p>
-
-A drifting digital dreamspace filled
-with music,
-games,
-anime,
-fandoms,
-and strange internet energy.
-
-</p>
-
-</div>
-
-</section>
+<div class="environment"></div>
 
 <!-- ===================================== -->
-<!-- FLOATING PORTALS -->
+<!-- NAVIGATION -->
 <!-- ===================================== -->
 
-<section class="portal-zone">
+<a class="world-link music-link" href="music.html">
 
-<a
-class="portal portal-music"
-href="music.html"
->
-
-<div class="portal-glow"></div>
-
-<h2>
-
-Music Lounge
-
-</h2>
-
-<span>
-
-Floating playlists and genre galaxies
-
-</span>
+<span>Music Lounge</span>
 
 </a>
 
-<a
-class="portal portal-games"
-href="games.html"
->
+<a class="world-link games-link" href="games.html">
 
-<div class="portal-glow"></div>
-
-<h2>
-
-Arcade Nexus
-
-</h2>
-
-<span>
-
-Digital arcades and game memories
-
-</span>
+<span>Arcade Nexus</span>
 
 </a>
 
-<a
-class="portal portal-shows"
-href="shows.html"
->
+<a class="world-link shows-link" href="shows.html">
 
-<div class="portal-glow"></div>
-
-<h2>
-
-Media Theater
-
-</h2>
-
-<span>
-
-Anime nights and CRT dreams
-
-</span>
+<span>Media Theater</span>
 
 </a>
 
-<a
-class="portal portal-fandoms"
-href="fandoms.html"
->
+<a class="world-link fandoms-link" href="fandoms.html">
 
-<div class="portal-glow"></div>
-
-<h2>
-
-Shrine Hall
-
-</h2>
-
-<span>
-
-Hyperfixation archives
-
-</span>
+<span>Shrine Hall</span>
 
 </a>
 
-<a
-class="portal portal-blog"
-href="blog.html"
->
+<a class="world-link blog-link" href="blog.html">
 
-<div class="portal-glow"></div>
-
-<h2>
-
-Dream Journal
-
-</h2>
-
-<span>
-
-Late-night thoughts and internet findings
-
-</span>
+<span>Dream Journal</span>
 
 </a>
 
-<a
-class="portal portal-guestbook"
-href="guestbook.html"
->
+<a class="world-link guestbook-link" href="guestbook.html">
 
-<div class="portal-glow"></div>
+<span>Visitor Terminal</span>
 
-<h2>
+</a>
 
-Visitor Terminal
+<a class="world-link chatroom-link" href="chatroom.html">
 
-</h2>
-
-<span>
-
-Leave behind a message
-
-</span>
+<span>Chatroom</span>
 
 </a>
 
 </section>
 
 <!-- ===================================== -->
-<!-- FLOATING PLAYER -->
+<!-- MUSIC PLAYER -->
 <!-- ===================================== -->
 
-<div class="music-orb">
+<section class="music-player">
 
-<div class="orb-core"></div>
+<div class="player-glow"></div>
 
-<div class="orb-ring"></div>
+<h2>
 
-<div class="player-ui">
+Now Playing
 
-<div class="player-title">
-
-NOW PLAYING
-
-</div>
-
-<marquee id="songTitle">
-
-Nothing loaded...
-
-</marquee>
-
-<div class="visualizer">
-
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-
-</div>
+</h2>
 
 <input
-id="youtubeInput"
-placeholder="paste youtube link"
+id="musicInput"
+placeholder="paste spotify / soundcloud / youtube link"
 >
 
-<button id="loadSongButton">
+<button id="loadMusic">
 
-Load Song
+Load Music
 
 </button>
 
-<div id="youtubeEmbed"></div>
+<div class="music-status">
+
+Waiting for transmission...
 
 </div>
 
-</div>
+<audio
+id="audioPlayer"
+controls
+style="display:none;"
+></audio>
+
+<iframe
+id="musicFrame"
+allow="autoplay"
+allowfullscreen
+></iframe>
+
+</section>
 
 <!-- ===================================== -->
-<!-- PROFILE SHRINE -->
+<!-- PROFILE -->
 <!-- ===================================== -->
 
-<section class="profile-shrine">
+<section class="profile-area">
 
 <img
-class="avatar"
+class="pfp"
 src="https://i.imgur.com/8Km9tLL.gif"
 >
 
-<div class="profile-info">
+<div class="profile-text">
 
 <h2>
 
@@ -290,10 +177,12 @@ Bunny
 
 <p>
 
-Collecting music,
-dream aesthetics,
-games,
-and weird internet relics.
+A drifting archive of games,
+music,
+anime,
+internet aesthetics,
+dream worlds,
+and strange hyperfixations.
 
 </p>
 
@@ -302,10 +191,10 @@ and weird internet relics.
 </section>
 
 <!-- ===================================== -->
-<!-- THEME ALTARS -->
+<!-- THEMES -->
 <!-- ===================================== -->
 
-<div class="theme-altars">
+<div class="theme-switcher">
 
 <button data-theme="rosalina">
 
