@@ -1,96 +1,16 @@
 /* =========================================
-VAPORWAVE WORLD
+BODY
 ========================================= */
 
 body{
 
 background:
 linear-gradient(
-to bottom,
-#14001f 0%,
-#220033 30%,
-#090010 100%
+180deg,
+#120018,
+#2f003b,
+#ff4fd8
 );
-
-font-family:
-'VT323',
-monospace;
-
-color:#ffd6ff;
-
-overflow-x:hidden;
-
-}
-
-/* =========================================
-SUN
-========================================= */
-
-.vapor-sun{
-
-position:fixed;
-
-top:120px;
-left:50%;
-
-transform:
-translateX(-50%);
-
-width:720px;
-height:720px;
-
-border-radius:50%;
-
-background:
-
-linear-gradient(
-to bottom,
-#fff1a8,
-#ff7adf,
-#ff3bd4
-);
-
-box-shadow:
-
-0 0 120px #ff4fd8,
-0 0 260px rgba(255,0,255,.55);
-
-opacity:.95;
-
-z-index:-20;
-
-}
-
-/* =========================================
-CITY
-========================================= */
-
-.vapor-city{
-
-position:fixed;
-
-bottom:0;
-left:0;
-
-width:100%;
-height:55vh;
-
-background-image:url(
-'https://images.unsplash.com/photo-1514565131-fce0801e5785?q=80&w=1974&auto=format&fit=crop'
-);
-
-background-size:cover;
-background-position:center;
-
-opacity:.35;
-
-filter:
-
-saturate(1.5)
-contrast(1.2)
-brightness(.75);
-
-z-index:-18;
 
 }
 
@@ -102,11 +22,11 @@ GRID
 
 position:fixed;
 
-bottom:-20%;
-left:0;
+bottom:-20vh;
+left:-50vw;
 
-width:100%;
-height:70vh;
+width:200vw;
+height:80vh;
 
 background-image:
 
@@ -122,15 +42,76 @@ transparent 2px
 );
 
 background-size:
-90px 90px;
+80px 80px;
 
 transform:
-perspective(900px)
-rotateX(80deg);
+perspective(700px)
+rotateX(78deg);
 
-opacity:.45;
+animation:
+gridMove 12s linear infinite;
 
-z-index:-17;
+opacity:.55;
+
+}
+
+@keyframes gridMove{
+
+from{
+
+transform:
+perspective(700px)
+rotateX(78deg)
+translateY(0);
+
+}
+
+to{
+
+transform:
+perspective(700px)
+rotateX(78deg)
+translateY(80px);
+
+}
+
+}
+
+/* =========================================
+SUN
+========================================= */
+
+.vapor-sun{
+
+position:fixed;
+
+top:80px;
+left:50%;
+
+transform:
+translateX(-50%);
+
+width:420px;
+height:420px;
+
+border-radius:50%;
+
+background:
+
+linear-gradient(
+180deg,
+#ffea00,
+#ff4fd8
+);
+
+box-shadow:
+
+0 0 120px #ff4fd8;
+
+filter:
+blur(1px);
+
+opacity:.9;
 
 }
 
@@ -141,72 +122,41 @@ STARS
 .vapor-stars{
 
 position:fixed;
+
 inset:0;
 
 background-image:
 
 radial-gradient(
 white 1px,
-transparent 2px
-),
-
-radial-gradient(
-rgba(255,120,255,.8) 2px,
-transparent 3px
+transparent 1px
 );
 
 background-size:
-180px 180px,
-340px 340px;
+120px 120px;
 
-opacity:.55;
+opacity:.35;
 
 animation:
-starScroll 100s linear infinite;
-
-z-index:-21;
+starDrift 40s linear infinite;
 
 }
 
-@keyframes starScroll{
+@keyframes starDrift{
 
 from{
 
 transform:
-translateY(0px);
+translateY(0);
 
 }
 
 to{
 
 transform:
-translateY(-300px);
+translateY(120px);
 
 }
-
-}
-
-/* =========================================
-FOG
-========================================= */
-
-.vapor-fog{
-
-position:fixed;
-inset:0;
-
-background:
-
-radial-gradient(
-circle at 50% 40%,
-rgba(255,0,200,.22),
-transparent 70%
-);
-
-filter:
-blur(80px);
-
-z-index:-16;
 
 }
 
@@ -217,208 +167,34 @@ VHS
 .vapor-vhs{
 
 position:fixed;
+
 inset:0;
-
-background-image:
-
-repeating-linear-gradient(
-to bottom,
-rgba(255,255,255,.03),
-rgba(255,255,255,.03) 1px,
-transparent 1px,
-transparent 3px
-);
-
-mix-blend-mode:screen;
-
-opacity:.35;
-
-animation:
-vhsMove .2s infinite;
 
 pointer-events:none;
 
-z-index:9999;
-
-}
-
-@keyframes vhsMove{
-
-0%{
-
-transform:
-translateY(0px);
-
-}
-
-100%{
-
-transform:
-translateY(2px);
-
-}
-
-}
-
-/* =========================================
-WINDOWS
-========================================= */
-
-.app-window{
-
 background:
 
 linear-gradient(
-to bottom,
-rgba(25,0,45,.9),
-rgba(8,0,20,.78)
+rgba(255,255,255,.03) 50%,
+transparent 50%
 );
 
-border:
-1px solid rgba(255,120,255,.45);
+background-size:
+100% 4px;
 
-backdrop-filter:
-blur(18px);
+mix-blend-mode:overlay;
 
-box-shadow:
+opacity:.25;
 
-0 0 25px rgba(255,0,255,.35),
-0 0 80px rgba(255,0,255,.15);
-
-}
-
-/* =========================================
-TITLEBAR
-========================================= */
-
-.titlebar{
-
-background:
-
-linear-gradient(
-to right,
-rgba(255,0,200,.4),
-rgba(120,0,255,.35)
-);
-
-border-bottom:
-1px solid rgba(255,120,255,.35);
-
-color:#ffe3fa;
+animation:
+flicker .15s infinite;
 
 }
 
-/* =========================================
-TOPBAR
-========================================= */
+@keyframes flicker{
 
-.topbar{
-
-background:
-
-linear-gradient(
-to right,
-rgba(40,0,60,.9),
-rgba(10,0,25,.8)
-);
-
-border-bottom:
-1px solid rgba(255,120,255,.35);
-
-backdrop-filter:
-blur(15px);
-
-}
-
-/* =========================================
-DESKTOP ICONS
-========================================= */
-
-.desktop-icon{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(255,0,200,.15),
-rgba(100,0,255,.08)
-);
-
-border:
-1px solid rgba(255,120,255,.25);
-
-border-radius:24px;
-
-backdrop-filter:
-blur(10px);
-
-}
-
-.desktop-icon span{
-
-color:#ffe3fa;
-
-text-shadow:
-
-0 0 8px rgba(255,0,255,.4);
-
-}
-
-/* =========================================
-PLAYER
-========================================= */
-
-#musicPlayer{
-
-background:
-
-linear-gradient(
-to bottom,
-rgba(35,0,60,.95),
-rgba(8,0,20,.88)
-);
-
-border:
-1px solid rgba(255,120,255,.45);
-
-box-shadow:
-
-0 0 25px rgba(255,0,255,.45),
-0 0 90px rgba(255,0,255,.22);
-
-}
-
-/* =========================================
-PLAYER TEXT
-========================================= */
-
-#trackTitle,
-#artistName{
-
-color:#ffe3fa;
-
-text-shadow:
-
-0 0 10px rgba(255,0,255,.45);
-
-}
-
-/* =========================================
-VISUALIZER
-========================================= */
-
-.visualizer span{
-
-background:
-
-linear-gradient(
-to top,
-#ff4fd8,
-#fff1ff
-);
-
-box-shadow:
-
-0 0 12px rgba(255,0,255,.7);
+0%{opacity:.2;}
+50%{opacity:.28;}
+100%{opacity:.2;}
 
 }
