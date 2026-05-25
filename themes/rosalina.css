@@ -16,7 +16,11 @@ serif;
 
 }
 
-.theme-rosalina .background{
+/* ===================================== */
+/* BACKGROUND */
+/* ===================================== */
+
+.theme-rosalina .background::before{
 
 background:
 
@@ -26,18 +30,87 @@ rgba(120,180,255,.2),
 transparent 45%
 ),
 
-linear-gradient(
-180deg,
-#02040d,
-#081126,
-#132850
-);
+url("../assets/backgrounds/rosalina-stars.jpg");
+
+background-size:
+cover;
+
+background-position:center;
 
 }
 
+/* ===================================== */
+/* FLOATING STARS */
+/* ===================================== */
+
+.theme-rosalina .particles::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background-image:
+
+radial-gradient(
+rgba(255,255,255,.8) 1px,
+transparent 1px
+);
+
+background-size:
+180px 180px;
+
+opacity:.35;
+
+animation:
+rosaStars 180s linear infinite;
+
+}
+
+@keyframes rosaStars{
+
+from{
+
+transform:
+translateY(0px);
+
+}
+
+to{
+
+transform:
+translateY(-1200px);
+
+}
+
+}
+
+/* ===================================== */
+/* TOPBAR */
+/* ===================================== */
+
+.theme-rosalina .topbar{
+
+background:
+rgba(5,10,25,.28);
+
+border:
+1px solid rgba(160,220,255,.15);
+
+box-shadow:
+
+0 0 40px rgba(120,180,255,.12);
+
+}
+
+/* ===================================== */
+/* LOGO */
+/* ===================================== */
+
 .theme-rosalina .logo{
 
-color:#ffffff;
+color:white;
 
 text-shadow:
 
@@ -46,34 +119,127 @@ text-shadow:
 
 }
 
-.theme-rosalina .portal{
+/* ===================================== */
+/* NAV */
+/* ===================================== */
 
-background:
-rgba(10,18,40,.45);
+.theme-rosalina .nav a{
 
-border:
-1px solid rgba(160,220,255,.15);
-
-box-shadow:
-0 0 30px rgba(120,180,255,.15);
-
-color:#edf6ff;
+color:#dff3ff;
 
 }
 
-.theme-rosalina .profile{
+.theme-rosalina .nav a:hover{
+
+color:#ffffff;
+
+}
+
+/* ===================================== */
+/* BUTTONS */
+/* ===================================== */
+
+.theme-rosalina button{
 
 background:
-rgba(10,18,40,.45);
+rgba(120,180,255,.15);
+
+color:white;
+
+}
+
+/* ===================================== */
+/* FLOAT PANELS */
+/* ===================================== */
+
+.theme-rosalina .float-panel,
+.theme-rosalina .music-player{
+
+background:
+rgba(10,18,40,.4);
 
 border:
 1px solid rgba(160,220,255,.12);
 
+box-shadow:
+
+0 0 40px rgba(120,180,255,.12);
+
 }
 
-.theme-rosalina .topbar{
+/* ===================================== */
+/* WORLD LINKS */
+/* ===================================== */
+
+.theme-rosalina .world-link{
 
 background:
-rgba(5,10,25,.35);
+rgba(10,18,40,.4);
+
+border:
+1px solid rgba(160,220,255,.12);
+
+color:#edf6ff;
+
+box-shadow:
+0 0 30px rgba(120,180,255,.12);
+
+}
+
+/* ===================================== */
+/* TITLES */
+/* ===================================== */
+
+.theme-rosalina .scene-title{
+
+text-shadow:
+
+0 0 30px rgba(140,200,255,.3);
+
+}
+
+/* CHATROOM */
+
+.theme-rosalina .chat-sidebar,
+.theme-rosalina .chat-window{
+
+background:
+rgba(10,18,40,.4);
+
+border:
+1px solid rgba(160,220,255,.12);
+
+box-shadow:
+
+0 0 40px rgba(120,180,255,.12);
+
+}
+
+.theme-rosalina .bubble{
+
+background:
+rgba(120,180,255,.08);
+
+border:
+1px solid rgba(160,220,255,.1);
+
+}
+
+.theme-rosalina .chat-input-area input{
+
+background:
+rgba(255,255,255,.08);
+
+color:white;
+
+}
+
+.theme-rosalina .chat-sidebar button,
+.theme-rosalina .chat-input-area button{
+
+background:
+rgba(120,180,255,.15);
+
+color:white;
 
 }
