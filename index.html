@@ -32,21 +32,11 @@ rel="stylesheet"
 
 <body class="theme-rosalina">
 
-<!-- ===================================== -->
-<!-- BACKGROUND -->
-<!-- ===================================== -->
-
 <div class="background">
-
-<div class="overlay"></div>
 
 <div class="particles"></div>
 
 </div>
-
-<!-- ===================================== -->
-<!-- NAVBAR -->
-<!-- ===================================== -->
 
 <header class="topbar">
 
@@ -59,25 +49,13 @@ Bunny.exe
 <nav class="nav">
 
 <a href="about.html">About</a>
-
-<a href="friends.html">Friends</a>
-
 <a href="music.html">Music</a>
-
 <a href="games.html">Games</a>
-
 <a href="shows.html">Shows</a>
-
 <a href="fandoms.html">Fandoms</a>
-
 <a href="gallery.html">Gallery</a>
-
 <a href="blog.html">Blog</a>
-
 <a href="guestbook.html">Guestbook</a>
-
-<a href="links.html">Links</a>
-
 <a href="chatroom.html">Chatroom</a>
 
 </nav>
@@ -106,118 +84,151 @@ Vaporwave
 
 </header>
 
-<!-- ===================================== -->
-<!-- MAIN -->
-<!-- ===================================== -->
-
-<main>
+<!-- HERO -->
 
 <section class="hero">
 
 <h1>
 
-Welcome To Bunny.exe
+Bunny.exe
 
 </h1>
 
 <p>
 
-A dreamy digital world full of music,
-games,
-anime,
-nostalgia,
+A drifting digital world full of music,
+dream aesthetics,
 hyperfixations,
-and strange internet energy.
+late-night internet energy,
+and strange little archives.
 
 </p>
 
 </section>
 
-<section class="portal-grid">
+<!-- ABOUT -->
 
-<a href="about.html" class="portal">
+<section class="scene-section">
+
+<h2 class="scene-title">
+
+Dreamspace
+
+</h2>
+
+<p class="scene-text">
+
+Not a profile.
+Not a dashboard.
+Not a fake operating system.
+
+This place is meant to feel like wandering through
+someone else's digital atmosphere at 3AM.
+
+A floating observatory.
+A neon memory.
+A forgotten future.
+
+</p>
+
+<div class="world-links">
+
+<a
+href="about.html"
+class="world-link"
+>
 
 About Me
 
 </a>
 
-<a href="music.html" class="portal">
+<a
+href="music.html"
+class="world-link"
+>
 
 Music Lounge
 
 </a>
 
-<a href="games.html" class="portal">
-
-Arcade Nexus
-
-</a>
-
-<a href="shows.html" class="portal">
-
-Media Theater
-
-</a>
-
-<a href="fandoms.html" class="portal">
+<a
+href="fandoms.html"
+class="world-link"
+>
 
 Shrine Hall
 
 </a>
 
-<a href="blog.html" class="portal">
-
-Dream Journal
-
-</a>
-
-<a href="guestbook.html" class="portal">
-
-Guestbook
-
-</a>
-
-<a href="chatroom.html" class="portal">
-
-Chatroom
-
-</a>
+</div>
 
 </section>
 
-<section class="profile">
+<!-- GALLERY -->
 
-<img
-src="assets/pfps/pfp.gif"
-alt="pfp"
->
+<section class="scene-section">
 
-<div>
+<h2 class="scene-title">
 
-<h2>
-
-Bunny
+Fragments
 
 </h2>
 
-<p>
+<div class="gallery-strip">
 
-Internet archivist,
-music collector,
-dreamer,
-gamer,
-fandom goblin,
-and professional hyperfixator.
+<img src="assets/gallery/1.jpg">
 
-</p>
+<img src="assets/gallery/2.jpg">
+
+<img src="assets/gallery/3.jpg">
+
+<img src="assets/gallery/4.jpg">
 
 </div>
 
 </section>
 
-</main>
+<!-- MUSIC -->
+
+<section class="scene-section">
+
+<h2 class="scene-title">
+
+Currently Playing
+
+</h2>
+
+<div class="music-player">
+
+<h2>
+
+Ambient Player
+
+</h2>
+
+<input
+type="text"
+id="musicLink"
+placeholder="Paste YouTube, Spotify, or SoundCloud link..."
+>
+
+<button onclick="loadMusic()">
+
+Play
+
+</button>
+
+<iframe
+id="musicFrame"
+allowfullscreen
+></iframe>
+
+</div>
+
+</section>
 
 <script src="theme.js"></script>
+<script src="music.js"></script>
 
 </body>
 </html>
