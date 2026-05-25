@@ -14,15 +14,9 @@ font-family:
 "VT323",
 monospace;
 
-overflow:hidden;
-
 }
 
-/* ===================================== */
-/* BACKGROUND */
-/* ===================================== */
-
-.theme-vaporwave .bg-back{
+.theme-vaporwave .background{
 
 background:
 
@@ -35,157 +29,36 @@ linear-gradient(
 
 }
 
-.theme-vaporwave .bg-mid{
-
-background:
-
-url("https://i.imgur.com/N5uCbDu.png")
-center bottom / cover no-repeat;
-
-opacity:.95;
-
-}
-
-.theme-vaporwave .bg-front{
-
-background:
-
-linear-gradient(
-rgba(255,255,255,.03) 1px,
-transparent 1px
-);
-
-background-size:
-100% 4px;
-
-opacity:.2;
-
-pointer-events:none;
-
-}
-
-/* ===================================== */
-/* SUN */
-/* ===================================== */
-
-.theme-vaporwave .environment{
-
-position:absolute;
-
-inset:0;
-
-background:
-
-url("https://i.imgur.com/VW9Qm8v.png")
-center bottom / cover no-repeat;
-
-pointer-events:none;
-
-opacity:.95;
-
-}
-
-/* ===================================== */
-/* LOGO */
-/* ===================================== */
-
 .theme-vaporwave .logo{
-
-font-size:90px;
 
 color:#ff9ef7;
 
 text-shadow:
 
 0 0 20px #ff4fd8,
-0 0 60px #00ffff,
-0 0 120px rgba(255,0,255,.4);
+0 0 60px #00ffff;
 
 }
 
-/* ===================================== */
-/* LINKS */
-/* ===================================== */
-
-.theme-vaporwave .world-link{
+.theme-vaporwave .portal{
 
 background:
 rgba(25,0,35,.45);
 
 border:
 1px solid rgba(255,255,255,.08);
-
-backdrop-filter:
-blur(20px);
 
 box-shadow:
 
 0 0 40px rgba(255,0,255,.15),
 
-0 0 100px rgba(0,255,255,.08);
+0 0 90px rgba(0,255,255,.08);
 
 color:#ffe6ff;
 
 }
 
-.theme-vaporwave .world-link:hover{
-
-box-shadow:
-
-0 0 60px rgba(255,0,255,.35),
-
-0 0 120px rgba(0,255,255,.15);
-
-}
-
-/* ===================================== */
-/* PLAYER */
-/* ===================================== */
-
-.theme-vaporwave .music-player{
-
-background:
-rgba(25,0,35,.55);
-
-border:
-1px solid rgba(255,255,255,.08);
-
-backdrop-filter:
-blur(25px);
-
-box-shadow:
-
-0 0 50px rgba(255,0,255,.18);
-
-}
-
-.theme-vaporwave input{
-
-background:
-rgba(255,255,255,.08);
-
-color:white;
-
-}
-
-.theme-vaporwave button{
-
-background:
-linear-gradient(
-180deg,
-#ff4fd8,
-#944dff
-);
-
-color:white;
-
-}
-
-/* ===================================== */
-/* PROFILE */
-/* ===================================== */
-
-.theme-vaporwave .profile-area{
+.theme-vaporwave .profile{
 
 background:
 rgba(25,0,35,.45);
@@ -193,37 +66,11 @@ rgba(25,0,35,.45);
 border:
 1px solid rgba(255,255,255,.08);
 
-box-shadow:
-0 0 40px rgba(255,0,255,.15);
-
 }
 
-/* ===================================== */
-/* CRT EFFECT */
-/* ===================================== */
-
-.theme-vaporwave body::after{
-
-content:"";
-
-position:fixed;
-
-inset:0;
-
-pointer-events:none;
+.theme-vaporwave .topbar{
 
 background:
-
-linear-gradient(
-rgba(255,255,255,.03) 1px,
-transparent 1px
-);
-
-background-size:
-100% 4px;
-
-opacity:.2;
-
-mix-blend-mode:screen;
+rgba(20,0,30,.3);
 
 }
