@@ -8,124 +8,35 @@ linear-gradient(
 #ffffff
 );
 
-color:#1b577d;
+color:#14597d;
 
 font-family:
-"Quicksand",
+"Nunito",
 sans-serif;
-
-overflow:hidden;
 
 }
 
-/* ===================================== */
-/* BACKGROUND */
-/* ===================================== */
-
-.theme-aero .bg-back{
+.theme-aero .background{
 
 background:
 
 linear-gradient(
 180deg,
 #8edfff,
-#d8f7ff,
+#dff8ff,
 #ffffff
 );
 
 }
 
-.theme-aero .bg-mid{
+.theme-aero .overlay{
 
 background:
-
-url("https://i.imgur.com/8Qx4k6G.png")
-center bottom / cover no-repeat;
-
-opacity:.9;
+rgba(255,255,255,.15);
 
 }
-
-.theme-aero .bg-front{
-
-background:
-
-radial-gradient(
-circle at 20% 20%,
-rgba(255,255,255,.9),
-transparent 35%
-),
-
-radial-gradient(
-circle at 80% 40%,
-rgba(255,255,255,.7),
-transparent 40%
-);
-
-filter:blur(50px);
-
-animation:
-cloudDrift 60s linear infinite;
-
-}
-
-/* ===================================== */
-/* BUBBLES */
-/* ===================================== */
-
-.theme-aero .particles::before{
-
-content:"";
-
-position:absolute;
-
-inset:0;
-
-background-image:
-
-radial-gradient(
-rgba(255,255,255,.6) 3px,
-transparent 3px
-);
-
-background-size:
-160px 160px;
-
-opacity:.35;
-
-animation:
-bubbleFloat 70s linear infinite;
-
-}
-
-/* ===================================== */
-/* ENVIRONMENT */
-/* ===================================== */
-
-.theme-aero .environment{
-
-position:absolute;
-
-inset:0;
-
-background:
-
-url("https://i.imgur.com/JYUB0m3.png")
-center bottom / cover no-repeat;
-
-pointer-events:none;
-
-opacity:.95;
-
-}
-
-/* ===================================== */
-/* LOGO */
-/* ===================================== */
 
 .theme-aero .logo{
-
-font-size:80px;
 
 color:white;
 
@@ -133,15 +44,11 @@ text-shadow:
 
 0 0 20px rgba(255,255,255,.9),
 
-0 0 60px rgba(120,220,255,.7);
+0 0 60px rgba(120,220,255,.6);
 
 }
 
-/* ===================================== */
-/* LINKS */
-/* ===================================== */
-
-.theme-aero .world-link{
+.theme-aero .portal{
 
 background:
 linear-gradient(
@@ -153,61 +60,35 @@ rgba(220,245,255,.25)
 border:
 1px solid rgba(255,255,255,.8);
 
-backdrop-filter:
-blur(30px);
-
 box-shadow:
-
-0 0 40px rgba(255,255,255,.8),
-
-inset 0 0 20px rgba(255,255,255,.5);
+0 0 40px rgba(255,255,255,.7);
 
 color:#1670a6;
 
 }
 
-.theme-aero .world-link:hover{
-
-transform:
-scale(1.05);
-
-box-shadow:
-
-0 0 60px rgba(255,255,255,1),
-
-0 0 120px rgba(120,220,255,.3);
-
-}
-
-/* ===================================== */
-/* PLAYER */
-/* ===================================== */
-
-.theme-aero .music-player{
+.theme-aero .profile{
 
 background:
 linear-gradient(
 180deg,
 rgba(255,255,255,.55),
-rgba(220,245,255,.28)
+rgba(220,245,255,.3)
 );
 
 border:
 1px solid rgba(255,255,255,.8);
 
-backdrop-filter:
-blur(30px);
+}
 
-box-shadow:
+.theme-aero .topbar{
 
-0 0 50px rgba(255,255,255,.8);
+background:
+rgba(255,255,255,.2);
 
 }
 
-.theme-aero input{
-
-background:
-rgba(255,255,255,.7);
+.theme-aero .nav a{
 
 color:#14597d;
 
@@ -223,26 +104,5 @@ linear-gradient(
 );
 
 color:#14597d;
-
-}
-
-/* ===================================== */
-/* PROFILE */
-/* ===================================== */
-
-.theme-aero .profile-area{
-
-background:
-linear-gradient(
-180deg,
-rgba(255,255,255,.55),
-rgba(220,245,255,.3)
-);
-
-border:
-1px solid rgba(255,255,255,.85);
-
-box-shadow:
-0 0 40px rgba(255,255,255,.7);
 
 }
