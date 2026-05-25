@@ -1,3 +1,7 @@
+/* ===================================== */
+/* RESET */
+/* ===================================== */
+
 *{
 
 margin:0;
@@ -16,7 +20,13 @@ scroll-behavior:smooth;
 
 }
 
+/* ===================================== */
+/* BODY */
+/* ===================================== */
+
 body{
+
+position:relative;
 
 overflow-x:hidden;
 
@@ -28,10 +38,12 @@ transition:
 background .6s,
 color .6s;
 
+z-index:1;
+
 }
 
 /* ===================================== */
-/* BACKGROUND */
+/* BACKGROUND LAYER */
 /* ===================================== */
 
 .background{
@@ -40,11 +52,17 @@ position:fixed;
 
 inset:0;
 
-z-index:-999;
+z-index:-100;
 
 overflow:hidden;
 
+pointer-events:none;
+
 }
+
+/* ===================================== */
+/* MAIN BACKGROUND */
+/* ===================================== */
 
 .background::before{
 
@@ -60,7 +78,13 @@ background-position:center;
 animation:
 bgFloat 30s ease-in-out infinite;
 
+pointer-events:none;
+
 }
+
+/* ===================================== */
+/* OVERLAY */
+/* ===================================== */
 
 .background::after{
 
@@ -70,16 +94,18 @@ position:absolute;
 
 inset:0;
 
+background:
+rgba(0,0,0,.2);
+
 backdrop-filter:
 blur(2px);
 
-background:
-rgba(0,0,0,.25);
+pointer-events:none;
 
 }
 
 /* ===================================== */
-/* FLOATING PARTICLES */
+/* PARTICLES */
 /* ===================================== */
 
 .particles{
@@ -121,7 +147,13 @@ background-size:
 animation:
 particleDrift 120s linear infinite;
 
+pointer-events:none;
+
 }
+
+/* ===================================== */
+/* ANIMATIONS */
+/* ===================================== */
 
 @keyframes particleDrift{
 
@@ -172,20 +204,35 @@ translateY(0px);
 }
 
 /* ===================================== */
-/* FLOATING NAV */
+/* CONTENT LAYER */
+/* ===================================== */
+
+.topbar,
+.hero,
+.scene-section,
+.chat-layout{
+
+position:relative;
+
+z-index:10;
+
+}
+
+/* ===================================== */
+/* TOPBAR */
 /* ===================================== */
 
 .topbar{
 
 position:fixed;
 
-top:30px;
+top:24px;
 left:50%;
 
 transform:
 translateX(-50%);
 
-z-index:999;
+z-index:9999;
 
 display:flex;
 
@@ -200,20 +247,6 @@ border-radius:999px;
 
 backdrop-filter:
 blur(20px);
-
-}
-
-/* ===================================== */
-/* LOGO */
-/* ===================================== */
-
-.logo{
-
-font-size:30px;
-
-letter-spacing:4px;
-
-white-space:nowrap;
 
 }
 
@@ -237,13 +270,15 @@ justify-content:center;
 
 text-decoration:none;
 
-opacity:.75;
+opacity:.8;
 
 transition:
 opacity .2s,
 transform .2s;
 
 font-size:14px;
+
+pointer-events:auto;
 
 }
 
@@ -257,31 +292,25 @@ translateY(-2px);
 }
 
 /* ===================================== */
-/* THEME BUTTONS */
+/* BUTTONS */
 /* ===================================== */
 
-.theme-buttons{
+button{
 
-display:flex;
-
-gap:10px;
-
-}
-
-.theme-buttons button{
-
-border:none;
-
-padding:10px 14px;
-
-border-radius:999px;
-
+pointer-events:auto;
 cursor:pointer;
 
-font-size:12px;
-
 }
 
+/* ===================================== */
+/* INPUTS */
+/* ===================================== */
+
+input{
+
+pointer-events:auto;
+
+}
 /* ===================================== */
 /* HERO */
 /* ===================================== */
