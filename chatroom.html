@@ -5,81 +5,274 @@
 
 <meta charset="UTF-8">
 
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
 <title>Chatroom</title>
 
-<link rel="stylesheet" href="style.css">
+<link
+rel="stylesheet"
+href="style.css"
+>
+
+<link
+id="themeStylesheet"
+rel="stylesheet"
+href="themes/rosalina.css"
+>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Nunito:wght@400;700&family=VT323&display=swap"
+rel="stylesheet"
+>
 
 </head>
 
-<body class="theme-vaporwave">
+<body class="theme-rosalina">
 
-<div class="chatroom">
+<!-- BACKGROUND -->
 
-<div class="chat-sidebar">
+<div class="background">
+
+<div class="particles"></div>
+
+</div>
+
+<!-- NAV -->
+
+<header class="topbar">
+
+<div class="logo">
+
+Bunny.exe
+
+</div>
+
+<nav class="nav">
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="music.html">Music</a>
+<a href="games.html">Games</a>
+<a href="shows.html">Shows</a>
+<a href="fandoms.html">Fandoms</a>
+<a href="gallery.html">Gallery</a>
+<a href="blog.html">Blog</a>
+<a href="guestbook.html">Guestbook</a>
+
+</nav>
+
+<div class="theme-buttons">
+
+<button data-theme="rosalina">
+
+Rosalina
+
+</button>
+
+<button data-theme="aero">
+
+Aero
+
+</button>
+
+<button data-theme="vaporwave">
+
+Vaporwave
+
+</button>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero chat-hero">
+
+<h1>
+
+Dream Chatroom
+
+</h1>
+
+<p>
+
+A floating digital lounge for messages,
+statuses,
+late-night conversations,
+and archived internet energy.
+
+</p>
+
+</section>
+
+<!-- CHATROOM -->
+
+<section class="scene-section">
+
+<div class="chat-layout">
+
+<!-- SIDEBAR -->
+
+<aside class="chat-sidebar">
 
 <h2>
 
-ONLINE
+Online
 
 </h2>
 
-<ul id="onlineUsers">
+<div class="online-users">
 
-<li>Bunny</li>
-<li>Dreaming.exe</li>
-<li>starboy99</li>
+<div class="user">
 
-</ul>
+<img src="assets/pfps/user1.gif">
 
-<button id="clearChat">
+<div>
+
+<h3>
+
+starboy99
+
+</h3>
+
+<p>
+
+Listening to Vocaloid
+
+</p>
+
+</div>
+
+</div>
+
+<div class="user">
+
+<img src="assets/pfps/user2.gif">
+
+<div>
+
+<h3>
+
+pixelheart
+
+</h3>
+
+<p>
+
+Editing AMVs
+
+</p>
+
+</div>
+
+</div>
+
+<div class="user">
+
+<img src="assets/pfps/user3.gif">
+
+<div>
+
+<h3>
+
+dreaming.exe
+
+</h3>
+
+<p>
+
+Half asleep
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<button onclick="clearChat()">
 
 Clear Chat
 
 </button>
 
-<button id="archiveChat">
+<button onclick="archiveChat()">
 
 Archive Chat
 
 </button>
 
-</div>
+</aside>
 
-<div class="chat-main">
+<!-- MAIN CHAT -->
 
-<div id="messages">
+<div class="chat-window">
 
-<div class="message">
-
-<span class="user">
-
-Bunny:
-
-</span>
-
-Welcome to the dreamspace.
-
-</div>
-
-</div>
-
-<div class="chat-input">
-
-<input
-id="messageInput"
-placeholder="type message..."
+<div
+id="chatMessages"
+class="chat-messages"
 >
 
-<select id="statusSelect">
+<div class="message other">
 
-<option>online</option>
-<option>busy</option>
-<option>away</option>
-<option>dreaming</option>
+<img src="assets/pfps/user1.gif">
 
-</select>
+<div class="bubble">
 
-<button id="sendMessage">
+<h4>
+
+starboy99
+
+</h4>
+
+<p>
+
+anyone else rebuilding their site at 3AM again
+
+</p>
+
+</div>
+
+</div>
+
+<div class="message self">
+
+<div class="bubble">
+
+<h4>
+
+Bunny
+
+</h4>
+
+<p>
+
+this site has been rebuilt like 80 times 😭
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- INPUT -->
+
+<div class="chat-input-area">
+
+<input
+type="text"
+id="chatInput"
+placeholder="Send a message..."
+>
+
+<button onclick="sendMessage()">
 
 Send
 
@@ -91,6 +284,9 @@ Send
 
 </div>
 
+</section>
+
+<script src="theme.js"></script>
 <script src="chatroom.js"></script>
 
 </body>
