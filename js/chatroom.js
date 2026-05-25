@@ -1,85 +1,187 @@
-const sendButton =
+const chatMessages =
 
 document.getElementById(
-"sendMessage"
+"chatMessages"
 );
 
-const clearButton =
-
-document.getElementById(
-"clearChat"
-);
-
-const archiveButton =
-
-document.getElementById(
-"archiveChat"
-);
-
-const messages =
-
-document.getElementById(
-"messages"
-);
-
-sendButton.addEventListener(
-"click",
-() => {
+function sendMessage(){
 
 const input =
 
 document.getElementById(
-"messageInput"
+"chatInput"
 );
 
-const status =
+const text = input.value.trim();
 
-document.getElementById(
-"statusSelect"
-).value;
+if(text === "") return;
 
-if(!input.value) return;
+const message =
 
-const div =
-document.createElement("div");
-
-div.classList.add(
-"message"
+document.createElement(
+"div"
 );
 
-div.innerHTML =
+message.className =
+"message self";
+
+message.innerHTML =
 
 `
-<span class="user">
-Bunny (${status}):
-</span>
+<div class="bubble">
 
-${input.value}
+<h4>
+
+Bunny
+
+</h4>
+
+<p>
+
+${text}
+
+</p>
+
+</div>
 `;
 
-messages.appendChild(div);
+chatMessages.appendChild(
+message
+);
+
+chatMessages.scrollTop =
+chatMessages.scrollHeight;
 
 input.value = "";
 
-}
-);
-
-clearButton.addEventListener(
-"click",
-() => {
-
-messages.innerHTML = "";
+fakeReply();
 
 }
+
+/* ===================================== */
+/* FAKE REPLIES */
+/* ===================================== */
+
+function fakeReply(){
+
+const replies = [
+
+"real",
+"this site atmosphere is insane",
+"vaporwave theme goes hard",
+"why are we all awake rn",
+"i need more music recs",
+"late-night internet energy >>>"
+
+];
+
+const names = [
+
+"starboy99",
+"pixelheart",
+"dreaming.exe"
+
+];
+
+const pfps = [
+
+"assets/pfps/user1.gif",
+"assets/pfps/user2.gif",
+"assets/pfps/user3.gif"
+
+];
+
+const randomReply =
+
+replies[
+Math.floor(
+Math.random() * replies.length
+)
+];
+
+const randomName =
+
+names[
+Math.floor(
+Math.random() * names.length
+)
+];
+
+const randomPfp =
+
+pfps[
+Math.floor(
+Math.random() * pfps.length
+)
+];
+
+setTimeout(() => {
+
+const reply =
+
+document.createElement(
+"div"
 );
 
-archiveButton.addEventListener(
-"click",
-() => {
+reply.className =
+"message other";
+
+reply.innerHTML =
+
+`
+<img src="${randomPfp}">
+
+<div class="bubble">
+
+<h4>
+
+${randomName}
+
+</h4>
+
+<p>
+
+${randomReply}
+
+</p>
+
+</div>
+`;
+
+chatMessages.appendChild(
+reply
+);
+
+chatMessages.scrollTop =
+chatMessages.scrollHeight;
+
+}, 1400);
+
+}
+
+/* ===================================== */
+/* CLEAR CHAT */
+/* ===================================== */
+
+function clearChat(){
+
+chatMessages.innerHTML = "";
+
+}
+
+/* ===================================== */
+/* ARCHIVE */
+/* ===================================== */
+
+function archiveChat(){
+
+const messages =
+
+chatMessages.innerText;
 
 localStorage.setItem(
 "chatArchive",
-messages.innerHTML
+messages
 );
 
 alert(
@@ -87,23 +189,3 @@ alert(
 );
 
 }
-);
-
-window.addEventListener(
-"DOMContentLoaded",
-() => {
-
-const archive =
-
-localStorage.getItem(
-"chatArchive"
-);
-
-if(archive){
-
-messages.innerHTML = archive;
-
-}
-
-}
-);
