@@ -1,28 +1,24 @@
-window.addEventListener(
-"DOMContentLoaded",
-() => {
-
 const buttons =
 
 document.querySelectorAll(
 "[data-theme]"
 );
 
-const stylesheet =
+buttons.forEach(button => {
+
+button.addEventListener(
+"click",
+() => {
+
+const theme =
+button.dataset.theme;
+
+document.body.className =
+`theme-${theme}`;
 
 document.getElementById(
 "themeStylesheet"
-);
-
-function applyTheme(theme){
-
-document.body.className = "";
-
-document.body.classList.add(
-`theme-${theme}`
-);
-
-stylesheet.href =
+).href =
 `themes/${theme}.css`;
 
 localStorage.setItem(
@@ -31,21 +27,13 @@ theme
 );
 
 }
-
-buttons.forEach(button => {
-
-button.addEventListener(
-"click",
-() => {
-
-applyTheme(
-button.dataset.theme
-);
-
-}
 );
 
 });
+
+window.addEventListener(
+"DOMContentLoaded",
+() => {
 
 const savedTheme =
 
@@ -57,7 +45,13 @@ localStorage.getItem(
 
 "rosalina";
 
-applyTheme(savedTheme);
+document.body.className =
+`theme-${savedTheme}`;
+
+document.getElementById(
+"themeStylesheet"
+).href =
+`themes/${savedTheme}.css`;
 
 }
 );
