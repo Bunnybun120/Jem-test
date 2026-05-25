@@ -16,18 +16,131 @@ monospace;
 
 }
 
-.theme-vaporwave .background{
+/* ===================================== */
+/* BACKGROUND */
+/* ===================================== */
+
+.theme-vaporwave .background::before{
 
 background:
 
 linear-gradient(
 180deg,
-#120018,
-#29002f,
-#ff4fd8
-);
+rgba(0,0,0,.2),
+rgba(0,0,0,.6)
+),
+
+url("../assets/backgrounds/vaporwave-grid.jpg");
+
+background-size:
+cover;
+
+background-position:center;
 
 }
+
+/* ===================================== */
+/* SCANLINES */
+/* ===================================== */
+
+.theme-vaporwave .background::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+repeating-linear-gradient(
+
+180deg,
+
+rgba(255,255,255,.03) 0px,
+
+rgba(255,255,255,.03) 1px,
+
+transparent 2px,
+
+transparent 4px
+
+);
+
+pointer-events:none;
+
+}
+
+/* ===================================== */
+/* PARTICLES */
+/* ===================================== */
+
+.theme-vaporwave .particles::after{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background-image:
+
+radial-gradient(
+rgba(255,0,255,.5) 2px,
+transparent 2px
+);
+
+background-size:
+240px 240px;
+
+opacity:.18;
+
+animation:
+vaporFloat 120s linear infinite;
+
+}
+
+@keyframes vaporFloat{
+
+from{
+
+transform:
+translateY(0px);
+
+}
+
+to{
+
+transform:
+translateY(-900px);
+
+}
+
+}
+
+/* ===================================== */
+/* TOPBAR */
+/* ===================================== */
+
+.theme-vaporwave .topbar{
+
+background:
+rgba(20,0,30,.28);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+box-shadow:
+
+0 0 40px rgba(255,0,255,.15),
+
+0 0 100px rgba(0,255,255,.08);
+
+}
+
+/* ===================================== */
+/* LOGO */
+/* ===================================== */
 
 .theme-vaporwave .logo{
 
@@ -40,7 +153,35 @@ text-shadow:
 
 }
 
-.theme-vaporwave .portal{
+/* ===================================== */
+/* NAV */
+/* ===================================== */
+
+.theme-vaporwave .nav a{
+
+color:#ffe6ff;
+
+}
+
+/* ===================================== */
+/* BUTTONS */
+/* ===================================== */
+
+.theme-vaporwave button{
+
+background:
+rgba(255,0,255,.15);
+
+color:white;
+
+}
+
+/* ===================================== */
+/* PANELS */
+/* ===================================== */
+
+.theme-vaporwave .float-panel,
+.theme-vaporwave .music-player{
 
 background:
 rgba(25,0,35,.45);
@@ -52,13 +193,15 @@ box-shadow:
 
 0 0 40px rgba(255,0,255,.15),
 
-0 0 90px rgba(0,255,255,.08);
-
-color:#ffe6ff;
+0 0 90px rgba(0,255,255,.06);
 
 }
 
-.theme-vaporwave .profile{
+/* ===================================== */
+/* WORLD LINKS */
+/* ===================================== */
+
+.theme-vaporwave .world-link{
 
 background:
 rgba(25,0,35,.45);
@@ -66,11 +209,64 @@ rgba(25,0,35,.45);
 border:
 1px solid rgba(255,255,255,.08);
 
+color:#ffe6ff;
+
 }
 
-.theme-vaporwave .topbar{
+/* ===================================== */
+/* TITLES */
+/* ===================================== */
+
+.theme-vaporwave .scene-title{
+
+text-shadow:
+
+0 0 30px rgba(255,0,255,.35);
+
+}
+
+.theme-vaporwave .chat-sidebar,
+.theme-vaporwave .chat-window{
 
 background:
-rgba(20,0,30,.3);
+rgba(25,0,35,.45);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+box-shadow:
+
+0 0 40px rgba(255,0,255,.15),
+
+0 0 90px rgba(0,255,255,.06);
+
+}
+
+.theme-vaporwave .bubble{
+
+background:
+rgba(255,0,255,.08);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+}
+
+.theme-vaporwave .chat-input-area input{
+
+background:
+rgba(255,255,255,.08);
+
+color:white;
+
+}
+
+.theme-vaporwave .chat-sidebar button,
+.theme-vaporwave .chat-input-area button{
+
+background:
+rgba(255,0,255,.15);
+
+color:white;
 
 }
